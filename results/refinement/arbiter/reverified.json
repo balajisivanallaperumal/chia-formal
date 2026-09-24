@@ -1,0 +1,72 @@
+{
+  "module": "arbiter",
+  "source": "examples/formal_verification/designs/arbiter.v",
+  "clk": "clk",
+  "rst": "rst_n",
+  "depth": 12,
+  "seeds": [
+    {
+      "seed": 0,
+      "converged_in_loop": false,
+      "properties": 9,
+      "properties_distinct": 9,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 94.73684210526315,
+        "kill_rate": "94.7% (18/19)",
+        "active": 19,
+        "killed": 18
+      },
+      "full_bank": {
+        "generated": 31,
+        "stillborn": 8,
+        "equivalent": 2,
+        "active": 21,
+        "killed": 19,
+        "kill_rate_percent": 90.47619047619048,
+        "kill_rate": "90.5% (19/21)",
+        "minimal_basis": 6,
+        "redundancy_percent": 33.333333333333336
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "0.0% vacuous (3/3 antecedents reachable, cover depth 12); 0/9 properties inert",
+        "unreachable": []
+      },
+      "overfit_gap_points": 4.3
+    },
+    {
+      "seed": 1,
+      "converged_in_loop": false,
+      "properties": 5,
+      "properties_distinct": 5,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 52.63157894736842,
+        "kill_rate": "52.6% (10/19)",
+        "active": 19,
+        "killed": 10
+      },
+      "full_bank": {
+        "generated": 31,
+        "stillborn": 8,
+        "equivalent": 2,
+        "active": 21,
+        "killed": 12,
+        "kill_rate_percent": 57.14285714285714,
+        "kill_rate": "57.1% (12/21)",
+        "minimal_basis": 3,
+        "redundancy_percent": 40.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/5 properties inert",
+        "unreachable": []
+      },
+      "overfit_gap_points": -4.5
+    }
+  ],
+  "full_bank_min": 57.14285714285714,
+  "full_bank_mean": 73.80952380952381,
+  "full_bank_max": 90.47619047619048
+}

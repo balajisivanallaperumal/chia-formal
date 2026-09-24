@@ -1,0 +1,832 @@
+{
+  "module": "HellaCacheArbiter",
+  "source": "examples/formal_verification/soc_cores/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.RocketConfig/gen-collateral/HellaCacheArbiter.sv",
+  "bmc_depth": 12,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 2,
+  "kill_rate_min": 100.0,
+  "kill_rate_max": 100.0,
+  "kill_rate_mean": 100.0,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": true,
+      "stop_reason": "every active mutant is killed",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 19,
+          "admitted": 13,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 6,
+          "suite_size": 13,
+          "active": 18,
+          "killed": 15,
+          "kill_rate": 83.33333333333334,
+          "newly_killed": [
+            "m001_DROP_BITWISE_NOT_L120_0",
+            "m002_SWAP_s1_id_s2_id_L120_0",
+            "m004_SWAP_s1_id_s2_id_L121_0",
+            "m005_SWAP_s2_id_s1_id_L121_0",
+            "m010_BITWISE_AND_TO_OR_L143_0",
+            "m011_DROP_BITWISE_NOT_L143_0",
+            "m012_SWAP_s2_id_s1_id_L143_0",
+            "m013_BITWISE_AND_TO_OR_L144_0",
+            "m014_BIT_INDEX_BUMP_L144_0",
+            "m015_BITWISE_AND_TO_OR_L147_0",
+            "m016_DROP_BITWISE_NOT_L147_0",
+            "m017_BITWISE_AND_TO_OR_L148_0",
+            "m020_BIT_INDEX_BUMP_L149_0",
+            "m023_HEX_CONST_BUMP_L168_0",
+            "m024_HEX_CONST_BUMP_L168_1"
+          ],
+          "seconds": 39.93281936645508
+        },
+        {
+          "index": 1,
+          "proposed": 3,
+          "admitted": 11,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 0,
+          "suite_size": 11,
+          "active": 18,
+          "killed": 18,
+          "kill_rate": 100.0,
+          "newly_killed": [
+            "m021_HEX_CONST_BUMP_L150_0",
+            "m022_BITWISE_OR_TO_AND_L166_0",
+            "m028_DROP_BITWISE_NOT_L171_0"
+          ],
+          "seconds": 32.63087439537048
+        }
+      ],
+      "initial_kill_rate": 83.33333333333334,
+      "final_kill_rate": 100.0,
+      "loop_seconds": 82.82218956947327,
+      "independent_verification": {
+        "properties_checked": 11,
+        "properties_sound": 11,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(s1_id == ~$past(io_requestor_0_req_valid));"
+          },
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(s2_id == $past(s1_id));"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_req_ready == (io_mem_req_ready && ~io_requestor_0_req_valid)) || (io_requestor_1_req_ready == 1'b0));"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_mem_req_bits_tag[0] == 1'b0) == io_requestor_0_req_valid);"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_s2_nack == (io_mem_s2_nack && ~s2_id)) || (io_requestor_0_s2_nack == 1'b0));"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_s2_nack == (io_mem_s2_nack && s2_id)) || (io_requestor_1_s2_nack == 1'b0));"
+          },
+          {
+            "property_id": "prop_11",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_resp_valid == (io_mem_resp_valid && ~io_mem_resp_bits_tag[0])) || (io_requestor_0_resp_valid == 1'b0));"
+          },
+          {
+            "property_id": "prop_12",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_resp_valid == (io_mem_resp_valid && io_mem_resp_bits_tag[0])) || (io_requestor_1_resp_valid == 1'b0));"
+          },
+          {
+            "property_id": "prop_19",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(io_requestor_1_resp_bits_tag[6] == 1'b0);"
+          },
+          {
+            "property_id": "prop_20",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(io_mem_req_valid == (io_requestor_0_req_valid || io_requestor_1_req_valid));"
+          },
+          {
+            "property_id": "prop_21",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(io_mem_req_bits_signed == (~io_requestor_0_req_valid && io_requestor_1_req_bits_signed));"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (18/18)",
+        "generated": 35,
+        "stillborn": 2,
+        "equivalent": 4,
+        "killed_equivalent": 0,
+        "active": 18,
+        "killed": 18,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 11,
+          "selected": 11,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 11,
+        "properties_sound": 11,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(s1_id == ~$past(io_requestor_0_req_valid));"
+          },
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(s2_id == $past(s1_id));"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_req_ready == (io_mem_req_ready && ~io_requestor_0_req_valid)) || (io_requestor_1_req_ready == 1'b0));"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_mem_req_bits_tag[0] == 1'b0) == io_requestor_0_req_valid);"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_s2_nack == (io_mem_s2_nack && ~s2_id)) || (io_requestor_0_s2_nack == 1'b0));"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_s2_nack == (io_mem_s2_nack && s2_id)) || (io_requestor_1_s2_nack == 1'b0));"
+          },
+          {
+            "property_id": "prop_11",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_resp_valid == (io_mem_resp_valid && ~io_mem_resp_bits_tag[0])) || (io_requestor_0_resp_valid == 1'b0));"
+          },
+          {
+            "property_id": "prop_12",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_resp_valid == (io_mem_resp_valid && io_mem_resp_bits_tag[0])) || (io_requestor_1_resp_valid == 1'b0));"
+          },
+          {
+            "property_id": "prop_19",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(io_requestor_1_resp_bits_tag[6] == 1'b0);"
+          },
+          {
+            "property_id": "prop_20",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(io_mem_req_valid == (io_requestor_0_req_valid || io_requestor_1_req_valid));"
+          },
+          {
+            "property_id": "prop_21",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(io_mem_req_bits_signed == (~io_requestor_0_req_valid && io_requestor_1_req_bits_signed));"
+          }
+        ],
+        "kill_rate_percent": 72.41379310344827,
+        "kill_rate": "72.4% (21/29)",
+        "generated": 35,
+        "stillborn": 2,
+        "equivalent": 4,
+        "killed_equivalent": 0,
+        "active": 29,
+        "killed": 21,
+        "survivors": [
+          {
+            "line": 169,
+            "operator": "HEX_CONST_BUMP",
+            "original": "assign io_mem_req_bits_cmd = io_requestor_0_req_valid ? 5'h0 : io_requestor_1_req_bits_cmd;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :33:25, :50:26]",
+            "mutated": "assign io_mem_req_bits_cmd = io_requestor_0_req_valid ? 5'h1 : io_requestor_1_req_bits_cmd;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :33:25, :50:26]"
+          },
+          {
+            "line": 170,
+            "operator": "HEX_CONST_BUMP",
+            "original": "assign io_mem_req_bits_size = io_requestor_0_req_valid ? 2'h3 : io_requestor_1_req_bits_size;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :33:25, :50:26]",
+            "mutated": "assign io_mem_req_bits_size = io_requestor_0_req_valid ? 2'h0 : io_requestor_1_req_bits_size;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :33:25, :50:26]"
+          },
+          {
+            "line": 172,
+            "operator": "HEX_CONST_BUMP",
+            "original": "assign io_mem_req_bits_dprv = io_requestor_0_req_valid ? 2'h1 : io_requestor_1_req_bits_dprv;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :33:25, :50:26]",
+            "mutated": "assign io_mem_req_bits_dprv = io_requestor_0_req_valid ? 2'h2 : io_requestor_1_req_bits_dprv;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :33:25, :50:26]"
+          },
+          {
+            "line": 173,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign io_mem_req_bits_dv = ~io_requestor_0_req_valid & io_requestor_1_req_bits_dv;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :33:25, :50:26]",
+            "mutated": "assign io_mem_req_bits_dv = ~io_requestor_0_req_valid | io_requestor_1_req_bits_dv;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :33:25, :50:26]"
+          },
+          {
+            "line": 173,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "assign io_mem_req_bits_dv = ~io_requestor_0_req_valid & io_requestor_1_req_bits_dv;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :33:25, :50:26]",
+            "mutated": "assign io_mem_req_bits_dv = io_requestor_0_req_valid & io_requestor_1_req_bits_dv;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :33:25, :50:26]"
+          },
+          {
+            "line": 175,
+            "operator": "SWAP_s1_id_s2_id",
+            "original": "assign io_mem_s1_kill = s1_id ? io_requestor_1_s1_kill : io_requestor_0_s1_kill;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :20:20, :38:24, :51:30]",
+            "mutated": "assign io_mem_s1_kill = s2_id ? io_requestor_1_s1_kill : io_requestor_0_s1_kill;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :20:20, :38:24, :51:30]"
+          },
+          {
+            "line": 176,
+            "operator": "HEX_CONST_BUMP",
+            "original": "assign io_mem_s1_data_data = s1_id ? io_requestor_1_s1_data_data : 64'h0;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :20:20, :39:24, :51:30]",
+            "mutated": "assign io_mem_s1_data_data = s1_id ? io_requestor_1_s1_data_data : 64'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :20:20, :39:24, :51:30]"
+          },
+          {
+            "line": 176,
+            "operator": "SWAP_s1_id_s2_id",
+            "original": "assign io_mem_s1_data_data = s1_id ? io_requestor_1_s1_data_data : 64'h0;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :20:20, :39:24, :51:30]",
+            "mutated": "assign io_mem_s1_data_data = s2_id ? io_requestor_1_s1_data_data : 64'h0;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :20:20, :39:24, :51:30]"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 11,
+          "selected": 11,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_00",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert(s1_id == ~$past(io_requestor_0_req_valid));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert(s1_id == ~$past(io_requestor_0_req_valid));"
+        },
+        {
+          "property_id": "prop_01",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert(s2_id == $past(s1_id));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert(s2_id == $past(s1_id));"
+        },
+        {
+          "property_id": "prop_05",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_req_ready == (io_mem_req_ready && ~io_requestor_0_req_valid)) || (io_requestor_1_req_ready == 1'b0));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert((io_requestor_1_req_ready == (io_mem_req_ready && ~io_requestor_0_req_valid)) || (io_requestor_1_req_ready == 1'b0));"
+        },
+        {
+          "property_id": "prop_07",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_mem_req_bits_tag[0] == 1'b0) == io_requestor_0_req_valid);",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert((io_mem_req_bits_tag[0] == 1'b0) == io_requestor_0_req_valid);"
+        },
+        {
+          "property_id": "prop_09",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_s2_nack == (io_mem_s2_nack && ~s2_id)) || (io_requestor_0_s2_nack == 1'b0));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert((io_requestor_0_s2_nack == (io_mem_s2_nack && ~s2_id)) || (io_requestor_0_s2_nack == 1'b0));"
+        },
+        {
+          "property_id": "prop_10",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_s2_nack == (io_mem_s2_nack && s2_id)) || (io_requestor_1_s2_nack == 1'b0));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert((io_requestor_1_s2_nack == (io_mem_s2_nack && s2_id)) || (io_requestor_1_s2_nack == 1'b0));"
+        },
+        {
+          "property_id": "prop_11",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_resp_valid == (io_mem_resp_valid && ~io_mem_resp_bits_tag[0])) || (io_requestor_0_resp_valid == 1'b0));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert((io_requestor_0_resp_valid == (io_mem_resp_valid && ~io_mem_resp_bits_tag[0])) || (io_requestor_0_resp_valid == 1'b0));"
+        },
+        {
+          "property_id": "prop_12",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_resp_valid == (io_mem_resp_valid && io_mem_resp_bits_tag[0])) || (io_requestor_1_resp_valid == 1'b0));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert((io_requestor_1_resp_valid == (io_mem_resp_valid && io_mem_resp_bits_tag[0])) || (io_requestor_1_resp_valid == 1'b0));"
+        },
+        {
+          "property_id": "prop_19",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert(io_requestor_1_resp_bits_tag[6] == 1'b0);",
+          "code": "always @(posedge clock) if (f_past_valid) assert(io_requestor_1_resp_bits_tag[6] == 1'b0);"
+        },
+        {
+          "property_id": "prop_20",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert(io_mem_req_valid == (io_requestor_0_req_valid || io_requestor_1_req_valid));",
+          "code": "always @(posedge clock) if (f_past_valid) assert(io_mem_req_valid == (io_requestor_0_req_valid || io_requestor_1_req_valid));"
+        },
+        {
+          "property_id": "prop_21",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert(io_mem_req_bits_signed == (~io_requestor_0_req_valid && io_requestor_1_req_bits_signed));",
+          "code": "always @(posedge clock) if (f_past_valid) assert(io_mem_req_bits_signed == (~io_requestor_0_req_valid && io_requestor_1_req_bits_signed));"
+        }
+      ],
+      "wall_seconds": 163.583833694458,
+      "suite_size": 11,
+      "suite_distinct": 11
+    },
+    {
+      "seed": 1,
+      "converged": true,
+      "stop_reason": "every active mutant is killed",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 15,
+          "admitted": 12,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 2,
+          "suite_size": 12,
+          "active": 18,
+          "killed": 13,
+          "kill_rate": 72.22222222222221,
+          "newly_killed": [
+            "m001_DROP_BITWISE_NOT_L120_0",
+            "m002_SWAP_s1_id_s2_id_L120_0",
+            "m004_SWAP_s1_id_s2_id_L121_0",
+            "m005_SWAP_s2_id_s1_id_L121_0",
+            "m010_BITWISE_AND_TO_OR_L143_0",
+            "m011_DROP_BITWISE_NOT_L143_0",
+            "m012_SWAP_s2_id_s1_id_L143_0",
+            "m013_BITWISE_AND_TO_OR_L144_0",
+            "m014_BIT_INDEX_BUMP_L144_0",
+            "m015_BITWISE_AND_TO_OR_L147_0",
+            "m016_DROP_BITWISE_NOT_L147_0",
+            "m017_BITWISE_AND_TO_OR_L148_0",
+            "m020_BIT_INDEX_BUMP_L149_0"
+          ],
+          "seconds": 29.72241520881653
+        },
+        {
+          "index": 1,
+          "proposed": 4,
+          "admitted": 12,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 0,
+          "suite_size": 12,
+          "active": 18,
+          "killed": 17,
+          "kill_rate": 94.44444444444444,
+          "newly_killed": [
+            "m021_HEX_CONST_BUMP_L150_0",
+            "m023_HEX_CONST_BUMP_L168_0",
+            "m024_HEX_CONST_BUMP_L168_1",
+            "m028_DROP_BITWISE_NOT_L171_0"
+          ],
+          "seconds": 33.17449641227722
+        },
+        {
+          "index": 2,
+          "proposed": 2,
+          "admitted": 13,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 0,
+          "suite_size": 13,
+          "active": 18,
+          "killed": 18,
+          "kill_rate": 100.0,
+          "newly_killed": [
+            "m022_BITWISE_OR_TO_AND_L166_0"
+          ],
+          "seconds": 36.24936270713806
+        }
+      ],
+      "initial_kill_rate": 72.22222222222221,
+      "final_kill_rate": 100.0,
+      "loop_seconds": 111.73747205734253,
+      "independent_verification": {
+        "properties_checked": 13,
+        "properties_sound": 13,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(s1_id == ~$past(io_requestor_0_req_valid));"
+          },
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(s2_id == $past(s1_id));"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_req_ready == (io_mem_req_ready && ~io_requestor_0_req_valid)) || (io_requestor_1_req_ready == 1'b0));"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_s2_nack == (io_mem_s2_nack && ~s2_id)) || (io_requestor_0_s2_nack == 1'b0));"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_s2_nack == (io_mem_s2_nack && s2_id)) || (io_requestor_1_s2_nack == 1'b0));"
+          },
+          {
+            "property_id": "prop_11",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_resp_valid == (io_mem_resp_valid && ~io_mem_resp_bits_tag[0])) || (io_requestor_0_resp_valid == 1'b0));"
+          },
+          {
+            "property_id": "prop_12",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_resp_valid == (io_mem_resp_valid && io_mem_resp_bits_tag[0])) || (io_requestor_1_resp_valid == 1'b0));"
+          },
+          {
+            "property_id": "prop_13",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_mem_resp_valid == 1'b0) || (io_requestor_0_resp_valid != io_requestor_1_resp_valid));"
+          },
+          {
+            "property_id": "prop_14",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_resp_bits_tag == {1'h0, io_mem_resp_bits_tag[6:1]}) || (io_requestor_1_resp_bits_tag == 7'h0));"
+          },
+          {
+            "property_id": "prop_16",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_mem_req_bits_tag == (io_requestor_0_req_valid ? 7'h0 : {io_requestor_1_req_bits_tag[5:0], 1'h1})) || (io_mem_req_bits_tag == 7'h0));"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_mem_req_bits_signed == (~io_requestor_0_req_valid & io_requestor_1_req_bits_signed)) || (io_mem_req_bits_signed == 1'b0));"
+          },
+          {
+            "property_id": "prop_18",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_req_valid && io_mem_req_ready) -> io_mem_req_valid);"
+          },
+          {
+            "property_id": "prop_19",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_req_valid && io_mem_req_ready && ~io_requestor_0_req_valid) -> io_mem_req_valid);"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (18/18)",
+        "generated": 35,
+        "stillborn": 2,
+        "equivalent": 4,
+        "killed_equivalent": 0,
+        "active": 18,
+        "killed": 18,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 13,
+          "selected": 10,
+          "redundancy_percent": 23.076923076923073,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 13,
+        "properties_sound": 13,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(s1_id == ~$past(io_requestor_0_req_valid));"
+          },
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert(s2_id == $past(s1_id));"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_req_ready == (io_mem_req_ready && ~io_requestor_0_req_valid)) || (io_requestor_1_req_ready == 1'b0));"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_s2_nack == (io_mem_s2_nack && ~s2_id)) || (io_requestor_0_s2_nack == 1'b0));"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_s2_nack == (io_mem_s2_nack && s2_id)) || (io_requestor_1_s2_nack == 1'b0));"
+          },
+          {
+            "property_id": "prop_11",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_resp_valid == (io_mem_resp_valid && ~io_mem_resp_bits_tag[0])) || (io_requestor_0_resp_valid == 1'b0));"
+          },
+          {
+            "property_id": "prop_12",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_resp_valid == (io_mem_resp_valid && io_mem_resp_bits_tag[0])) || (io_requestor_1_resp_valid == 1'b0));"
+          },
+          {
+            "property_id": "prop_13",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_mem_resp_valid == 1'b0) || (io_requestor_0_resp_valid != io_requestor_1_resp_valid));"
+          },
+          {
+            "property_id": "prop_14",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_resp_bits_tag == {1'h0, io_mem_resp_bits_tag[6:1]}) || (io_requestor_1_resp_bits_tag == 7'h0));"
+          },
+          {
+            "property_id": "prop_16",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_mem_req_bits_tag == (io_requestor_0_req_valid ? 7'h0 : {io_requestor_1_req_bits_tag[5:0], 1'h1})) || (io_mem_req_bits_tag == 7'h0));"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_mem_req_bits_signed == (~io_requestor_0_req_valid & io_requestor_1_req_bits_signed)) || (io_mem_req_bits_signed == 1'b0));"
+          },
+          {
+            "property_id": "prop_18",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_req_valid && io_mem_req_ready) -> io_mem_req_valid);"
+          },
+          {
+            "property_id": "prop_19",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_req_valid && io_mem_req_ready && ~io_requestor_0_req_valid) -> io_mem_req_valid);"
+          }
+        ],
+        "kill_rate_percent": 72.41379310344827,
+        "kill_rate": "72.4% (21/29)",
+        "generated": 35,
+        "stillborn": 2,
+        "equivalent": 4,
+        "killed_equivalent": 0,
+        "active": 29,
+        "killed": 21,
+        "survivors": [
+          {
+            "line": 169,
+            "operator": "HEX_CONST_BUMP",
+            "original": "assign io_mem_req_bits_cmd = io_requestor_0_req_valid ? 5'h0 : io_requestor_1_req_bits_cmd;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :33:25, :50:26]",
+            "mutated": "assign io_mem_req_bits_cmd = io_requestor_0_req_valid ? 5'h1 : io_requestor_1_req_bits_cmd;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :33:25, :50:26]"
+          },
+          {
+            "line": 170,
+            "operator": "HEX_CONST_BUMP",
+            "original": "assign io_mem_req_bits_size = io_requestor_0_req_valid ? 2'h3 : io_requestor_1_req_bits_size;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :33:25, :50:26]",
+            "mutated": "assign io_mem_req_bits_size = io_requestor_0_req_valid ? 2'h0 : io_requestor_1_req_bits_size;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :33:25, :50:26]"
+          },
+          {
+            "line": 172,
+            "operator": "HEX_CONST_BUMP",
+            "original": "assign io_mem_req_bits_dprv = io_requestor_0_req_valid ? 2'h1 : io_requestor_1_req_bits_dprv;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :33:25, :50:26]",
+            "mutated": "assign io_mem_req_bits_dprv = io_requestor_0_req_valid ? 2'h2 : io_requestor_1_req_bits_dprv;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :33:25, :50:26]"
+          },
+          {
+            "line": 173,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign io_mem_req_bits_dv = ~io_requestor_0_req_valid & io_requestor_1_req_bits_dv;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :33:25, :50:26]",
+            "mutated": "assign io_mem_req_bits_dv = ~io_requestor_0_req_valid | io_requestor_1_req_bits_dv;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :33:25, :50:26]"
+          },
+          {
+            "line": 173,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "assign io_mem_req_bits_dv = ~io_requestor_0_req_valid & io_requestor_1_req_bits_dv;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :33:25, :50:26]",
+            "mutated": "assign io_mem_req_bits_dv = io_requestor_0_req_valid & io_requestor_1_req_bits_dv;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :33:25, :50:26]"
+          },
+          {
+            "line": 175,
+            "operator": "SWAP_s1_id_s2_id",
+            "original": "assign io_mem_s1_kill = s1_id ? io_requestor_1_s1_kill : io_requestor_0_s1_kill;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :20:20, :38:24, :51:30]",
+            "mutated": "assign io_mem_s1_kill = s2_id ? io_requestor_1_s1_kill : io_requestor_0_s1_kill;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :20:20, :38:24, :51:30]"
+          },
+          {
+            "line": 176,
+            "operator": "HEX_CONST_BUMP",
+            "original": "assign io_mem_s1_data_data = s1_id ? io_requestor_1_s1_data_data : 64'h0;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :20:20, :39:24, :51:30]",
+            "mutated": "assign io_mem_s1_data_data = s1_id ? io_requestor_1_s1_data_data : 64'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :20:20, :39:24, :51:30]"
+          },
+          {
+            "line": 176,
+            "operator": "SWAP_s1_id_s2_id",
+            "original": "assign io_mem_s1_data_data = s1_id ? io_requestor_1_s1_data_data : 64'h0;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :20:20, :39:24, :51:30]",
+            "mutated": "assign io_mem_s1_data_data = s2_id ? io_requestor_1_s1_data_data : 64'h0;\t// @[generators/rocket-chip/src/main/scala/rocket/HellaCacheArbiter.scala:10:7, :12:14, :20:20, :39:24, :51:30]"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 13,
+          "selected": 10,
+          "redundancy_percent": 23.076923076923073,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_00",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert(s1_id == ~$past(io_requestor_0_req_valid));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert(s1_id == ~$past(io_requestor_0_req_valid));"
+        },
+        {
+          "property_id": "prop_01",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert(s2_id == $past(s1_id));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert(s2_id == $past(s1_id));"
+        },
+        {
+          "property_id": "prop_05",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_req_ready == (io_mem_req_ready && ~io_requestor_0_req_valid)) || (io_requestor_1_req_ready == 1'b0));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert((io_requestor_1_req_ready == (io_mem_req_ready && ~io_requestor_0_req_valid)) || (io_requestor_1_req_ready == 1'b0));"
+        },
+        {
+          "property_id": "prop_09",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_s2_nack == (io_mem_s2_nack && ~s2_id)) || (io_requestor_0_s2_nack == 1'b0));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert((io_requestor_0_s2_nack == (io_mem_s2_nack && ~s2_id)) || (io_requestor_0_s2_nack == 1'b0));"
+        },
+        {
+          "property_id": "prop_10",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_s2_nack == (io_mem_s2_nack && s2_id)) || (io_requestor_1_s2_nack == 1'b0));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert((io_requestor_1_s2_nack == (io_mem_s2_nack && s2_id)) || (io_requestor_1_s2_nack == 1'b0));"
+        },
+        {
+          "property_id": "prop_11",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_resp_valid == (io_mem_resp_valid && ~io_mem_resp_bits_tag[0])) || (io_requestor_0_resp_valid == 1'b0));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert((io_requestor_0_resp_valid == (io_mem_resp_valid && ~io_mem_resp_bits_tag[0])) || (io_requestor_0_resp_valid == 1'b0));"
+        },
+        {
+          "property_id": "prop_12",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_resp_valid == (io_mem_resp_valid && io_mem_resp_bits_tag[0])) || (io_requestor_1_resp_valid == 1'b0));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert((io_requestor_1_resp_valid == (io_mem_resp_valid && io_mem_resp_bits_tag[0])) || (io_requestor_1_resp_valid == 1'b0));"
+        },
+        {
+          "property_id": "prop_13",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_mem_resp_valid == 1'b0) || (io_requestor_0_resp_valid != io_requestor_1_resp_valid));",
+          "code": "reg f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid) assert((io_mem_resp_valid == 1'b0) || (io_requestor_0_resp_valid != io_requestor_1_resp_valid));"
+        },
+        {
+          "property_id": "prop_14",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_resp_bits_tag == {1'h0, io_mem_resp_bits_tag[6:1]}) || (io_requestor_1_resp_bits_tag == 7'h0));",
+          "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_resp_bits_tag == {1'h0, io_mem_resp_bits_tag[6:1]}) || (io_requestor_1_resp_bits_tag == 7'h0));"
+        },
+        {
+          "property_id": "prop_16",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_mem_req_bits_tag == (io_requestor_0_req_valid ? 7'h0 : {io_requestor_1_req_bits_tag[5:0], 1'h1})) || (io_mem_req_bits_tag == 7'h0));",
+          "code": "always @(posedge clock) if (f_past_valid) assert((io_mem_req_bits_tag == (io_requestor_0_req_valid ? 7'h0 : {io_requestor_1_req_bits_tag[5:0], 1'h1})) || (io_mem_req_bits_tag == 7'h0));"
+        },
+        {
+          "property_id": "prop_17",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_mem_req_bits_signed == (~io_requestor_0_req_valid & io_requestor_1_req_bits_signed)) || (io_mem_req_bits_signed == 1'b0));",
+          "code": "always @(posedge clock) if (f_past_valid) assert((io_mem_req_bits_signed == (~io_requestor_0_req_valid & io_requestor_1_req_bits_signed)) || (io_mem_req_bits_signed == 1'b0));"
+        },
+        {
+          "property_id": "prop_18",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_req_valid && io_mem_req_ready) -> io_mem_req_valid);",
+          "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_0_req_valid && io_mem_req_ready) -> io_mem_req_valid);"
+        },
+        {
+          "property_id": "prop_19",
+          "assertion": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_req_valid && io_mem_req_ready && ~io_requestor_0_req_valid) -> io_mem_req_valid);",
+          "code": "always @(posedge clock) if (f_past_valid) assert((io_requestor_1_req_valid && io_mem_req_ready && ~io_requestor_0_req_valid) -> io_mem_req_valid);"
+        }
+      ],
+      "wall_seconds": 205.78558158874512,
+      "suite_size": 13,
+      "suite_distinct": 13
+    }
+  ]
+}

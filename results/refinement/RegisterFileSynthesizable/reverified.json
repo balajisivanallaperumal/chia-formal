@@ -1,0 +1,11 @@
+{
+  "module": "RegisterFileSynthesizable",
+  "source": "examples/formal_verification/soc_cores/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.LargeBoomV3Config/gen-collateral/RegisterFileSynthesizable.sv",
+  "clk": "clock",
+  "rst": "reset",
+  "depth": 12,
+  "seeds": [],
+  "full_bank_min": null,
+  "full_bank_mean": null,
+  "full_bank_max": null
+}

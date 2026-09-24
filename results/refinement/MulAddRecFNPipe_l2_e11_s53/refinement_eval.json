@@ -1,0 +1,189 @@
+{
+  "module": "MulAddRecFNPipe_l2_e11_s53",
+  "source": "examples/formal_verification/soc_cores/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.RocketConfig/gen-collateral/MulAddRecFNPipe_l2_e11_s53.sv",
+  "bmc_depth": 12,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 0,
+  "kill_rate_min": null,
+  "kill_rate_max": null,
+  "kill_rate_mean": null,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": false,
+      "stop_reason": "no scoreable properties: every candidate was refuted by the golden design",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 106,
+          "admitted": 0,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 103,
+          "rejected_unsound": 3,
+          "suite_size": 0,
+          "active": 0,
+          "killed": 0,
+          "kill_rate": null,
+          "newly_killed": [],
+          "seconds": 9.249156951904297
+        }
+      ],
+      "initial_kill_rate": null,
+      "final_kill_rate": null,
+      "loop_seconds": 26.801544189453125,
+      "independent_verification": {
+        "properties_checked": 0,
+        "properties_sound": 0,
+        "soundness": [],
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "generated": 171,
+        "stillborn": 0,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 0,
+          "selected": 0,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 0,
+        "properties_sound": 0,
+        "soundness": [],
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "generated": 171,
+        "stillborn": 0,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 0,
+          "selected": 0,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [],
+      "wall_seconds": 26.837210655212402,
+      "suite_size": 0,
+      "suite_distinct": 0
+    },
+    {
+      "seed": 1,
+      "converged": false,
+      "stop_reason": "no scoreable properties: every candidate was refuted by the golden design",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 27,
+          "admitted": 0,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 27,
+          "suite_size": 0,
+          "active": 0,
+          "killed": 0,
+          "kill_rate": null,
+          "newly_killed": [],
+          "seconds": 35.34075140953064
+        }
+      ],
+      "initial_kill_rate": null,
+      "final_kill_rate": null,
+      "loop_seconds": 44.51569080352783,
+      "independent_verification": {
+        "properties_checked": 0,
+        "properties_sound": 0,
+        "soundness": [],
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "generated": 171,
+        "stillborn": 0,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 0,
+          "selected": 0,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 0,
+        "properties_sound": 0,
+        "soundness": [],
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "generated": 171,
+        "stillborn": 0,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 0,
+          "selected": 0,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [],
+      "wall_seconds": 44.55192017555237,
+      "suite_size": 0,
+      "suite_distinct": 0
+    }
+  ]
+}

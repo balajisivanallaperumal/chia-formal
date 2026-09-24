@@ -1,0 +1,2390 @@
+{
+  "module": "cv32e40p_alu",
+  "source": "examples/formal_verification/soc_cores/cv32e40p/rtl/cv32e40p_alu.sv",
+  "bmc_depth": 1,
+  "seeds_requested": 2,
+  "seeds_completed": 1,
+  "seeds": 2,
+  "converged_seeds": 0,
+  "kill_rate_min": 80.95238095238095,
+  "kill_rate_max": 80.95238095238095,
+  "kill_rate_mean": 80.95238095238095,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": false,
+      "stop_reason": "iteration budget (4) exhausted",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 110,
+          "admitted": 4,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 105,
+          "rejected_unsound": 1,
+          "suite_size": 4,
+          "active": 21,
+          "killed": 5,
+          "kill_rate": 23.809523809523807,
+          "newly_killed": [
+            "m000_DROP_BITWISE_NOT_L59_0",
+            "m005_DROP_BITWISE_NOT_L79_0",
+            "m006_EQ_TO_NEQ_L102_0",
+            "m007_EQ_TO_NEQ_L102_1",
+            "m008_OR_TO_AND_L102_0"
+          ],
+          "seconds": 26.96393918991089
+        },
+        {
+          "index": 1,
+          "proposed": 14,
+          "admitted": 13,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 4,
+          "suite_size": 13,
+          "active": 21,
+          "killed": 15,
+          "kill_rate": 71.42857142857143,
+          "newly_killed": [
+            "m002_SUB_TO_ADD_L65_0",
+            "m015_BIT_INDEX_BUMP_L117_0",
+            "m046_ADD_TO_SUB_L186_0",
+            "m091_BITWISE_AND_TO_OR_L269_0",
+            "m176_BITWISE_XOR_TO_AND_L441_0",
+            "m339_DEC_CONST_BUMP_L772_0",
+            "m341_DEC_CONST_BUMP_L773_0",
+            "m346_SHL_TO_SHR_L812_0",
+            "m347_HEX_CONST_BUMP_L812_0",
+            "m389_BITWISE_XOR_TO_AND_L935_0"
+          ],
+          "seconds": 32.325212478637695
+        },
+        {
+          "index": 2,
+          "proposed": 6,
+          "admitted": 12,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 3,
+          "rejected_unsound": 3,
+          "suite_size": 12,
+          "active": 21,
+          "killed": 15,
+          "kill_rate": 71.42857142857143,
+          "newly_killed": [],
+          "seconds": 26.765774488449097
+        },
+        {
+          "index": 3,
+          "proposed": 5,
+          "admitted": 13,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 3,
+          "suite_size": 13,
+          "active": 21,
+          "killed": 17,
+          "kill_rate": 80.95238095238095,
+          "newly_killed": [
+            "m135_BITWISE_OR_TO_AND_L390_0",
+            "m140_BITWISE_OR_TO_AND_L391_0"
+          ],
+          "seconds": 31.2482693195343
+        }
+      ],
+      "initial_kill_rate": 23.809523809523807,
+      "final_kill_rate": 80.95238095238095,
+      "loop_seconds": 148.98332333564758,
+      "independent_verification": {
+        "properties_checked": 13,
+        "properties_sound": 13,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (operand_a_neg == ~operand_a_i);"
+          },
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (operand_b_neg == ~operand_b_i);"
+          },
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (adder_op_b_negate == (operator_i == ALU_SUB) || (operator_i == ALU_SUBR) || (operator_i == ALU_SUBU) || (operator_i == ALU_SUBUR) || is_subrot_i);"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (operand_a_rev[31] == operand_a_i[0]);"
+          },
+          {
+            "property_id": "prop_08",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (adder_in_a[0] == 1'b1);"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (adder_round_result == adder_result + adder_round_value);"
+          },
+          {
+            "property_id": "prop_11",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (shift_arithmetic == 1'b0 || (shift_op_a_32[63:32] == {32{shift_op_a[31]}}));"
+          },
+          {
+            "property_id": "prop_14",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (sel_minmax[3:0] == (is_greater ^ {4{do_min}}));"
+          },
+          {
+            "property_id": "prop_15",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (fl1_result == 5'd31 - ff1_result);"
+          },
+          {
+            "property_id": "prop_16",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (clb_result == ff1_result - 5'd1);"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (bmask_first == ({32'hFFFFFFFE} << bmask_a_i));"
+          },
+          {
+            "property_id": "prop_18",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (operator_i != ALU_XOR || result_o == (operand_a_i ^ operand_b_i));"
+          },
+          {
+            "property_id": "prop_25",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (vector_mode_i != VEC_MODE32 || is_greater[3:0] == {4{is_greater_vec[3] | (is_equal_vec[3] & (is_greater_vec[2] | (is_equal_vec[2] & (is_greater_vec[1] | (is_equal_vec[1] & (is_greater_vec[0]))))))}});"
+          }
+        ],
+        "kill_rate_percent": 80.95238095238095,
+        "kill_rate": "81.0% (17/21)",
+        "generated": 395,
+        "stillborn": 3,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 21,
+        "killed": 17,
+        "survivors": [
+          {
+            "line": 64,
+            "operator": "LT_TO_LE",
+            "original": "for (k = 0; k < 32; k++) begin : gen_operand_a_rev",
+            "mutated": "for (k = 0; k <= 32; k++) begin : gen_operand_a_rev"
+          },
+          {
+            "line": 168,
+            "operator": "ADD_TO_SUB",
+            "original": "assign adder_result_expanded = $signed(adder_in_a) + $signed(adder_in_b);",
+            "mutated": "assign adder_result_expanded = $signed(adder_in_a) - $signed(adder_in_b);"
+          },
+          {
+            "line": 276,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "{shift_arithmetic & shift_op_a[31], shift_op_a[31:16]}",
+            "mutated": "{shift_arithmetic | shift_op_a[31], shift_op_a[31:16]}"
+          },
+          {
+            "line": 379,
+            "operator": "GT_TO_GE",
+            "original": ") > $signed(",
+            "mutated": ") >= $signed("
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 13,
+          "selected": 12,
+          "redundancy_percent": 7.692307692307687,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 13,
+        "properties_sound": 13,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (operand_a_neg == ~operand_a_i);"
+          },
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (operand_b_neg == ~operand_b_i);"
+          },
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (adder_op_b_negate == (operator_i == ALU_SUB) || (operator_i == ALU_SUBR) || (operator_i == ALU_SUBU) || (operator_i == ALU_SUBUR) || is_subrot_i);"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (operand_a_rev[31] == operand_a_i[0]);"
+          },
+          {
+            "property_id": "prop_08",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (adder_in_a[0] == 1'b1);"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (adder_round_result == adder_result + adder_round_value);"
+          },
+          {
+            "property_id": "prop_11",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (shift_arithmetic == 1'b0 || (shift_op_a_32[63:32] == {32{shift_op_a[31]}}));"
+          },
+          {
+            "property_id": "prop_14",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (sel_minmax[3:0] == (is_greater ^ {4{do_min}}));"
+          },
+          {
+            "property_id": "prop_15",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (fl1_result == 5'd31 - ff1_result);"
+          },
+          {
+            "property_id": "prop_16",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (clb_result == ff1_result - 5'd1);"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (bmask_first == ({32'hFFFFFFFE} << bmask_a_i));"
+          },
+          {
+            "property_id": "prop_18",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (operator_i != ALU_XOR || result_o == (operand_a_i ^ operand_b_i));"
+          },
+          {
+            "property_id": "prop_25",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (vector_mode_i != VEC_MODE32 || is_greater[3:0] == {4{is_greater_vec[3] | (is_equal_vec[3] & (is_greater_vec[2] | (is_equal_vec[2] & (is_greater_vec[1] | (is_equal_vec[1] & (is_greater_vec[0]))))))}});"
+          }
+        ],
+        "kill_rate_percent": 10.95890410958904,
+        "kill_rate": "11.0% (40/365)",
+        "generated": 395,
+        "stillborn": 30,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 365,
+        "killed": 40,
+        "survivors": [
+          {
+            "line": 64,
+            "operator": "LT_TO_LE",
+            "original": "for (k = 0; k < 32; k++) begin : gen_operand_a_rev",
+            "mutated": "for (k = 0; k <= 32; k++) begin : gen_operand_a_rev"
+          },
+          {
+            "line": 72,
+            "operator": "LT_TO_LE",
+            "original": "for (m = 0; m < 32; m++) begin : gen_operand_a_neg_rev",
+            "mutated": "for (m = 0; m <= 32; m++) begin : gen_operand_a_neg_rev"
+          },
+          {
+            "line": 73,
+            "operator": "SUB_TO_ADD",
+            "original": "assign operand_a_neg_rev[m] = operand_a_neg[31-m];",
+            "mutated": "assign operand_a_neg_rev[m] = operand_a_neg[31+m];"
+          },
+          {
+            "line": 102,
+            "operator": "OR_TO_AND",
+            "original": "assign adder_op_b_negate = (operator_i == ALU_SUB) || (operator_i == ALU_SUBR) ||",
+            "mutated": "assign adder_op_b_negate = (operator_i == ALU_SUB) || (operator_i == ALU_SUBR) &&"
+          },
+          {
+            "line": 103,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_SUBU) || (operator_i == ALU_SUBUR) || is_subrot_i;",
+            "mutated": "(operator_i == ALU_SUBU) && (operator_i == ALU_SUBUR) || is_subrot_i;"
+          },
+          {
+            "line": 103,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_SUBU) || (operator_i == ALU_SUBUR) || is_subrot_i;",
+            "mutated": "(operator_i == ALU_SUBU) || (operator_i == ALU_SUBUR) && is_subrot_i;"
+          },
+          {
+            "line": 106,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign adder_op_a = (operator_i == ALU_ABS) ? operand_a_neg : (is_subrot_i ? {",
+            "mutated": "assign adder_op_a = (operator_i != ALU_ABS) ? operand_a_neg : (is_subrot_i ? {"
+          },
+          {
+            "line": 135,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (adder_op_b_negate || (operator_i == ALU_ABS || operator_i == ALU_CLIP)) begin",
+            "mutated": "if (adder_op_b_negate || (operator_i != ALU_ABS || operator_i == ALU_CLIP)) begin"
+          },
+          {
+            "line": 135,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (adder_op_b_negate || (operator_i == ALU_ABS || operator_i == ALU_CLIP)) begin",
+            "mutated": "if (adder_op_b_negate || (operator_i == ALU_ABS || operator_i != ALU_CLIP)) begin"
+          },
+          {
+            "line": 135,
+            "operator": "OR_TO_AND",
+            "original": "if (adder_op_b_negate || (operator_i == ALU_ABS || operator_i == ALU_CLIP)) begin",
+            "mutated": "if (adder_op_b_negate && (operator_i == ALU_ABS || operator_i == ALU_CLIP)) begin"
+          },
+          {
+            "line": 135,
+            "operator": "OR_TO_AND",
+            "original": "if (adder_op_b_negate || (operator_i == ALU_ABS || operator_i == ALU_CLIP)) begin",
+            "mutated": "if (adder_op_b_negate || (operator_i == ALU_ABS && operator_i == ALU_CLIP)) begin"
+          },
+          {
+            "line": 137,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "adder_in_b[0] = 1'b1;",
+            "mutated": "adder_in_b[1] = 1'b1;"
+          },
+          {
+            "line": 141,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "adder_in_b[18] = 1'b1;",
+            "mutated": "adder_in_b[19] = 1'b1;"
+          },
+          {
+            "line": 145,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "adder_in_b[9]  = 1'b1;",
+            "mutated": "adder_in_b[10]  = 1'b1;"
+          },
+          {
+            "line": 146,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "adder_in_b[18] = 1'b1;",
+            "mutated": "adder_in_b[19] = 1'b1;"
+          },
+          {
+            "line": 147,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "adder_in_b[27] = 1'b1;",
+            "mutated": "adder_in_b[28] = 1'b1;"
+          },
+          {
+            "line": 155,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "adder_in_a[18] = 1'b0;",
+            "mutated": "adder_in_a[19] = 1'b0;"
+          },
+          {
+            "line": 159,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "adder_in_a[9]  = 1'b0;",
+            "mutated": "adder_in_a[10]  = 1'b0;"
+          },
+          {
+            "line": 160,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "adder_in_a[18] = 1'b0;",
+            "mutated": "adder_in_a[19] = 1'b0;"
+          },
+          {
+            "line": 161,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "adder_in_a[27] = 1'b0;",
+            "mutated": "adder_in_a[28] = 1'b0;"
+          },
+          {
+            "line": 168,
+            "operator": "ADD_TO_SUB",
+            "original": "assign adder_result_expanded = $signed(adder_in_a) + $signed(adder_in_b);",
+            "mutated": "assign adder_result_expanded = $signed(adder_in_a) - $signed(adder_in_b);"
+          },
+          {
+            "line": 181,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign adder_round_value  = ((operator_i == ALU_ADDR) || (operator_i == ALU_SUBR) ||",
+            "mutated": "assign adder_round_value  = ((operator_i != ALU_ADDR) || (operator_i == ALU_SUBR) ||"
+          },
+          {
+            "line": 181,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign adder_round_value  = ((operator_i == ALU_ADDR) || (operator_i == ALU_SUBR) ||",
+            "mutated": "assign adder_round_value  = ((operator_i == ALU_ADDR) || (operator_i != ALU_SUBR) ||"
+          },
+          {
+            "line": 181,
+            "operator": "OR_TO_AND",
+            "original": "assign adder_round_value  = ((operator_i == ALU_ADDR) || (operator_i == ALU_SUBR) ||",
+            "mutated": "assign adder_round_value  = ((operator_i == ALU_ADDR) && (operator_i == ALU_SUBR) ||"
+          },
+          {
+            "line": 181,
+            "operator": "OR_TO_AND",
+            "original": "assign adder_round_value  = ((operator_i == ALU_ADDR) || (operator_i == ALU_SUBR) ||",
+            "mutated": "assign adder_round_value  = ((operator_i == ALU_ADDR) || (operator_i == ALU_SUBR) &&"
+          },
+          {
+            "line": 182,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_ADDUR) || (operator_i == ALU_SUBUR)) ?",
+            "mutated": "(operator_i != ALU_ADDUR) || (operator_i == ALU_SUBUR)) ?"
+          },
+          {
+            "line": 182,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_ADDUR) || (operator_i == ALU_SUBUR)) ?",
+            "mutated": "(operator_i == ALU_ADDUR) || (operator_i != ALU_SUBUR)) ?"
+          },
+          {
+            "line": 182,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_ADDUR) || (operator_i == ALU_SUBUR)) ?",
+            "mutated": "(operator_i == ALU_ADDUR) && (operator_i == ALU_SUBUR)) ?"
+          },
+          {
+            "line": 238,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign shift_left = (operator_i == ALU_SLL) || (operator_i == ALU_BINS) ||",
+            "mutated": "assign shift_left = (operator_i != ALU_SLL) || (operator_i == ALU_BINS) ||"
+          },
+          {
+            "line": 238,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign shift_left = (operator_i == ALU_SLL) || (operator_i == ALU_BINS) ||",
+            "mutated": "assign shift_left = (operator_i == ALU_SLL) || (operator_i != ALU_BINS) ||"
+          },
+          {
+            "line": 238,
+            "operator": "OR_TO_AND",
+            "original": "assign shift_left = (operator_i == ALU_SLL) || (operator_i == ALU_BINS) ||",
+            "mutated": "assign shift_left = (operator_i == ALU_SLL) && (operator_i == ALU_BINS) ||"
+          },
+          {
+            "line": 238,
+            "operator": "OR_TO_AND",
+            "original": "assign shift_left = (operator_i == ALU_SLL) || (operator_i == ALU_BINS) ||",
+            "mutated": "assign shift_left = (operator_i == ALU_SLL) || (operator_i == ALU_BINS) &&"
+          },
+          {
+            "line": 239,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_FL1) || (operator_i == ALU_CLB)  ||",
+            "mutated": "(operator_i != ALU_FL1) || (operator_i == ALU_CLB)  ||"
+          },
+          {
+            "line": 239,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_FL1) || (operator_i == ALU_CLB)  ||",
+            "mutated": "(operator_i == ALU_FL1) || (operator_i != ALU_CLB)  ||"
+          },
+          {
+            "line": 239,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_FL1) || (operator_i == ALU_CLB)  ||",
+            "mutated": "(operator_i == ALU_FL1) && (operator_i == ALU_CLB)  ||"
+          },
+          {
+            "line": 239,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_FL1) || (operator_i == ALU_CLB)  ||",
+            "mutated": "(operator_i == ALU_FL1) || (operator_i == ALU_CLB)  &&"
+          },
+          {
+            "line": 240,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_DIV) || (operator_i == ALU_DIVU) ||",
+            "mutated": "(operator_i != ALU_DIV) || (operator_i == ALU_DIVU) ||"
+          },
+          {
+            "line": 240,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_DIV) || (operator_i == ALU_DIVU) ||",
+            "mutated": "(operator_i == ALU_DIV) || (operator_i != ALU_DIVU) ||"
+          },
+          {
+            "line": 240,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_DIV) || (operator_i == ALU_DIVU) ||",
+            "mutated": "(operator_i == ALU_DIV) && (operator_i == ALU_DIVU) ||"
+          },
+          {
+            "line": 240,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_DIV) || (operator_i == ALU_DIVU) ||",
+            "mutated": "(operator_i == ALU_DIV) || (operator_i == ALU_DIVU) &&"
+          },
+          {
+            "line": 241,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_REM) || (operator_i == ALU_REMU) ||",
+            "mutated": "(operator_i != ALU_REM) || (operator_i == ALU_REMU) ||"
+          },
+          {
+            "line": 241,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_REM) || (operator_i == ALU_REMU) ||",
+            "mutated": "(operator_i == ALU_REM) || (operator_i != ALU_REMU) ||"
+          },
+          {
+            "line": 241,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_REM) || (operator_i == ALU_REMU) ||",
+            "mutated": "(operator_i == ALU_REM) && (operator_i == ALU_REMU) ||"
+          },
+          {
+            "line": 241,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_REM) || (operator_i == ALU_REMU) ||",
+            "mutated": "(operator_i == ALU_REM) || (operator_i == ALU_REMU) &&"
+          },
+          {
+            "line": 242,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_BREV);",
+            "mutated": "(operator_i != ALU_BREV);"
+          },
+          {
+            "line": 244,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign shift_use_round = (operator_i == ALU_ADD)   || (operator_i == ALU_SUB)   ||",
+            "mutated": "assign shift_use_round = (operator_i != ALU_ADD)   || (operator_i == ALU_SUB)   ||"
+          },
+          {
+            "line": 244,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign shift_use_round = (operator_i == ALU_ADD)   || (operator_i == ALU_SUB)   ||",
+            "mutated": "assign shift_use_round = (operator_i == ALU_ADD)   || (operator_i != ALU_SUB)   ||"
+          },
+          {
+            "line": 244,
+            "operator": "OR_TO_AND",
+            "original": "assign shift_use_round = (operator_i == ALU_ADD)   || (operator_i == ALU_SUB)   ||",
+            "mutated": "assign shift_use_round = (operator_i == ALU_ADD)   && (operator_i == ALU_SUB)   ||"
+          },
+          {
+            "line": 244,
+            "operator": "OR_TO_AND",
+            "original": "assign shift_use_round = (operator_i == ALU_ADD)   || (operator_i == ALU_SUB)   ||",
+            "mutated": "assign shift_use_round = (operator_i == ALU_ADD)   || (operator_i == ALU_SUB)   &&"
+          },
+          {
+            "line": 245,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_ADDR)  || (operator_i == ALU_SUBR)  ||",
+            "mutated": "(operator_i != ALU_ADDR)  || (operator_i == ALU_SUBR)  ||"
+          },
+          {
+            "line": 245,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_ADDR)  || (operator_i == ALU_SUBR)  ||",
+            "mutated": "(operator_i == ALU_ADDR)  || (operator_i != ALU_SUBR)  ||"
+          },
+          {
+            "line": 245,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_ADDR)  || (operator_i == ALU_SUBR)  ||",
+            "mutated": "(operator_i == ALU_ADDR)  && (operator_i == ALU_SUBR)  ||"
+          },
+          {
+            "line": 245,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_ADDR)  || (operator_i == ALU_SUBR)  ||",
+            "mutated": "(operator_i == ALU_ADDR)  || (operator_i == ALU_SUBR)  &&"
+          },
+          {
+            "line": 246,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_ADDU)  || (operator_i == ALU_SUBU)  ||",
+            "mutated": "(operator_i != ALU_ADDU)  || (operator_i == ALU_SUBU)  ||"
+          },
+          {
+            "line": 246,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_ADDU)  || (operator_i == ALU_SUBU)  ||",
+            "mutated": "(operator_i == ALU_ADDU)  || (operator_i != ALU_SUBU)  ||"
+          },
+          {
+            "line": 246,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_ADDU)  || (operator_i == ALU_SUBU)  ||",
+            "mutated": "(operator_i == ALU_ADDU)  && (operator_i == ALU_SUBU)  ||"
+          },
+          {
+            "line": 246,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_ADDU)  || (operator_i == ALU_SUBU)  ||",
+            "mutated": "(operator_i == ALU_ADDU)  || (operator_i == ALU_SUBU)  &&"
+          },
+          {
+            "line": 247,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_ADDUR) || (operator_i == ALU_SUBUR);",
+            "mutated": "(operator_i != ALU_ADDUR) || (operator_i == ALU_SUBUR);"
+          },
+          {
+            "line": 247,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_ADDUR) || (operator_i == ALU_SUBUR);",
+            "mutated": "(operator_i == ALU_ADDUR) || (operator_i != ALU_SUBUR);"
+          },
+          {
+            "line": 247,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_ADDUR) || (operator_i == ALU_SUBUR);",
+            "mutated": "(operator_i == ALU_ADDUR) && (operator_i == ALU_SUBUR);"
+          },
+          {
+            "line": 249,
+            "operator": "OR_TO_AND",
+            "original": "assign shift_arithmetic = (operator_i == ALU_SRA)  || (operator_i == ALU_BEXT) ||",
+            "mutated": "assign shift_arithmetic = (operator_i == ALU_SRA)  && (operator_i == ALU_BEXT) ||"
+          },
+          {
+            "line": 249,
+            "operator": "OR_TO_AND",
+            "original": "assign shift_arithmetic = (operator_i == ALU_SRA)  || (operator_i == ALU_BEXT) ||",
+            "mutated": "assign shift_arithmetic = (operator_i == ALU_SRA)  || (operator_i == ALU_BEXT) &&"
+          },
+          {
+            "line": 250,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_ADD)  || (operator_i == ALU_SUB)  ||",
+            "mutated": "(operator_i == ALU_ADD)  && (operator_i == ALU_SUB)  ||"
+          },
+          {
+            "line": 250,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_ADD)  || (operator_i == ALU_SUB)  ||",
+            "mutated": "(operator_i == ALU_ADD)  || (operator_i == ALU_SUB)  &&"
+          },
+          {
+            "line": 251,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_ADDR) || (operator_i == ALU_SUBR);",
+            "mutated": "(operator_i == ALU_ADDR) && (operator_i == ALU_SUBR);"
+          },
+          {
+            "line": 276,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "{shift_arithmetic & shift_op_a[31], shift_op_a[31:16]}",
+            "mutated": "{shift_arithmetic | shift_op_a[31], shift_op_a[31:16]}"
+          },
+          {
+            "line": 276,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{shift_arithmetic & shift_op_a[31], shift_op_a[31:16]}",
+            "mutated": "{shift_arithmetic & shift_op_a[32], shift_op_a[31:16]}"
+          },
+          {
+            "line": 279,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "{shift_arithmetic & shift_op_a[15], shift_op_a[15:0]}",
+            "mutated": "{shift_arithmetic | shift_op_a[15], shift_op_a[15:0]}"
+          },
+          {
+            "line": 279,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{shift_arithmetic & shift_op_a[15], shift_op_a[15:0]}",
+            "mutated": "{shift_arithmetic & shift_op_a[16], shift_op_a[15:0]}"
+          },
+          {
+            "line": 285,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "{shift_arithmetic & shift_op_a[31], shift_op_a[31:24]}",
+            "mutated": "{shift_arithmetic | shift_op_a[31], shift_op_a[31:24]}"
+          },
+          {
+            "line": 285,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{shift_arithmetic & shift_op_a[31], shift_op_a[31:24]}",
+            "mutated": "{shift_arithmetic & shift_op_a[32], shift_op_a[31:24]}"
+          },
+          {
+            "line": 288,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "{shift_arithmetic & shift_op_a[23], shift_op_a[23:16]}",
+            "mutated": "{shift_arithmetic | shift_op_a[23], shift_op_a[23:16]}"
+          },
+          {
+            "line": 288,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{shift_arithmetic & shift_op_a[23], shift_op_a[23:16]}",
+            "mutated": "{shift_arithmetic & shift_op_a[24], shift_op_a[23:16]}"
+          },
+          {
+            "line": 291,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "{shift_arithmetic & shift_op_a[15], shift_op_a[15:8]}",
+            "mutated": "{shift_arithmetic | shift_op_a[15], shift_op_a[15:8]}"
+          },
+          {
+            "line": 291,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{shift_arithmetic & shift_op_a[15], shift_op_a[15:8]}",
+            "mutated": "{shift_arithmetic & shift_op_a[16], shift_op_a[15:8]}"
+          },
+          {
+            "line": 294,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "{shift_arithmetic & shift_op_a[7], shift_op_a[7:0]}",
+            "mutated": "{shift_arithmetic | shift_op_a[7], shift_op_a[7:0]}"
+          },
+          {
+            "line": 294,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{shift_arithmetic & shift_op_a[7], shift_op_a[7:0]}",
+            "mutated": "{shift_arithmetic & shift_op_a[8], shift_op_a[7:0]}"
+          },
+          {
+            "line": 300,
+            "operator": "SHR_TO_SHL",
+            "original": "shift_right_result = shift_op_a_32 >> shift_amt_int[4:0];",
+            "mutated": "shift_right_result = shift_op_a_32 << shift_amt_int[4:0];"
+          },
+          {
+            "line": 309,
+            "operator": "LT_TO_LE",
+            "original": "for (j = 0; j < 32; j++) begin : gen_shift_left_result",
+            "mutated": "for (j = 0; j <= 32; j++) begin : gen_shift_left_result"
+          },
+          {
+            "line": 310,
+            "operator": "SUB_TO_ADD",
+            "original": "assign shift_left_result[j] = shift_right_result[31-j];",
+            "mutated": "assign shift_left_result[j] = shift_right_result[31+j];"
+          },
+          {
+            "line": 340,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (operator_i == ALU_CLIPU) operand_b_eq = '0;",
+            "mutated": "if (operator_i != ALU_CLIPU) operand_b_eq = '0;"
+          },
+          {
+            "line": 343,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign is_equal_clip = operand_a_i == operand_b_eq;",
+            "mutated": "assign is_equal_clip = operand_a_i != operand_b_eq;"
+          },
+          {
+            "line": 376,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign is_equal_vec[i] = (operand_a_i[8*i+7:8*i] == operand_b_i[8*i+7:i*8]);",
+            "mutated": "assign is_equal_vec[i] = (operand_a_i[8*i+7:8*i] != operand_b_i[8*i+7:i*8]);"
+          },
+          {
+            "line": 378,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "{operand_a_i[8*i+7] & cmp_signed[i], operand_a_i[8*i+7:8*i]}",
+            "mutated": "{operand_a_i[8*i+7] | cmp_signed[i], operand_a_i[8*i+7:8*i]}"
+          },
+          {
+            "line": 378,
+            "operator": "ADD_TO_SUB",
+            "original": "{operand_a_i[8*i+7] & cmp_signed[i], operand_a_i[8*i+7:8*i]}",
+            "mutated": "{operand_a_i[8*i-7] & cmp_signed[i], operand_a_i[8*i+7:8*i]}"
+          },
+          {
+            "line": 379,
+            "operator": "GT_TO_GE",
+            "original": ") > $signed(",
+            "mutated": ") >= $signed("
+          },
+          {
+            "line": 380,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "{operand_b_i[8*i+7] & cmp_signed[i], operand_b_i[8*i+7:i*8]}",
+            "mutated": "{operand_b_i[8*i+7] | cmp_signed[i], operand_b_i[8*i+7:i*8]}"
+          },
+          {
+            "line": 380,
+            "operator": "ADD_TO_SUB",
+            "original": "{operand_b_i[8*i+7] & cmp_signed[i], operand_b_i[8*i+7:i*8]}",
+            "mutated": "{operand_b_i[8*i-7] & cmp_signed[i], operand_b_i[8*i+7:i*8]}"
+          },
+          {
+            "line": 389,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "is_equal[3:0] = {4{is_equal_vec[3] & is_equal_vec[2] & is_equal_vec[1] & is_equal_vec[0]}};",
+            "mutated": "is_equal[3:0] = {4{is_equal_vec[3] | is_equal_vec[2] & is_equal_vec[1] & is_equal_vec[0]}};"
+          },
+          {
+            "line": 389,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "is_equal[3:0] = {4{is_equal_vec[3] & is_equal_vec[2] & is_equal_vec[1] & is_equal_vec[0]}};",
+            "mutated": "is_equal[3:0] = {4{is_equal_vec[3] & is_equal_vec[2] | is_equal_vec[1] & is_equal_vec[0]}};"
+          },
+          {
+            "line": 389,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "is_equal[3:0] = {4{is_equal_vec[3] & is_equal_vec[2] & is_equal_vec[1] & is_equal_vec[0]}};",
+            "mutated": "is_equal[3:0] = {4{is_equal_vec[3] & is_equal_vec[2] & is_equal_vec[1] | is_equal_vec[0]}};"
+          },
+          {
+            "line": 389,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_equal[3:0] = {4{is_equal_vec[3] & is_equal_vec[2] & is_equal_vec[1] & is_equal_vec[0]}};",
+            "mutated": "is_equal[3:0] = {4{is_equal_vec[4] & is_equal_vec[2] & is_equal_vec[1] & is_equal_vec[0]}};"
+          },
+          {
+            "line": 389,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_equal[3:0] = {4{is_equal_vec[3] & is_equal_vec[2] & is_equal_vec[1] & is_equal_vec[0]}};",
+            "mutated": "is_equal[3:0] = {4{is_equal_vec[3] & is_equal_vec[3] & is_equal_vec[1] & is_equal_vec[0]}};"
+          },
+          {
+            "line": 389,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_equal[3:0] = {4{is_equal_vec[3] & is_equal_vec[2] & is_equal_vec[1] & is_equal_vec[0]}};",
+            "mutated": "is_equal[3:0] = {4{is_equal_vec[3] & is_equal_vec[2] & is_equal_vec[2] & is_equal_vec[0]}};"
+          },
+          {
+            "line": 389,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_equal[3:0] = {4{is_equal_vec[3] & is_equal_vec[2] & is_equal_vec[1] & is_equal_vec[0]}};",
+            "mutated": "is_equal[3:0] = {4{is_equal_vec[3] & is_equal_vec[2] & is_equal_vec[1] & is_equal_vec[1]}};"
+          },
+          {
+            "line": 396,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "is_equal[1:0]   = {2{is_equal_vec[0] & is_equal_vec[1]}};",
+            "mutated": "is_equal[1:0]   = {2{is_equal_vec[0] | is_equal_vec[1]}};"
+          },
+          {
+            "line": 396,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_equal[1:0]   = {2{is_equal_vec[0] & is_equal_vec[1]}};",
+            "mutated": "is_equal[1:0]   = {2{is_equal_vec[1] & is_equal_vec[1]}};"
+          },
+          {
+            "line": 396,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_equal[1:0]   = {2{is_equal_vec[0] & is_equal_vec[1]}};",
+            "mutated": "is_equal[1:0]   = {2{is_equal_vec[0] & is_equal_vec[2]}};"
+          },
+          {
+            "line": 397,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "is_equal[3:2]   = {2{is_equal_vec[2] & is_equal_vec[3]}};",
+            "mutated": "is_equal[3:2]   = {2{is_equal_vec[2] | is_equal_vec[3]}};"
+          },
+          {
+            "line": 397,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_equal[3:2]   = {2{is_equal_vec[2] & is_equal_vec[3]}};",
+            "mutated": "is_equal[3:2]   = {2{is_equal_vec[3] & is_equal_vec[3]}};"
+          },
+          {
+            "line": 397,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_equal[3:2]   = {2{is_equal_vec[2] & is_equal_vec[3]}};",
+            "mutated": "is_equal[3:2]   = {2{is_equal_vec[2] & is_equal_vec[4]}};"
+          },
+          {
+            "line": 398,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "is_greater[1:0] = {2{is_greater_vec[1] | (is_equal_vec[1] & is_greater_vec[0])}};",
+            "mutated": "is_greater[1:0] = {2{is_greater_vec[1] | (is_equal_vec[1] | is_greater_vec[0])}};"
+          },
+          {
+            "line": 398,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "is_greater[1:0] = {2{is_greater_vec[1] | (is_equal_vec[1] & is_greater_vec[0])}};",
+            "mutated": "is_greater[1:0] = {2{is_greater_vec[1] & (is_equal_vec[1] & is_greater_vec[0])}};"
+          },
+          {
+            "line": 398,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_greater[1:0] = {2{is_greater_vec[1] | (is_equal_vec[1] & is_greater_vec[0])}};",
+            "mutated": "is_greater[1:0] = {2{is_greater_vec[2] | (is_equal_vec[1] & is_greater_vec[0])}};"
+          },
+          {
+            "line": 398,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_greater[1:0] = {2{is_greater_vec[1] | (is_equal_vec[1] & is_greater_vec[0])}};",
+            "mutated": "is_greater[1:0] = {2{is_greater_vec[1] | (is_equal_vec[2] & is_greater_vec[0])}};"
+          },
+          {
+            "line": 398,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_greater[1:0] = {2{is_greater_vec[1] | (is_equal_vec[1] & is_greater_vec[0])}};",
+            "mutated": "is_greater[1:0] = {2{is_greater_vec[1] | (is_equal_vec[1] & is_greater_vec[1])}};"
+          },
+          {
+            "line": 399,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "is_greater[3:2] = {2{is_greater_vec[3] | (is_equal_vec[3] & is_greater_vec[2])}};",
+            "mutated": "is_greater[3:2] = {2{is_greater_vec[3] | (is_equal_vec[3] | is_greater_vec[2])}};"
+          },
+          {
+            "line": 399,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "is_greater[3:2] = {2{is_greater_vec[3] | (is_equal_vec[3] & is_greater_vec[2])}};",
+            "mutated": "is_greater[3:2] = {2{is_greater_vec[3] & (is_equal_vec[3] & is_greater_vec[2])}};"
+          },
+          {
+            "line": 399,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_greater[3:2] = {2{is_greater_vec[3] | (is_equal_vec[3] & is_greater_vec[2])}};",
+            "mutated": "is_greater[3:2] = {2{is_greater_vec[4] | (is_equal_vec[3] & is_greater_vec[2])}};"
+          },
+          {
+            "line": 399,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_greater[3:2] = {2{is_greater_vec[3] | (is_equal_vec[3] & is_greater_vec[2])}};",
+            "mutated": "is_greater[3:2] = {2{is_greater_vec[3] | (is_equal_vec[4] & is_greater_vec[2])}};"
+          },
+          {
+            "line": 399,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "is_greater[3:2] = {2{is_greater_vec[3] | (is_equal_vec[3] & is_greater_vec[2])}};",
+            "mutated": "is_greater[3:2] = {2{is_greater_vec[3] | (is_equal_vec[3] & is_greater_vec[3])}};"
+          },
+          {
+            "line": 418,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "ALU_NE:                                 cmp_result = ~is_equal;",
+            "mutated": "ALU_NE:                                 cmp_result = is_equal;"
+          },
+          {
+            "line": 420,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "ALU_GES, ALU_GEU:                       cmp_result = is_greater | is_equal;",
+            "mutated": "ALU_GES, ALU_GEU:                       cmp_result = is_greater & is_equal;"
+          },
+          {
+            "line": 421,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "ALU_LTS, ALU_SLTS, ALU_LTU, ALU_SLTU:   cmp_result = ~(is_greater | is_equal);",
+            "mutated": "ALU_LTS, ALU_SLTS, ALU_LTU, ALU_SLTU:   cmp_result = ~(is_greater & is_equal);"
+          },
+          {
+            "line": 422,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "ALU_SLETS, ALU_SLETU, ALU_LES, ALU_LEU: cmp_result = ~is_greater;",
+            "mutated": "ALU_SLETS, ALU_SLETU, ALU_LES, ALU_LEU: cmp_result = is_greater;"
+          },
+          {
+            "line": 427,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign comparison_result_o = cmp_result[3];",
+            "mutated": "assign comparison_result_o = cmp_result[4];"
+          },
+          {
+            "line": 436,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign minmax_b = (operator_i == ALU_ABS) ? adder_result : operand_b_i;",
+            "mutated": "assign minmax_b = (operator_i != ALU_ABS) ? adder_result : operand_b_i;"
+          },
+          {
+            "line": 438,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign do_min   = (operator_i == ALU_MIN)  || (operator_i == ALU_MINU) ||",
+            "mutated": "assign do_min   = (operator_i != ALU_MIN)  || (operator_i == ALU_MINU) ||"
+          },
+          {
+            "line": 438,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign do_min   = (operator_i == ALU_MIN)  || (operator_i == ALU_MINU) ||",
+            "mutated": "assign do_min   = (operator_i == ALU_MIN)  || (operator_i != ALU_MINU) ||"
+          },
+          {
+            "line": 438,
+            "operator": "OR_TO_AND",
+            "original": "assign do_min   = (operator_i == ALU_MIN)  || (operator_i == ALU_MINU) ||",
+            "mutated": "assign do_min   = (operator_i == ALU_MIN)  && (operator_i == ALU_MINU) ||"
+          },
+          {
+            "line": 438,
+            "operator": "OR_TO_AND",
+            "original": "assign do_min   = (operator_i == ALU_MIN)  || (operator_i == ALU_MINU) ||",
+            "mutated": "assign do_min   = (operator_i == ALU_MIN)  || (operator_i == ALU_MINU) &&"
+          },
+          {
+            "line": 439,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_CLIP) || (operator_i == ALU_CLIPU);",
+            "mutated": "(operator_i != ALU_CLIP) || (operator_i == ALU_CLIPU);"
+          },
+          {
+            "line": 439,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_CLIP) || (operator_i == ALU_CLIPU);",
+            "mutated": "(operator_i == ALU_CLIP) || (operator_i != ALU_CLIPU);"
+          },
+          {
+            "line": 439,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_CLIP) || (operator_i == ALU_CLIPU);",
+            "mutated": "(operator_i == ALU_CLIP) && (operator_i == ALU_CLIPU);"
+          },
+          {
+            "line": 443,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign result_minmax[31:24] = (sel_minmax[3] == 1'b1) ? operand_a_i[31:24] : minmax_b[31:24];",
+            "mutated": "assign result_minmax[31:24] = (sel_minmax[3] != 1'b1) ? operand_a_i[31:24] : minmax_b[31:24];"
+          },
+          {
+            "line": 443,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign result_minmax[31:24] = (sel_minmax[3] == 1'b1) ? operand_a_i[31:24] : minmax_b[31:24];",
+            "mutated": "assign result_minmax[31:24] = (sel_minmax[4] == 1'b1) ? operand_a_i[31:24] : minmax_b[31:24];"
+          },
+          {
+            "line": 444,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign result_minmax[23:16] = (sel_minmax[2] == 1'b1) ? operand_a_i[23:16] : minmax_b[23:16];",
+            "mutated": "assign result_minmax[23:16] = (sel_minmax[2] != 1'b1) ? operand_a_i[23:16] : minmax_b[23:16];"
+          },
+          {
+            "line": 444,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign result_minmax[23:16] = (sel_minmax[2] == 1'b1) ? operand_a_i[23:16] : minmax_b[23:16];",
+            "mutated": "assign result_minmax[23:16] = (sel_minmax[3] == 1'b1) ? operand_a_i[23:16] : minmax_b[23:16];"
+          },
+          {
+            "line": 445,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign result_minmax[15:8] = (sel_minmax[1] == 1'b1) ? operand_a_i[15:8] : minmax_b[15:8];",
+            "mutated": "assign result_minmax[15:8] = (sel_minmax[1] != 1'b1) ? operand_a_i[15:8] : minmax_b[15:8];"
+          },
+          {
+            "line": 445,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign result_minmax[15:8] = (sel_minmax[1] == 1'b1) ? operand_a_i[15:8] : minmax_b[15:8];",
+            "mutated": "assign result_minmax[15:8] = (sel_minmax[2] == 1'b1) ? operand_a_i[15:8] : minmax_b[15:8];"
+          },
+          {
+            "line": 446,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign result_minmax[7:0] = (sel_minmax[0] == 1'b1) ? operand_a_i[7:0] : minmax_b[7:0];",
+            "mutated": "assign result_minmax[7:0] = (sel_minmax[0] != 1'b1) ? operand_a_i[7:0] : minmax_b[7:0];"
+          },
+          {
+            "line": 446,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign result_minmax[7:0] = (sel_minmax[0] == 1'b1) ? operand_a_i[7:0] : minmax_b[7:0];",
+            "mutated": "assign result_minmax[7:0] = (sel_minmax[1] == 1'b1) ? operand_a_i[7:0] : minmax_b[7:0];"
+          },
+          {
+            "line": 455,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (operator_i == ALU_CLIPU) begin",
+            "mutated": "if (operator_i != ALU_CLIPU) begin"
+          },
+          {
+            "line": 456,
+            "operator": "OR_TO_AND",
+            "original": "if (operand_a_i[31] || is_equal_clip) begin",
+            "mutated": "if (operand_a_i[31] && is_equal_clip) begin"
+          },
+          {
+            "line": 456,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (operand_a_i[31] || is_equal_clip) begin",
+            "mutated": "if (operand_a_i[32] || is_equal_clip) begin"
+          },
+          {
+            "line": 463,
+            "operator": "OR_TO_AND",
+            "original": "if (adder_result_expanded[36] || is_equal_clip) begin",
+            "mutated": "if (adder_result_expanded[36] && is_equal_clip) begin"
+          },
+          {
+            "line": 463,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (adder_result_expanded[36] || is_equal_clip) begin",
+            "mutated": "if (adder_result_expanded[37] || is_equal_clip) begin"
+          },
+          {
+            "line": 501,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (operator_i == ALU_EXTS) shuffle_reg1_sel = 2'b11;",
+            "mutated": "if (operator_i != ALU_EXTS) shuffle_reg1_sel = 2'b11;"
+          },
+          {
+            "line": 503,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (vector_mode_i == VEC_MODE8) begin",
+            "mutated": "if (vector_mode_i != VEC_MODE8) begin"
+          },
+          {
+            "line": 505,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[0]   = 1'b0;",
+            "mutated": "shuffle_reg_sel[1]   = 1'b0;"
+          },
+          {
+            "line": 515,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (vector_mode_i == VEC_MODE8) begin",
+            "mutated": "if (vector_mode_i != VEC_MODE8) begin"
+          },
+          {
+            "line": 526,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (vector_mode_i == VEC_MODE8) begin",
+            "mutated": "if (vector_mode_i != VEC_MODE8) begin"
+          },
+          {
+            "line": 537,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[3] = ~operand_b_i[26];",
+            "mutated": "shuffle_reg_sel[4] = ~operand_b_i[26];"
+          },
+          {
+            "line": 537,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[3] = ~operand_b_i[26];",
+            "mutated": "shuffle_reg_sel[3] = ~operand_b_i[27];"
+          },
+          {
+            "line": 537,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "shuffle_reg_sel[3] = ~operand_b_i[26];",
+            "mutated": "shuffle_reg_sel[3] = operand_b_i[26];"
+          },
+          {
+            "line": 538,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[2] = ~operand_b_i[18];",
+            "mutated": "shuffle_reg_sel[3] = ~operand_b_i[18];"
+          },
+          {
+            "line": 538,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[2] = ~operand_b_i[18];",
+            "mutated": "shuffle_reg_sel[2] = ~operand_b_i[19];"
+          },
+          {
+            "line": 538,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "shuffle_reg_sel[2] = ~operand_b_i[18];",
+            "mutated": "shuffle_reg_sel[2] = operand_b_i[18];"
+          },
+          {
+            "line": 539,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[1] = ~operand_b_i[10];",
+            "mutated": "shuffle_reg_sel[2] = ~operand_b_i[10];"
+          },
+          {
+            "line": 539,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[1] = ~operand_b_i[10];",
+            "mutated": "shuffle_reg_sel[1] = ~operand_b_i[11];"
+          },
+          {
+            "line": 539,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "shuffle_reg_sel[1] = ~operand_b_i[10];",
+            "mutated": "shuffle_reg_sel[1] = operand_b_i[10];"
+          },
+          {
+            "line": 540,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[0] = ~operand_b_i[2];",
+            "mutated": "shuffle_reg_sel[1] = ~operand_b_i[2];"
+          },
+          {
+            "line": 540,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[0] = ~operand_b_i[2];",
+            "mutated": "shuffle_reg_sel[0] = ~operand_b_i[3];"
+          },
+          {
+            "line": 540,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "shuffle_reg_sel[0] = ~operand_b_i[2];",
+            "mutated": "shuffle_reg_sel[0] = operand_b_i[2];"
+          },
+          {
+            "line": 544,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[3] = ~operand_b_i[17];",
+            "mutated": "shuffle_reg_sel[4] = ~operand_b_i[17];"
+          },
+          {
+            "line": 544,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[3] = ~operand_b_i[17];",
+            "mutated": "shuffle_reg_sel[3] = ~operand_b_i[18];"
+          },
+          {
+            "line": 544,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "shuffle_reg_sel[3] = ~operand_b_i[17];",
+            "mutated": "shuffle_reg_sel[3] = operand_b_i[17];"
+          },
+          {
+            "line": 545,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[2] = ~operand_b_i[17];",
+            "mutated": "shuffle_reg_sel[3] = ~operand_b_i[17];"
+          },
+          {
+            "line": 545,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[2] = ~operand_b_i[17];",
+            "mutated": "shuffle_reg_sel[2] = ~operand_b_i[18];"
+          },
+          {
+            "line": 545,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "shuffle_reg_sel[2] = ~operand_b_i[17];",
+            "mutated": "shuffle_reg_sel[2] = operand_b_i[17];"
+          },
+          {
+            "line": 546,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[1] = ~operand_b_i[1];",
+            "mutated": "shuffle_reg_sel[2] = ~operand_b_i[1];"
+          },
+          {
+            "line": 546,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[1] = ~operand_b_i[1];",
+            "mutated": "shuffle_reg_sel[1] = ~operand_b_i[2];"
+          },
+          {
+            "line": 546,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "shuffle_reg_sel[1] = ~operand_b_i[1];",
+            "mutated": "shuffle_reg_sel[1] = operand_b_i[1];"
+          },
+          {
+            "line": 547,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[0] = ~operand_b_i[1];",
+            "mutated": "shuffle_reg_sel[1] = ~operand_b_i[1];"
+          },
+          {
+            "line": 547,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[0] = ~operand_b_i[1];",
+            "mutated": "shuffle_reg_sel[0] = ~operand_b_i[2];"
+          },
+          {
+            "line": 547,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "shuffle_reg_sel[0] = ~operand_b_i[1];",
+            "mutated": "shuffle_reg_sel[0] = operand_b_i[1];"
+          },
+          {
+            "line": 574,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[3] = ~imm_vec_ext_i[0];",
+            "mutated": "shuffle_reg_sel[4] = ~imm_vec_ext_i[0];"
+          },
+          {
+            "line": 574,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[3] = ~imm_vec_ext_i[0];",
+            "mutated": "shuffle_reg_sel[3] = ~imm_vec_ext_i[1];"
+          },
+          {
+            "line": 574,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "shuffle_reg_sel[3] = ~imm_vec_ext_i[0];",
+            "mutated": "shuffle_reg_sel[3] = imm_vec_ext_i[0];"
+          },
+          {
+            "line": 575,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[2] = ~imm_vec_ext_i[0];",
+            "mutated": "shuffle_reg_sel[3] = ~imm_vec_ext_i[0];"
+          },
+          {
+            "line": 575,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[2] = ~imm_vec_ext_i[0];",
+            "mutated": "shuffle_reg_sel[2] = ~imm_vec_ext_i[1];"
+          },
+          {
+            "line": 575,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "shuffle_reg_sel[2] = ~imm_vec_ext_i[0];",
+            "mutated": "shuffle_reg_sel[2] = imm_vec_ext_i[0];"
+          },
+          {
+            "line": 576,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[1] = imm_vec_ext_i[0];",
+            "mutated": "shuffle_reg_sel[2] = imm_vec_ext_i[0];"
+          },
+          {
+            "line": 576,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[1] = imm_vec_ext_i[0];",
+            "mutated": "shuffle_reg_sel[1] = imm_vec_ext_i[1];"
+          },
+          {
+            "line": 577,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[0] = imm_vec_ext_i[0];",
+            "mutated": "shuffle_reg_sel[1] = imm_vec_ext_i[0];"
+          },
+          {
+            "line": 577,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_reg_sel[0] = imm_vec_ext_i[0];",
+            "mutated": "shuffle_reg_sel[0] = imm_vec_ext_i[1];"
+          },
+          {
+            "line": 595,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[3] = imm_vec_ext_i[1:0];",
+            "mutated": "shuffle_byte_sel[4] = imm_vec_ext_i[1:0];"
+          },
+          {
+            "line": 596,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[2] = imm_vec_ext_i[1:0];",
+            "mutated": "shuffle_byte_sel[3] = imm_vec_ext_i[1:0];"
+          },
+          {
+            "line": 597,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[1] = imm_vec_ext_i[1:0];",
+            "mutated": "shuffle_byte_sel[2] = imm_vec_ext_i[1:0];"
+          },
+          {
+            "line": 598,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[0] = imm_vec_ext_i[1:0];",
+            "mutated": "shuffle_byte_sel[1] = imm_vec_ext_i[1:0];"
+          },
+          {
+            "line": 602,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[3] = {imm_vec_ext_i[0], 1'b1};",
+            "mutated": "shuffle_byte_sel[4] = {imm_vec_ext_i[0], 1'b1};"
+          },
+          {
+            "line": 602,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[3] = {imm_vec_ext_i[0], 1'b1};",
+            "mutated": "shuffle_byte_sel[3] = {imm_vec_ext_i[1], 1'b1};"
+          },
+          {
+            "line": 603,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[2] = {imm_vec_ext_i[0], 1'b1};",
+            "mutated": "shuffle_byte_sel[3] = {imm_vec_ext_i[0], 1'b1};"
+          },
+          {
+            "line": 603,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[2] = {imm_vec_ext_i[0], 1'b1};",
+            "mutated": "shuffle_byte_sel[2] = {imm_vec_ext_i[1], 1'b1};"
+          },
+          {
+            "line": 604,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[1] = {imm_vec_ext_i[0], 1'b1};",
+            "mutated": "shuffle_byte_sel[2] = {imm_vec_ext_i[0], 1'b1};"
+          },
+          {
+            "line": 604,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[1] = {imm_vec_ext_i[0], 1'b1};",
+            "mutated": "shuffle_byte_sel[1] = {imm_vec_ext_i[1], 1'b1};"
+          },
+          {
+            "line": 605,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[0] = {imm_vec_ext_i[0], 1'b0};",
+            "mutated": "shuffle_byte_sel[1] = {imm_vec_ext_i[0], 1'b0};"
+          },
+          {
+            "line": 605,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[0] = {imm_vec_ext_i[0], 1'b0};",
+            "mutated": "shuffle_byte_sel[0] = {imm_vec_ext_i[1], 1'b0};"
+          },
+          {
+            "line": 615,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[3] = 2'b00;",
+            "mutated": "shuffle_byte_sel[4] = 2'b00;"
+          },
+          {
+            "line": 616,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[2] = 2'b00;",
+            "mutated": "shuffle_byte_sel[3] = 2'b00;"
+          },
+          {
+            "line": 617,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[1] = 2'b00;",
+            "mutated": "shuffle_byte_sel[2] = 2'b00;"
+          },
+          {
+            "line": 618,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[0] = 2'b00;",
+            "mutated": "shuffle_byte_sel[1] = 2'b00;"
+          },
+          {
+            "line": 622,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[3] = 2'b01;",
+            "mutated": "shuffle_byte_sel[4] = 2'b01;"
+          },
+          {
+            "line": 623,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[2] = 2'b00;",
+            "mutated": "shuffle_byte_sel[3] = 2'b00;"
+          },
+          {
+            "line": 624,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[1] = 2'b01;",
+            "mutated": "shuffle_byte_sel[2] = 2'b01;"
+          },
+          {
+            "line": 625,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[0] = 2'b00;",
+            "mutated": "shuffle_byte_sel[1] = 2'b00;"
+          },
+          {
+            "line": 635,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[3] = 2'b00;",
+            "mutated": "shuffle_byte_sel[4] = 2'b00;"
+          },
+          {
+            "line": 636,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[2] = 2'b00;",
+            "mutated": "shuffle_byte_sel[3] = 2'b00;"
+          },
+          {
+            "line": 637,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[1] = 2'b00;",
+            "mutated": "shuffle_byte_sel[2] = 2'b00;"
+          },
+          {
+            "line": 638,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[0] = 2'b00;",
+            "mutated": "shuffle_byte_sel[1] = 2'b00;"
+          },
+          {
+            "line": 642,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[3] = 2'b11;",
+            "mutated": "shuffle_byte_sel[4] = 2'b11;"
+          },
+          {
+            "line": 643,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[2] = 2'b10;",
+            "mutated": "shuffle_byte_sel[3] = 2'b10;"
+          },
+          {
+            "line": 644,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[1] = 2'b11;",
+            "mutated": "shuffle_byte_sel[2] = 2'b11;"
+          },
+          {
+            "line": 645,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[0] = 2'b10;",
+            "mutated": "shuffle_byte_sel[1] = 2'b10;"
+          },
+          {
+            "line": 655,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[3] = operand_b_i[25:24];",
+            "mutated": "shuffle_byte_sel[4] = operand_b_i[25:24];"
+          },
+          {
+            "line": 656,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[2] = operand_b_i[17:16];",
+            "mutated": "shuffle_byte_sel[3] = operand_b_i[17:16];"
+          },
+          {
+            "line": 657,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[1] = operand_b_i[9:8];",
+            "mutated": "shuffle_byte_sel[2] = operand_b_i[9:8];"
+          },
+          {
+            "line": 658,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[0] = operand_b_i[1:0];",
+            "mutated": "shuffle_byte_sel[1] = operand_b_i[1:0];"
+          },
+          {
+            "line": 662,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[3] = {operand_b_i[16], 1'b1};",
+            "mutated": "shuffle_byte_sel[4] = {operand_b_i[16], 1'b1};"
+          },
+          {
+            "line": 662,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[3] = {operand_b_i[16], 1'b1};",
+            "mutated": "shuffle_byte_sel[3] = {operand_b_i[17], 1'b1};"
+          },
+          {
+            "line": 663,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[2] = {operand_b_i[16], 1'b0};",
+            "mutated": "shuffle_byte_sel[3] = {operand_b_i[16], 1'b0};"
+          },
+          {
+            "line": 663,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[2] = {operand_b_i[16], 1'b0};",
+            "mutated": "shuffle_byte_sel[2] = {operand_b_i[17], 1'b0};"
+          },
+          {
+            "line": 664,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[1] = {operand_b_i[0], 1'b1};",
+            "mutated": "shuffle_byte_sel[2] = {operand_b_i[0], 1'b1};"
+          },
+          {
+            "line": 664,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[1] = {operand_b_i[0], 1'b1};",
+            "mutated": "shuffle_byte_sel[1] = {operand_b_i[1], 1'b1};"
+          },
+          {
+            "line": 665,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[0] = {operand_b_i[0], 1'b0};",
+            "mutated": "shuffle_byte_sel[1] = {operand_b_i[0], 1'b0};"
+          },
+          {
+            "line": 665,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[0] = {operand_b_i[0], 1'b0};",
+            "mutated": "shuffle_byte_sel[0] = {operand_b_i[1], 1'b0};"
+          },
+          {
+            "line": 672,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[3] = 2'b11;",
+            "mutated": "shuffle_byte_sel[4] = 2'b11;"
+          },
+          {
+            "line": 673,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[2] = 2'b10;",
+            "mutated": "shuffle_byte_sel[3] = 2'b10;"
+          },
+          {
+            "line": 674,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[1] = 2'b01;",
+            "mutated": "shuffle_byte_sel[2] = 2'b01;"
+          },
+          {
+            "line": 675,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "shuffle_byte_sel[0] = 2'b00;",
+            "mutated": "shuffle_byte_sel[1] = 2'b00;"
+          },
+          {
+            "line": 682,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r0_in = shuffle_reg0_sel[1] ?",
+            "mutated": "assign shuffle_r0_in = shuffle_reg0_sel[2] ?"
+          },
+          {
+            "line": 684,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_reg0_sel[0] ? {2{operand_a_i[15:0]}} : {4{operand_a_i[7:0]}});",
+            "mutated": "(shuffle_reg0_sel[1] ? {2{operand_a_i[15:0]}} : {4{operand_a_i[7:0]}});"
+          },
+          {
+            "line": 686,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r1_in = shuffle_reg1_sel[1] ? {",
+            "mutated": "assign shuffle_r1_in = shuffle_reg1_sel[2] ? {"
+          },
+          {
+            "line": 687,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{8{operand_a_i[31]}}, {8{operand_a_i[23]}}, {8{operand_a_i[15]}}, {8{operand_a_i[7]}}",
+            "mutated": "{8{operand_a_i[32]}}, {8{operand_a_i[23]}}, {8{operand_a_i[15]}}, {8{operand_a_i[7]}}"
+          },
+          {
+            "line": 687,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{8{operand_a_i[31]}}, {8{operand_a_i[23]}}, {8{operand_a_i[15]}}, {8{operand_a_i[7]}}",
+            "mutated": "{8{operand_a_i[31]}}, {8{operand_a_i[24]}}, {8{operand_a_i[15]}}, {8{operand_a_i[7]}}"
+          },
+          {
+            "line": 687,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{8{operand_a_i[31]}}, {8{operand_a_i[23]}}, {8{operand_a_i[15]}}, {8{operand_a_i[7]}}",
+            "mutated": "{8{operand_a_i[31]}}, {8{operand_a_i[23]}}, {8{operand_a_i[16]}}, {8{operand_a_i[7]}}"
+          },
+          {
+            "line": 687,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{8{operand_a_i[31]}}, {8{operand_a_i[23]}}, {8{operand_a_i[15]}}, {8{operand_a_i[7]}}",
+            "mutated": "{8{operand_a_i[31]}}, {8{operand_a_i[23]}}, {8{operand_a_i[15]}}, {8{operand_a_i[8]}}"
+          },
+          {
+            "line": 688,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "} : (shuffle_reg1_sel[0] ? operand_c_i : operand_b_i);",
+            "mutated": "} : (shuffle_reg1_sel[1] ? operand_c_i : operand_b_i);"
+          },
+          {
+            "line": 690,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r0[31:24] = shuffle_byte_sel[3][1] ?",
+            "mutated": "assign shuffle_r0[31:24] = shuffle_byte_sel[4][1] ?"
+          },
+          {
+            "line": 690,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r0[31:24] = shuffle_byte_sel[3][1] ?",
+            "mutated": "assign shuffle_r0[31:24] = shuffle_byte_sel[3][2] ?"
+          },
+          {
+            "line": 691,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[3][0] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[4][0] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :"
+          },
+          {
+            "line": 691,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[3][0] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[3][1] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :"
+          },
+          {
+            "line": 692,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[3][0] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[4][0] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);"
+          },
+          {
+            "line": 692,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[3][0] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[3][1] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);"
+          },
+          {
+            "line": 693,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r0[23:16] = shuffle_byte_sel[2][1] ?",
+            "mutated": "assign shuffle_r0[23:16] = shuffle_byte_sel[3][1] ?"
+          },
+          {
+            "line": 693,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r0[23:16] = shuffle_byte_sel[2][1] ?",
+            "mutated": "assign shuffle_r0[23:16] = shuffle_byte_sel[2][2] ?"
+          },
+          {
+            "line": 694,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[2][0] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[3][0] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :"
+          },
+          {
+            "line": 694,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[2][0] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[2][1] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :"
+          },
+          {
+            "line": 695,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[2][0] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[3][0] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);"
+          },
+          {
+            "line": 695,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[2][0] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[2][1] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);"
+          },
+          {
+            "line": 696,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r0[15: 8] = shuffle_byte_sel[1][1] ?",
+            "mutated": "assign shuffle_r0[15: 8] = shuffle_byte_sel[2][1] ?"
+          },
+          {
+            "line": 696,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r0[15: 8] = shuffle_byte_sel[1][1] ?",
+            "mutated": "assign shuffle_r0[15: 8] = shuffle_byte_sel[1][2] ?"
+          },
+          {
+            "line": 697,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[1][0] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[2][0] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :"
+          },
+          {
+            "line": 697,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[1][0] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[1][1] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :"
+          },
+          {
+            "line": 698,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[1][0] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[2][0] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);"
+          },
+          {
+            "line": 698,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[1][0] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[1][1] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);"
+          },
+          {
+            "line": 699,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r0[ 7: 0] = shuffle_byte_sel[0][1] ?",
+            "mutated": "assign shuffle_r0[ 7: 0] = shuffle_byte_sel[1][1] ?"
+          },
+          {
+            "line": 699,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r0[ 7: 0] = shuffle_byte_sel[0][1] ?",
+            "mutated": "assign shuffle_r0[ 7: 0] = shuffle_byte_sel[0][2] ?"
+          },
+          {
+            "line": 700,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[0][0] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[1][0] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :"
+          },
+          {
+            "line": 700,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[0][0] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[0][1] ? shuffle_r0_in[31:24] : shuffle_r0_in[23:16]) :"
+          },
+          {
+            "line": 701,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[0][0] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[1][0] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);"
+          },
+          {
+            "line": 701,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[0][0] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[0][1] ? shuffle_r0_in[15: 8] : shuffle_r0_in[ 7: 0]);"
+          },
+          {
+            "line": 703,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r1[31:24] = shuffle_byte_sel[3][1] ?",
+            "mutated": "assign shuffle_r1[31:24] = shuffle_byte_sel[4][1] ?"
+          },
+          {
+            "line": 703,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r1[31:24] = shuffle_byte_sel[3][1] ?",
+            "mutated": "assign shuffle_r1[31:24] = shuffle_byte_sel[3][2] ?"
+          },
+          {
+            "line": 704,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[3][0] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[4][0] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :"
+          },
+          {
+            "line": 704,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[3][0] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[3][1] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :"
+          },
+          {
+            "line": 705,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[3][0] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[4][0] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);"
+          },
+          {
+            "line": 705,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[3][0] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[3][1] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);"
+          },
+          {
+            "line": 706,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r1[23:16] = shuffle_byte_sel[2][1] ?",
+            "mutated": "assign shuffle_r1[23:16] = shuffle_byte_sel[3][1] ?"
+          },
+          {
+            "line": 706,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r1[23:16] = shuffle_byte_sel[2][1] ?",
+            "mutated": "assign shuffle_r1[23:16] = shuffle_byte_sel[2][2] ?"
+          },
+          {
+            "line": 707,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[2][0] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[3][0] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :"
+          },
+          {
+            "line": 707,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[2][0] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[2][1] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :"
+          },
+          {
+            "line": 708,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[2][0] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[3][0] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);"
+          },
+          {
+            "line": 708,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[2][0] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[2][1] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);"
+          },
+          {
+            "line": 709,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r1[15: 8] = shuffle_byte_sel[1][1] ?",
+            "mutated": "assign shuffle_r1[15: 8] = shuffle_byte_sel[2][1] ?"
+          },
+          {
+            "line": 709,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r1[15: 8] = shuffle_byte_sel[1][1] ?",
+            "mutated": "assign shuffle_r1[15: 8] = shuffle_byte_sel[1][2] ?"
+          },
+          {
+            "line": 710,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[1][0] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[2][0] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :"
+          },
+          {
+            "line": 710,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[1][0] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[1][1] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :"
+          },
+          {
+            "line": 711,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[1][0] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[2][0] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);"
+          },
+          {
+            "line": 711,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[1][0] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[1][1] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);"
+          },
+          {
+            "line": 712,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r1[ 7: 0] = shuffle_byte_sel[0][1] ?",
+            "mutated": "assign shuffle_r1[ 7: 0] = shuffle_byte_sel[1][1] ?"
+          },
+          {
+            "line": 712,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_r1[ 7: 0] = shuffle_byte_sel[0][1] ?",
+            "mutated": "assign shuffle_r1[ 7: 0] = shuffle_byte_sel[0][2] ?"
+          },
+          {
+            "line": 713,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[0][0] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[1][0] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :"
+          },
+          {
+            "line": 713,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[0][0] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :",
+            "mutated": "(shuffle_byte_sel[0][1] ? shuffle_r1_in[31:24] : shuffle_r1_in[23:16]) :"
+          },
+          {
+            "line": 714,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[0][0] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[1][0] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);"
+          },
+          {
+            "line": 714,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "(shuffle_byte_sel[0][0] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);",
+            "mutated": "(shuffle_byte_sel[0][1] ? shuffle_r1_in[15: 8] : shuffle_r1_in[ 7: 0]);"
+          },
+          {
+            "line": 716,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_result[31:24] = shuffle_reg_sel[3] ? shuffle_r1[31:24] : shuffle_r0[31:24];",
+            "mutated": "assign shuffle_result[31:24] = shuffle_reg_sel[4] ? shuffle_r1[31:24] : shuffle_r0[31:24];"
+          },
+          {
+            "line": 717,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_result[23:16] = shuffle_reg_sel[2] ? shuffle_r1[23:16] : shuffle_r0[23:16];",
+            "mutated": "assign shuffle_result[23:16] = shuffle_reg_sel[3] ? shuffle_r1[23:16] : shuffle_r0[23:16];"
+          },
+          {
+            "line": 718,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_result[15:8] = shuffle_reg_sel[1] ? shuffle_r1[15:8] : shuffle_r0[15:8];",
+            "mutated": "assign shuffle_result[15:8] = shuffle_reg_sel[2] ? shuffle_r1[15:8] : shuffle_r0[15:8];"
+          },
+          {
+            "line": 719,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign shuffle_result[7:0] = shuffle_reg_sel[0] ? shuffle_r1[7:0] : shuffle_r0[7:0];",
+            "mutated": "assign shuffle_result[7:0] = shuffle_reg_sel[1] ? shuffle_r1[7:0] : shuffle_r0[7:0];"
+          },
+          {
+            "line": 721,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign pack_result[31:24] = shuffle_through[3] ? shuffle_result[31:24] : operand_c_i[31:24];",
+            "mutated": "assign pack_result[31:24] = shuffle_through[4] ? shuffle_result[31:24] : operand_c_i[31:24];"
+          },
+          {
+            "line": 722,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign pack_result[23:16] = shuffle_through[2] ? shuffle_result[23:16] : operand_c_i[23:16];",
+            "mutated": "assign pack_result[23:16] = shuffle_through[3] ? shuffle_result[23:16] : operand_c_i[23:16];"
+          },
+          {
+            "line": 723,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign pack_result[15:8] = shuffle_through[1] ? shuffle_result[15:8] : operand_c_i[15:8];",
+            "mutated": "assign pack_result[15:8] = shuffle_through[2] ? shuffle_result[15:8] : operand_c_i[15:8];"
+          },
+          {
+            "line": 724,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign pack_result[7:0] = shuffle_through[0] ? shuffle_result[7:0] : operand_c_i[7:0];",
+            "mutated": "assign pack_result[7:0] = shuffle_through[1] ? shuffle_result[7:0] : operand_c_i[7:0];"
+          },
+          {
+            "line": 758,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (operand_a_i[31]) ff_input = operand_a_neg_rev;",
+            "mutated": "if (operand_a_i[32]) ff_input = operand_a_neg_rev;"
+          },
+          {
+            "line": 778,
+            "operator": "DEC_CONST_BUMP",
+            "original": "ALU_FF1: bitop_result = ff_no_one ? 6'd32 : {1'b0, ff1_result};",
+            "mutated": "ALU_FF1: bitop_result = ff_no_one ? 6'd33 : {1'b0, ff1_result};"
+          },
+          {
+            "line": 779,
+            "operator": "DEC_CONST_BUMP",
+            "original": "ALU_FL1: bitop_result = ff_no_one ? 6'd32 : {1'b0, fl1_result};",
+            "mutated": "ALU_FL1: bitop_result = ff_no_one ? 6'd33 : {1'b0, fl1_result};"
+          },
+          {
+            "line": 783,
+            "operator": "DEC_CONST_BUMP",
+            "original": "if (operand_a_i[31]) bitop_result = 6'd31;",
+            "mutated": "if (operand_a_i[31]) bitop_result = 6'd32;"
+          },
+          {
+            "line": 783,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (operand_a_i[31]) bitop_result = 6'd31;",
+            "mutated": "if (operand_a_i[32]) bitop_result = 6'd31;"
+          },
+          {
+            "line": 813,
+            "operator": "SHL_TO_SHR",
+            "original": "assign bmask             = (~bmask_first) << bmask_b_i;",
+            "mutated": "assign bmask             = (~bmask_first) >> bmask_b_i;"
+          },
+          {
+            "line": 813,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "assign bmask             = (~bmask_first) << bmask_b_i;",
+            "mutated": "assign bmask             = (bmask_first) << bmask_b_i;"
+          },
+          {
+            "line": 814,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "assign bmask_inv         = ~bmask;",
+            "mutated": "assign bmask_inv         = bmask;"
+          },
+          {
+            "line": 816,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign bextins_and       = (operator_i == ALU_BINS) ? operand_c_i : {32{extract_sign}};",
+            "mutated": "assign bextins_and       = (operator_i != ALU_BINS) ? operand_c_i : {32{extract_sign}};"
+          },
+          {
+            "line": 818,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign extract_is_signed = (operator_i == ALU_BEXT);",
+            "mutated": "assign extract_is_signed = (operator_i != ALU_BEXT);"
+          },
+          {
+            "line": 819,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign extract_sign      = extract_is_signed & shift_result[bmask_a_i];",
+            "mutated": "assign extract_sign      = extract_is_signed | shift_result[bmask_a_i];"
+          },
+          {
+            "line": 821,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign bextins_result    = (bmask & shift_result) | (bextins_and & bmask_inv);",
+            "mutated": "assign bextins_result    = (bmask | shift_result) | (bextins_and & bmask_inv);"
+          },
+          {
+            "line": 821,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign bextins_result    = (bmask & shift_result) | (bextins_and & bmask_inv);",
+            "mutated": "assign bextins_result    = (bmask & shift_result) | (bextins_and | bmask_inv);"
+          },
+          {
+            "line": 821,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "assign bextins_result    = (bmask & shift_result) | (bextins_and & bmask_inv);",
+            "mutated": "assign bextins_result    = (bmask & shift_result) & (bextins_and & bmask_inv);"
+          },
+          {
+            "line": 823,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign bclr_result       = operand_a_i & bmask_inv;",
+            "mutated": "assign bclr_result       = operand_a_i | bmask_inv;"
+          },
+          {
+            "line": 824,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "assign bset_result       = operand_a_i | bmask;",
+            "mutated": "assign bset_result       = operand_a_i & bmask;"
+          },
+          {
+            "line": 846,
+            "operator": "LT_TO_LE",
+            "original": "for (j = 0; j < 32; j++) begin : gen_radix_2_rev",
+            "mutated": "for (j = 0; j <= 32; j++) begin : gen_radix_2_rev"
+          },
+          {
+            "line": 847,
+            "operator": "SUB_TO_ADD",
+            "original": "assign radix_2_rev[j] = shift_result[31-j];",
+            "mutated": "assign radix_2_rev[j] = shift_result[31+j];"
+          },
+          {
+            "line": 887,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign div_signed = operator_i[0];",
+            "mutated": "assign div_signed = operator_i[1];"
+          },
+          {
+            "line": 889,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign div_op_a_signed = operand_a_i[31] & div_signed;",
+            "mutated": "assign div_op_a_signed = operand_a_i[31] | div_signed;"
+          },
+          {
+            "line": 889,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign div_op_a_signed = operand_a_i[31] & div_signed;",
+            "mutated": "assign div_op_a_signed = operand_a_i[32] & div_signed;"
+          },
+          {
+            "line": 891,
+            "operator": "DEC_CONST_BUMP",
+            "original": "assign div_shift_int = ff_no_one ? 6'd31 : clb_result;",
+            "mutated": "assign div_shift_int = ff_no_one ? 6'd32 : clb_result;"
+          },
+          {
+            "line": 892,
+            "operator": "ADD_TO_SUB",
+            "original": "assign div_shift = div_shift_int + (div_op_a_signed ? 6'd0 : 6'd1);",
+            "mutated": "assign div_shift = div_shift_int - (div_op_a_signed ? 6'd0 : 6'd1);"
+          },
+          {
+            "line": 892,
+            "operator": "DEC_CONST_BUMP",
+            "original": "assign div_shift = div_shift_int + (div_op_a_signed ? 6'd0 : 6'd1);",
+            "mutated": "assign div_shift = div_shift_int + (div_op_a_signed ? 6'd1 : 6'd1);"
+          },
+          {
+            "line": 892,
+            "operator": "DEC_CONST_BUMP",
+            "original": "assign div_shift = div_shift_int + (div_op_a_signed ? 6'd0 : 6'd1);",
+            "mutated": "assign div_shift = div_shift_int + (div_op_a_signed ? 6'd0 : 6'd2);"
+          },
+          {
+            "line": 894,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign div_valid = enable_i & ((operator_i == ALU_DIV) || (operator_i == ALU_DIVU) ||",
+            "mutated": "assign div_valid = enable_i & ((operator_i != ALU_DIV) || (operator_i == ALU_DIVU) ||"
+          },
+          {
+            "line": 894,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign div_valid = enable_i & ((operator_i == ALU_DIV) || (operator_i == ALU_DIVU) ||",
+            "mutated": "assign div_valid = enable_i & ((operator_i == ALU_DIV) || (operator_i != ALU_DIVU) ||"
+          },
+          {
+            "line": 894,
+            "operator": "OR_TO_AND",
+            "original": "assign div_valid = enable_i & ((operator_i == ALU_DIV) || (operator_i == ALU_DIVU) ||",
+            "mutated": "assign div_valid = enable_i & ((operator_i == ALU_DIV) && (operator_i == ALU_DIVU) ||"
+          },
+          {
+            "line": 894,
+            "operator": "OR_TO_AND",
+            "original": "assign div_valid = enable_i & ((operator_i == ALU_DIV) || (operator_i == ALU_DIVU) ||",
+            "mutated": "assign div_valid = enable_i & ((operator_i == ALU_DIV) || (operator_i == ALU_DIVU) &&"
+          },
+          {
+            "line": 894,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign div_valid = enable_i & ((operator_i == ALU_DIV) || (operator_i == ALU_DIVU) ||",
+            "mutated": "assign div_valid = enable_i | ((operator_i == ALU_DIV) || (operator_i == ALU_DIVU) ||"
+          },
+          {
+            "line": 895,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_REM) || (operator_i == ALU_REMU));",
+            "mutated": "(operator_i != ALU_REM) || (operator_i == ALU_REMU));"
+          },
+          {
+            "line": 895,
+            "operator": "EQ_TO_NEQ",
+            "original": "(operator_i == ALU_REM) || (operator_i == ALU_REMU));",
+            "mutated": "(operator_i == ALU_REM) || (operator_i != ALU_REMU));"
+          },
+          {
+            "line": 895,
+            "operator": "OR_TO_AND",
+            "original": "(operator_i == ALU_REM) || (operator_i == ALU_REMU));",
+            "mutated": "(operator_i == ALU_REM) && (operator_i == ALU_REMU));"
+          },
+          {
+            "line": 906,
+            "operator": "EQ_TO_NEQ",
+            "original": ".OpBIsZero_SI((cnt_result == 0)),",
+            "mutated": ".OpBIsZero_SI((cnt_result != 0)),"
+          },
+          {
+            "line": 933,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "ALU_AND: result_o = operand_a_i & operand_b_i;",
+            "mutated": "ALU_AND: result_o = operand_a_i | operand_b_i;"
+          },
+          {
+            "line": 934,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "ALU_OR:  result_o = operand_a_i | operand_b_i;",
+            "mutated": "ALU_OR:  result_o = operand_a_i & operand_b_i;"
+          },
+          {
+            "line": 967,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "result_o[31:24] = {8{cmp_result[3]}};",
+            "mutated": "result_o[31:24] = {8{cmp_result[4]}};"
+          },
+          {
+            "line": 968,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "result_o[23:16] = {8{cmp_result[2]}};",
+            "mutated": "result_o[23:16] = {8{cmp_result[3]}};"
+          },
+          {
+            "line": 969,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "result_o[15:8]  = {8{cmp_result[1]}};",
+            "mutated": "result_o[15:8]  = {8{cmp_result[2]}};"
+          },
+          {
+            "line": 970,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "result_o[7:0]   = {8{cmp_result[0]}};",
+            "mutated": "result_o[7:0]   = {8{cmp_result[1]}};"
+          },
+          {
+            "line": 975,
+            "operator": "HEX_CONST_BUMP",
+            "original": "ALU_FF1, ALU_FL1, ALU_CLB, ALU_CNT: result_o = {26'h0, bitop_result[5:0]};",
+            "mutated": "ALU_FF1, ALU_FL1, ALU_CLB, ALU_CNT: result_o = {26'h1, bitop_result[5:0]};"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 13,
+          "selected": 12,
+          "redundancy_percent": 7.692307692307687,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_00",
+          "assertion": "always @(*) assert (operand_a_neg == ~operand_a_i);",
+          "code": "always @(*) assert (operand_a_neg == ~operand_a_i);"
+        },
+        {
+          "property_id": "prop_01",
+          "assertion": "always @(*) assert (operand_b_neg == ~operand_b_i);",
+          "code": "always @(*) assert (operand_b_neg == ~operand_b_i);"
+        },
+        {
+          "property_id": "prop_02",
+          "assertion": "always @(*) assert (adder_op_b_negate == (operator_i == ALU_SUB) || (operator_i == ALU_SUBR) || (operator_i == ALU_SUBU) || (operator_i == ALU_SUBUR) || is_subrot_i);",
+          "code": "always @(*) assert (adder_op_b_negate == (operator_i == ALU_SUB) || (operator_i == ALU_SUBR) || (operator_i == ALU_SUBU) || (operator_i == ALU_SUBUR) || is_subrot_i);"
+        },
+        {
+          "property_id": "prop_06",
+          "assertion": "always @(*) assert (operand_a_rev[31] == operand_a_i[0]);",
+          "code": "always @(*) assert (operand_a_rev[31] == operand_a_i[0]);"
+        },
+        {
+          "property_id": "prop_08",
+          "assertion": "always @(*) assert (adder_in_a[0] == 1'b1);",
+          "code": "always @(*) assert (adder_in_a[0] == 1'b1);"
+        },
+        {
+          "property_id": "prop_10",
+          "assertion": "always @(*) assert (adder_round_result == adder_result + adder_round_value);",
+          "code": "always @(*) assert (adder_round_result == adder_result + adder_round_value);"
+        },
+        {
+          "property_id": "prop_11",
+          "assertion": "always @(*) assert (shift_arithmetic == 1'b0 || (shift_op_a_32[63:32] == {32{shift_op_a[31]}}));",
+          "code": "always @(*) assert (shift_arithmetic == 1'b0 || (shift_op_a_32[63:32] == {32{shift_op_a[31]}}));"
+        },
+        {
+          "property_id": "prop_14",
+          "assertion": "always @(*) assert (sel_minmax[3:0] == (is_greater ^ {4{do_min}}));",
+          "code": "always @(*) assert (sel_minmax[3:0] == (is_greater ^ {4{do_min}}));"
+        },
+        {
+          "property_id": "prop_15",
+          "assertion": "always @(*) assert (fl1_result == 5'd31 - ff1_result);",
+          "code": "always @(*) assert (fl1_result == 5'd31 - ff1_result);"
+        },
+        {
+          "property_id": "prop_16",
+          "assertion": "always @(*) assert (clb_result == ff1_result - 5'd1);",
+          "code": "always @(*) assert (clb_result == ff1_result - 5'd1);"
+        },
+        {
+          "property_id": "prop_17",
+          "assertion": "always @(*) assert (bmask_first == ({32'hFFFFFFFE} << bmask_a_i));",
+          "code": "always @(*) assert (bmask_first == ({32'hFFFFFFFE} << bmask_a_i));"
+        },
+        {
+          "property_id": "prop_18",
+          "assertion": "always @(*) assert (operator_i != ALU_XOR || result_o == (operand_a_i ^ operand_b_i));",
+          "code": "always @(*) assert (operator_i != ALU_XOR || result_o == (operand_a_i ^ operand_b_i));"
+        },
+        {
+          "property_id": "prop_25",
+          "assertion": "always @(*) assert (vector_mode_i != VEC_MODE32 || is_greater[3:0] == {4{is_greater_vec[3] | (is_equal_vec[3] & (is_greater_vec[2] | (is_equal_vec[2] & (is_greater_vec[1] | (is_equal_vec[1] & (is_greater_vec[0]))))))}});",
+          "code": "always @(*) assert (vector_mode_i != VEC_MODE32 || is_greater[3:0] == {4{is_greater_vec[3] | (is_equal_vec[3] & (is_greater_vec[2] | (is_equal_vec[2] & (is_greater_vec[1] | (is_equal_vec[1] & (is_greater_vec[0]))))))}});"
+        }
+      ],
+      "wall_seconds": 985.5202372074127,
+      "suite_size": 13,
+      "suite_distinct": 13
+    }
+  ]
+}

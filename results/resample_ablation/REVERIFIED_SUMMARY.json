@@ -1,0 +1,86 @@
+[
+  {
+    "module": "cv32e40p_alu",
+    "source": "examples/formal_verification/soc_cores/cv32e40p/rtl/cv32e40p_alu.sv",
+    "clk": "clk",
+    "rst": "rst_n",
+    "depth": 1,
+    "seeds": [
+      {
+        "seed": 0,
+        "converged_in_loop": false,
+        "properties": 27,
+        "properties_distinct": 27,
+        "sampled": {
+          "budget": 24,
+          "kill_rate_percent": 76.19047619047619,
+          "kill_rate": "76.2% (16/21)",
+          "active": 21,
+          "killed": 16
+        },
+        "full_bank": {
+          "generated": 395,
+          "stillborn": 30,
+          "equivalent": 0,
+          "active": 365,
+          "killed": 54,
+          "kill_rate_percent": 14.794520547945206,
+          "kill_rate": "14.8% (54/365)",
+          "minimal_basis": 24,
+          "redundancy_percent": 11.111111111111116
+        },
+        "vacuity": {
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable": []
+        },
+        "overfit_gap_points": 61.4
+      }
+    ],
+    "full_bank_min": 14.794520547945206,
+    "full_bank_mean": 14.794520547945206,
+    "full_bank_max": 14.794520547945206
+  },
+  {
+    "module": "cv32e40p_mult",
+    "source": "examples/formal_verification/soc_cores/cv32e40p/rtl/cv32e40p_mult.sv",
+    "clk": "clk",
+    "rst": "rst_n",
+    "depth": 12,
+    "seeds": [
+      {
+        "seed": 0,
+        "converged_in_loop": false,
+        "properties": 16,
+        "properties_distinct": 16,
+        "sampled": {
+          "budget": 24,
+          "kill_rate_percent": 58.82352941176471,
+          "kill_rate": "58.8% (10/17)",
+          "active": 17,
+          "killed": 10
+        },
+        "full_bank": {
+          "generated": 159,
+          "stillborn": 33,
+          "equivalent": 0,
+          "active": 126,
+          "killed": 19,
+          "kill_rate_percent": 15.079365079365079,
+          "kill_rate": "15.1% (19/126)",
+          "minimal_basis": 11,
+          "redundancy_percent": 31.25
+        },
+        "vacuity": {
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/16 properties inert",
+          "unreachable": []
+        },
+        "overfit_gap_points": 43.7
+      }
+    ],
+    "full_bank_min": 15.079365079365079,
+    "full_bank_mean": 15.079365079365079,
+    "full_bank_max": 15.079365079365079
+  }
+]

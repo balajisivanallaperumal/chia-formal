@@ -1,0 +1,72 @@
+{
+  "module": "IBuf",
+  "source": "examples/formal_verification/soc_cores/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.RocketConfig/gen-collateral/IBuf.sv",
+  "clk": "clock",
+  "rst": "reset",
+  "depth": 12,
+  "seeds": [
+    {
+      "seed": 0,
+      "converged_in_loop": true,
+      "properties": 10,
+      "properties_distinct": 10,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (20/20)",
+        "active": 20,
+        "killed": 20
+      },
+      "full_bank": {
+        "generated": 52,
+        "stillborn": 0,
+        "equivalent": 10,
+        "active": 42,
+        "killed": 34,
+        "kill_rate_percent": 80.95238095238095,
+        "kill_rate": "81.0% (34/42)",
+        "minimal_basis": 10,
+        "redundancy_percent": 0.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/10 properties inert",
+        "unreachable": []
+      },
+      "overfit_gap_points": 19.0
+    },
+    {
+      "seed": 1,
+      "converged_in_loop": true,
+      "properties": 10,
+      "properties_distinct": 10,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (20/20)",
+        "active": 20,
+        "killed": 20
+      },
+      "full_bank": {
+        "generated": 52,
+        "stillborn": 0,
+        "equivalent": 10,
+        "active": 42,
+        "killed": 34,
+        "kill_rate_percent": 80.95238095238095,
+        "kill_rate": "81.0% (34/42)",
+        "minimal_basis": 10,
+        "redundancy_percent": 0.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/10 properties inert",
+        "unreachable": []
+      },
+      "overfit_gap_points": 19.0
+    }
+  ],
+  "full_bank_min": 80.95238095238095,
+  "full_bank_mean": 80.95238095238095,
+  "full_bank_max": 80.95238095238095
+}

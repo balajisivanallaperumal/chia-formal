@@ -1,0 +1,72 @@
+{
+  "module": "serv_alu",
+  "source": "examples/formal_verification/soc_cores/serv/rtl/serv_alu.v",
+  "clk": "clk",
+  "rst": "none",
+  "depth": 12,
+  "seeds": [
+    {
+      "seed": 0,
+      "converged_in_loop": true,
+      "properties": 10,
+      "properties_distinct": 10,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (13/13)",
+        "active": 13,
+        "killed": 13
+      },
+      "full_bank": {
+        "generated": 35,
+        "stillborn": 4,
+        "equivalent": 8,
+        "active": 23,
+        "killed": 16,
+        "kill_rate_percent": 69.56521739130434,
+        "kill_rate": "69.6% (16/23)",
+        "minimal_basis": 8,
+        "redundancy_percent": 19.999999999999996
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": 30.4
+    },
+    {
+      "seed": 1,
+      "converged_in_loop": true,
+      "properties": 8,
+      "properties_distinct": 8,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (13/13)",
+        "active": 13,
+        "killed": 13
+      },
+      "full_bank": {
+        "generated": 35,
+        "stillborn": 4,
+        "equivalent": 8,
+        "active": 23,
+        "killed": 16,
+        "kill_rate_percent": 69.56521739130434,
+        "kill_rate": "69.6% (16/23)",
+        "minimal_basis": 7,
+        "redundancy_percent": 12.5
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": 30.4
+    }
+  ],
+  "full_bank_min": 69.56521739130434,
+  "full_bank_mean": 69.56521739130434,
+  "full_bank_max": 69.56521739130434
+}

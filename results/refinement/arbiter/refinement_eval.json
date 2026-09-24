@@ -1,0 +1,693 @@
+{
+  "module": "arbiter",
+  "source": "examples/formal_verification/designs/arbiter.v",
+  "bmc_depth": 12,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 0,
+  "kill_rate_min": 52.63157894736842,
+  "kill_rate_max": 94.73684210526315,
+  "kill_rate_mean": 73.68421052631578,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": false,
+      "stop_reason": "iteration budget (4) exhausted",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 15,
+          "admitted": 8,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 7,
+          "suite_size": 8,
+          "active": 19,
+          "killed": 8,
+          "kill_rate": 42.10526315789473,
+          "newly_killed": [
+            "m003_SHL_TO_SHR_L20_0",
+            "m004_SHR_TO_SHL_L20_0",
+            "m005_BITWISE_AND_TO_OR_L21_0",
+            "m006_ADD_TO_SUB_L21_0",
+            "m008_INC_OFF_BY_ONE_L21_0",
+            "m009_DROP_BITWISE_NOT_L21_0",
+            "m013_SHL_TO_SHR_L22_0",
+            "m014_SHR_TO_SHL_L22_0"
+          ],
+          "seconds": 11.817270994186401
+        },
+        {
+          "index": 1,
+          "proposed": 9,
+          "admitted": 4,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 9,
+          "suite_size": 4,
+          "active": 19,
+          "killed": 8,
+          "kill_rate": 42.10526315789473,
+          "newly_killed": [],
+          "seconds": 5.427014350891113
+        },
+        {
+          "index": 2,
+          "proposed": 12,
+          "admitted": 10,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 6,
+          "suite_size": 10,
+          "active": 19,
+          "killed": 18,
+          "kill_rate": 94.73684210526315,
+          "newly_killed": [
+            "m000_BITWISE_OR_TO_AND_L20_0",
+            "m010_BITWISE_OR_TO_AND_L22_0",
+            "m016_DROP_NOT_L27_0",
+            "m017_RESET_POLARITY_FLIP_L27_0",
+            "m019_DROP_NOT_L32_0",
+            "m020_RESET_POLARITY_FLIP_L32_0",
+            "m023_DEC_CONST_BUMP_L37_0",
+            "m025_DEC_CONST_BUMP_L38_0",
+            "m027_DEC_CONST_BUMP_L39_0",
+            "m029_DEC_CONST_BUMP_L40_0"
+          ],
+          "seconds": 23.58510732650757
+        },
+        {
+          "index": 3,
+          "proposed": 8,
+          "admitted": 10,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 7,
+          "rejected_unsound": 0,
+          "suite_size": 10,
+          "active": 19,
+          "killed": 18,
+          "kill_rate": 94.73684210526315,
+          "newly_killed": [],
+          "seconds": 18.840179204940796
+        }
+      ],
+      "initial_kill_rate": 42.10526315789473,
+      "final_kill_rate": 94.73684210526315,
+      "loop_seconds": 85.15428376197815,
+      "independent_verification": {
+        "properties_checked": 9,
+        "properties_sound": 9,
+        "soundness": [
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & ($past(pick) - 1)) == 0);"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & $past(req)) != 0);"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_pick) == 0 || ($past(rot_pick) & ($past(rot_pick) - 1)) == 0);"
+          },
+          {
+            "property_id": "prop_08",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_req) == 0 || ($past(rot_pick) != 0));"
+          },
+          {
+            "property_id": "prop_27",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[0], 5) && $past(req[0], 4) && $past(req[0], 3) && $past(req[0], 2) && $past(req[0], 1)) || ($past(grant[0], 4) || $past(grant[0], 3) || $past(grant[0], 2) || $past(grant[0], 1) || grant[0]));"
+          },
+          {
+            "property_id": "prop_28",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[1], 5) && $past(req[1], 4) && $past(req[1], 3) && $past(req[1], 2) && $past(req[1], 1)) || ($past(grant[1], 4) || $past(grant[1], 3) || $past(grant[1], 2) || $past(grant[1], 1) || grant[1]));"
+          },
+          {
+            "property_id": "prop_29",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[2], 5) && $past(req[2], 4) && $past(req[2], 3) && $past(req[2], 2) && $past(req[2], 1)) || ($past(grant[2], 4) || $past(grant[2], 3) || $past(grant[2], 2) || $past(grant[2], 1) || grant[2]));"
+          },
+          {
+            "property_id": "prop_30",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[3], 5) && $past(req[3], 4) && $past(req[3], 3) && $past(req[3], 2) && $past(req[3], 1)) || ($past(grant[3], 4) || $past(grant[3], 3) || $past(grant[3], 2) || $past(grant[3], 1) || grant[3]));"
+          },
+          {
+            "property_id": "prop_35",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n && $past(pick) == 4'b1000) assert (prio == 2'd0);"
+          }
+        ],
+        "kill_rate_percent": 94.73684210526315,
+        "kill_rate": "94.7% (18/19)",
+        "generated": 31,
+        "stillborn": 3,
+        "equivalent": 2,
+        "killed_equivalent": 0,
+        "active": 19,
+        "killed": 18,
+        "survivors": [
+          {
+            "line": 20,
+            "operator": "SUB_TO_ADD",
+            "original": "wire [N-1:0] rot_req  = (req >> prio) | (req << (N - prio));",
+            "mutated": "wire [N-1:0] rot_req  = (req >> prio) | (req << (N + prio));"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 9,
+          "selected": 6,
+          "redundancy_percent": 33.333333333333336,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 3,
+          "reachable": 3,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (3/3 antecedents reachable, cover depth 12); 0/9 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 9,
+        "properties_sound": 9,
+        "soundness": [
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & ($past(pick) - 1)) == 0);"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & $past(req)) != 0);"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_pick) == 0 || ($past(rot_pick) & ($past(rot_pick) - 1)) == 0);"
+          },
+          {
+            "property_id": "prop_08",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_req) == 0 || ($past(rot_pick) != 0));"
+          },
+          {
+            "property_id": "prop_27",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[0], 5) && $past(req[0], 4) && $past(req[0], 3) && $past(req[0], 2) && $past(req[0], 1)) || ($past(grant[0], 4) || $past(grant[0], 3) || $past(grant[0], 2) || $past(grant[0], 1) || grant[0]));"
+          },
+          {
+            "property_id": "prop_28",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[1], 5) && $past(req[1], 4) && $past(req[1], 3) && $past(req[1], 2) && $past(req[1], 1)) || ($past(grant[1], 4) || $past(grant[1], 3) || $past(grant[1], 2) || $past(grant[1], 1) || grant[1]));"
+          },
+          {
+            "property_id": "prop_29",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[2], 5) && $past(req[2], 4) && $past(req[2], 3) && $past(req[2], 2) && $past(req[2], 1)) || ($past(grant[2], 4) || $past(grant[2], 3) || $past(grant[2], 2) || $past(grant[2], 1) || grant[2]));"
+          },
+          {
+            "property_id": "prop_30",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[3], 5) && $past(req[3], 4) && $past(req[3], 3) && $past(req[3], 2) && $past(req[3], 1)) || ($past(grant[3], 4) || $past(grant[3], 3) || $past(grant[3], 2) || $past(grant[3], 1) || grant[3]));"
+          },
+          {
+            "property_id": "prop_35",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n && $past(pick) == 4'b1000) assert (prio == 2'd0);"
+          }
+        ],
+        "kill_rate_percent": 90.47619047619048,
+        "kill_rate": "90.5% (19/21)",
+        "generated": 31,
+        "stillborn": 8,
+        "equivalent": 2,
+        "killed_equivalent": 0,
+        "active": 21,
+        "killed": 19,
+        "survivors": [
+          {
+            "line": 20,
+            "operator": "SUB_TO_ADD",
+            "original": "wire [N-1:0] rot_req  = (req >> prio) | (req << (N - prio));",
+            "mutated": "wire [N-1:0] rot_req  = (req >> prio) | (req << (N + prio));"
+          },
+          {
+            "line": 22,
+            "operator": "SUB_TO_ADD",
+            "original": "wire [N-1:0] pick     = (rot_pick << prio) | (rot_pick >> (N - prio));",
+            "mutated": "wire [N-1:0] pick     = (rot_pick << prio) | (rot_pick >> (N + prio));"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 9,
+          "selected": 6,
+          "redundancy_percent": 33.333333333333336,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 3,
+          "reachable": 3,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (3/3 antecedents reachable, cover depth 12); 0/9 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_04",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & ($past(pick) - 1)) == 0);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & ($past(pick) - 1)) == 0);"
+        },
+        {
+          "property_id": "prop_05",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & $past(req)) != 0);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & $past(req)) != 0);"
+        },
+        {
+          "property_id": "prop_07",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_pick) == 0 || ($past(rot_pick) & ($past(rot_pick) - 1)) == 0);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_pick) == 0 || ($past(rot_pick) & ($past(rot_pick) - 1)) == 0);"
+        },
+        {
+          "property_id": "prop_08",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_req) == 0 || ($past(rot_pick) != 0));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_req) == 0 || ($past(rot_pick) != 0));"
+        },
+        {
+          "property_id": "prop_27",
+          "assertion": "always @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[0], 5) && $past(req[0], 4) && $past(req[0], 3) && $past(req[0], 2) && $past(req[0], 1)) || ($past(grant[0], 4) || $past(grant[0], 3) || $past(grant[0], 2) || $past(grant[0], 1) || grant[0]));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[0], 5) && $past(req[0], 4) && $past(req[0], 3) && $past(req[0], 2) && $past(req[0], 1)) || ($past(grant[0], 4) || $past(grant[0], 3) || $past(grant[0], 2) || $past(grant[0], 1) || grant[0]));"
+        },
+        {
+          "property_id": "prop_28",
+          "assertion": "always @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[1], 5) && $past(req[1], 4) && $past(req[1], 3) && $past(req[1], 2) && $past(req[1], 1)) || ($past(grant[1], 4) || $past(grant[1], 3) || $past(grant[1], 2) || $past(grant[1], 1) || grant[1]));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[1], 5) && $past(req[1], 4) && $past(req[1], 3) && $past(req[1], 2) && $past(req[1], 1)) || ($past(grant[1], 4) || $past(grant[1], 3) || $past(grant[1], 2) || $past(grant[1], 1) || grant[1]));"
+        },
+        {
+          "property_id": "prop_29",
+          "assertion": "always @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[2], 5) && $past(req[2], 4) && $past(req[2], 3) && $past(req[2], 2) && $past(req[2], 1)) || ($past(grant[2], 4) || $past(grant[2], 3) || $past(grant[2], 2) || $past(grant[2], 1) || grant[2]));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[2], 5) && $past(req[2], 4) && $past(req[2], 3) && $past(req[2], 2) && $past(req[2], 1)) || ($past(grant[2], 4) || $past(grant[2], 3) || $past(grant[2], 2) || $past(grant[2], 1) || grant[2]));"
+        },
+        {
+          "property_id": "prop_30",
+          "assertion": "always @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[3], 5) && $past(req[3], 4) && $past(req[3], 3) && $past(req[3], 2) && $past(req[3], 1)) || ($past(grant[3], 4) || $past(grant[3], 3) || $past(grant[3], 2) || $past(grant[3], 1) || grant[3]));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_cycles > 8'd4 && rst_n) assert (!($past(req[3], 5) && $past(req[3], 4) && $past(req[3], 3) && $past(req[3], 2) && $past(req[3], 1)) || ($past(grant[3], 4) || $past(grant[3], 3) || $past(grant[3], 2) || $past(grant[3], 1) || grant[3]));"
+        },
+        {
+          "property_id": "prop_35",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n && $past(pick) == 4'b1000) assert (prio == 2'd0);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n && $past(pick) == 4'b1000) assert (prio == 2'd0);"
+        }
+      ],
+      "wall_seconds": 134.59635972976685,
+      "suite_size": 9,
+      "suite_distinct": 9
+    },
+    {
+      "seed": 1,
+      "converged": false,
+      "stop_reason": "no new kills in 2 consecutive rounds",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 15,
+          "admitted": 9,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 6,
+          "suite_size": 9,
+          "active": 19,
+          "killed": 10,
+          "kill_rate": 52.63157894736842,
+          "newly_killed": [
+            "m000_BITWISE_OR_TO_AND_L20_0",
+            "m002_SUB_TO_ADD_L20_1",
+            "m003_SHL_TO_SHR_L20_0",
+            "m004_SHR_TO_SHL_L20_0",
+            "m005_BITWISE_AND_TO_OR_L21_0",
+            "m006_ADD_TO_SUB_L21_0",
+            "m007_SUB_TO_ADD_L21_0",
+            "m009_DROP_BITWISE_NOT_L21_0",
+            "m010_BITWISE_OR_TO_AND_L22_0",
+            "m013_SHL_TO_SHR_L22_0",
+            "m014_SHR_TO_SHL_L22_0"
+          ],
+          "seconds": 11.310569524765015
+        },
+        {
+          "index": 1,
+          "proposed": 19,
+          "admitted": 5,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 14,
+          "rejected_unsound": 5,
+          "suite_size": 5,
+          "active": 19,
+          "killed": 10,
+          "kill_rate": 52.63157894736842,
+          "newly_killed": [],
+          "seconds": 7.367655277252197
+        },
+        {
+          "index": 2,
+          "proposed": 5,
+          "admitted": 6,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 4,
+          "suite_size": 6,
+          "active": 19,
+          "killed": 10,
+          "kill_rate": 52.63157894736842,
+          "newly_killed": [],
+          "seconds": 7.0458221435546875
+        }
+      ],
+      "initial_kill_rate": 52.63157894736842,
+      "final_kill_rate": 52.63157894736842,
+      "loop_seconds": 50.549776792526245,
+      "independent_verification": {
+        "properties_checked": 5,
+        "properties_sound": 5,
+        "soundness": [
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & ($past(pick) - 1)) == 0);"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & $past(req)) != 0);"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_pick) == 0 || ($past(rot_pick) & ($past(rot_pick) - 1)) == 0);"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_req) == (($past(req) >> $past(prio)) | ($past(req) << (N - $past(prio)))));"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == (($past(rot_pick) << $past(prio)) | ($past(rot_pick) >> (N - $past(prio)))));"
+          }
+        ],
+        "kill_rate_percent": 52.63157894736842,
+        "kill_rate": "52.6% (10/19)",
+        "generated": 31,
+        "stillborn": 3,
+        "equivalent": 2,
+        "killed_equivalent": 1,
+        "active": 19,
+        "killed": 10,
+        "survivors": [
+          {
+            "line": 21,
+            "operator": "INC_OFF_BY_ONE",
+            "original": "wire [N-1:0] rot_pick = rot_req & (~rot_req + 1'b1);",
+            "mutated": "wire [N-1:0] rot_pick = rot_req & (~rot_req + 2'd2);"
+          },
+          {
+            "line": 27,
+            "operator": "DROP_NOT",
+            "original": "if (!rst_n) grant <= {N{1'b0}};",
+            "mutated": "if (rst_n) grant <= {N{1'b0}};"
+          },
+          {
+            "line": 27,
+            "operator": "RESET_POLARITY_FLIP",
+            "original": "if (!rst_n) grant <= {N{1'b0}};",
+            "mutated": "if (rst_n) grant <= {N{1'b0}};"
+          },
+          {
+            "line": 32,
+            "operator": "DROP_NOT",
+            "original": "if (!rst_n) begin",
+            "mutated": "if (rst_n) begin"
+          },
+          {
+            "line": 32,
+            "operator": "RESET_POLARITY_FLIP",
+            "original": "if (!rst_n) begin",
+            "mutated": "if (rst_n) begin"
+          },
+          {
+            "line": 37,
+            "operator": "DEC_CONST_BUMP",
+            "original": "4'b0001: prio <= 2'd1;",
+            "mutated": "4'b0001: prio <= 2'd2;"
+          },
+          {
+            "line": 38,
+            "operator": "DEC_CONST_BUMP",
+            "original": "4'b0010: prio <= 2'd2;",
+            "mutated": "4'b0010: prio <= 2'd3;"
+          },
+          {
+            "line": 39,
+            "operator": "DEC_CONST_BUMP",
+            "original": "4'b0100: prio <= 2'd3;",
+            "mutated": "4'b0100: prio <= 2'd0;"
+          },
+          {
+            "line": 40,
+            "operator": "DEC_CONST_BUMP",
+            "original": "4'b1000: prio <= 2'd0;",
+            "mutated": "4'b1000: prio <= 2'd1;"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 5,
+          "selected": 3,
+          "redundancy_percent": 40.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/5 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 5,
+        "properties_sound": 5,
+        "soundness": [
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & ($past(pick) - 1)) == 0);"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & $past(req)) != 0);"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_pick) == 0 || ($past(rot_pick) & ($past(rot_pick) - 1)) == 0);"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_req) == (($past(req) >> $past(prio)) | ($past(req) << (N - $past(prio)))));"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == (($past(rot_pick) << $past(prio)) | ($past(rot_pick) >> (N - $past(prio)))));"
+          }
+        ],
+        "kill_rate_percent": 57.14285714285714,
+        "kill_rate": "57.1% (12/21)",
+        "generated": 31,
+        "stillborn": 8,
+        "equivalent": 2,
+        "killed_equivalent": 1,
+        "active": 21,
+        "killed": 12,
+        "survivors": [
+          {
+            "line": 21,
+            "operator": "INC_OFF_BY_ONE",
+            "original": "wire [N-1:0] rot_pick = rot_req & (~rot_req + 1'b1);",
+            "mutated": "wire [N-1:0] rot_pick = rot_req & (~rot_req + 2'd2);"
+          },
+          {
+            "line": 27,
+            "operator": "DROP_NOT",
+            "original": "if (!rst_n) grant <= {N{1'b0}};",
+            "mutated": "if (rst_n) grant <= {N{1'b0}};"
+          },
+          {
+            "line": 27,
+            "operator": "RESET_POLARITY_FLIP",
+            "original": "if (!rst_n) grant <= {N{1'b0}};",
+            "mutated": "if (rst_n) grant <= {N{1'b0}};"
+          },
+          {
+            "line": 32,
+            "operator": "DROP_NOT",
+            "original": "if (!rst_n) begin",
+            "mutated": "if (rst_n) begin"
+          },
+          {
+            "line": 32,
+            "operator": "RESET_POLARITY_FLIP",
+            "original": "if (!rst_n) begin",
+            "mutated": "if (rst_n) begin"
+          },
+          {
+            "line": 37,
+            "operator": "DEC_CONST_BUMP",
+            "original": "4'b0001: prio <= 2'd1;",
+            "mutated": "4'b0001: prio <= 2'd2;"
+          },
+          {
+            "line": 38,
+            "operator": "DEC_CONST_BUMP",
+            "original": "4'b0010: prio <= 2'd2;",
+            "mutated": "4'b0010: prio <= 2'd3;"
+          },
+          {
+            "line": 39,
+            "operator": "DEC_CONST_BUMP",
+            "original": "4'b0100: prio <= 2'd3;",
+            "mutated": "4'b0100: prio <= 2'd0;"
+          },
+          {
+            "line": 40,
+            "operator": "DEC_CONST_BUMP",
+            "original": "4'b1000: prio <= 2'd0;",
+            "mutated": "4'b1000: prio <= 2'd1;"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 5,
+          "selected": 3,
+          "redundancy_percent": 40.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/5 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_04",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & ($past(pick) - 1)) == 0);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & ($past(pick) - 1)) == 0);"
+        },
+        {
+          "property_id": "prop_05",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & $past(req)) != 0);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == 0 || ($past(pick) & $past(req)) != 0);"
+        },
+        {
+          "property_id": "prop_07",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_pick) == 0 || ($past(rot_pick) & ($past(rot_pick) - 1)) == 0);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_pick) == 0 || ($past(rot_pick) & ($past(rot_pick) - 1)) == 0);"
+        },
+        {
+          "property_id": "prop_09",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_req) == (($past(req) >> $past(prio)) | ($past(req) << (N - $past(prio)))));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert ($past(rot_req) == (($past(req) >> $past(prio)) | ($past(req) << (N - $past(prio)))));"
+        },
+        {
+          "property_id": "prop_10",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == (($past(rot_pick) << $past(prio)) | ($past(rot_pick) >> (N - $past(prio)))));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert ($past(pick) == (($past(rot_pick) << $past(prio)) | ($past(rot_pick) >> (N - $past(prio)))));"
+        }
+      ],
+      "wall_seconds": 70.0995864868164,
+      "suite_size": 5,
+      "suite_distinct": 5
+    }
+  ]
+}

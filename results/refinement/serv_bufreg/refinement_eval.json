@@ -1,0 +1,549 @@
+{
+  "module": "serv_bufreg",
+  "source": "examples/formal_verification/soc_cores/serv/rtl/serv_bufreg.v",
+  "bmc_depth": 12,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 0,
+  "kill_rate_min": 72.72727272727273,
+  "kill_rate_max": 72.72727272727273,
+  "kill_rate_mean": 72.72727272727273,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": false,
+      "stop_reason": "iteration budget (4) exhausted",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 14,
+          "admitted": 2,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 12,
+          "suite_size": 2,
+          "active": 11,
+          "killed": 0,
+          "kill_rate": 0.0,
+          "newly_killed": [],
+          "seconds": 7.612759590148926
+        },
+        {
+          "index": 1,
+          "proposed": 7,
+          "admitted": 6,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 3,
+          "suite_size": 6,
+          "active": 11,
+          "killed": 6,
+          "kill_rate": 54.54545454545454,
+          "newly_killed": [
+            "m009_BITWISE_AND_TO_OR_L52_0",
+            "m010_BITWISE_AND_TO_OR_L52_1",
+            "m012_ADD_TO_SUB_L52_0",
+            "m013_ADD_TO_SUB_L52_1",
+            "m014_DROP_BITWISE_NOT_L52_0",
+            "m018_BIT_INDEX_BUMP_L57_0"
+          ],
+          "seconds": 4.696243047714233
+        },
+        {
+          "index": 2,
+          "proposed": 6,
+          "admitted": 3,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 4,
+          "suite_size": 3,
+          "active": 11,
+          "killed": 8,
+          "kill_rate": 72.72727272727273,
+          "newly_killed": [
+            "m006_BITWISE_AND_TO_OR_L44_0",
+            "m007_BIT_INDEX_BUMP_L44_0"
+          ],
+          "seconds": 3.5227982997894287
+        },
+        {
+          "index": 3,
+          "proposed": 3,
+          "admitted": 3,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 2,
+          "suite_size": 3,
+          "active": 11,
+          "killed": 8,
+          "kill_rate": 72.72727272727273,
+          "newly_killed": [],
+          "seconds": 2.9307472705841064
+        }
+      ],
+      "initial_kill_rate": 0.0,
+      "final_kill_rate": 72.72727272727273,
+      "loop_seconds": 40.924458742141724,
+      "independent_verification": {
+        "properties_checked": 3,
+        "properties_sound": 3,
+        "soundness": [
+          {
+            "property_id": "prop_16",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid) assert({c,q} == ({1'b0,(i_rs1 & {W{i_rs1_en}})} + {1'b0,(i_imm & {W{i_imm_en}} & ~clr_lsb)} + c_r));"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid) assert(c_r[0] == ($past(c) & $past(i_en)));"
+          },
+          {
+            "property_id": "prop_21",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid) assert(clr_lsb[0] == (i_cnt0 & i_clr_lsb));"
+          }
+        ],
+        "kill_rate_percent": 72.72727272727273,
+        "kill_rate": "72.7% (8/11)",
+        "generated": 49,
+        "stillborn": 3,
+        "equivalent": 10,
+        "killed_equivalent": 0,
+        "active": 11,
+        "killed": 8,
+        "survivors": [
+          {
+            "line": 61,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (W == 1) begin : gen_w_eq_1",
+            "mutated": "if (W != 1) begin : gen_w_eq_1"
+          },
+          {
+            "line": 64,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "data[31:2] <= {i_init ? q : {W{data[31] & i_sh_signed}}, data[31:3]};",
+            "mutated": "data[31:2] <= {i_init ? q : {W{data[32] & i_sh_signed}}, data[31:3]};"
+          },
+          {
+            "line": 66,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "if (i_init ? (i_cnt0 | i_cnt1) : i_en)",
+            "mutated": "if (i_init ? (i_cnt0 & i_cnt1) : i_en)"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 3,
+          "selected": 3,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 3,
+        "properties_sound": 3,
+        "soundness": [
+          {
+            "property_id": "prop_16",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid) assert({c,q} == ({1'b0,(i_rs1 & {W{i_rs1_en}})} + {1'b0,(i_imm & {W{i_imm_en}} & ~clr_lsb)} + c_r));"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid) assert(c_r[0] == ($past(c) & $past(i_en)));"
+          },
+          {
+            "property_id": "prop_21",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid) assert(clr_lsb[0] == (i_cnt0 & i_clr_lsb));"
+          }
+        ],
+        "kill_rate_percent": 55.55555555555556,
+        "kill_rate": "55.6% (10/18)",
+        "generated": 49,
+        "stillborn": 5,
+        "equivalent": 26,
+        "killed_equivalent": 0,
+        "active": 18,
+        "killed": 10,
+        "survivors": [
+          {
+            "line": 61,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (W == 1) begin : gen_w_eq_1",
+            "mutated": "if (W != 1) begin : gen_w_eq_1"
+          },
+          {
+            "line": 64,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "data[31:2] <= {i_init ? q : {W{data[31] & i_sh_signed}}, data[31:3]};",
+            "mutated": "data[31:2] <= {i_init ? q : {W{data[31] | i_sh_signed}}, data[31:3]};"
+          },
+          {
+            "line": 64,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "data[31:2] <= {i_init ? q : {W{data[31] & i_sh_signed}}, data[31:3]};",
+            "mutated": "data[31:2] <= {i_init ? q : {W{data[32] & i_sh_signed}}, data[31:3]};"
+          },
+          {
+            "line": 66,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "if (i_init ? (i_cnt0 | i_cnt1) : i_en)",
+            "mutated": "if (i_init ? (i_cnt0 & i_cnt1) : i_en)"
+          },
+          {
+            "line": 67,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "data[1:0] <= {i_init ? q : data[2], data[1]};",
+            "mutated": "data[1:0] <= {i_init ? q : data[2], data[2]};"
+          },
+          {
+            "line": 69,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign o_lsb = (MDU & i_mdu_op) ? 2'b00 : data[1:0];",
+            "mutated": "assign o_lsb = (MDU | i_mdu_op) ? 2'b00 : data[1:0];"
+          },
+          {
+            "line": 70,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign o_q = data[0] & {W{i_en}};",
+            "mutated": "assign o_q = data[0] | {W{i_en}};"
+          },
+          {
+            "line": 70,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign o_q = data[0] & {W{i_en}};",
+            "mutated": "assign o_q = data[1] & {W{i_en}};"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 3,
+          "selected": 3,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_16",
+          "assertion": "always @(posedge i_clk) if (f_past_valid) assert({c,q} == ({1'b0,(i_rs1 & {W{i_rs1_en}})} + {1'b0,(i_imm & {W{i_imm_en}} & ~clr_lsb)} + c_r));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge i_clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge i_clk) if (f_past_valid) assert({c,q} == ({1'b0,(i_rs1 & {W{i_rs1_en}})} + {1'b0,(i_imm & {W{i_imm_en}} & ~clr_lsb)} + c_r));"
+        },
+        {
+          "property_id": "prop_17",
+          "assertion": "always @(posedge i_clk) if (f_past_valid) assert(c_r[0] == ($past(c) & $past(i_en)));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge i_clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge i_clk) if (f_past_valid) assert(c_r[0] == ($past(c) & $past(i_en)));"
+        },
+        {
+          "property_id": "prop_21",
+          "assertion": "always @(posedge i_clk) if (f_past_valid) assert(clr_lsb[0] == (i_cnt0 & i_clr_lsb));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge i_clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge i_clk) if (f_past_valid) assert(clr_lsb[0] == (i_cnt0 & i_clr_lsb));"
+        }
+      ],
+      "wall_seconds": 51.011523962020874,
+      "suite_size": 3,
+      "suite_distinct": 3
+    },
+    {
+      "seed": 1,
+      "converged": false,
+      "stop_reason": "iteration budget (4) exhausted",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 17,
+          "admitted": 15,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 2,
+          "suite_size": 15,
+          "active": 11,
+          "killed": 0,
+          "kill_rate": 0.0,
+          "newly_killed": [],
+          "seconds": 5.73073148727417
+        },
+        {
+          "index": 1,
+          "proposed": 11,
+          "admitted": 19,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 5,
+          "rejected_unsound": 2,
+          "suite_size": 19,
+          "active": 11,
+          "killed": 5,
+          "kill_rate": 45.45454545454545,
+          "newly_killed": [
+            "m009_BITWISE_AND_TO_OR_L52_0",
+            "m010_BITWISE_AND_TO_OR_L52_1",
+            "m012_ADD_TO_SUB_L52_0",
+            "m013_ADD_TO_SUB_L52_1",
+            "m014_DROP_BITWISE_NOT_L52_0"
+          ],
+          "seconds": 7.85286021232605
+        },
+        {
+          "index": 2,
+          "proposed": 6,
+          "admitted": 4,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 3,
+          "suite_size": 4,
+          "active": 11,
+          "killed": 8,
+          "kill_rate": 72.72727272727273,
+          "newly_killed": [
+            "m006_BITWISE_AND_TO_OR_L44_0",
+            "m007_BIT_INDEX_BUMP_L44_0",
+            "m018_BIT_INDEX_BUMP_L57_0"
+          ],
+          "seconds": 4.328030347824097
+        },
+        {
+          "index": 3,
+          "proposed": 3,
+          "admitted": 4,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 1,
+          "suite_size": 4,
+          "active": 11,
+          "killed": 8,
+          "kill_rate": 72.72727272727273,
+          "newly_killed": [],
+          "seconds": 3.556455373764038
+        }
+      ],
+      "initial_kill_rate": 0.0,
+      "final_kill_rate": 72.72727272727273,
+      "loop_seconds": 42.37994742393494,
+      "independent_verification": {
+        "properties_checked": 3,
+        "properties_sound": 3,
+        "soundness": [
+          {
+            "property_id": "prop_18",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid) assert({c,q} == ({1'b0,(i_rs1 & {W{i_rs1_en}})} + {1'b0,(i_imm & {W{i_imm_en}} & ~clr_lsb)} + c_r));"
+          },
+          {
+            "property_id": "prop_23",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid) assert(W != 1 || (clr_lsb[0] == (i_cnt0 & i_clr_lsb)));"
+          },
+          {
+            "property_id": "prop_25",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid) assert(c_r[0] == ($past(c) & $past(i_en)));"
+          }
+        ],
+        "kill_rate_percent": 72.72727272727273,
+        "kill_rate": "72.7% (8/11)",
+        "generated": 49,
+        "stillborn": 3,
+        "equivalent": 10,
+        "killed_equivalent": 0,
+        "active": 11,
+        "killed": 8,
+        "survivors": [
+          {
+            "line": 61,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (W == 1) begin : gen_w_eq_1",
+            "mutated": "if (W != 1) begin : gen_w_eq_1"
+          },
+          {
+            "line": 64,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "data[31:2] <= {i_init ? q : {W{data[31] & i_sh_signed}}, data[31:3]};",
+            "mutated": "data[31:2] <= {i_init ? q : {W{data[32] & i_sh_signed}}, data[31:3]};"
+          },
+          {
+            "line": 66,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "if (i_init ? (i_cnt0 | i_cnt1) : i_en)",
+            "mutated": "if (i_init ? (i_cnt0 & i_cnt1) : i_en)"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 3,
+          "selected": 3,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 3,
+        "properties_sound": 3,
+        "soundness": [
+          {
+            "property_id": "prop_18",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid) assert({c,q} == ({1'b0,(i_rs1 & {W{i_rs1_en}})} + {1'b0,(i_imm & {W{i_imm_en}} & ~clr_lsb)} + c_r));"
+          },
+          {
+            "property_id": "prop_23",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid) assert(W != 1 || (clr_lsb[0] == (i_cnt0 & i_clr_lsb)));"
+          },
+          {
+            "property_id": "prop_25",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid) assert(c_r[0] == ($past(c) & $past(i_en)));"
+          }
+        ],
+        "kill_rate_percent": 55.55555555555556,
+        "kill_rate": "55.6% (10/18)",
+        "generated": 49,
+        "stillborn": 5,
+        "equivalent": 26,
+        "killed_equivalent": 0,
+        "active": 18,
+        "killed": 10,
+        "survivors": [
+          {
+            "line": 61,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (W == 1) begin : gen_w_eq_1",
+            "mutated": "if (W != 1) begin : gen_w_eq_1"
+          },
+          {
+            "line": 64,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "data[31:2] <= {i_init ? q : {W{data[31] & i_sh_signed}}, data[31:3]};",
+            "mutated": "data[31:2] <= {i_init ? q : {W{data[31] | i_sh_signed}}, data[31:3]};"
+          },
+          {
+            "line": 64,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "data[31:2] <= {i_init ? q : {W{data[31] & i_sh_signed}}, data[31:3]};",
+            "mutated": "data[31:2] <= {i_init ? q : {W{data[32] & i_sh_signed}}, data[31:3]};"
+          },
+          {
+            "line": 66,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "if (i_init ? (i_cnt0 | i_cnt1) : i_en)",
+            "mutated": "if (i_init ? (i_cnt0 & i_cnt1) : i_en)"
+          },
+          {
+            "line": 67,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "data[1:0] <= {i_init ? q : data[2], data[1]};",
+            "mutated": "data[1:0] <= {i_init ? q : data[2], data[2]};"
+          },
+          {
+            "line": 69,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign o_lsb = (MDU & i_mdu_op) ? 2'b00 : data[1:0];",
+            "mutated": "assign o_lsb = (MDU | i_mdu_op) ? 2'b00 : data[1:0];"
+          },
+          {
+            "line": 70,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign o_q = data[0] & {W{i_en}};",
+            "mutated": "assign o_q = data[0] | {W{i_en}};"
+          },
+          {
+            "line": 70,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign o_q = data[0] & {W{i_en}};",
+            "mutated": "assign o_q = data[1] & {W{i_en}};"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 3,
+          "selected": 3,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_18",
+          "assertion": "always @(posedge i_clk) if (f_past_valid) assert({c,q} == ({1'b0,(i_rs1 & {W{i_rs1_en}})} + {1'b0,(i_imm & {W{i_imm_en}} & ~clr_lsb)} + c_r));",
+          "code": "always @(posedge i_clk) if (f_past_valid) assert({c,q} == ({1'b0,(i_rs1 & {W{i_rs1_en}})} + {1'b0,(i_imm & {W{i_imm_en}} & ~clr_lsb)} + c_r));"
+        },
+        {
+          "property_id": "prop_23",
+          "assertion": "always @(posedge i_clk) if (f_past_valid) assert(W != 1 || (clr_lsb[0] == (i_cnt0 & i_clr_lsb)));",
+          "code": "always @(posedge i_clk) if (f_past_valid) assert(W != 1 || (clr_lsb[0] == (i_cnt0 & i_clr_lsb)));"
+        },
+        {
+          "property_id": "prop_25",
+          "assertion": "always @(posedge i_clk) if (f_past_valid) assert(c_r[0] == ($past(c) & $past(i_en)));",
+          "code": "always @(posedge i_clk) if (f_past_valid) assert(c_r[0] == ($past(c) & $past(i_en)));"
+        }
+      ],
+      "wall_seconds": 52.48800539970398,
+      "suite_size": 3,
+      "suite_distinct": 3
+    }
+  ]
+}

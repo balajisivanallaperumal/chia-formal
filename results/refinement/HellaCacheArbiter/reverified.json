@@ -1,0 +1,72 @@
+{
+  "module": "HellaCacheArbiter",
+  "source": "examples/formal_verification/soc_cores/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.RocketConfig/gen-collateral/HellaCacheArbiter.sv",
+  "clk": "clock",
+  "rst": "none",
+  "depth": 12,
+  "seeds": [
+    {
+      "seed": 0,
+      "converged_in_loop": true,
+      "properties": 11,
+      "properties_distinct": 11,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (18/18)",
+        "active": 18,
+        "killed": 18
+      },
+      "full_bank": {
+        "generated": 35,
+        "stillborn": 2,
+        "equivalent": 4,
+        "active": 29,
+        "killed": 21,
+        "kill_rate_percent": 72.41379310344827,
+        "kill_rate": "72.4% (21/29)",
+        "minimal_basis": 11,
+        "redundancy_percent": 0.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": 27.6
+    },
+    {
+      "seed": 1,
+      "converged_in_loop": true,
+      "properties": 13,
+      "properties_distinct": 13,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (18/18)",
+        "active": 18,
+        "killed": 18
+      },
+      "full_bank": {
+        "generated": 35,
+        "stillborn": 2,
+        "equivalent": 4,
+        "active": 29,
+        "killed": 21,
+        "kill_rate_percent": 72.41379310344827,
+        "kill_rate": "72.4% (21/29)",
+        "minimal_basis": 10,
+        "redundancy_percent": 23.076923076923073
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": 27.6
+    }
+  ],
+  "full_bank_min": 72.41379310344827,
+  "full_bank_mean": 72.41379310344827,
+  "full_bank_max": 72.41379310344827
+}

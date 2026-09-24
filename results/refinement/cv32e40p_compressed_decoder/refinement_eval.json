@@ -1,0 +1,1529 @@
+{
+  "module": "cv32e40p_compressed_decoder",
+  "source": "examples/formal_verification/soc_cores/cv32e40p/rtl/cv32e40p_compressed_decoder.sv",
+  "bmc_depth": 1,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 0,
+  "kill_rate_min": 52.63157894736842,
+  "kill_rate_max": 63.1578947368421,
+  "kill_rate_mean": 57.89473684210526,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": false,
+      "stop_reason": "no new kills in 2 consecutive rounds",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 49,
+          "admitted": 1,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 48,
+          "suite_size": 1,
+          "active": 19,
+          "killed": 1,
+          "kill_rate": 5.263157894736842,
+          "newly_killed": [
+            "m108_NEQ_TO_EQ_L599_0"
+          ],
+          "seconds": 21.493671655654907
+        },
+        {
+          "index": 1,
+          "proposed": 15,
+          "admitted": 13,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 3,
+          "suite_size": 13,
+          "active": 19,
+          "killed": 10,
+          "kill_rate": 52.63157894736842,
+          "newly_killed": [
+            "m003_EQ_TO_NEQ_L71_0",
+            "m004_EQ_TO_NEQ_L76_0",
+            "m006_AND_TO_OR_L76_0",
+            "m009_EQ_TO_NEQ_L112_0",
+            "m011_AND_TO_OR_L112_0",
+            "m016_AND_TO_OR_L131_0",
+            "m023_AND_TO_OR_L169_0",
+            "m076_AND_TO_OR_L455_0",
+            "m084_AND_TO_OR_L489_0"
+          ],
+          "seconds": 19.450963497161865
+        },
+        {
+          "index": 2,
+          "proposed": 7,
+          "admitted": 9,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 6,
+          "suite_size": 9,
+          "active": 19,
+          "killed": 10,
+          "kill_rate": 52.63157894736842,
+          "newly_killed": [],
+          "seconds": 14.115130186080933
+        },
+        {
+          "index": 3,
+          "proposed": 7,
+          "admitted": 8,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 2,
+          "rejected_unsound": 5,
+          "suite_size": 8,
+          "active": 19,
+          "killed": 10,
+          "kill_rate": 52.63157894736842,
+          "newly_killed": [],
+          "seconds": 11.936733722686768
+        }
+      ],
+      "initial_kill_rate": 5.263157894736842,
+      "final_kill_rate": 52.63157894736842,
+      "loop_seconds": 99.7705466747284,
+      "independent_verification": {
+        "properties_checked": 8,
+        "properties_sound": 8,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (is_compressed_o == (instr_i[1:0] != 2'b11));"
+          },
+          {
+            "property_id": "prop_49",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b000) && (instr_i[12:5] == 8'b0)) || (illegal_instr_o == 1'b1));"
+          },
+          {
+            "property_id": "prop_52",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+          },
+          {
+            "property_id": "prop_53",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+          },
+          {
+            "property_id": "prop_54",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b101) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+          },
+          {
+            "property_id": "prop_55",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b111) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+          },
+          {
+            "property_id": "prop_60",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+          },
+          {
+            "property_id": "prop_61",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+          }
+        ],
+        "kill_rate_percent": 52.63157894736842,
+        "kill_rate": "52.6% (10/19)",
+        "generated": 109,
+        "stillborn": 0,
+        "equivalent": 5,
+        "killed_equivalent": 0,
+        "active": 19,
+        "killed": 10,
+        "survivors": [
+          {
+            "line": 62,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[5],",
+            "mutated": "instr_i[6],"
+          },
+          {
+            "line": 63,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 65,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          },
+          {
+            "line": 97,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[5],",
+            "mutated": "instr_i[6],"
+          },
+          {
+            "line": 99,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 224,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "~instr_i[15],",
+            "mutated": "instr_i[15],"
+          },
+          {
+            "line": 247,
+            "operator": "HEX_CONST_BUMP",
+            "original": "if (instr_i[11:7] == 5'h02) begin",
+            "mutated": "if (instr_i[11:7] == 5'h3) begin"
+          },
+          {
+            "line": 256,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          },
+          {
+            "line": 258,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 8,
+          "selected": 8,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 8,
+        "properties_sound": 8,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (is_compressed_o == (instr_i[1:0] != 2'b11));"
+          },
+          {
+            "property_id": "prop_49",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b000) && (instr_i[12:5] == 8'b0)) || (illegal_instr_o == 1'b1));"
+          },
+          {
+            "property_id": "prop_52",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+          },
+          {
+            "property_id": "prop_53",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+          },
+          {
+            "property_id": "prop_54",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b101) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+          },
+          {
+            "property_id": "prop_55",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b111) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+          },
+          {
+            "property_id": "prop_60",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+          },
+          {
+            "property_id": "prop_61",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+          }
+        ],
+        "kill_rate_percent": 17.72151898734177,
+        "kill_rate": "17.7% (14/79)",
+        "generated": 109,
+        "stillborn": 0,
+        "equivalent": 30,
+        "killed_equivalent": 0,
+        "active": 79,
+        "killed": 14,
+        "survivors": [
+          {
+            "line": 62,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[5],",
+            "mutated": "instr_i[6],"
+          },
+          {
+            "line": 63,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 65,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          },
+          {
+            "line": 97,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[5],",
+            "mutated": "instr_i[6],"
+          },
+          {
+            "line": 99,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 153,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[5],",
+            "mutated": "instr_i[6],"
+          },
+          {
+            "line": 154,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 161,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 200,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{6{instr_i[12]}},",
+            "mutated": "{6{instr_i[13]}},"
+          },
+          {
+            "line": 201,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 214,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 215,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[8],",
+            "mutated": "instr_i[9],"
+          },
+          {
+            "line": 217,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 218,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[7],",
+            "mutated": "instr_i[8],"
+          },
+          {
+            "line": 219,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[2],",
+            "mutated": "instr_i[3],"
+          },
+          {
+            "line": 220,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[11],",
+            "mutated": "instr_i[12],"
+          },
+          {
+            "line": 222,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{9{instr_i[12]}},",
+            "mutated": "{9{instr_i[13]}},"
+          },
+          {
+            "line": 224,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "~instr_i[15],",
+            "mutated": "~instr_i[16],"
+          },
+          {
+            "line": 224,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "~instr_i[15],",
+            "mutated": "instr_i[15],"
+          },
+          {
+            "line": 233,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{6{instr_i[12]}}, instr_i[12], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM",
+            "mutated": "{6{instr_i[13]}}, instr_i[12], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM"
+          },
+          {
+            "line": 233,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{6{instr_i[12]}}, instr_i[12], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM",
+            "mutated": "{6{instr_i[12]}}, instr_i[13], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM"
+          },
+          {
+            "line": 238,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{6{instr_i[12]}}, instr_i[12], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM",
+            "mutated": "{6{instr_i[13]}}, instr_i[12], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM"
+          },
+          {
+            "line": 238,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{6{instr_i[12]}}, instr_i[12], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM",
+            "mutated": "{6{instr_i[12]}}, instr_i[13], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM"
+          },
+          {
+            "line": 244,
+            "operator": "EQ_TO_NEQ",
+            "original": "if ({instr_i[12], instr_i[6:2]} == 6'b0) begin",
+            "mutated": "if ({instr_i[12], instr_i[6:2]} != 6'b0) begin"
+          },
+          {
+            "line": 244,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if ({instr_i[12], instr_i[6:2]} == 6'b0) begin",
+            "mutated": "if ({instr_i[13], instr_i[6:2]} == 6'b0) begin"
+          },
+          {
+            "line": 247,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[11:7] == 5'h02) begin",
+            "mutated": "if (instr_i[11:7] != 5'h02) begin"
+          },
+          {
+            "line": 247,
+            "operator": "HEX_CONST_BUMP",
+            "original": "if (instr_i[11:7] == 5'h02) begin",
+            "mutated": "if (instr_i[11:7] == 5'h3) begin"
+          },
+          {
+            "line": 250,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{3{instr_i[12]}},",
+            "mutated": "{3{instr_i[13]}},"
+          },
+          {
+            "line": 252,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[5],",
+            "mutated": "instr_i[6],"
+          },
+          {
+            "line": 253,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[2],",
+            "mutated": "instr_i[3],"
+          },
+          {
+            "line": 254,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 256,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          },
+          {
+            "line": 258,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          },
+          {
+            "line": 263,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_o = {{15{instr_i[12]}}, instr_i[6:2], instr_i[11:7], OPCODE_LUI};",
+            "mutated": "instr_o = {{15{instr_i[13]}}, instr_i[6:2], instr_i[11:7], OPCODE_LUI};"
+          },
+          {
+            "line": 266,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_o = {{15{instr_i[12]}}, instr_i[6:2], instr_i[11:7], OPCODE_LUI};",
+            "mutated": "instr_o = {{15{instr_i[13]}}, instr_i[6:2], instr_i[11:7], OPCODE_LUI};"
+          },
+          {
+            "line": 276,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[12] == 1'b1) begin",
+            "mutated": "if (instr_i[12] != 1'b1) begin"
+          },
+          {
+            "line": 276,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (instr_i[12] == 1'b1) begin",
+            "mutated": "if (instr_i[13] == 1'b1) begin"
+          },
+          {
+            "line": 280,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[10],",
+            "mutated": "instr_i[11],"
+          },
+          {
+            "line": 296,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[10],",
+            "mutated": "instr_i[11],"
+          },
+          {
+            "line": 309,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[10],",
+            "mutated": "instr_i[11],"
+          },
+          {
+            "line": 326,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{6{instr_i[12]}},",
+            "mutated": "{6{instr_i[13]}},"
+          },
+          {
+            "line": 327,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 340,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12], instr_i[6:5]",
+            "mutated": "instr_i[13], instr_i[6:5]"
+          },
+          {
+            "line": 417,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{4{instr_i[12]}},",
+            "mutated": "{4{instr_i[13]}},"
+          },
+          {
+            "line": 419,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[2],",
+            "mutated": "instr_i[3],"
+          },
+          {
+            "line": 424,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[13],",
+            "mutated": "instr_i[14],"
+          },
+          {
+            "line": 427,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 438,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[12] == 1'b1) begin",
+            "mutated": "if (instr_i[12] != 1'b1) begin"
+          },
+          {
+            "line": 438,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (instr_i[12] == 1'b1) begin",
+            "mutated": "if (instr_i[13] == 1'b1) begin"
+          },
+          {
+            "line": 476,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 479,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          },
+          {
+            "line": 484,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[11:7] == 5'b0) illegal_instr_o = 1'b1;",
+            "mutated": "if (instr_i[11:7] != 5'b0) illegal_instr_o = 1'b1;"
+          },
+          {
+            "line": 505,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[12] == 1'b0) begin",
+            "mutated": "if (instr_i[12] != 1'b0) begin"
+          },
+          {
+            "line": 505,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (instr_i[12] == 1'b0) begin",
+            "mutated": "if (instr_i[13] == 1'b0) begin"
+          },
+          {
+            "line": 506,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[6:2] == 5'b0) begin",
+            "mutated": "if (instr_i[6:2] != 5'b0) begin"
+          },
+          {
+            "line": 510,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[11:7] == 5'b0) illegal_instr_o = 1'b1;",
+            "mutated": "if (instr_i[11:7] != 5'b0) illegal_instr_o = 1'b1;"
+          },
+          {
+            "line": 521,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[6:2] == 5'b0) begin",
+            "mutated": "if (instr_i[6:2] != 5'b0) begin"
+          },
+          {
+            "line": 522,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[11:7] == 5'b0) begin",
+            "mutated": "if (instr_i[11:7] != 5'b0) begin"
+          },
+          {
+            "line": 524,
+            "operator": "HEX_CONST_BUMP",
+            "original": "instr_o = {32'h00_10_00_73};",
+            "mutated": "instr_o = {32'h1_10_00_73};"
+          },
+          {
+            "line": 543,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (FPU == 1 && ZFINX == 0)",
+            "mutated": "if (FPU != 1 && ZFINX == 0)"
+          },
+          {
+            "line": 543,
+            "operator": "AND_TO_OR",
+            "original": "if (FPU == 1 && ZFINX == 0)",
+            "mutated": "if (FPU == 1 || ZFINX == 0)"
+          },
+          {
+            "line": 563,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 565,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          },
+          {
+            "line": 575,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (FPU == 1 && ZFINX == 0)",
+            "mutated": "if (FPU != 1 && ZFINX == 0)"
+          },
+          {
+            "line": 575,
+            "operator": "AND_TO_OR",
+            "original": "if (FPU == 1 && ZFINX == 0)",
+            "mutated": "if (FPU == 1 || ZFINX == 0)"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 8,
+          "selected": 8,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_00",
+          "assertion": "always @(*) assert (is_compressed_o == (instr_i[1:0] != 2'b11));",
+          "code": "always @(*) assert (is_compressed_o == (instr_i[1:0] != 2'b11));"
+        },
+        {
+          "property_id": "prop_49",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b000) && (instr_i[12:5] == 8'b0)) || (illegal_instr_o == 1'b1));",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b000) && (instr_i[12:5] == 8'b0)) || (illegal_instr_o == 1'b1));"
+        },
+        {
+          "property_id": "prop_52",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+        },
+        {
+          "property_id": "prop_53",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+        },
+        {
+          "property_id": "prop_54",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b101) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b101) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+        },
+        {
+          "property_id": "prop_55",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b111) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b111) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+        },
+        {
+          "property_id": "prop_60",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+        },
+        {
+          "property_id": "prop_61",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || (illegal_instr_o == 1'b1));"
+        }
+      ],
+      "wall_seconds": 145.6760857105255,
+      "suite_size": 8,
+      "suite_distinct": 8
+    },
+    {
+      "seed": 1,
+      "converged": false,
+      "stop_reason": "iteration budget (4) exhausted",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 54,
+          "admitted": 1,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 53,
+          "suite_size": 1,
+          "active": 19,
+          "killed": 1,
+          "kill_rate": 5.263157894736842,
+          "newly_killed": [
+            "m108_NEQ_TO_EQ_L599_0"
+          ],
+          "seconds": 17.635684490203857
+        },
+        {
+          "index": 1,
+          "proposed": 23,
+          "admitted": 19,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 5,
+          "suite_size": 19,
+          "active": 19,
+          "killed": 11,
+          "kill_rate": 57.89473684210527,
+          "newly_killed": [
+            "m002_HEX_CONST_BUMP_L65_0",
+            "m003_EQ_TO_NEQ_L71_0",
+            "m004_EQ_TO_NEQ_L76_0",
+            "m006_AND_TO_OR_L76_0",
+            "m009_EQ_TO_NEQ_L112_0",
+            "m011_AND_TO_OR_L112_0",
+            "m016_AND_TO_OR_L131_0",
+            "m023_AND_TO_OR_L169_0",
+            "m076_AND_TO_OR_L455_0",
+            "m084_AND_TO_OR_L489_0"
+          ],
+          "seconds": 28.3098623752594
+        },
+        {
+          "index": 2,
+          "proposed": 10,
+          "admitted": 11,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 2,
+          "rejected_unsound": 6,
+          "suite_size": 11,
+          "active": 19,
+          "killed": 12,
+          "kill_rate": 63.1578947368421,
+          "newly_killed": [
+            "m037_DROP_BITWISE_NOT_L224_0"
+          ],
+          "seconds": 16.901138067245483
+        },
+        {
+          "index": 3,
+          "proposed": 4,
+          "admitted": 11,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 4,
+          "suite_size": 11,
+          "active": 19,
+          "killed": 12,
+          "kill_rate": 63.1578947368421,
+          "newly_killed": [],
+          "seconds": 17.040316104888916
+        }
+      ],
+      "initial_kill_rate": 5.263157894736842,
+      "final_kill_rate": 63.1578947368421,
+      "loop_seconds": 122.9612729549408,
+      "independent_verification": {
+        "properties_checked": 11,
+        "properties_sound": 11,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (is_compressed_o == (instr_i[1:0] != 2'b11));"
+          },
+          {
+            "property_id": "prop_54",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b000) && (instr_i[12:5] == 8'b0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_55",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b000) && (instr_i[12:5] != 8'b0)) || (instr_o[19:15] == 5'h02));"
+          },
+          {
+            "property_id": "prop_58",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_61",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_63",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b101) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_65",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b111) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_70",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_72",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_83",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b01) && (instr_i[15:13] == 3'b001)) || (instr_o[7] == ~instr_i[15]));"
+          },
+          {
+            "property_id": "prop_84",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b01) && (instr_i[15:13] == 3'b101)) || (instr_o[7] == ~instr_i[15]));"
+          }
+        ],
+        "kill_rate_percent": 63.1578947368421,
+        "kill_rate": "63.2% (12/19)",
+        "generated": 109,
+        "stillborn": 0,
+        "equivalent": 5,
+        "killed_equivalent": 0,
+        "active": 19,
+        "killed": 12,
+        "survivors": [
+          {
+            "line": 62,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[5],",
+            "mutated": "instr_i[6],"
+          },
+          {
+            "line": 63,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 97,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[5],",
+            "mutated": "instr_i[6],"
+          },
+          {
+            "line": 99,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 247,
+            "operator": "HEX_CONST_BUMP",
+            "original": "if (instr_i[11:7] == 5'h02) begin",
+            "mutated": "if (instr_i[11:7] == 5'h3) begin"
+          },
+          {
+            "line": 256,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          },
+          {
+            "line": 258,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 11,
+          "selected": 10,
+          "redundancy_percent": 9.090909090909093,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 11,
+        "properties_sound": 11,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (is_compressed_o == (instr_i[1:0] != 2'b11));"
+          },
+          {
+            "property_id": "prop_54",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b000) && (instr_i[12:5] == 8'b0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_55",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b000) && (instr_i[12:5] != 8'b0)) || (instr_o[19:15] == 5'h02));"
+          },
+          {
+            "property_id": "prop_58",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_61",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_63",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b101) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_65",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b111) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_70",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_72",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+          },
+          {
+            "property_id": "prop_83",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b01) && (instr_i[15:13] == 3'b001)) || (instr_o[7] == ~instr_i[15]));"
+          },
+          {
+            "property_id": "prop_84",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b01) && (instr_i[15:13] == 3'b101)) || (instr_o[7] == ~instr_i[15]));"
+          }
+        ],
+        "kill_rate_percent": 21.518987341772153,
+        "kill_rate": "21.5% (17/79)",
+        "generated": 109,
+        "stillborn": 0,
+        "equivalent": 30,
+        "killed_equivalent": 0,
+        "active": 79,
+        "killed": 17,
+        "survivors": [
+          {
+            "line": 62,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[5],",
+            "mutated": "instr_i[6],"
+          },
+          {
+            "line": 63,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 97,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[5],",
+            "mutated": "instr_i[6],"
+          },
+          {
+            "line": 99,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 153,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[5],",
+            "mutated": "instr_i[6],"
+          },
+          {
+            "line": 154,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 161,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 200,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{6{instr_i[12]}},",
+            "mutated": "{6{instr_i[13]}},"
+          },
+          {
+            "line": 201,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 214,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 215,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[8],",
+            "mutated": "instr_i[9],"
+          },
+          {
+            "line": 217,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 218,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[7],",
+            "mutated": "instr_i[8],"
+          },
+          {
+            "line": 219,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[2],",
+            "mutated": "instr_i[3],"
+          },
+          {
+            "line": 220,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[11],",
+            "mutated": "instr_i[12],"
+          },
+          {
+            "line": 222,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{9{instr_i[12]}},",
+            "mutated": "{9{instr_i[13]}},"
+          },
+          {
+            "line": 233,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{6{instr_i[12]}}, instr_i[12], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM",
+            "mutated": "{6{instr_i[13]}}, instr_i[12], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM"
+          },
+          {
+            "line": 233,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{6{instr_i[12]}}, instr_i[12], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM",
+            "mutated": "{6{instr_i[12]}}, instr_i[13], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM"
+          },
+          {
+            "line": 238,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{6{instr_i[12]}}, instr_i[12], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM",
+            "mutated": "{6{instr_i[13]}}, instr_i[12], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM"
+          },
+          {
+            "line": 238,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{6{instr_i[12]}}, instr_i[12], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM",
+            "mutated": "{6{instr_i[12]}}, instr_i[13], instr_i[6:2], 5'b0, 3'b0, instr_i[11:7], OPCODE_OPIMM"
+          },
+          {
+            "line": 244,
+            "operator": "EQ_TO_NEQ",
+            "original": "if ({instr_i[12], instr_i[6:2]} == 6'b0) begin",
+            "mutated": "if ({instr_i[12], instr_i[6:2]} != 6'b0) begin"
+          },
+          {
+            "line": 244,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if ({instr_i[12], instr_i[6:2]} == 6'b0) begin",
+            "mutated": "if ({instr_i[13], instr_i[6:2]} == 6'b0) begin"
+          },
+          {
+            "line": 247,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[11:7] == 5'h02) begin",
+            "mutated": "if (instr_i[11:7] != 5'h02) begin"
+          },
+          {
+            "line": 247,
+            "operator": "HEX_CONST_BUMP",
+            "original": "if (instr_i[11:7] == 5'h02) begin",
+            "mutated": "if (instr_i[11:7] == 5'h3) begin"
+          },
+          {
+            "line": 250,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{3{instr_i[12]}},",
+            "mutated": "{3{instr_i[13]}},"
+          },
+          {
+            "line": 252,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[5],",
+            "mutated": "instr_i[6],"
+          },
+          {
+            "line": 253,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[2],",
+            "mutated": "instr_i[3],"
+          },
+          {
+            "line": 254,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[6],",
+            "mutated": "instr_i[7],"
+          },
+          {
+            "line": 256,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          },
+          {
+            "line": 258,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          },
+          {
+            "line": 263,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_o = {{15{instr_i[12]}}, instr_i[6:2], instr_i[11:7], OPCODE_LUI};",
+            "mutated": "instr_o = {{15{instr_i[13]}}, instr_i[6:2], instr_i[11:7], OPCODE_LUI};"
+          },
+          {
+            "line": 266,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_o = {{15{instr_i[12]}}, instr_i[6:2], instr_i[11:7], OPCODE_LUI};",
+            "mutated": "instr_o = {{15{instr_i[13]}}, instr_i[6:2], instr_i[11:7], OPCODE_LUI};"
+          },
+          {
+            "line": 276,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[12] == 1'b1) begin",
+            "mutated": "if (instr_i[12] != 1'b1) begin"
+          },
+          {
+            "line": 276,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (instr_i[12] == 1'b1) begin",
+            "mutated": "if (instr_i[13] == 1'b1) begin"
+          },
+          {
+            "line": 280,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[10],",
+            "mutated": "instr_i[11],"
+          },
+          {
+            "line": 296,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[10],",
+            "mutated": "instr_i[11],"
+          },
+          {
+            "line": 309,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[10],",
+            "mutated": "instr_i[11],"
+          },
+          {
+            "line": 326,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{6{instr_i[12]}},",
+            "mutated": "{6{instr_i[13]}},"
+          },
+          {
+            "line": 327,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 340,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12], instr_i[6:5]",
+            "mutated": "instr_i[13], instr_i[6:5]"
+          },
+          {
+            "line": 417,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "{4{instr_i[12]}},",
+            "mutated": "{4{instr_i[13]}},"
+          },
+          {
+            "line": 419,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[2],",
+            "mutated": "instr_i[3],"
+          },
+          {
+            "line": 424,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[13],",
+            "mutated": "instr_i[14],"
+          },
+          {
+            "line": 427,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 438,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[12] == 1'b1) begin",
+            "mutated": "if (instr_i[12] != 1'b1) begin"
+          },
+          {
+            "line": 438,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (instr_i[12] == 1'b1) begin",
+            "mutated": "if (instr_i[13] == 1'b1) begin"
+          },
+          {
+            "line": 476,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 479,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          },
+          {
+            "line": 484,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[11:7] == 5'b0) illegal_instr_o = 1'b1;",
+            "mutated": "if (instr_i[11:7] != 5'b0) illegal_instr_o = 1'b1;"
+          },
+          {
+            "line": 505,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[12] == 1'b0) begin",
+            "mutated": "if (instr_i[12] != 1'b0) begin"
+          },
+          {
+            "line": 505,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (instr_i[12] == 1'b0) begin",
+            "mutated": "if (instr_i[13] == 1'b0) begin"
+          },
+          {
+            "line": 506,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[6:2] == 5'b0) begin",
+            "mutated": "if (instr_i[6:2] != 5'b0) begin"
+          },
+          {
+            "line": 510,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[11:7] == 5'b0) illegal_instr_o = 1'b1;",
+            "mutated": "if (instr_i[11:7] != 5'b0) illegal_instr_o = 1'b1;"
+          },
+          {
+            "line": 521,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[6:2] == 5'b0) begin",
+            "mutated": "if (instr_i[6:2] != 5'b0) begin"
+          },
+          {
+            "line": 522,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (instr_i[11:7] == 5'b0) begin",
+            "mutated": "if (instr_i[11:7] != 5'b0) begin"
+          },
+          {
+            "line": 524,
+            "operator": "HEX_CONST_BUMP",
+            "original": "instr_o = {32'h00_10_00_73};",
+            "mutated": "instr_o = {32'h1_10_00_73};"
+          },
+          {
+            "line": 543,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (FPU == 1 && ZFINX == 0)",
+            "mutated": "if (FPU != 1 && ZFINX == 0)"
+          },
+          {
+            "line": 543,
+            "operator": "AND_TO_OR",
+            "original": "if (FPU == 1 && ZFINX == 0)",
+            "mutated": "if (FPU == 1 || ZFINX == 0)"
+          },
+          {
+            "line": 563,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "instr_i[12],",
+            "mutated": "instr_i[13],"
+          },
+          {
+            "line": 565,
+            "operator": "HEX_CONST_BUMP",
+            "original": "5'h02,",
+            "mutated": "5'h3,"
+          },
+          {
+            "line": 575,
+            "operator": "EQ_TO_NEQ",
+            "original": "if (FPU == 1 && ZFINX == 0)",
+            "mutated": "if (FPU != 1 && ZFINX == 0)"
+          },
+          {
+            "line": 575,
+            "operator": "AND_TO_OR",
+            "original": "if (FPU == 1 && ZFINX == 0)",
+            "mutated": "if (FPU == 1 || ZFINX == 0)"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 11,
+          "selected": 10,
+          "redundancy_percent": 9.090909090909093,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_00",
+          "assertion": "always @(*) assert (is_compressed_o == (instr_i[1:0] != 2'b11));",
+          "code": "always @(*) assert (is_compressed_o == (instr_i[1:0] != 2'b11));"
+        },
+        {
+          "property_id": "prop_54",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b000) && (instr_i[12:5] == 8'b0)) || illegal_instr_o);",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b000) && (instr_i[12:5] == 8'b0)) || illegal_instr_o);"
+        },
+        {
+          "property_id": "prop_55",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b000) && (instr_i[12:5] != 8'b0)) || (instr_o[19:15] == 5'h02));",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b000) && (instr_i[12:5] != 8'b0)) || (instr_o[19:15] == 5'h02));"
+        },
+        {
+          "property_id": "prop_58",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+        },
+        {
+          "property_id": "prop_61",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+        },
+        {
+          "property_id": "prop_63",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b101) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b101) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+        },
+        {
+          "property_id": "prop_65",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b111) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b00) && (instr_i[15:13] == 3'b111) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+        },
+        {
+          "property_id": "prop_70",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b001) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+        },
+        {
+          "property_id": "prop_72",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b10) && (instr_i[15:13] == 3'b011) && !(FPU == 1 && ZFINX == 0)) || illegal_instr_o);"
+        },
+        {
+          "property_id": "prop_83",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b01) && (instr_i[15:13] == 3'b001)) || (instr_o[7] == ~instr_i[15]));",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b01) && (instr_i[15:13] == 3'b001)) || (instr_o[7] == ~instr_i[15]));"
+        },
+        {
+          "property_id": "prop_84",
+          "assertion": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b01) && (instr_i[15:13] == 3'b101)) || (instr_o[7] == ~instr_i[15]));",
+          "code": "always @(*) assert (!(is_compressed_o && (instr_i[1:0] == 2'b01) && (instr_i[15:13] == 3'b101)) || (instr_o[7] == ~instr_i[15]));"
+        }
+      ],
+      "wall_seconds": 183.82429718971252,
+      "suite_size": 11,
+      "suite_distinct": 11
+    }
+  ]
+}

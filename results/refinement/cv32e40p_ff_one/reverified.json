@@ -1,0 +1,72 @@
+{
+  "module": "cv32e40p_ff_one",
+  "source": "examples/formal_verification/soc_cores/cv32e40p/rtl/cv32e40p_ff_one.sv",
+  "clk": "none",
+  "rst": "none",
+  "depth": 1,
+  "seeds": [
+    {
+      "seed": 0,
+      "converged_in_loop": true,
+      "properties": 8,
+      "properties_distinct": 8,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (10/10)",
+        "active": 10,
+        "killed": 10
+      },
+      "full_bank": {
+        "generated": 62,
+        "stillborn": 15,
+        "equivalent": 22,
+        "active": 25,
+        "killed": 25,
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (25/25)",
+        "minimal_basis": 2,
+        "redundancy_percent": 75.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": 0.0
+    },
+    {
+      "seed": 1,
+      "converged_in_loop": true,
+      "properties": 5,
+      "properties_distinct": 5,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (10/10)",
+        "active": 10,
+        "killed": 10
+      },
+      "full_bank": {
+        "generated": 62,
+        "stillborn": 15,
+        "equivalent": 22,
+        "active": 25,
+        "killed": 25,
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (25/25)",
+        "minimal_basis": 2,
+        "redundancy_percent": 60.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": 0.0
+    }
+  ],
+  "full_bank_min": 100.0,
+  "full_bank_mean": 100.0,
+  "full_bank_max": 100.0
+}

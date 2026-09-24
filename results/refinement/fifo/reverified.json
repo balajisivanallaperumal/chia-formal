@@ -1,0 +1,72 @@
+{
+  "module": "fifo",
+  "source": "examples/formal_verification/designs/fifo.v",
+  "clk": "clk",
+  "rst": "rst_n",
+  "depth": 12,
+  "seeds": [
+    {
+      "seed": 0,
+      "converged_in_loop": false,
+      "properties": 12,
+      "properties_distinct": 12,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 92.3076923076923,
+        "kill_rate": "92.3% (12/13)",
+        "active": 13,
+        "killed": 12
+      },
+      "full_bank": {
+        "generated": 46,
+        "stillborn": 13,
+        "equivalent": 8,
+        "active": 25,
+        "killed": 22,
+        "kill_rate_percent": 88.0,
+        "kill_rate": "88.0% (22/25)",
+        "minimal_basis": 5,
+        "redundancy_percent": 58.33333333333333
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/12 properties inert",
+        "unreachable": []
+      },
+      "overfit_gap_points": 4.3
+    },
+    {
+      "seed": 1,
+      "converged_in_loop": false,
+      "properties": 13,
+      "properties_distinct": 13,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 84.61538461538461,
+        "kill_rate": "84.6% (11/13)",
+        "active": 13,
+        "killed": 11
+      },
+      "full_bank": {
+        "generated": 46,
+        "stillborn": 13,
+        "equivalent": 8,
+        "active": 25,
+        "killed": 21,
+        "kill_rate_percent": 84.0,
+        "kill_rate": "84.0% (21/25)",
+        "minimal_basis": 5,
+        "redundancy_percent": 61.53846153846154
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/13 properties inert",
+        "unreachable": []
+      },
+      "overfit_gap_points": 0.6
+    }
+  ],
+  "full_bank_min": 84.0,
+  "full_bank_mean": 86.0,
+  "full_bank_max": 88.0
+}

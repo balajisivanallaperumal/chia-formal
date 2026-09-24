@@ -1,0 +1,744 @@
+{
+  "module": "IBuf",
+  "source": "examples/formal_verification/soc_cores/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.RocketConfig/gen-collateral/IBuf.sv",
+  "bmc_depth": 12,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 2,
+  "kill_rate_min": 100.0,
+  "kill_rate_max": 100.0,
+  "kill_rate_mean": 100.0,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": true,
+      "stop_reason": "every active mutant is killed",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 28,
+          "admitted": 23,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 4,
+          "suite_size": 23,
+          "active": 20,
+          "killed": 4,
+          "kill_rate": 20.0,
+          "newly_killed": [
+            "m000_HEX_CONST_BUMP_L112_0",
+            "m002_ADD_TO_SUB_L113_0",
+            "m003_SUB_TO_ADD_L113_0",
+            "m004_HEX_CONST_BUMP_L113_0"
+          ],
+          "seconds": 51.48098421096802
+        },
+        {
+          "index": 1,
+          "proposed": 9,
+          "admitted": 10,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 0,
+          "suite_size": 10,
+          "active": 20,
+          "killed": 20,
+          "kill_rate": 100.0,
+          "newly_killed": [
+            "m001_BIT_INDEX_BUMP_L112_0",
+            "m008_SUB_TO_ADD_L115_0",
+            "m009_GE_TO_GT_L116_0",
+            "m013_SHL_TO_SHR_L118_0",
+            "m018_SHL_TO_SHR_L119_0",
+            "m022_BITWISE_AND_TO_OR_L120_0",
+            "m023_BITWISE_AND_TO_OR_L120_1",
+            "m024_BITWISE_OR_TO_AND_L120_0",
+            "m025_ADD_TO_SUB_L121_0",
+            "m036_SWAP_buf_replay_buf_xcpt_ae_inst_L124_0",
+            "m037_SWAP_buf_replay_buf_xcpt_gf_inst_L124_0",
+            "m038_SWAP_buf_replay_buf_xcpt_pf_inst_L124_0",
+            "m039_SWAP_buf_replay_nBufValid_L124_0",
+            "m040_BITWISE_AND_TO_OR_L125_0",
+            "m041_BITWISE_OR_TO_AND_L125_0",
+            "m043_DROP_BITWISE_NOT_L125_0"
+          ],
+          "seconds": 38.659199714660645
+        }
+      ],
+      "initial_kill_rate": 20.0,
+      "final_kill_rate": 100.0,
+      "loop_seconds": 112.98129439353943,
+      "independent_verification": {
+        "properties_checked": 10,
+        "properties_sound": 10,
+        "soundness": [
+          {
+            "property_id": "prop_19",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nIC_T_2 >= 2'h0 && _nIC_T_2 <= 2'h2);"
+          },
+          {
+            "property_id": "prop_27",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_GEN == {1'h0, io_imem_bits_pc[1]});"
+          },
+          {
+            "property_id": "prop_28",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nICReady_T == (nReady - _GEN_0));"
+          },
+          {
+            "property_id": "prop_29",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nBufValid_T == (nReady >= _GEN_0));"
+          },
+          {
+            "property_id": "prop_30",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_icData_T_4 == ({63'h0, {2{{2{io_imem_bits_data[31:16]}}}}, io_imem_bits_data, {2{io_imem_bits_data[15:0]}}} << {185'h0, _GEN_0 - 2'h2 - _GEN, 4'h0}));"
+          },
+          {
+            "property_id": "prop_31",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_icMask_T_2 == (63'hFFFFFFFF << {58'h0, nBufValid, 4'h0}));"
+          },
+          {
+            "property_id": "prop_32",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (inst == (_icData_T_4[95:64] & _icMask_T_2[31:0] | buf_data & ~(_icMask_T_2[31:0])));"
+          },
+          {
+            "property_id": "prop_33",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_valid_T == (4'h1 << ((io_imem_valid ? _nIC_T_2 : 2'h0) + _GEN_0)));"
+          },
+          {
+            "property_id": "prop_34",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (buf_replay_0 == (buf_replay ? _bufMask_T_1 : 2'h0));"
+          },
+          {
+            "property_id": "prop_35",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (ic_replay == (buf_replay_0 | (io_imem_bits_replay ? _valid_T_1 & ~_bufMask_T_1 : 2'h0)));"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (20/20)",
+        "generated": 52,
+        "stillborn": 0,
+        "equivalent": 4,
+        "killed_equivalent": 0,
+        "active": 20,
+        "killed": 20,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 10,
+          "selected": 10,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/10 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 10,
+        "properties_sound": 10,
+        "soundness": [
+          {
+            "property_id": "prop_19",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nIC_T_2 >= 2'h0 && _nIC_T_2 <= 2'h2);"
+          },
+          {
+            "property_id": "prop_27",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_GEN == {1'h0, io_imem_bits_pc[1]});"
+          },
+          {
+            "property_id": "prop_28",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nICReady_T == (nReady - _GEN_0));"
+          },
+          {
+            "property_id": "prop_29",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nBufValid_T == (nReady >= _GEN_0));"
+          },
+          {
+            "property_id": "prop_30",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_icData_T_4 == ({63'h0, {2{{2{io_imem_bits_data[31:16]}}}}, io_imem_bits_data, {2{io_imem_bits_data[15:0]}}} << {185'h0, _GEN_0 - 2'h2 - _GEN, 4'h0}));"
+          },
+          {
+            "property_id": "prop_31",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_icMask_T_2 == (63'hFFFFFFFF << {58'h0, nBufValid, 4'h0}));"
+          },
+          {
+            "property_id": "prop_32",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (inst == (_icData_T_4[95:64] & _icMask_T_2[31:0] | buf_data & ~(_icMask_T_2[31:0])));"
+          },
+          {
+            "property_id": "prop_33",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_valid_T == (4'h1 << ((io_imem_valid ? _nIC_T_2 : 2'h0) + _GEN_0)));"
+          },
+          {
+            "property_id": "prop_34",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (buf_replay_0 == (buf_replay ? _bufMask_T_1 : 2'h0));"
+          },
+          {
+            "property_id": "prop_35",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (ic_replay == (buf_replay_0 | (io_imem_bits_replay ? _valid_T_1 & ~_bufMask_T_1 : 2'h0)));"
+          }
+        ],
+        "kill_rate_percent": 80.95238095238095,
+        "kill_rate": "81.0% (34/42)",
+        "generated": 52,
+        "stillborn": 0,
+        "equivalent": 10,
+        "killed_equivalent": 1,
+        "active": 42,
+        "killed": 34,
+        "survivors": [
+          {
+            "line": 114,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [1:0]   _GEN_0 = {1'h0, nBufValid};\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:34:47, :42:25]",
+            "mutated": "wire [1:0]   _GEN_0 = {1'h1, nBufValid};\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:34:47, :42:25]"
+          },
+          {
+            "line": 117,
+            "operator": "SUB_TO_ADD",
+            "original": "wire [1:0]   _nBufValid_T_6 = _nIC_T_2 - _nICReady_T;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:41:86, :42:25, :44:94]",
+            "mutated": "wire [1:0]   _nBufValid_T_6 = _nIC_T_2 + _nICReady_T;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:41:86, :42:25, :44:94]"
+          },
+          {
+            "line": 122,
+            "operator": "SUB_TO_ADD",
+            "original": "wire [1:0]   _valid_T_1 = _valid_T[1:0] - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:74:33, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [1:0]   _valid_T_1 = _valid_T[1:0] + 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:74:33, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 122,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [1:0]   _valid_T_1 = _valid_T[1:0] - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:74:33, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [1:0]   _valid_T_1 = _valid_T[1:0] - 2'h2;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:74:33, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 123,
+            "operator": "SUB_TO_ADD",
+            "original": "wire [1:0]   _bufMask_T_1 = (2'h1 << _GEN_0) - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [1:0]   _bufMask_T_1 = (2'h1 << _GEN_0) + 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 123,
+            "operator": "SHL_TO_SHR",
+            "original": "wire [1:0]   _bufMask_T_1 = (2'h1 << _GEN_0) - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [1:0]   _bufMask_T_1 = (2'h1 >> _GEN_0) - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 123,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [1:0]   _bufMask_T_1 = (2'h1 << _GEN_0) - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [1:0]   _bufMask_T_1 = (2'h2 << _GEN_0) - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 123,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [1:0]   _bufMask_T_1 = (2'h1 << _GEN_0) - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [1:0]   _bufMask_T_1 = (2'h1 << _GEN_0) - 2'h2;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 10,
+          "selected": 10,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/10 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_19",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_nIC_T_2 >= 2'h0 && _nIC_T_2 <= 2'h2);",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nIC_T_2 >= 2'h0 && _nIC_T_2 <= 2'h2);"
+        },
+        {
+          "property_id": "prop_27",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_GEN == {1'h0, io_imem_bits_pc[1]});",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_GEN == {1'h0, io_imem_bits_pc[1]});"
+        },
+        {
+          "property_id": "prop_28",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_nICReady_T == (nReady - _GEN_0));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nICReady_T == (nReady - _GEN_0));"
+        },
+        {
+          "property_id": "prop_29",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_nBufValid_T == (nReady >= _GEN_0));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nBufValid_T == (nReady >= _GEN_0));"
+        },
+        {
+          "property_id": "prop_30",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_icData_T_4 == ({63'h0, {2{{2{io_imem_bits_data[31:16]}}}}, io_imem_bits_data, {2{io_imem_bits_data[15:0]}}} << {185'h0, _GEN_0 - 2'h2 - _GEN, 4'h0}));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_icData_T_4 == ({63'h0, {2{{2{io_imem_bits_data[31:16]}}}}, io_imem_bits_data, {2{io_imem_bits_data[15:0]}}} << {185'h0, _GEN_0 - 2'h2 - _GEN, 4'h0}));"
+        },
+        {
+          "property_id": "prop_31",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_icMask_T_2 == (63'hFFFFFFFF << {58'h0, nBufValid, 4'h0}));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_icMask_T_2 == (63'hFFFFFFFF << {58'h0, nBufValid, 4'h0}));"
+        },
+        {
+          "property_id": "prop_32",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (inst == (_icData_T_4[95:64] & _icMask_T_2[31:0] | buf_data & ~(_icMask_T_2[31:0])));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert (inst == (_icData_T_4[95:64] & _icMask_T_2[31:0] | buf_data & ~(_icMask_T_2[31:0])));"
+        },
+        {
+          "property_id": "prop_33",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_valid_T == (4'h1 << ((io_imem_valid ? _nIC_T_2 : 2'h0) + _GEN_0)));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_valid_T == (4'h1 << ((io_imem_valid ? _nIC_T_2 : 2'h0) + _GEN_0)));"
+        },
+        {
+          "property_id": "prop_34",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (buf_replay_0 == (buf_replay ? _bufMask_T_1 : 2'h0));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert (buf_replay_0 == (buf_replay ? _bufMask_T_1 : 2'h0));"
+        },
+        {
+          "property_id": "prop_35",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (ic_replay == (buf_replay_0 | (io_imem_bits_replay ? _valid_T_1 & ~_bufMask_T_1 : 2'h0)));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert (ic_replay == (buf_replay_0 | (io_imem_bits_replay ? _valid_T_1 & ~_bufMask_T_1 : 2'h0)));"
+        }
+      ],
+      "wall_seconds": 281.35364389419556,
+      "suite_size": 10,
+      "suite_distinct": 10
+    },
+    {
+      "seed": 1,
+      "converged": true,
+      "stop_reason": "every active mutant is killed",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 36,
+          "admitted": 34,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 1,
+          "suite_size": 34,
+          "active": 20,
+          "killed": 0,
+          "kill_rate": 0.0,
+          "newly_killed": [],
+          "seconds": 36.731648683547974
+        },
+        {
+          "index": 1,
+          "proposed": 10,
+          "admitted": 44,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 0,
+          "suite_size": 44,
+          "active": 20,
+          "killed": 20,
+          "kill_rate": 100.0,
+          "newly_killed": [
+            "m000_HEX_CONST_BUMP_L112_0",
+            "m001_BIT_INDEX_BUMP_L112_0",
+            "m002_ADD_TO_SUB_L113_0",
+            "m003_SUB_TO_ADD_L113_0",
+            "m004_HEX_CONST_BUMP_L113_0",
+            "m008_SUB_TO_ADD_L115_0",
+            "m009_GE_TO_GT_L116_0",
+            "m013_SHL_TO_SHR_L118_0",
+            "m018_SHL_TO_SHR_L119_0",
+            "m022_BITWISE_AND_TO_OR_L120_0",
+            "m023_BITWISE_AND_TO_OR_L120_1",
+            "m024_BITWISE_OR_TO_AND_L120_0",
+            "m025_ADD_TO_SUB_L121_0",
+            "m036_SWAP_buf_replay_buf_xcpt_ae_inst_L124_0",
+            "m037_SWAP_buf_replay_buf_xcpt_gf_inst_L124_0",
+            "m038_SWAP_buf_replay_buf_xcpt_pf_inst_L124_0",
+            "m039_SWAP_buf_replay_nBufValid_L124_0",
+            "m040_BITWISE_AND_TO_OR_L125_0",
+            "m041_BITWISE_OR_TO_AND_L125_0",
+            "m043_DROP_BITWISE_NOT_L125_0"
+          ],
+          "seconds": 151.47497391700745
+        }
+      ],
+      "initial_kill_rate": 0.0,
+      "final_kill_rate": 100.0,
+      "loop_seconds": 217.26107001304626,
+      "independent_verification": {
+        "properties_checked": 10,
+        "properties_sound": 10,
+        "soundness": [
+          {
+            "property_id": "prop_35",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_GEN == {1'h0, io_imem_bits_pc[1]});"
+          },
+          {
+            "property_id": "prop_36",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nIC_T_2 == (io_imem_bits_btb_taken ? {1'h0, io_imem_bits_btb_bridx} + 2'h1 : 2'h2) - _GEN);"
+          },
+          {
+            "property_id": "prop_37",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nICReady_T == nReady - _GEN_0);"
+          },
+          {
+            "property_id": "prop_38",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nBufValid_T == (nReady >= _GEN_0));"
+          },
+          {
+            "property_id": "prop_39",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_icData_T_4 == ({63'h0, {2{{2{io_imem_bits_data[31:16]}}}}, io_imem_bits_data, {2{io_imem_bits_data[15:0]}}} << {185'h0, _GEN_0 - 2'h2 - _GEN, 4'h0}));"
+          },
+          {
+            "property_id": "prop_40",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_icMask_T_2 == (63'hFFFFFFFF << {58'h0, nBufValid, 4'h0}));"
+          },
+          {
+            "property_id": "prop_41",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (inst == (_icData_T_4[95:64] & _icMask_T_2[31:0] | buf_data & ~(_icMask_T_2[31:0])));"
+          },
+          {
+            "property_id": "prop_42",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_valid_T == (4'h1 << (io_imem_valid ? _nIC_T_2 : 2'h0) + _GEN_0));"
+          },
+          {
+            "property_id": "prop_43",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (buf_replay_0 == (buf_replay ? _bufMask_T_1 : 2'h0));"
+          },
+          {
+            "property_id": "prop_44",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (ic_replay == (buf_replay_0 | (io_imem_bits_replay ? _valid_T_1 & ~_bufMask_T_1 : 2'h0)));"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (20/20)",
+        "generated": 52,
+        "stillborn": 0,
+        "equivalent": 4,
+        "killed_equivalent": 0,
+        "active": 20,
+        "killed": 20,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 10,
+          "selected": 10,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/10 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 10,
+        "properties_sound": 10,
+        "soundness": [
+          {
+            "property_id": "prop_35",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_GEN == {1'h0, io_imem_bits_pc[1]});"
+          },
+          {
+            "property_id": "prop_36",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nIC_T_2 == (io_imem_bits_btb_taken ? {1'h0, io_imem_bits_btb_bridx} + 2'h1 : 2'h2) - _GEN);"
+          },
+          {
+            "property_id": "prop_37",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nICReady_T == nReady - _GEN_0);"
+          },
+          {
+            "property_id": "prop_38",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_nBufValid_T == (nReady >= _GEN_0));"
+          },
+          {
+            "property_id": "prop_39",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_icData_T_4 == ({63'h0, {2{{2{io_imem_bits_data[31:16]}}}}, io_imem_bits_data, {2{io_imem_bits_data[15:0]}}} << {185'h0, _GEN_0 - 2'h2 - _GEN, 4'h0}));"
+          },
+          {
+            "property_id": "prop_40",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_icMask_T_2 == (63'hFFFFFFFF << {58'h0, nBufValid, 4'h0}));"
+          },
+          {
+            "property_id": "prop_41",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (inst == (_icData_T_4[95:64] & _icMask_T_2[31:0] | buf_data & ~(_icMask_T_2[31:0])));"
+          },
+          {
+            "property_id": "prop_42",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (_valid_T == (4'h1 << (io_imem_valid ? _nIC_T_2 : 2'h0) + _GEN_0));"
+          },
+          {
+            "property_id": "prop_43",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (buf_replay_0 == (buf_replay ? _bufMask_T_1 : 2'h0));"
+          },
+          {
+            "property_id": "prop_44",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert (ic_replay == (buf_replay_0 | (io_imem_bits_replay ? _valid_T_1 & ~_bufMask_T_1 : 2'h0)));"
+          }
+        ],
+        "kill_rate_percent": 80.95238095238095,
+        "kill_rate": "81.0% (34/42)",
+        "generated": 52,
+        "stillborn": 0,
+        "equivalent": 10,
+        "killed_equivalent": 1,
+        "active": 42,
+        "killed": 34,
+        "survivors": [
+          {
+            "line": 114,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [1:0]   _GEN_0 = {1'h0, nBufValid};\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:34:47, :42:25]",
+            "mutated": "wire [1:0]   _GEN_0 = {1'h1, nBufValid};\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:34:47, :42:25]"
+          },
+          {
+            "line": 117,
+            "operator": "SUB_TO_ADD",
+            "original": "wire [1:0]   _nBufValid_T_6 = _nIC_T_2 - _nICReady_T;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:41:86, :42:25, :44:94]",
+            "mutated": "wire [1:0]   _nBufValid_T_6 = _nIC_T_2 + _nICReady_T;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:41:86, :42:25, :44:94]"
+          },
+          {
+            "line": 122,
+            "operator": "SUB_TO_ADD",
+            "original": "wire [1:0]   _valid_T_1 = _valid_T[1:0] - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:74:33, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [1:0]   _valid_T_1 = _valid_T[1:0] + 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:74:33, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 122,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [1:0]   _valid_T_1 = _valid_T[1:0] - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:74:33, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [1:0]   _valid_T_1 = _valid_T[1:0] - 2'h2;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:74:33, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 123,
+            "operator": "SUB_TO_ADD",
+            "original": "wire [1:0]   _bufMask_T_1 = (2'h1 << _GEN_0) - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [1:0]   _bufMask_T_1 = (2'h1 << _GEN_0) + 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 123,
+            "operator": "SHL_TO_SHR",
+            "original": "wire [1:0]   _bufMask_T_1 = (2'h1 << _GEN_0) - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [1:0]   _bufMask_T_1 = (2'h1 >> _GEN_0) - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 123,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [1:0]   _bufMask_T_1 = (2'h1 << _GEN_0) - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [1:0]   _bufMask_T_1 = (2'h2 << _GEN_0) - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 123,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [1:0]   _bufMask_T_1 = (2'h1 << _GEN_0) - 2'h1;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [1:0]   _bufMask_T_1 = (2'h1 << _GEN_0) - 2'h2;\t// @[generators/rocket-chip/src/main/scala/rocket/IBuf.scala:42:25, :75:37, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 10,
+          "selected": 10,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/10 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_35",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_GEN == {1'h0, io_imem_bits_pc[1]});",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid && !reset) assert (_GEN == {1'h0, io_imem_bits_pc[1]});"
+        },
+        {
+          "property_id": "prop_36",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_nIC_T_2 == (io_imem_bits_btb_taken ? {1'h0, io_imem_bits_btb_bridx} + 2'h1 : 2'h2) - _GEN);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid && !reset) assert (_nIC_T_2 == (io_imem_bits_btb_taken ? {1'h0, io_imem_bits_btb_bridx} + 2'h1 : 2'h2) - _GEN);"
+        },
+        {
+          "property_id": "prop_37",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_nICReady_T == nReady - _GEN_0);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid && !reset) assert (_nICReady_T == nReady - _GEN_0);"
+        },
+        {
+          "property_id": "prop_38",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_nBufValid_T == (nReady >= _GEN_0));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid && !reset) assert (_nBufValid_T == (nReady >= _GEN_0));"
+        },
+        {
+          "property_id": "prop_39",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_icData_T_4 == ({63'h0, {2{{2{io_imem_bits_data[31:16]}}}}, io_imem_bits_data, {2{io_imem_bits_data[15:0]}}} << {185'h0, _GEN_0 - 2'h2 - _GEN, 4'h0}));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid && !reset) assert (_icData_T_4 == ({63'h0, {2{{2{io_imem_bits_data[31:16]}}}}, io_imem_bits_data, {2{io_imem_bits_data[15:0]}}} << {185'h0, _GEN_0 - 2'h2 - _GEN, 4'h0}));"
+        },
+        {
+          "property_id": "prop_40",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_icMask_T_2 == (63'hFFFFFFFF << {58'h0, nBufValid, 4'h0}));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid && !reset) assert (_icMask_T_2 == (63'hFFFFFFFF << {58'h0, nBufValid, 4'h0}));"
+        },
+        {
+          "property_id": "prop_41",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (inst == (_icData_T_4[95:64] & _icMask_T_2[31:0] | buf_data & ~(_icMask_T_2[31:0])));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid && !reset) assert (inst == (_icData_T_4[95:64] & _icMask_T_2[31:0] | buf_data & ~(_icMask_T_2[31:0])));"
+        },
+        {
+          "property_id": "prop_42",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (_valid_T == (4'h1 << (io_imem_valid ? _nIC_T_2 : 2'h0) + _GEN_0));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid && !reset) assert (_valid_T == (4'h1 << (io_imem_valid ? _nIC_T_2 : 2'h0) + _GEN_0));"
+        },
+        {
+          "property_id": "prop_43",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (buf_replay_0 == (buf_replay ? _bufMask_T_1 : 2'h0));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid && !reset) assert (buf_replay_0 == (buf_replay ? _bufMask_T_1 : 2'h0));"
+        },
+        {
+          "property_id": "prop_44",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert (ic_replay == (buf_replay_0 | (io_imem_bits_replay ? _valid_T_1 & ~_bufMask_T_1 : 2'h0)));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clock) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clock) if (f_past_valid && !reset) assert (ic_replay == (buf_replay_0 | (io_imem_bits_replay ? _valid_T_1 & ~_bufMask_T_1 : 2'h0)));"
+        }
+      ],
+      "wall_seconds": 387.36644101142883,
+      "suite_size": 10,
+      "suite_distinct": 10
+    }
+  ]
+}

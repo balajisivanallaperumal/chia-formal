@@ -1,0 +1,728 @@
+{
+  "module": "RenameBusyTable",
+  "source": "examples/formal_verification/soc_cores/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.LargeBoomV3Config/gen-collateral/RenameBusyTable.sv",
+  "bmc_depth": 12,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 0,
+  "kill_rate_min": 61.904761904761905,
+  "kill_rate_max": 61.904761904761905,
+  "kill_rate_mean": 61.904761904761905,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": false,
+      "stop_reason": "no new kills in 2 consecutive rounds",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 23,
+          "admitted": 1,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 22,
+          "suite_size": 1,
+          "active": 21,
+          "killed": 0,
+          "kill_rate": 0.0,
+          "newly_killed": [],
+          "seconds": 67.20841217041016
+        },
+        {
+          "index": 1,
+          "proposed": 16,
+          "admitted": 16,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 1,
+          "suite_size": 16,
+          "active": 21,
+          "killed": 13,
+          "kill_rate": 61.904761904761905,
+          "newly_killed": [
+            "m000_SHR_TO_SHL_L84_0",
+            "m001_SHR_TO_SHL_L85_0",
+            "m002_SHR_TO_SHL_L86_0",
+            "m006_SHL_TO_SHR_L90_0",
+            "m007_HEX_CONST_BUMP_L90_0",
+            "m008_SHL_TO_SHR_L91_0",
+            "m009_HEX_CONST_BUMP_L91_0",
+            "m010_SHL_TO_SHR_L92_0",
+            "m011_HEX_CONST_BUMP_L92_0",
+            "m057_BIT_INDEX_BUMP_L126_0",
+            "m058_BIT_INDEX_BUMP_L127_0",
+            "m059_BIT_INDEX_BUMP_L128_0",
+            "m060_BIT_INDEX_BUMP_L129_0"
+          ],
+          "seconds": 80.47987151145935
+        },
+        {
+          "index": 2,
+          "proposed": 1,
+          "admitted": 10,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 1,
+          "suite_size": 10,
+          "active": 21,
+          "killed": 13,
+          "kill_rate": 61.904761904761905,
+          "newly_killed": [],
+          "seconds": 47.82253360748291
+        },
+        {
+          "index": 3,
+          "proposed": 1,
+          "admitted": 10,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 1,
+          "suite_size": 10,
+          "active": 21,
+          "killed": 13,
+          "kill_rate": 61.904761904761905,
+          "newly_killed": [],
+          "seconds": 46.83454871177673
+        }
+      ],
+      "initial_kill_rate": 0.0,
+      "final_kill_rate": 61.904761904761905,
+      "loop_seconds": 268.1887421607971,
+      "independent_verification": {
+        "properties_checked": 10,
+        "properties_sound": 10,
+        "soundness": [
+          {
+            "property_id": "prop_23",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_0_prs1_busy == (_io_busy_resps_0_prs1_busy_T[0]));"
+          },
+          {
+            "property_id": "prop_24",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_0_prs2_busy == (_io_busy_resps_0_prs2_busy_T[0]));"
+          },
+          {
+            "property_id": "prop_25",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_1_prs1_busy == (_io_busy_resps_1_prs1_busy_T[0]));"
+          },
+          {
+            "property_id": "prop_26",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_1_prs2_busy == (_io_busy_resps_1_prs2_busy_T[0]));"
+          },
+          {
+            "property_id": "prop_29",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_io_busy_resps_0_prs1_busy_T == (busy_table >> io_ren_uops_0_prs1));"
+          },
+          {
+            "property_id": "prop_30",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_io_busy_resps_0_prs2_busy_T == (busy_table >> io_ren_uops_0_prs2));"
+          },
+          {
+            "property_id": "prop_31",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_io_busy_resps_1_prs1_busy_T == (busy_table >> io_ren_uops_1_prs1));"
+          },
+          {
+            "property_id": "prop_35",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_busy_table_next_T_6 == (128'h1 << io_ren_uops_2_pdst));"
+          },
+          {
+            "property_id": "prop_36",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_busy_table_next_T_3 == (128'h1 << io_ren_uops_1_pdst));"
+          },
+          {
+            "property_id": "prop_37",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_busy_table_next_T == (128'h1 << io_ren_uops_0_pdst));"
+          }
+        ],
+        "kill_rate_percent": 61.904761904761905,
+        "kill_rate": "61.9% (13/21)",
+        "generated": 63,
+        "stillborn": 2,
+        "equivalent": 1,
+        "killed_equivalent": 0,
+        "active": 21,
+        "killed": 13,
+        "survivors": [
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] | {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] | {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] | {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] | {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} & _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} & _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} & _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} & _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 10,
+          "selected": 10,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/10 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 10,
+        "properties_sound": 10,
+        "soundness": [
+          {
+            "property_id": "prop_23",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_0_prs1_busy == (_io_busy_resps_0_prs1_busy_T[0]));"
+          },
+          {
+            "property_id": "prop_24",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_0_prs2_busy == (_io_busy_resps_0_prs2_busy_T[0]));"
+          },
+          {
+            "property_id": "prop_25",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_1_prs1_busy == (_io_busy_resps_1_prs1_busy_T[0]));"
+          },
+          {
+            "property_id": "prop_26",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_1_prs2_busy == (_io_busy_resps_1_prs2_busy_T[0]));"
+          },
+          {
+            "property_id": "prop_29",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_io_busy_resps_0_prs1_busy_T == (busy_table >> io_ren_uops_0_prs1));"
+          },
+          {
+            "property_id": "prop_30",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_io_busy_resps_0_prs2_busy_T == (busy_table >> io_ren_uops_0_prs2));"
+          },
+          {
+            "property_id": "prop_31",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_io_busy_resps_1_prs1_busy_T == (busy_table >> io_ren_uops_1_prs1));"
+          },
+          {
+            "property_id": "prop_35",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_busy_table_next_T_6 == (128'h1 << io_ren_uops_2_pdst));"
+          },
+          {
+            "property_id": "prop_36",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_busy_table_next_T_3 == (128'h1 << io_ren_uops_1_pdst));"
+          },
+          {
+            "property_id": "prop_37",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_busy_table_next_T == (128'h1 << io_ren_uops_0_pdst));"
+          }
+        ],
+        "kill_rate_percent": 24.528301886792452,
+        "kill_rate": "24.5% (13/53)",
+        "generated": 63,
+        "stillborn": 2,
+        "equivalent": 8,
+        "killed_equivalent": 0,
+        "active": 53,
+        "killed": 13,
+        "survivors": [
+          {
+            "line": 87,
+            "operator": "SHR_TO_SHL",
+            "original": "wire [99:0]  _io_busy_resps_1_prs2_busy_T = busy_table >> io_ren_uops_1_prs2;\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :68:45]",
+            "mutated": "wire [99:0]  _io_busy_resps_1_prs2_busy_T = busy_table << io_ren_uops_1_prs2;\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :68:45]"
+          },
+          {
+            "line": 88,
+            "operator": "SHR_TO_SHL",
+            "original": "wire [99:0]  _io_busy_resps_2_prs1_busy_T = busy_table >> io_ren_uops_2_prs1;\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :67:45]",
+            "mutated": "wire [99:0]  _io_busy_resps_2_prs1_busy_T = busy_table << io_ren_uops_2_prs1;\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :67:45]"
+          },
+          {
+            "line": 89,
+            "operator": "SHR_TO_SHL",
+            "original": "wire [99:0]  _io_busy_resps_2_prs2_busy_T = busy_table >> io_ren_uops_2_prs2;\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :68:45]",
+            "mutated": "wire [99:0]  _io_busy_resps_2_prs2_busy_T = busy_table << io_ren_uops_2_prs2;\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :68:45]"
+          },
+          {
+            "line": 93,
+            "operator": "SHL_TO_SHR",
+            "original": "wire [127:0] _busy_table_wb_T_18 = 128'h1 << io_wb_pdsts_6;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T_18 = 128'h1 >> io_wb_pdsts_6;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 93,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [127:0] _busy_table_wb_T_18 = 128'h1 << io_wb_pdsts_6;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T_18 = 128'h2 << io_wb_pdsts_6;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 94,
+            "operator": "SHL_TO_SHR",
+            "original": "wire [127:0] _busy_table_wb_T_15 = 128'h1 << io_wb_pdsts_5;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T_15 = 128'h1 >> io_wb_pdsts_5;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 94,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [127:0] _busy_table_wb_T_15 = 128'h1 << io_wb_pdsts_5;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T_15 = 128'h2 << io_wb_pdsts_5;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 95,
+            "operator": "SHL_TO_SHR",
+            "original": "wire [127:0] _busy_table_wb_T_12 = 128'h1 << io_wb_pdsts_4;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T_12 = 128'h1 >> io_wb_pdsts_4;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 95,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [127:0] _busy_table_wb_T_12 = 128'h1 << io_wb_pdsts_4;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T_12 = 128'h2 << io_wb_pdsts_4;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 96,
+            "operator": "SHL_TO_SHR",
+            "original": "wire [127:0] _busy_table_wb_T_9 = 128'h1 << io_wb_pdsts_3;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T_9 = 128'h1 >> io_wb_pdsts_3;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 96,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [127:0] _busy_table_wb_T_9 = 128'h1 << io_wb_pdsts_3;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T_9 = 128'h2 << io_wb_pdsts_3;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 97,
+            "operator": "SHL_TO_SHR",
+            "original": "wire [127:0] _busy_table_wb_T_6 = 128'h1 << io_wb_pdsts_2;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T_6 = 128'h1 >> io_wb_pdsts_2;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 97,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [127:0] _busy_table_wb_T_6 = 128'h1 << io_wb_pdsts_2;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T_6 = 128'h2 << io_wb_pdsts_2;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 98,
+            "operator": "SHL_TO_SHR",
+            "original": "wire [127:0] _busy_table_wb_T_3 = 128'h1 << io_wb_pdsts_1;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T_3 = 128'h1 >> io_wb_pdsts_1;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 98,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [127:0] _busy_table_wb_T_3 = 128'h1 << io_wb_pdsts_1;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T_3 = 128'h2 << io_wb_pdsts_1;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 99,
+            "operator": "SHL_TO_SHR",
+            "original": "wire [127:0] _busy_table_wb_T = 128'h1 << io_wb_pdsts_0;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T = 128'h1 >> io_wb_pdsts_0;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 99,
+            "operator": "HEX_CONST_BUMP",
+            "original": "wire [127:0] _busy_table_wb_T = 128'h1 << io_wb_pdsts_0;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "wire [127:0] _busy_table_wb_T = 128'h2 << io_wb_pdsts_0;\t// @[src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 102,
+            "operator": "HEX_CONST_BUMP",
+            "original": "busy_table <= 100'h0;\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27]",
+            "mutated": "busy_table <= 100'h1;\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] | {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] | {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] | {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] | {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] | {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] | {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] | {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) | busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] | {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] | {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] | {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} & _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} & _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} & _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} & _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} & _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} & _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table & _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} & _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 104,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} | _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]",
+            "mutated": "busy_table <= ~(_busy_table_wb_T[99:0] & {100{io_wb_valids_0}} | _busy_table_wb_T_3[99:0] & {100{io_wb_valids_1}} | _busy_table_wb_T_6[99:0] & {100{io_wb_valids_2}} | _busy_table_wb_T_9[99:0] & {100{io_wb_valids_3}} | _busy_table_wb_T_12[99:0] & {100{io_wb_valids_4}} | _busy_table_wb_T_15[99:0] & {100{io_wb_valids_5}} | _busy_table_wb_T_18[99:0] & {100{io_wb_valids_6}}) & busy_table | _busy_table_next_T[99:0] & {100{io_rebusy_reqs_0}} | _busy_table_next_T_3[99:0] & {100{io_rebusy_reqs_1}} & _busy_table_next_T_6[99:0] & {100{io_rebusy_reqs_2}};\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:48:27, :50:{34,36}, :51:{48,54,88}, :53:39, :54:{49,55,87}, src/main/scala/chisel3/util/OneHot.scala:58:35]"
+          },
+          {
+            "line": 130,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign io_busy_resps_2_prs1_busy = _io_busy_resps_2_prs1_busy_T[0];\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:27:7, :67:45]",
+            "mutated": "assign io_busy_resps_2_prs1_busy = _io_busy_resps_2_prs1_busy_T[1];\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:27:7, :67:45]"
+          },
+          {
+            "line": 131,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign io_busy_resps_2_prs2_busy = _io_busy_resps_2_prs2_busy_T[0];\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:27:7, :68:45]",
+            "mutated": "assign io_busy_resps_2_prs2_busy = _io_busy_resps_2_prs2_busy_T[1];\t// @[generators/boom/src/main/scala/v3/exu/rename/rename-busytable.scala:27:7, :68:45]"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 10,
+          "selected": 10,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/10 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_23",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_0_prs1_busy == (_io_busy_resps_0_prs1_busy_T[0]));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_0_prs1_busy == (_io_busy_resps_0_prs1_busy_T[0]));"
+        },
+        {
+          "property_id": "prop_24",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_0_prs2_busy == (_io_busy_resps_0_prs2_busy_T[0]));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_0_prs2_busy == (_io_busy_resps_0_prs2_busy_T[0]));"
+        },
+        {
+          "property_id": "prop_25",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_1_prs1_busy == (_io_busy_resps_1_prs1_busy_T[0]));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_1_prs1_busy == (_io_busy_resps_1_prs1_busy_T[0]));"
+        },
+        {
+          "property_id": "prop_26",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_1_prs2_busy == (_io_busy_resps_1_prs2_busy_T[0]));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert(io_busy_resps_1_prs2_busy == (_io_busy_resps_1_prs2_busy_T[0]));"
+        },
+        {
+          "property_id": "prop_29",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert(_io_busy_resps_0_prs1_busy_T == (busy_table >> io_ren_uops_0_prs1));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_io_busy_resps_0_prs1_busy_T == (busy_table >> io_ren_uops_0_prs1));"
+        },
+        {
+          "property_id": "prop_30",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert(_io_busy_resps_0_prs2_busy_T == (busy_table >> io_ren_uops_0_prs2));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_io_busy_resps_0_prs2_busy_T == (busy_table >> io_ren_uops_0_prs2));"
+        },
+        {
+          "property_id": "prop_31",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert(_io_busy_resps_1_prs1_busy_T == (busy_table >> io_ren_uops_1_prs1));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_io_busy_resps_1_prs1_busy_T == (busy_table >> io_ren_uops_1_prs1));"
+        },
+        {
+          "property_id": "prop_35",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert(_busy_table_next_T_6 == (128'h1 << io_ren_uops_2_pdst));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_busy_table_next_T_6 == (128'h1 << io_ren_uops_2_pdst));"
+        },
+        {
+          "property_id": "prop_36",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert(_busy_table_next_T_3 == (128'h1 << io_ren_uops_1_pdst));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_busy_table_next_T_3 == (128'h1 << io_ren_uops_1_pdst));"
+        },
+        {
+          "property_id": "prop_37",
+          "assertion": "always @(posedge clock) if (f_past_valid && !reset) assert(_busy_table_next_T == (128'h1 << io_ren_uops_0_pdst));",
+          "code": "always @(posedge clock) if (f_past_valid && !reset) assert(_busy_table_next_T == (128'h1 << io_ren_uops_0_pdst));"
+        }
+      ],
+      "wall_seconds": 621.3000335693359,
+      "suite_size": 10,
+      "suite_distinct": 10
+    },
+    {
+      "seed": 1,
+      "converged": false,
+      "stop_reason": "no scoreable properties: every candidate was refuted by the golden design",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 46,
+          "admitted": 0,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 46,
+          "suite_size": 0,
+          "active": 0,
+          "killed": 0,
+          "kill_rate": null,
+          "newly_killed": [],
+          "seconds": 23.76926302909851
+        }
+      ],
+      "initial_kill_rate": null,
+      "final_kill_rate": null,
+      "loop_seconds": 34.2984836101532,
+      "independent_verification": {
+        "properties_checked": 0,
+        "properties_sound": 0,
+        "soundness": [],
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "generated": 63,
+        "stillborn": 0,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 0,
+          "selected": 0,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 0,
+        "properties_sound": 0,
+        "soundness": [],
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "generated": 63,
+        "stillborn": 0,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 0,
+          "selected": 0,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [],
+      "wall_seconds": 34.305002212524414,
+      "suite_size": 0,
+      "suite_distinct": 0
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+# ==============================================================================
+# CHIA Cluster Configuration: Mutation-Graded Assertion Refinement Loop
+# ==============================================================================
+#
+# Usage:
+#   1. Start Cluster:
+#      chia up examples/formal_verification/cluster.yaml -y
+#
+#   2. Submit the refinement loop:
+#      chia job submit --working-dir . -- \
+#        python examples/formal_verification/formal_verification_loop.py \
+#        --dut examples/formal_verification/designs/arbiter.v --top arbiter --seeds 3 --dispatch ray
+#
+#      --dispatch ray fans the (property, mutant) grading grid out across the
+#      formal_worker pool below. Workers must advertise the "formal" resource;
+#      tasks request it so they never land on a node without oss-cad-suite.
+#
+#   3. Monitor Cluster Status & Jobs:
+#      chia status
+#      chia job list
+#
+#   4. Tear Down Cluster:
+#      chia down examples/formal_verification/cluster.yaml -y
+# ==============================================================================
+
+cluster_name: chia_formal_cluster
+
+provider:
+    head_ip: 127.0.0.1
+
+auth:
+    ssh_user: ${USER}
+
+available_node_types:
+    formal_worker:
+        resources: {"formal": 16}
+        num_workers: 1
+        compatible_ips: ["127.0.0.1"]
+        worker_setup_commands:
+            - export PATH="${CHIA_ROOT}/tools/oss-cad-suite/bin:$PATH"
+
+head_env_commands:
+    - "source ${CONDA_PREFIX_ROOT:-$HOME/miniconda3}/etc/profile.d/conda.sh && conda activate chia_env && export PATH=${CONDA_PREFIX_ROOT:-$HOME/miniconda3}/envs/chia_env/bin:${CHIA_ROOT}/tools/oss-cad-suite/bin:$PATH"
+
+head_setup_commands:
+    - "source ${CONDA_PREFIX_ROOT:-$HOME/miniconda3}/etc/profile.d/conda.sh && conda activate chia_env && export PATH=${CONDA_PREFIX_ROOT:-$HOME/miniconda3}/envs/chia_env/bin:${CHIA_ROOT}/tools/oss-cad-suite/bin:$PATH"
+
+head_start_ray_commands:
+    - "source ${CONDA_PREFIX_ROOT:-$HOME/miniconda3}/etc/profile.d/conda.sh && conda activate chia_env && ray stop"
+    - "source ${CONDA_PREFIX_ROOT:-$HOME/miniconda3}/etc/profile.d/conda.sh && conda activate chia_env && \
+        ray start --head --port=6379 \
+        --include-dashboard=True --dashboard-agent-listen-port=0"
+
+worker_start_ray_commands:
+    - "source ${CONDA_PREFIX_ROOT:-$HOME/miniconda3}/etc/profile.d/conda.sh && conda activate chia_env && ray stop"
+    - "source ${CONDA_PREFIX_ROOT:-$HOME/miniconda3}/etc/profile.d/conda.sh && conda activate chia_env && ray start --address=$RAY_HEAD_IP:6379 --dashboard-agent-listen-port=0"

@@ -1,0 +1,72 @@
+{
+  "module": "cv32e40p_mult",
+  "source": "examples/formal_verification/soc_cores/cv32e40p/rtl/cv32e40p_mult.sv",
+  "clk": "clk",
+  "rst": "rst_n",
+  "depth": 12,
+  "seeds": [
+    {
+      "seed": 0,
+      "converged_in_loop": false,
+      "properties": 14,
+      "properties_distinct": 14,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 82.35294117647058,
+        "kill_rate": "82.4% (14/17)",
+        "active": 17,
+        "killed": 14
+      },
+      "full_bank": {
+        "generated": 159,
+        "stillborn": 33,
+        "equivalent": 0,
+        "active": 126,
+        "killed": 22,
+        "kill_rate_percent": 17.46031746031746,
+        "kill_rate": "17.5% (22/126)",
+        "minimal_basis": 12,
+        "redundancy_percent": 14.28571428571429
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/14 properties inert",
+        "unreachable": []
+      },
+      "overfit_gap_points": 64.9
+    },
+    {
+      "seed": 1,
+      "converged_in_loop": false,
+      "properties": 4,
+      "properties_distinct": 4,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 35.294117647058826,
+        "kill_rate": "35.3% (6/17)",
+        "active": 17,
+        "killed": 6
+      },
+      "full_bank": {
+        "generated": 159,
+        "stillborn": 33,
+        "equivalent": 0,
+        "active": 126,
+        "killed": 10,
+        "kill_rate_percent": 7.936507936507936,
+        "kill_rate": "7.9% (10/126)",
+        "minimal_basis": 4,
+        "redundancy_percent": 0.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/4 properties inert",
+        "unreachable": []
+      },
+      "overfit_gap_points": 27.4
+    }
+  ],
+  "full_bank_min": 7.936507936507936,
+  "full_bank_mean": 12.698412698412698,
+  "full_bank_max": 17.46031746031746
+}

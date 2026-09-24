@@ -1,0 +1,781 @@
+{
+  "module": "serv_rf_ram_if",
+  "source": "examples/formal_verification/soc_cores/serv/rtl/serv_rf_ram_if.v",
+  "bmc_depth": 12,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 0,
+  "kill_rate_min": 33.33333333333333,
+  "kill_rate_max": 33.33333333333333,
+  "kill_rate_mean": 33.33333333333333,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": false,
+      "stop_reason": "no new kills in 2 consecutive rounds",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 17,
+          "admitted": 5,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 12,
+          "suite_size": 5,
+          "active": 6,
+          "killed": 2,
+          "kill_rate": 33.33333333333333,
+          "newly_killed": [
+            "m022_BITWISE_AND_TO_OR_L98_0",
+            "m038_SWAP_rdata0_wdata0_r_L133_0"
+          ],
+          "seconds": 10.687837600708008
+        },
+        {
+          "index": 1,
+          "proposed": 8,
+          "admitted": 7,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 3,
+          "suite_size": 7,
+          "active": 6,
+          "killed": 2,
+          "kill_rate": 33.33333333333333,
+          "newly_killed": [],
+          "seconds": 4.029403209686279
+        },
+        {
+          "index": 2,
+          "proposed": 7,
+          "admitted": 6,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 2,
+          "rejected_unsound": 1,
+          "suite_size": 6,
+          "active": 6,
+          "killed": 2,
+          "kill_rate": 33.33333333333333,
+          "newly_killed": [],
+          "seconds": 3.507425546646118
+        }
+      ],
+      "initial_kill_rate": 33.33333333333333,
+      "final_kill_rate": 33.33333333333333,
+      "loop_seconds": 35.6951265335083,
+      "independent_verification": {
+        "properties_checked": 2,
+        "properties_sound": 2,
+        "soundness": [
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_wen) == (($past(wtrig0) & $past(wen0_r)) | ($past(wtrig1) & $past(wen1_r))));"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_rdata0) == $past(rdata0[B:0]));"
+          }
+        ],
+        "kill_rate_percent": 33.33333333333333,
+        "kill_rate": "33.3% (2/6)",
+        "generated": 113,
+        "stillborn": 8,
+        "equivalent": 10,
+        "killed_equivalent": 0,
+        "active": 6,
+        "killed": 2,
+        "survivors": [
+          {
+            "line": 57,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "assign o_ready = rgnt | i_wreq;",
+            "mutated": "assign o_ready = rgnt & i_wreq;"
+          },
+          {
+            "line": 77,
+            "operator": "EQ_TO_NEQ",
+            "original": "generate if (ratio == 2) begin : gen_wtrig_ratio_eq_2",
+            "mutated": "generate if (ratio != 2) begin : gen_wtrig_ratio_eq_2"
+          },
+          {
+            "line": 109,
+            "operator": "ADD_TO_SUB",
+            "original": "wdata1_r  <= {i_wdata1,wdata1_r[width+W-1:W]};",
+            "mutated": "wdata1_r  <= {i_wdata1,wdata1_r[width-W-1:W]};"
+          },
+          {
+            "line": 175,
+            "operator": "NEQ_TO_EQ",
+            "original": "if (reset_strategy != \"NONE\") begin",
+            "mutated": "if (reset_strategy == \"NONE\") begin"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 2,
+          "selected": 2,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/2 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 2,
+        "properties_sound": 2,
+        "soundness": [
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_wen) == (($past(wtrig0) & $past(wen0_r)) | ($past(wtrig1) & $past(wen1_r))));"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_rdata0) == $past(rdata0[B:0]));"
+          }
+        ],
+        "kill_rate_percent": 10.81081081081081,
+        "kill_rate": "10.8% (4/37)",
+        "generated": 113,
+        "stillborn": 53,
+        "equivalent": 23,
+        "killed_equivalent": 0,
+        "active": 37,
+        "killed": 4,
+        "survivors": [
+          {
+            "line": 57,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "assign o_ready = rgnt | i_wreq;",
+            "mutated": "assign o_ready = rgnt & i_wreq;"
+          },
+          {
+            "line": 77,
+            "operator": "EQ_TO_NEQ",
+            "original": "generate if (ratio == 2) begin : gen_wtrig_ratio_eq_2",
+            "mutated": "generate if (ratio != 2) begin : gen_wtrig_ratio_eq_2"
+          },
+          {
+            "line": 91,
+            "operator": "EQ_TO_NEQ",
+            "original": "generate if (width == 32) begin : gen_w_eq_32",
+            "mutated": "generate if (width != 32) begin : gen_w_eq_32"
+          },
+          {
+            "line": 100,
+            "operator": "SUB_TO_ADD",
+            "original": "assign wcnt = rcnt-4;",
+            "mutated": "assign wcnt = rcnt+4;"
+          },
+          {
+            "line": 103,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (wcnt[0]) begin",
+            "mutated": "if (wcnt[1]) begin"
+          },
+          {
+            "line": 109,
+            "operator": "ADD_TO_SUB",
+            "original": "wdata1_r  <= {i_wdata1,wdata1_r[width+W-1:W]};",
+            "mutated": "wdata1_r  <= {i_wdata1,wdata1_r[width-W-1:W]};"
+          },
+          {
+            "line": 121,
+            "operator": "EQ_TO_NEQ",
+            "original": "generate if (width == 32) begin : gen_rreg_eq_32",
+            "mutated": "generate if (width != 32) begin : gen_rreg_eq_32"
+          },
+          {
+            "line": 136,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign rtrig0 = (rcnt[l2r-1:0] == 1);",
+            "mutated": "assign rtrig0 = (rcnt[l2r-1:0] != 1);"
+          },
+          {
+            "line": 138,
+            "operator": "EQ_TO_NEQ",
+            "original": "generate if (ratio == 2) begin : gen_ren_w_eq_2",
+            "mutated": "generate if (ratio != 2) begin : gen_ren_w_eq_2"
+          },
+          {
+            "line": 141,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = rgate & (rcnt[l2r-1:1] != 0);"
+          },
+          {
+            "line": 141,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = rgate | (rcnt[l2r-1:1] == 0);"
+          },
+          {
+            "line": 141,
+            "operator": "SUB_TO_ADD",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = rgate & (rcnt[l2r+1:1] == 0);"
+          },
+          {
+            "line": 141,
+            "operator": "SWAP_rgate_rgnt",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = rgnt & (rcnt[l2r-1:1] == 0);"
+          },
+          {
+            "line": 141,
+            "operator": "SWAP_rgate_rtrig1",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = rtrig1 & (rcnt[l2r-1:1] == 0);"
+          },
+          {
+            "line": 141,
+            "operator": "SWAP_rgate_wen0_r",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = wen0_r & (rcnt[l2r-1:1] == 0);"
+          },
+          {
+            "line": 141,
+            "operator": "SWAP_rgate_wen1_r",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = wen1_r & (rcnt[l2r-1:1] == 0);"
+          },
+          {
+            "line": 159,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "if (&rcnt | i_rreq)",
+            "mutated": "if (&rcnt & i_rreq)"
+          },
+          {
+            "line": 160,
+            "operator": "SWAP_rgate_rgnt",
+            "original": "rgate <= i_rreq;",
+            "mutated": "rgnt <= i_rreq;"
+          },
+          {
+            "line": 160,
+            "operator": "SWAP_rgate_rreq_r",
+            "original": "rgate <= i_rreq;",
+            "mutated": "rreq_r <= i_rreq;"
+          },
+          {
+            "line": 160,
+            "operator": "SWAP_rgate_rtrig1",
+            "original": "rgate <= i_rreq;",
+            "mutated": "rtrig1 <= i_rreq;"
+          },
+          {
+            "line": 163,
+            "operator": "ADD_TO_SUB",
+            "original": "rcnt <= rcnt+{{CMSB{1'b0}},1'b1};",
+            "mutated": "rcnt <= rcnt-{{CMSB{1'b0}},1'b1};"
+          },
+          {
+            "line": 164,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "if (i_rreq | i_wreq)",
+            "mutated": "if (i_rreq & i_wreq)"
+          },
+          {
+            "line": 168,
+            "operator": "SWAP_rgnt_rgate",
+            "original": "rgnt <= rreq_r;",
+            "mutated": "rgate <= rreq_r;"
+          },
+          {
+            "line": 168,
+            "operator": "SWAP_rgnt_rreq_r",
+            "original": "rgnt <= rreq_r;",
+            "mutated": "rreq_r <= rreq_r;"
+          },
+          {
+            "line": 168,
+            "operator": "SWAP_rgnt_rtrig1",
+            "original": "rgnt <= rreq_r;",
+            "mutated": "rtrig1 <= rreq_r;"
+          },
+          {
+            "line": 170,
+            "operator": "SWAP_rdata0_wdata0_r",
+            "original": "rdata0 <= {{W{1'b0}}, rdata0[width-1:W]};",
+            "mutated": "rdata0 <= {{W{1'b0}}, wdata0_r[width-1:W]};"
+          },
+          {
+            "line": 175,
+            "operator": "NEQ_TO_EQ",
+            "original": "if (reset_strategy != \"NONE\") begin",
+            "mutated": "if (reset_strategy == \"NONE\") begin"
+          },
+          {
+            "line": 176,
+            "operator": "SWAP_rgate_rgnt",
+            "original": "rgate <= 1'b0;",
+            "mutated": "rgnt <= 1'b0;"
+          },
+          {
+            "line": 176,
+            "operator": "SWAP_rgate_rreq_r",
+            "original": "rgate <= 1'b0;",
+            "mutated": "rreq_r <= 1'b0;"
+          },
+          {
+            "line": 176,
+            "operator": "SWAP_rgate_rtrig1",
+            "original": "rgate <= 1'b0;",
+            "mutated": "rtrig1 <= 1'b0;"
+          },
+          {
+            "line": 177,
+            "operator": "SWAP_rgnt_rgate",
+            "original": "rgnt <= 1'b0;",
+            "mutated": "rgate <= 1'b0;"
+          },
+          {
+            "line": 177,
+            "operator": "SWAP_rgnt_rreq_r",
+            "original": "rgnt <= 1'b0;",
+            "mutated": "rreq_r <= 1'b0;"
+          },
+          {
+            "line": 177,
+            "operator": "SWAP_rgnt_rtrig1",
+            "original": "rgnt <= 1'b0;",
+            "mutated": "rtrig1 <= 1'b0;"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 2,
+          "selected": 2,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/2 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_02",
+          "assertion": "always @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_wen) == (($past(wtrig0) & $past(wen0_r)) | ($past(wtrig1) & $past(wen1_r))));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge i_clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_wen) == (($past(wtrig0) & $past(wen0_r)) | ($past(wtrig1) & $past(wen1_r))));"
+        },
+        {
+          "property_id": "prop_05",
+          "assertion": "always @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_rdata0) == $past(rdata0[B:0]));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge i_clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_rdata0) == $past(rdata0[B:0]));"
+        }
+      ],
+      "wall_seconds": 46.98473525047302,
+      "suite_size": 2,
+      "suite_distinct": 2
+    },
+    {
+      "seed": 1,
+      "converged": false,
+      "stop_reason": "no new kills in 2 consecutive rounds",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 15,
+          "admitted": 7,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 8,
+          "suite_size": 7,
+          "active": 6,
+          "killed": 2,
+          "kill_rate": 33.33333333333333,
+          "newly_killed": [
+            "m022_BITWISE_AND_TO_OR_L98_0",
+            "m038_SWAP_rdata0_wdata0_r_L133_0"
+          ],
+          "seconds": 6.690447568893433
+        },
+        {
+          "index": 1,
+          "proposed": 4,
+          "admitted": 3,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 2,
+          "suite_size": 3,
+          "active": 6,
+          "killed": 2,
+          "kill_rate": 33.33333333333333,
+          "newly_killed": [],
+          "seconds": 2.674708604812622
+        },
+        {
+          "index": 2,
+          "proposed": 4,
+          "admitted": 2,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 3,
+          "rejected_unsound": 1,
+          "suite_size": 2,
+          "active": 6,
+          "killed": 2,
+          "kill_rate": 33.33333333333333,
+          "newly_killed": [],
+          "seconds": 1.8660309314727783
+        }
+      ],
+      "initial_kill_rate": 33.33333333333333,
+      "final_kill_rate": 33.33333333333333,
+      "loop_seconds": 25.96973204612732,
+      "independent_verification": {
+        "properties_checked": 2,
+        "properties_sound": 2,
+        "soundness": [
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_wen) == (($past(wtrig0) & $past(wen0_r)) | ($past(wtrig1) & $past(wen1_r))));"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_rdata0) == $past(rdata0[B:0]));"
+          }
+        ],
+        "kill_rate_percent": 33.33333333333333,
+        "kill_rate": "33.3% (2/6)",
+        "generated": 113,
+        "stillborn": 8,
+        "equivalent": 10,
+        "killed_equivalent": 0,
+        "active": 6,
+        "killed": 2,
+        "survivors": [
+          {
+            "line": 57,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "assign o_ready = rgnt | i_wreq;",
+            "mutated": "assign o_ready = rgnt & i_wreq;"
+          },
+          {
+            "line": 77,
+            "operator": "EQ_TO_NEQ",
+            "original": "generate if (ratio == 2) begin : gen_wtrig_ratio_eq_2",
+            "mutated": "generate if (ratio != 2) begin : gen_wtrig_ratio_eq_2"
+          },
+          {
+            "line": 109,
+            "operator": "ADD_TO_SUB",
+            "original": "wdata1_r  <= {i_wdata1,wdata1_r[width+W-1:W]};",
+            "mutated": "wdata1_r  <= {i_wdata1,wdata1_r[width-W-1:W]};"
+          },
+          {
+            "line": 175,
+            "operator": "NEQ_TO_EQ",
+            "original": "if (reset_strategy != \"NONE\") begin",
+            "mutated": "if (reset_strategy == \"NONE\") begin"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 2,
+          "selected": 2,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/2 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 2,
+        "properties_sound": 2,
+        "soundness": [
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_wen) == (($past(wtrig0) & $past(wen0_r)) | ($past(wtrig1) & $past(wen1_r))));"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_rdata0) == $past(rdata0[B:0]));"
+          }
+        ],
+        "kill_rate_percent": 10.81081081081081,
+        "kill_rate": "10.8% (4/37)",
+        "generated": 113,
+        "stillborn": 53,
+        "equivalent": 23,
+        "killed_equivalent": 0,
+        "active": 37,
+        "killed": 4,
+        "survivors": [
+          {
+            "line": 57,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "assign o_ready = rgnt | i_wreq;",
+            "mutated": "assign o_ready = rgnt & i_wreq;"
+          },
+          {
+            "line": 77,
+            "operator": "EQ_TO_NEQ",
+            "original": "generate if (ratio == 2) begin : gen_wtrig_ratio_eq_2",
+            "mutated": "generate if (ratio != 2) begin : gen_wtrig_ratio_eq_2"
+          },
+          {
+            "line": 91,
+            "operator": "EQ_TO_NEQ",
+            "original": "generate if (width == 32) begin : gen_w_eq_32",
+            "mutated": "generate if (width != 32) begin : gen_w_eq_32"
+          },
+          {
+            "line": 100,
+            "operator": "SUB_TO_ADD",
+            "original": "assign wcnt = rcnt-4;",
+            "mutated": "assign wcnt = rcnt+4;"
+          },
+          {
+            "line": 103,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (wcnt[0]) begin",
+            "mutated": "if (wcnt[1]) begin"
+          },
+          {
+            "line": 109,
+            "operator": "ADD_TO_SUB",
+            "original": "wdata1_r  <= {i_wdata1,wdata1_r[width+W-1:W]};",
+            "mutated": "wdata1_r  <= {i_wdata1,wdata1_r[width-W-1:W]};"
+          },
+          {
+            "line": 121,
+            "operator": "EQ_TO_NEQ",
+            "original": "generate if (width == 32) begin : gen_rreg_eq_32",
+            "mutated": "generate if (width != 32) begin : gen_rreg_eq_32"
+          },
+          {
+            "line": 136,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign rtrig0 = (rcnt[l2r-1:0] == 1);",
+            "mutated": "assign rtrig0 = (rcnt[l2r-1:0] != 1);"
+          },
+          {
+            "line": 138,
+            "operator": "EQ_TO_NEQ",
+            "original": "generate if (ratio == 2) begin : gen_ren_w_eq_2",
+            "mutated": "generate if (ratio != 2) begin : gen_ren_w_eq_2"
+          },
+          {
+            "line": 141,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = rgate & (rcnt[l2r-1:1] != 0);"
+          },
+          {
+            "line": 141,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = rgate | (rcnt[l2r-1:1] == 0);"
+          },
+          {
+            "line": 141,
+            "operator": "SUB_TO_ADD",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = rgate & (rcnt[l2r+1:1] == 0);"
+          },
+          {
+            "line": 141,
+            "operator": "SWAP_rgate_rgnt",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = rgnt & (rcnt[l2r-1:1] == 0);"
+          },
+          {
+            "line": 141,
+            "operator": "SWAP_rgate_rtrig1",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = rtrig1 & (rcnt[l2r-1:1] == 0);"
+          },
+          {
+            "line": 141,
+            "operator": "SWAP_rgate_wen0_r",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = wen0_r & (rcnt[l2r-1:1] == 0);"
+          },
+          {
+            "line": 141,
+            "operator": "SWAP_rgate_wen1_r",
+            "original": "assign o_ren = rgate & (rcnt[l2r-1:1] == 0);",
+            "mutated": "assign o_ren = wen1_r & (rcnt[l2r-1:1] == 0);"
+          },
+          {
+            "line": 159,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "if (&rcnt | i_rreq)",
+            "mutated": "if (&rcnt & i_rreq)"
+          },
+          {
+            "line": 160,
+            "operator": "SWAP_rgate_rgnt",
+            "original": "rgate <= i_rreq;",
+            "mutated": "rgnt <= i_rreq;"
+          },
+          {
+            "line": 160,
+            "operator": "SWAP_rgate_rreq_r",
+            "original": "rgate <= i_rreq;",
+            "mutated": "rreq_r <= i_rreq;"
+          },
+          {
+            "line": 160,
+            "operator": "SWAP_rgate_rtrig1",
+            "original": "rgate <= i_rreq;",
+            "mutated": "rtrig1 <= i_rreq;"
+          },
+          {
+            "line": 163,
+            "operator": "ADD_TO_SUB",
+            "original": "rcnt <= rcnt+{{CMSB{1'b0}},1'b1};",
+            "mutated": "rcnt <= rcnt-{{CMSB{1'b0}},1'b1};"
+          },
+          {
+            "line": 164,
+            "operator": "BITWISE_OR_TO_AND",
+            "original": "if (i_rreq | i_wreq)",
+            "mutated": "if (i_rreq & i_wreq)"
+          },
+          {
+            "line": 168,
+            "operator": "SWAP_rgnt_rgate",
+            "original": "rgnt <= rreq_r;",
+            "mutated": "rgate <= rreq_r;"
+          },
+          {
+            "line": 168,
+            "operator": "SWAP_rgnt_rreq_r",
+            "original": "rgnt <= rreq_r;",
+            "mutated": "rreq_r <= rreq_r;"
+          },
+          {
+            "line": 168,
+            "operator": "SWAP_rgnt_rtrig1",
+            "original": "rgnt <= rreq_r;",
+            "mutated": "rtrig1 <= rreq_r;"
+          },
+          {
+            "line": 170,
+            "operator": "SWAP_rdata0_wdata0_r",
+            "original": "rdata0 <= {{W{1'b0}}, rdata0[width-1:W]};",
+            "mutated": "rdata0 <= {{W{1'b0}}, wdata0_r[width-1:W]};"
+          },
+          {
+            "line": 175,
+            "operator": "NEQ_TO_EQ",
+            "original": "if (reset_strategy != \"NONE\") begin",
+            "mutated": "if (reset_strategy == \"NONE\") begin"
+          },
+          {
+            "line": 176,
+            "operator": "SWAP_rgate_rgnt",
+            "original": "rgate <= 1'b0;",
+            "mutated": "rgnt <= 1'b0;"
+          },
+          {
+            "line": 176,
+            "operator": "SWAP_rgate_rreq_r",
+            "original": "rgate <= 1'b0;",
+            "mutated": "rreq_r <= 1'b0;"
+          },
+          {
+            "line": 176,
+            "operator": "SWAP_rgate_rtrig1",
+            "original": "rgate <= 1'b0;",
+            "mutated": "rtrig1 <= 1'b0;"
+          },
+          {
+            "line": 177,
+            "operator": "SWAP_rgnt_rgate",
+            "original": "rgnt <= 1'b0;",
+            "mutated": "rgate <= 1'b0;"
+          },
+          {
+            "line": 177,
+            "operator": "SWAP_rgnt_rreq_r",
+            "original": "rgnt <= 1'b0;",
+            "mutated": "rreq_r <= 1'b0;"
+          },
+          {
+            "line": 177,
+            "operator": "SWAP_rgnt_rtrig1",
+            "original": "rgnt <= 1'b0;",
+            "mutated": "rtrig1 <= 1'b0;"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 2,
+          "selected": 2,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/2 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_02",
+          "assertion": "always @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_wen) == (($past(wtrig0) & $past(wen0_r)) | ($past(wtrig1) & $past(wen1_r))));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge i_clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_wen) == (($past(wtrig0) & $past(wen0_r)) | ($past(wtrig1) & $past(wen1_r))));"
+        },
+        {
+          "property_id": "prop_05",
+          "assertion": "always @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_rdata0) == $past(rdata0[B:0]));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge i_clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge i_clk) if (f_past_valid && !i_rst) assert ($past(o_rdata0) == $past(rdata0[B:0]));"
+        }
+      ],
+      "wall_seconds": 37.25368857383728,
+      "suite_size": 2,
+      "suite_distinct": 2
+    }
+  ]
+}

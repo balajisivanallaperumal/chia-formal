@@ -1,0 +1,696 @@
+{
+  "module": "serv_alu",
+  "source": "examples/formal_verification/soc_cores/serv/rtl/serv_alu.v",
+  "bmc_depth": 12,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 2,
+  "kill_rate_min": 100.0,
+  "kill_rate_max": 100.0,
+  "kill_rate_mean": 100.0,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": true,
+      "stop_reason": "every active mutant is killed",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 14,
+          "admitted": 9,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 5,
+          "suite_size": 9,
+          "active": 13,
+          "killed": 8,
+          "kill_rate": 61.53846153846154,
+          "newly_killed": [
+            "m013_BITWISE_AND_TO_OR_L49_0",
+            "m014_BITWISE_OR_TO_AND_L49_0",
+            "m015_BITWISE_AND_TO_OR_L65_0",
+            "m018_BITWISE_OR_TO_AND_L65_0",
+            "m019_BITWISE_XOR_TO_AND_L65_0",
+            "m020_BIT_INDEX_BUMP_L65_0",
+            "m021_BIT_INDEX_BUMP_L65_1",
+            "m023_BIT_INDEX_BUMP_L67_0"
+          ],
+          "seconds": 13.602028608322144
+        },
+        {
+          "index": 1,
+          "proposed": 7,
+          "admitted": 10,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 3,
+          "rejected_unsound": 0,
+          "suite_size": 10,
+          "active": 13,
+          "killed": 13,
+          "kill_rate": 100.0,
+          "newly_killed": [
+            "m006_BITWISE_AND_TO_OR_L40_0",
+            "m007_BITWISE_AND_TO_OR_L41_0",
+            "m008_ADD_TO_SUB_L45_0",
+            "m009_ADD_TO_SUB_L45_1",
+            "m012_DROP_BITWISE_NOT_L47_0"
+          ],
+          "seconds": 10.351363182067871
+        }
+      ],
+      "initial_kill_rate": 61.53846153846154,
+      "final_kill_rate": 100.0,
+      "loop_seconds": 34.35642623901367,
+      "independent_verification": {
+        "properties_checked": 10,
+        "properties_sound": 10,
+        "soundness": [
+          {
+            "property_id": "prop_08",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(result_eq) == (!($past(|result_add)) & ($past(cmp_r) | $past(i_cnt0))));"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(result_slt[0]) == ($past(cmp_r) & $past(i_cnt0)));"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b00 || $past(result_bool) == ($past(i_rs1) ^ $past(i_op_b)));"
+          },
+          {
+            "property_id": "prop_11",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b01 || $past(result_bool) == {W{1'b0}});"
+          },
+          {
+            "property_id": "prop_12",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b10 || $past(result_bool) == ($past(i_rs1) | $past(i_op_b)));"
+          },
+          {
+            "property_id": "prop_13",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b11 || $past(result_bool) == ($past(i_rs1) & $past(i_op_b)));"
+          },
+          {
+            "property_id": "prop_14",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig && $past(i_rs1[B]) && $past(i_op_b[B])) || $past(rs1_sx) == ($past(i_rs1[B]) & $past(i_cmp_sig)));"
+          },
+          {
+            "property_id": "prop_15",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig && $past(i_rs1[B]) && $past(i_op_b[B])) || $past(op_b_sx) == ($past(i_op_b[B]) & $past(i_cmp_sig)));"
+          },
+          {
+            "property_id": "prop_16",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(i_rs1) + $past(add_b) + $past(add_cy_r) == {$past(add_cy), $past(result_add)});"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(rs1_sx) + ~$past(op_b_sx) + $past(add_cy) == $past(result_lt));"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (13/13)",
+        "generated": 35,
+        "stillborn": 4,
+        "equivalent": 7,
+        "killed_equivalent": 0,
+        "active": 13,
+        "killed": 13,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 10,
+          "selected": 7,
+          "redundancy_percent": 30.000000000000004,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 10,
+        "properties_sound": 10,
+        "soundness": [
+          {
+            "property_id": "prop_08",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(result_eq) == (!($past(|result_add)) & ($past(cmp_r) | $past(i_cnt0))));"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(result_slt[0]) == ($past(cmp_r) & $past(i_cnt0)));"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b00 || $past(result_bool) == ($past(i_rs1) ^ $past(i_op_b)));"
+          },
+          {
+            "property_id": "prop_11",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b01 || $past(result_bool) == {W{1'b0}});"
+          },
+          {
+            "property_id": "prop_12",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b10 || $past(result_bool) == ($past(i_rs1) | $past(i_op_b)));"
+          },
+          {
+            "property_id": "prop_13",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b11 || $past(result_bool) == ($past(i_rs1) & $past(i_op_b)));"
+          },
+          {
+            "property_id": "prop_14",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig && $past(i_rs1[B]) && $past(i_op_b[B])) || $past(rs1_sx) == ($past(i_rs1[B]) & $past(i_cmp_sig)));"
+          },
+          {
+            "property_id": "prop_15",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig && $past(i_rs1[B]) && $past(i_op_b[B])) || $past(op_b_sx) == ($past(i_op_b[B]) & $past(i_cmp_sig)));"
+          },
+          {
+            "property_id": "prop_16",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(i_rs1) + $past(add_b) + $past(add_cy_r) == {$past(add_cy), $past(result_add)});"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(rs1_sx) + ~$past(op_b_sx) + $past(add_cy) == $past(result_lt));"
+          }
+        ],
+        "kill_rate_percent": 69.56521739130434,
+        "kill_rate": "69.6% (16/23)",
+        "generated": 35,
+        "stillborn": 4,
+        "equivalent": 8,
+        "killed_equivalent": 0,
+        "active": 23,
+        "killed": 16,
+        "survivors": [
+          {
+            "line": 75,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "({W{i_rd_sel[0]}} & result_add) |",
+            "mutated": "({W{i_rd_sel[0]}} | result_add) |"
+          },
+          {
+            "line": 75,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "({W{i_rd_sel[0]}} & result_add) |",
+            "mutated": "({W{i_rd_sel[1]}} & result_add) |"
+          },
+          {
+            "line": 76,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "({W{i_rd_sel[1]}} & result_slt) |",
+            "mutated": "({W{i_rd_sel[1]}} | result_slt) |"
+          },
+          {
+            "line": 76,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "({W{i_rd_sel[1]}} & result_slt) |",
+            "mutated": "({W{i_rd_sel[2]}} & result_slt) |"
+          },
+          {
+            "line": 77,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "({W{i_rd_sel[2]}} & result_bool);",
+            "mutated": "({W{i_rd_sel[2]}} | result_bool);"
+          },
+          {
+            "line": 77,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "({W{i_rd_sel[2]}} & result_bool);",
+            "mutated": "({W{i_rd_sel[3]}} & result_bool);"
+          },
+          {
+            "line": 81,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "add_cy_r[0] <= i_en ? add_cy : i_sub;",
+            "mutated": "add_cy_r[1] <= i_en ? add_cy : i_sub;"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 10,
+          "selected": 8,
+          "redundancy_percent": 19.999999999999996,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_08",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(result_eq) == (!($past(|result_add)) & ($past(cmp_r) | $past(i_cnt0))));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid) assert($past(result_eq) == (!($past(|result_add)) & ($past(cmp_r) | $past(i_cnt0))));"
+        },
+        {
+          "property_id": "prop_09",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(result_slt[0]) == ($past(cmp_r) & $past(i_cnt0)));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid) assert($past(result_slt[0]) == ($past(cmp_r) & $past(i_cnt0)));"
+        },
+        {
+          "property_id": "prop_10",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b00 || $past(result_bool) == ($past(i_rs1) ^ $past(i_op_b)));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b00 || $past(result_bool) == ($past(i_rs1) ^ $past(i_op_b)));"
+        },
+        {
+          "property_id": "prop_11",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b01 || $past(result_bool) == {W{1'b0}});",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b01 || $past(result_bool) == {W{1'b0}});"
+        },
+        {
+          "property_id": "prop_12",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b10 || $past(result_bool) == ($past(i_rs1) | $past(i_op_b)));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b10 || $past(result_bool) == ($past(i_rs1) | $past(i_op_b)));"
+        },
+        {
+          "property_id": "prop_13",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b11 || $past(result_bool) == ($past(i_rs1) & $past(i_op_b)));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b11 || $past(result_bool) == ($past(i_rs1) & $past(i_op_b)));"
+        },
+        {
+          "property_id": "prop_14",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig && $past(i_rs1[B]) && $past(i_op_b[B])) || $past(rs1_sx) == ($past(i_rs1[B]) & $past(i_cmp_sig)));",
+          "code": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig && $past(i_rs1[B]) && $past(i_op_b[B])) || $past(rs1_sx) == ($past(i_rs1[B]) & $past(i_cmp_sig)));"
+        },
+        {
+          "property_id": "prop_15",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig && $past(i_rs1[B]) && $past(i_op_b[B])) || $past(op_b_sx) == ($past(i_op_b[B]) & $past(i_cmp_sig)));",
+          "code": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig && $past(i_rs1[B]) && $past(i_op_b[B])) || $past(op_b_sx) == ($past(i_op_b[B]) & $past(i_cmp_sig)));"
+        },
+        {
+          "property_id": "prop_16",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(i_rs1) + $past(add_b) + $past(add_cy_r) == {$past(add_cy), $past(result_add)});",
+          "code": "always @(posedge clk) if (f_past_valid) assert($past(i_rs1) + $past(add_b) + $past(add_cy_r) == {$past(add_cy), $past(result_add)});"
+        },
+        {
+          "property_id": "prop_17",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(rs1_sx) + ~$past(op_b_sx) + $past(add_cy) == $past(result_lt));",
+          "code": "always @(posedge clk) if (f_past_valid) assert($past(rs1_sx) + ~$past(op_b_sx) + $past(add_cy) == $past(result_lt));"
+        }
+      ],
+      "wall_seconds": 68.8071060180664,
+      "suite_size": 10,
+      "suite_distinct": 10
+    },
+    {
+      "seed": 1,
+      "converged": true,
+      "stop_reason": "every active mutant is killed",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 10,
+          "admitted": 5,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 5,
+          "suite_size": 5,
+          "active": 13,
+          "killed": 3,
+          "kill_rate": 23.076923076923077,
+          "newly_killed": [
+            "m015_BITWISE_AND_TO_OR_L65_0",
+            "m020_BIT_INDEX_BUMP_L65_0",
+            "m021_BIT_INDEX_BUMP_L65_1"
+          ],
+          "seconds": 4.5912861824035645
+        },
+        {
+          "index": 1,
+          "proposed": 8,
+          "admitted": 8,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 1,
+          "suite_size": 8,
+          "active": 13,
+          "killed": 11,
+          "kill_rate": 84.61538461538461,
+          "newly_killed": [
+            "m006_BITWISE_AND_TO_OR_L40_0",
+            "m007_BITWISE_AND_TO_OR_L41_0",
+            "m008_ADD_TO_SUB_L45_0",
+            "m009_ADD_TO_SUB_L45_1",
+            "m012_DROP_BITWISE_NOT_L47_0",
+            "m018_BITWISE_OR_TO_AND_L65_0",
+            "m019_BITWISE_XOR_TO_AND_L65_0",
+            "m023_BIT_INDEX_BUMP_L67_0"
+          ],
+          "seconds": 8.04190969467163
+        },
+        {
+          "index": 2,
+          "proposed": 1,
+          "admitted": 8,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 0,
+          "suite_size": 8,
+          "active": 13,
+          "killed": 13,
+          "kill_rate": 100.0,
+          "newly_killed": [
+            "m013_BITWISE_AND_TO_OR_L49_0",
+            "m014_BITWISE_OR_TO_AND_L49_0"
+          ],
+          "seconds": 7.720409631729126
+        }
+      ],
+      "initial_kill_rate": 23.076923076923077,
+      "final_kill_rate": 100.0,
+      "loop_seconds": 32.91413331031799,
+      "independent_verification": {
+        "properties_checked": 8,
+        "properties_sound": 8,
+        "soundness": [
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b01 || $past(result_bool) == {W{1'b0}});"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig == 1'b0) || ($past(rs1_sx) == ($past(i_rs1[B]) & $past(i_cmp_sig))));"
+          },
+          {
+            "property_id": "prop_11",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig == 1'b0) || ($past(op_b_sx) == ($past(i_op_b[B]) & $past(i_cmp_sig))));"
+          },
+          {
+            "property_id": "prop_12",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(add_cy) == ($past(i_rs1) + $past(add_b) + $past(add_cy_r) > {1'b1, {W{1'b0}}} -1));"
+          },
+          {
+            "property_id": "prop_14",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(result_lt) == ($past(rs1_sx) + ~$past(op_b_sx) + $past(add_cy)));"
+          },
+          {
+            "property_id": "prop_16",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(result_bool) == ((($past(i_rs1) ^ $past(i_op_b)) & ~{W{$past(i_bool_op[0])}}) | ({W{$past(i_bool_op[1])}} & $past(i_op_b) & $past(i_rs1))));"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(result_slt[0]) == ($past(cmp_r) & $past(i_cnt0)));"
+          },
+          {
+            "property_id": "prop_18",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(o_cmp) == ($past(i_cmp_eq) ? ($past(!(|result_add)) & ($past(cmp_r) | $past(i_cnt0))) : $past(result_lt)));"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (13/13)",
+        "generated": 35,
+        "stillborn": 4,
+        "equivalent": 7,
+        "killed_equivalent": 0,
+        "active": 13,
+        "killed": 13,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 8,
+          "selected": 7,
+          "redundancy_percent": 12.5,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 8,
+        "properties_sound": 8,
+        "soundness": [
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b01 || $past(result_bool) == {W{1'b0}});"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig == 1'b0) || ($past(rs1_sx) == ($past(i_rs1[B]) & $past(i_cmp_sig))));"
+          },
+          {
+            "property_id": "prop_11",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig == 1'b0) || ($past(op_b_sx) == ($past(i_op_b[B]) & $past(i_cmp_sig))));"
+          },
+          {
+            "property_id": "prop_12",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(add_cy) == ($past(i_rs1) + $past(add_b) + $past(add_cy_r) > {1'b1, {W{1'b0}}} -1));"
+          },
+          {
+            "property_id": "prop_14",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(result_lt) == ($past(rs1_sx) + ~$past(op_b_sx) + $past(add_cy)));"
+          },
+          {
+            "property_id": "prop_16",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(result_bool) == ((($past(i_rs1) ^ $past(i_op_b)) & ~{W{$past(i_bool_op[0])}}) | ({W{$past(i_bool_op[1])}} & $past(i_op_b) & $past(i_rs1))));"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(result_slt[0]) == ($past(cmp_r) & $past(i_cnt0)));"
+          },
+          {
+            "property_id": "prop_18",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid) assert($past(o_cmp) == ($past(i_cmp_eq) ? ($past(!(|result_add)) & ($past(cmp_r) | $past(i_cnt0))) : $past(result_lt)));"
+          }
+        ],
+        "kill_rate_percent": 69.56521739130434,
+        "kill_rate": "69.6% (16/23)",
+        "generated": 35,
+        "stillborn": 4,
+        "equivalent": 8,
+        "killed_equivalent": 0,
+        "active": 23,
+        "killed": 16,
+        "survivors": [
+          {
+            "line": 75,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "({W{i_rd_sel[0]}} & result_add) |",
+            "mutated": "({W{i_rd_sel[0]}} | result_add) |"
+          },
+          {
+            "line": 75,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "({W{i_rd_sel[0]}} & result_add) |",
+            "mutated": "({W{i_rd_sel[1]}} & result_add) |"
+          },
+          {
+            "line": 76,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "({W{i_rd_sel[1]}} & result_slt) |",
+            "mutated": "({W{i_rd_sel[1]}} | result_slt) |"
+          },
+          {
+            "line": 76,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "({W{i_rd_sel[1]}} & result_slt) |",
+            "mutated": "({W{i_rd_sel[2]}} & result_slt) |"
+          },
+          {
+            "line": 77,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "({W{i_rd_sel[2]}} & result_bool);",
+            "mutated": "({W{i_rd_sel[2]}} | result_bool);"
+          },
+          {
+            "line": 77,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "({W{i_rd_sel[2]}} & result_bool);",
+            "mutated": "({W{i_rd_sel[3]}} & result_bool);"
+          },
+          {
+            "line": 81,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "add_cy_r[0] <= i_en ? add_cy : i_sub;",
+            "mutated": "add_cy_r[1] <= i_en ? add_cy : i_sub;"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 8,
+          "selected": 7,
+          "redundancy_percent": 12.5,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_09",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b01 || $past(result_bool) == {W{1'b0}});",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid) assert($past(i_bool_op) != 2'b01 || $past(result_bool) == {W{1'b0}});"
+        },
+        {
+          "property_id": "prop_10",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig == 1'b0) || ($past(rs1_sx) == ($past(i_rs1[B]) & $past(i_cmp_sig))));",
+          "code": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig == 1'b0) || ($past(rs1_sx) == ($past(i_rs1[B]) & $past(i_cmp_sig))));"
+        },
+        {
+          "property_id": "prop_11",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig == 1'b0) || ($past(op_b_sx) == ($past(i_op_b[B]) & $past(i_cmp_sig))));",
+          "code": "always @(posedge clk) if (f_past_valid) assert((i_cmp_sig == 1'b0) || ($past(op_b_sx) == ($past(i_op_b[B]) & $past(i_cmp_sig))));"
+        },
+        {
+          "property_id": "prop_12",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(add_cy) == ($past(i_rs1) + $past(add_b) + $past(add_cy_r) > {1'b1, {W{1'b0}}} -1));",
+          "code": "always @(posedge clk) if (f_past_valid) assert($past(add_cy) == ($past(i_rs1) + $past(add_b) + $past(add_cy_r) > {1'b1, {W{1'b0}}} -1));"
+        },
+        {
+          "property_id": "prop_14",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(result_lt) == ($past(rs1_sx) + ~$past(op_b_sx) + $past(add_cy)));",
+          "code": "always @(posedge clk) if (f_past_valid) assert($past(result_lt) == ($past(rs1_sx) + ~$past(op_b_sx) + $past(add_cy)));"
+        },
+        {
+          "property_id": "prop_16",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(result_bool) == ((($past(i_rs1) ^ $past(i_op_b)) & ~{W{$past(i_bool_op[0])}}) | ({W{$past(i_bool_op[1])}} & $past(i_op_b) & $past(i_rs1))));",
+          "code": "always @(posedge clk) if (f_past_valid) assert($past(result_bool) == ((($past(i_rs1) ^ $past(i_op_b)) & ~{W{$past(i_bool_op[0])}}) | ({W{$past(i_bool_op[1])}} & $past(i_op_b) & $past(i_rs1))));"
+        },
+        {
+          "property_id": "prop_17",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(result_slt[0]) == ($past(cmp_r) & $past(i_cnt0)));",
+          "code": "always @(posedge clk) if (f_past_valid) assert($past(result_slt[0]) == ($past(cmp_r) & $past(i_cnt0)));"
+        },
+        {
+          "property_id": "prop_18",
+          "assertion": "always @(posedge clk) if (f_past_valid) assert($past(o_cmp) == ($past(i_cmp_eq) ? ($past(!(|result_add)) & ($past(cmp_r) | $past(i_cnt0))) : $past(result_lt)));",
+          "code": "always @(posedge clk) if (f_past_valid) assert($past(o_cmp) == ($past(i_cmp_eq) ? ($past(!(|result_add)) & ($past(cmp_r) | $past(i_cnt0))) : $past(result_lt)));"
+        }
+      ],
+      "wall_seconds": 57.600624084472656,
+      "suite_size": 8,
+      "suite_distinct": 8
+    }
+  ]
+}

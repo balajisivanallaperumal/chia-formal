@@ -1,0 +1,72 @@
+{
+  "module": "cv32e40p_int_controller",
+  "source": "examples/formal_verification/soc_cores/cv32e40p/rtl/cv32e40p_int_controller.sv",
+  "clk": "clk",
+  "rst": "rst_n",
+  "depth": 12,
+  "seeds": [
+    {
+      "seed": 0,
+      "converged_in_loop": false,
+      "properties": 6,
+      "properties_distinct": 6,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "active": 0,
+        "killed": 0
+      },
+      "full_bank": {
+        "generated": 75,
+        "stillborn": 75,
+        "equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "minimal_basis": 6,
+        "redundancy_percent": 0.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/6 properties inert",
+        "unreachable": []
+      },
+      "overfit_gap_points": null
+    },
+    {
+      "seed": 1,
+      "converged_in_loop": false,
+      "properties": 6,
+      "properties_distinct": 6,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "active": 0,
+        "killed": 0
+      },
+      "full_bank": {
+        "generated": 75,
+        "stillborn": 75,
+        "equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "minimal_basis": 6,
+        "redundancy_percent": 0.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/6 properties inert",
+        "unreachable": []
+      },
+      "overfit_gap_points": null
+    }
+  ],
+  "full_bank_min": null,
+  "full_bank_mean": null,
+  "full_bank_max": null
+}

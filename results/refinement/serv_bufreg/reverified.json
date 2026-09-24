@@ -1,0 +1,72 @@
+{
+  "module": "serv_bufreg",
+  "source": "examples/formal_verification/soc_cores/serv/rtl/serv_bufreg.v",
+  "clk": "i_clk",
+  "rst": "none",
+  "depth": 12,
+  "seeds": [
+    {
+      "seed": 0,
+      "converged_in_loop": false,
+      "properties": 3,
+      "properties_distinct": 3,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 72.72727272727273,
+        "kill_rate": "72.7% (8/11)",
+        "active": 11,
+        "killed": 8
+      },
+      "full_bank": {
+        "generated": 49,
+        "stillborn": 5,
+        "equivalent": 26,
+        "active": 18,
+        "killed": 10,
+        "kill_rate_percent": 55.55555555555556,
+        "kill_rate": "55.6% (10/18)",
+        "minimal_basis": 3,
+        "redundancy_percent": 0.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": 17.2
+    },
+    {
+      "seed": 1,
+      "converged_in_loop": false,
+      "properties": 3,
+      "properties_distinct": 3,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 72.72727272727273,
+        "kill_rate": "72.7% (8/11)",
+        "active": 11,
+        "killed": 8
+      },
+      "full_bank": {
+        "generated": 49,
+        "stillborn": 5,
+        "equivalent": 26,
+        "active": 18,
+        "killed": 10,
+        "kill_rate_percent": 55.55555555555556,
+        "kill_rate": "55.6% (10/18)",
+        "minimal_basis": 3,
+        "redundancy_percent": 0.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": 17.2
+    }
+  ],
+  "full_bank_min": 55.55555555555556,
+  "full_bank_mean": 55.55555555555556,
+  "full_bank_max": 55.55555555555556
+}

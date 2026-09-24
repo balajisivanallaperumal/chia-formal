@@ -1,0 +1,2054 @@
+{
+  "module": "cv32e40p_mult",
+  "source": "examples/formal_verification/soc_cores/cv32e40p/rtl/cv32e40p_mult.sv",
+  "bmc_depth": 12,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 0,
+  "kill_rate_min": 35.294117647058826,
+  "kill_rate_max": 82.35294117647058,
+  "kill_rate_mean": 58.8235294117647,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": false,
+      "stop_reason": "no new kills in 2 consecutive rounds",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 84,
+          "admitted": 67,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 17,
+          "suite_size": 67,
+          "active": 17,
+          "killed": 9,
+          "kill_rate": 52.94117647058824,
+          "newly_killed": [
+            "m002_EQ_TO_NEQ_L99_0",
+            "m003_BIT_INDEX_BUMP_L102_0",
+            "m004_BIT_INDEX_BUMP_L103_0",
+            "m005_BITWISE_AND_TO_OR_L105_0",
+            "m009_BITWISE_AND_TO_OR_L106_0",
+            "m031_EQ_TO_NEQ_L145_0",
+            "m032_AND_TO_OR_L145_0",
+            "m033_DEC_CONST_BUMP_L153_0",
+            "m047_BITWISE_XOR_TO_AND_L221_0"
+          ],
+          "seconds": 172.4712631702423
+        },
+        {
+          "index": 1,
+          "proposed": 8,
+          "admitted": 14,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 2,
+          "rejected_unsound": 2,
+          "suite_size": 14,
+          "active": 17,
+          "killed": 14,
+          "kill_rate": 82.35294117647058,
+          "newly_killed": [
+            "m000_SHL_TO_SHR_L98_0",
+            "m001_HEX_CONST_BUMP_L98_0",
+            "m030_DEC_CONST_BUMP_L130_0",
+            "m049_ADD_TO_SUB_L226_0",
+            "m120_BITWISE_XOR_TO_AND_L286_0"
+          ],
+          "seconds": 36.96032214164734
+        },
+        {
+          "index": 2,
+          "proposed": 3,
+          "admitted": 14,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 2,
+          "suite_size": 14,
+          "active": 17,
+          "killed": 14,
+          "kill_rate": 82.35294117647058,
+          "newly_killed": [],
+          "seconds": 36.21149134635925
+        },
+        {
+          "index": 3,
+          "proposed": 3,
+          "admitted": 14,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 2,
+          "suite_size": 14,
+          "active": 17,
+          "killed": 14,
+          "kill_rate": 82.35294117647058,
+          "newly_killed": [],
+          "seconds": 36.620336294174194
+        }
+      ],
+      "initial_kill_rate": 52.94117647058824,
+      "final_kill_rate": 82.35294117647058,
+      "loop_seconds": 329.03729152679443,
+      "independent_verification": {
+        "properties_checked": 14,
+        "properties_sound": 14,
+        "soundness": [
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($past(mulh_CS) == IDLE_MULT && $past(enable_i) && $past(operator_i) != MUL_H && mulh_CS == STEP0));"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(mulh_CS == STEP0 && mulh_imm != 5'd16));"
+          },
+          {
+            "property_id": "prop_39",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(operator_i != MUL_IR && short_round != '0));"
+          },
+          {
+            "property_id": "prop_40",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(short_subword[0] && short_op_a[15:0] != op_a_i[31:16]));"
+          },
+          {
+            "property_id": "prop_41",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(!short_subword[0] && short_op_a[15:0] != op_a_i[15:0]));"
+          },
+          {
+            "property_id": "prop_42",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(short_subword[1] && short_op_b[15:0] != op_b_i[31:16]));"
+          },
+          {
+            "property_id": "prop_45",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(!short_signed[0] && short_op_a[16]));"
+          },
+          {
+            "property_id": "prop_47",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(!short_signed[1] && short_op_b[16]));"
+          },
+          {
+            "property_id": "prop_64",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(int_is_msu && int_op_a_msu != (op_a_i ^ {32{1'b1}})));"
+          },
+          {
+            "property_id": "prop_65",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(!int_is_msu && int_op_a_msu != op_a_i));"
+          },
+          {
+            "property_id": "prop_84",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(operator_i == MUL_IR && short_round_tmp != (32'h00000001 << imm_i)));"
+          },
+          {
+            "property_id": "prop_86",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(mulh_CS == IDLE_MULT && mulh_imm != 5'd0));"
+          },
+          {
+            "property_id": "prop_88",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(operator_i == MUL_MSU32 && int_result != ($signed(op_c_i) + $signed(int_op_b_msu) + $signed(int_op_a_msu) * $signed(op_b_i))));"
+          },
+          {
+            "property_id": "prop_89",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(dot_short_op_a_1_neg != (dot_short_op_a[1] ^ {17{(is_clpx_i & ~clpx_img_i)}})));"
+          }
+        ],
+        "kill_rate_percent": 82.35294117647058,
+        "kill_rate": "82.4% (14/17)",
+        "generated": 159,
+        "stillborn": 7,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 17,
+        "killed": 14,
+        "survivors": [
+          {
+            "line": 111,
+            "operator": "ADD_TO_SUB",
+            "original": "assign short_mac = $signed(short_op_c) + $signed(short_mul) + $signed(short_round);",
+            "mutated": "assign short_mac = $signed(short_op_c) - $signed(short_mul) + $signed(short_round);"
+          },
+          {
+            "line": 111,
+            "operator": "ADD_TO_SUB",
+            "original": "assign short_mac = $signed(short_op_c) + $signed(short_mul) + $signed(short_round);",
+            "mutated": "assign short_mac = $signed(short_op_c) + $signed(short_mul) - $signed(short_round);"
+          },
+          {
+            "line": 206,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "if (mulh_save) mulh_carry_q <= ~mulh_clearcarry & short_mac[32];",
+            "mutated": "if (mulh_save) mulh_carry_q <= mulh_clearcarry & short_mac[32];"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 14,
+          "selected": 12,
+          "redundancy_percent": 14.28571428571429,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/14 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 14,
+        "properties_sound": 14,
+        "soundness": [
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($past(mulh_CS) == IDLE_MULT && $past(enable_i) && $past(operator_i) != MUL_H && mulh_CS == STEP0));"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(mulh_CS == STEP0 && mulh_imm != 5'd16));"
+          },
+          {
+            "property_id": "prop_39",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(operator_i != MUL_IR && short_round != '0));"
+          },
+          {
+            "property_id": "prop_40",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(short_subword[0] && short_op_a[15:0] != op_a_i[31:16]));"
+          },
+          {
+            "property_id": "prop_41",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(!short_subword[0] && short_op_a[15:0] != op_a_i[15:0]));"
+          },
+          {
+            "property_id": "prop_42",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(short_subword[1] && short_op_b[15:0] != op_b_i[31:16]));"
+          },
+          {
+            "property_id": "prop_45",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(!short_signed[0] && short_op_a[16]));"
+          },
+          {
+            "property_id": "prop_47",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(!short_signed[1] && short_op_b[16]));"
+          },
+          {
+            "property_id": "prop_64",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(int_is_msu && int_op_a_msu != (op_a_i ^ {32{1'b1}})));"
+          },
+          {
+            "property_id": "prop_65",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(!int_is_msu && int_op_a_msu != op_a_i));"
+          },
+          {
+            "property_id": "prop_84",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(operator_i == MUL_IR && short_round_tmp != (32'h00000001 << imm_i)));"
+          },
+          {
+            "property_id": "prop_86",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(mulh_CS == IDLE_MULT && mulh_imm != 5'd0));"
+          },
+          {
+            "property_id": "prop_88",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(operator_i == MUL_MSU32 && int_result != ($signed(op_c_i) + $signed(int_op_b_msu) + $signed(int_op_a_msu) * $signed(op_b_i))));"
+          },
+          {
+            "property_id": "prop_89",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(dot_short_op_a_1_neg != (dot_short_op_a[1] ^ {17{(is_clpx_i & ~clpx_img_i)}})));"
+          }
+        ],
+        "kill_rate_percent": 17.46031746031746,
+        "kill_rate": "17.5% (22/126)",
+        "generated": 159,
+        "stillborn": 33,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 126,
+        "killed": 22,
+        "survivors": [
+          {
+            "line": 111,
+            "operator": "ADD_TO_SUB",
+            "original": "assign short_mac = $signed(short_op_c) + $signed(short_mul) + $signed(short_round);",
+            "mutated": "assign short_mac = $signed(short_op_c) - $signed(short_mul) + $signed(short_round);"
+          },
+          {
+            "line": 111,
+            "operator": "ADD_TO_SUB",
+            "original": "assign short_mac = $signed(short_op_c) + $signed(short_mul) + $signed(short_round);",
+            "mutated": "assign short_mac = $signed(short_op_c) + $signed(short_mul) - $signed(short_round);"
+          },
+          {
+            "line": 115,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "{short_shift_arith & short_mac_msb1, short_shift_arith & short_mac_msb0, short_mac[31:0]}",
+            "mutated": "{short_shift_arith | short_mac_msb1, short_shift_arith & short_mac_msb0, short_mac[31:0]}"
+          },
+          {
+            "line": 115,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "{short_shift_arith & short_mac_msb1, short_shift_arith & short_mac_msb0, short_mac[31:0]}",
+            "mutated": "{short_shift_arith & short_mac_msb1, short_shift_arith | short_mac_msb0, short_mac[31:0]}"
+          },
+          {
+            "line": 122,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_shift_arith = mulh_active_o ? mulh_shift_arith : short_signed_i[0];",
+            "mutated": "assign short_shift_arith = mulh_active_o ? mulh_shift_arith : short_signed_i[1];"
+          },
+          {
+            "line": 124,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_mac_msb1 = mulh_active_o ? short_mac[33] : short_mac[31];",
+            "mutated": "assign short_mac_msb1 = mulh_active_o ? short_mac[34] : short_mac[31];"
+          },
+          {
+            "line": 124,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_mac_msb1 = mulh_active_o ? short_mac[33] : short_mac[31];",
+            "mutated": "assign short_mac_msb1 = mulh_active_o ? short_mac[33] : short_mac[32];"
+          },
+          {
+            "line": 125,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_mac_msb0 = mulh_active_o ? short_mac[32] : short_mac[31];",
+            "mutated": "assign short_mac_msb0 = mulh_active_o ? short_mac[33] : short_mac[31];"
+          },
+          {
+            "line": 125,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_mac_msb0 = mulh_active_o ? short_mac[32] : short_mac[31];",
+            "mutated": "assign short_mac_msb0 = mulh_active_o ? short_mac[32] : short_mac[32];"
+          },
+          {
+            "line": 164,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "mulh_signed      = {short_signed_i[1], 1'b0};",
+            "mutated": "mulh_signed      = {short_signed_i[2], 1'b0};"
+          },
+          {
+            "line": 178,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "mulh_signed      = {1'b0, short_signed_i[0]};",
+            "mutated": "mulh_signed      = {1'b0, short_signed_i[1]};"
+          },
+          {
+            "line": 180,
+            "operator": "DEC_CONST_BUMP",
+            "original": "mulh_imm         = 5'd16;",
+            "mutated": "mulh_imm         = 5'd17;"
+          },
+          {
+            "line": 206,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "if (mulh_save) mulh_carry_q <= ~mulh_clearcarry & short_mac[32];",
+            "mutated": "if (mulh_save) mulh_carry_q <= ~mulh_clearcarry | short_mac[32];"
+          },
+          {
+            "line": 206,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (mulh_save) mulh_carry_q <= ~mulh_clearcarry & short_mac[32];",
+            "mutated": "if (mulh_save) mulh_carry_q <= ~mulh_clearcarry & short_mac[33];"
+          },
+          {
+            "line": 206,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "if (mulh_save) mulh_carry_q <= ~mulh_clearcarry & short_mac[32];",
+            "mutated": "if (mulh_save) mulh_carry_q <= mulh_clearcarry & short_mac[32];"
+          },
+          {
+            "line": 219,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign int_is_msu = (operator_i == MUL_MSU32);",
+            "mutated": "assign int_is_msu = (operator_i != MUL_MSU32);"
+          },
+          {
+            "line": 222,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign int_op_b_msu = op_b_i & {32{int_is_msu}};",
+            "mutated": "assign int_op_b_msu = op_b_i | {32{int_is_msu}};"
+          },
+          {
+            "line": 256,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_a[0] = {dot_signed_i[1] & dot_op_a_i[7], dot_op_a_i[7:0]};",
+            "mutated": "assign dot_char_op_a[0] = {dot_signed_i[1] | dot_op_a_i[7], dot_op_a_i[7:0]};"
+          },
+          {
+            "line": 256,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[0] = {dot_signed_i[1] & dot_op_a_i[7], dot_op_a_i[7:0]};",
+            "mutated": "assign dot_char_op_a[1] = {dot_signed_i[1] & dot_op_a_i[7], dot_op_a_i[7:0]};"
+          },
+          {
+            "line": 256,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[0] = {dot_signed_i[1] & dot_op_a_i[7], dot_op_a_i[7:0]};",
+            "mutated": "assign dot_char_op_a[0] = {dot_signed_i[2] & dot_op_a_i[7], dot_op_a_i[7:0]};"
+          },
+          {
+            "line": 256,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[0] = {dot_signed_i[1] & dot_op_a_i[7], dot_op_a_i[7:0]};",
+            "mutated": "assign dot_char_op_a[0] = {dot_signed_i[1] & dot_op_a_i[8], dot_op_a_i[7:0]};"
+          },
+          {
+            "line": 257,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_a[1] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:8]};",
+            "mutated": "assign dot_char_op_a[1] = {dot_signed_i[1] | dot_op_a_i[15], dot_op_a_i[15:8]};"
+          },
+          {
+            "line": 257,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[1] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:8]};",
+            "mutated": "assign dot_char_op_a[2] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:8]};"
+          },
+          {
+            "line": 257,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[1] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:8]};",
+            "mutated": "assign dot_char_op_a[1] = {dot_signed_i[2] & dot_op_a_i[15], dot_op_a_i[15:8]};"
+          },
+          {
+            "line": 257,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[1] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:8]};",
+            "mutated": "assign dot_char_op_a[1] = {dot_signed_i[1] & dot_op_a_i[16], dot_op_a_i[15:8]};"
+          },
+          {
+            "line": 258,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_a[2] = {dot_signed_i[1] & dot_op_a_i[23], dot_op_a_i[23:16]};",
+            "mutated": "assign dot_char_op_a[2] = {dot_signed_i[1] | dot_op_a_i[23], dot_op_a_i[23:16]};"
+          },
+          {
+            "line": 258,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[2] = {dot_signed_i[1] & dot_op_a_i[23], dot_op_a_i[23:16]};",
+            "mutated": "assign dot_char_op_a[3] = {dot_signed_i[1] & dot_op_a_i[23], dot_op_a_i[23:16]};"
+          },
+          {
+            "line": 258,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[2] = {dot_signed_i[1] & dot_op_a_i[23], dot_op_a_i[23:16]};",
+            "mutated": "assign dot_char_op_a[2] = {dot_signed_i[2] & dot_op_a_i[23], dot_op_a_i[23:16]};"
+          },
+          {
+            "line": 258,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[2] = {dot_signed_i[1] & dot_op_a_i[23], dot_op_a_i[23:16]};",
+            "mutated": "assign dot_char_op_a[2] = {dot_signed_i[1] & dot_op_a_i[24], dot_op_a_i[23:16]};"
+          },
+          {
+            "line": 259,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_a[3] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:24]};",
+            "mutated": "assign dot_char_op_a[3] = {dot_signed_i[1] | dot_op_a_i[31], dot_op_a_i[31:24]};"
+          },
+          {
+            "line": 259,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[3] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:24]};",
+            "mutated": "assign dot_char_op_a[4] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:24]};"
+          },
+          {
+            "line": 259,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[3] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:24]};",
+            "mutated": "assign dot_char_op_a[3] = {dot_signed_i[2] & dot_op_a_i[31], dot_op_a_i[31:24]};"
+          },
+          {
+            "line": 259,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[3] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:24]};",
+            "mutated": "assign dot_char_op_a[3] = {dot_signed_i[1] & dot_op_a_i[32], dot_op_a_i[31:24]};"
+          },
+          {
+            "line": 261,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_b[0] = {dot_signed_i[0] & dot_op_b_i[7], dot_op_b_i[7:0]};",
+            "mutated": "assign dot_char_op_b[0] = {dot_signed_i[0] | dot_op_b_i[7], dot_op_b_i[7:0]};"
+          },
+          {
+            "line": 261,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[0] = {dot_signed_i[0] & dot_op_b_i[7], dot_op_b_i[7:0]};",
+            "mutated": "assign dot_char_op_b[1] = {dot_signed_i[0] & dot_op_b_i[7], dot_op_b_i[7:0]};"
+          },
+          {
+            "line": 261,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[0] = {dot_signed_i[0] & dot_op_b_i[7], dot_op_b_i[7:0]};",
+            "mutated": "assign dot_char_op_b[0] = {dot_signed_i[1] & dot_op_b_i[7], dot_op_b_i[7:0]};"
+          },
+          {
+            "line": 261,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[0] = {dot_signed_i[0] & dot_op_b_i[7], dot_op_b_i[7:0]};",
+            "mutated": "assign dot_char_op_b[0] = {dot_signed_i[0] & dot_op_b_i[8], dot_op_b_i[7:0]};"
+          },
+          {
+            "line": 262,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_b[1] = {dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:8]};",
+            "mutated": "assign dot_char_op_b[1] = {dot_signed_i[0] | dot_op_b_i[15], dot_op_b_i[15:8]};"
+          },
+          {
+            "line": 262,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[1] = {dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:8]};",
+            "mutated": "assign dot_char_op_b[2] = {dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:8]};"
+          },
+          {
+            "line": 262,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[1] = {dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:8]};",
+            "mutated": "assign dot_char_op_b[1] = {dot_signed_i[1] & dot_op_b_i[15], dot_op_b_i[15:8]};"
+          },
+          {
+            "line": 262,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[1] = {dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:8]};",
+            "mutated": "assign dot_char_op_b[1] = {dot_signed_i[0] & dot_op_b_i[16], dot_op_b_i[15:8]};"
+          },
+          {
+            "line": 263,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_b[2] = {dot_signed_i[0] & dot_op_b_i[23], dot_op_b_i[23:16]};",
+            "mutated": "assign dot_char_op_b[2] = {dot_signed_i[0] | dot_op_b_i[23], dot_op_b_i[23:16]};"
+          },
+          {
+            "line": 263,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[2] = {dot_signed_i[0] & dot_op_b_i[23], dot_op_b_i[23:16]};",
+            "mutated": "assign dot_char_op_b[3] = {dot_signed_i[0] & dot_op_b_i[23], dot_op_b_i[23:16]};"
+          },
+          {
+            "line": 263,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[2] = {dot_signed_i[0] & dot_op_b_i[23], dot_op_b_i[23:16]};",
+            "mutated": "assign dot_char_op_b[2] = {dot_signed_i[1] & dot_op_b_i[23], dot_op_b_i[23:16]};"
+          },
+          {
+            "line": 263,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[2] = {dot_signed_i[0] & dot_op_b_i[23], dot_op_b_i[23:16]};",
+            "mutated": "assign dot_char_op_b[2] = {dot_signed_i[0] & dot_op_b_i[24], dot_op_b_i[23:16]};"
+          },
+          {
+            "line": 264,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_b[3] = {dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:24]};",
+            "mutated": "assign dot_char_op_b[3] = {dot_signed_i[0] | dot_op_b_i[31], dot_op_b_i[31:24]};"
+          },
+          {
+            "line": 264,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[3] = {dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:24]};",
+            "mutated": "assign dot_char_op_b[4] = {dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:24]};"
+          },
+          {
+            "line": 264,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[3] = {dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:24]};",
+            "mutated": "assign dot_char_op_b[3] = {dot_signed_i[1] & dot_op_b_i[31], dot_op_b_i[31:24]};"
+          },
+          {
+            "line": 264,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[3] = {dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:24]};",
+            "mutated": "assign dot_char_op_b[3] = {dot_signed_i[0] & dot_op_b_i[32], dot_op_b_i[31:24]};"
+          },
+          {
+            "line": 266,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[0] = $signed(dot_char_op_a[0]) * $signed(dot_char_op_b[0]);",
+            "mutated": "assign dot_char_mul[1] = $signed(dot_char_op_a[0]) * $signed(dot_char_op_b[0]);"
+          },
+          {
+            "line": 266,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[0] = $signed(dot_char_op_a[0]) * $signed(dot_char_op_b[0]);",
+            "mutated": "assign dot_char_mul[0] = $signed(dot_char_op_a[1]) * $signed(dot_char_op_b[0]);"
+          },
+          {
+            "line": 266,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[0] = $signed(dot_char_op_a[0]) * $signed(dot_char_op_b[0]);",
+            "mutated": "assign dot_char_mul[0] = $signed(dot_char_op_a[0]) * $signed(dot_char_op_b[1]);"
+          },
+          {
+            "line": 267,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[1] = $signed(dot_char_op_a[1]) * $signed(dot_char_op_b[1]);",
+            "mutated": "assign dot_char_mul[2] = $signed(dot_char_op_a[1]) * $signed(dot_char_op_b[1]);"
+          },
+          {
+            "line": 267,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[1] = $signed(dot_char_op_a[1]) * $signed(dot_char_op_b[1]);",
+            "mutated": "assign dot_char_mul[1] = $signed(dot_char_op_a[2]) * $signed(dot_char_op_b[1]);"
+          },
+          {
+            "line": 267,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[1] = $signed(dot_char_op_a[1]) * $signed(dot_char_op_b[1]);",
+            "mutated": "assign dot_char_mul[1] = $signed(dot_char_op_a[1]) * $signed(dot_char_op_b[2]);"
+          },
+          {
+            "line": 268,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[2] = $signed(dot_char_op_a[2]) * $signed(dot_char_op_b[2]);",
+            "mutated": "assign dot_char_mul[3] = $signed(dot_char_op_a[2]) * $signed(dot_char_op_b[2]);"
+          },
+          {
+            "line": 268,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[2] = $signed(dot_char_op_a[2]) * $signed(dot_char_op_b[2]);",
+            "mutated": "assign dot_char_mul[2] = $signed(dot_char_op_a[3]) * $signed(dot_char_op_b[2]);"
+          },
+          {
+            "line": 268,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[2] = $signed(dot_char_op_a[2]) * $signed(dot_char_op_b[2]);",
+            "mutated": "assign dot_char_mul[2] = $signed(dot_char_op_a[2]) * $signed(dot_char_op_b[3]);"
+          },
+          {
+            "line": 269,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[3] = $signed(dot_char_op_a[3]) * $signed(dot_char_op_b[3]);",
+            "mutated": "assign dot_char_mul[4] = $signed(dot_char_op_a[3]) * $signed(dot_char_op_b[3]);"
+          },
+          {
+            "line": 269,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[3] = $signed(dot_char_op_a[3]) * $signed(dot_char_op_b[3]);",
+            "mutated": "assign dot_char_mul[3] = $signed(dot_char_op_a[4]) * $signed(dot_char_op_b[3]);"
+          },
+          {
+            "line": 269,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[3] = $signed(dot_char_op_a[3]) * $signed(dot_char_op_b[3]);",
+            "mutated": "assign dot_char_mul[3] = $signed(dot_char_op_a[3]) * $signed(dot_char_op_b[4]);"
+          },
+          {
+            "line": 272,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_char_mul[0]",
+            "mutated": "dot_char_mul[1]"
+          },
+          {
+            "line": 273,
+            "operator": "ADD_TO_SUB",
+            "original": ") + $signed(",
+            "mutated": ") - $signed("
+          },
+          {
+            "line": 274,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_char_mul[1]",
+            "mutated": "dot_char_mul[2]"
+          },
+          {
+            "line": 275,
+            "operator": "ADD_TO_SUB",
+            "original": ") + $signed(",
+            "mutated": ") - $signed("
+          },
+          {
+            "line": 276,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_char_mul[2]",
+            "mutated": "dot_char_mul[3]"
+          },
+          {
+            "line": 277,
+            "operator": "ADD_TO_SUB",
+            "original": ") + $signed(",
+            "mutated": ") - $signed("
+          },
+          {
+            "line": 278,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_char_mul[3]",
+            "mutated": "dot_char_mul[4]"
+          },
+          {
+            "line": 279,
+            "operator": "ADD_TO_SUB",
+            "original": ") + $signed(",
+            "mutated": ") - $signed("
+          },
+          {
+            "line": 284,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_short_op_a[0] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:0]};",
+            "mutated": "assign dot_short_op_a[0] = {dot_signed_i[1] | dot_op_a_i[15], dot_op_a_i[15:0]};"
+          },
+          {
+            "line": 284,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_a[0] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:0]};",
+            "mutated": "assign dot_short_op_a[1] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:0]};"
+          },
+          {
+            "line": 284,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_a[0] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:0]};",
+            "mutated": "assign dot_short_op_a[0] = {dot_signed_i[2] & dot_op_a_i[15], dot_op_a_i[15:0]};"
+          },
+          {
+            "line": 284,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_a[0] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:0]};",
+            "mutated": "assign dot_short_op_a[0] = {dot_signed_i[1] & dot_op_a_i[16], dot_op_a_i[15:0]};"
+          },
+          {
+            "line": 285,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_short_op_a[1] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:16]};",
+            "mutated": "assign dot_short_op_a[1] = {dot_signed_i[1] | dot_op_a_i[31], dot_op_a_i[31:16]};"
+          },
+          {
+            "line": 285,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_a[1] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:16]};",
+            "mutated": "assign dot_short_op_a[2] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:16]};"
+          },
+          {
+            "line": 285,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_a[1] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:16]};",
+            "mutated": "assign dot_short_op_a[1] = {dot_signed_i[2] & dot_op_a_i[31], dot_op_a_i[31:16]};"
+          },
+          {
+            "line": 285,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_a[1] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:16]};",
+            "mutated": "assign dot_short_op_a[1] = {dot_signed_i[1] & dot_op_a_i[32], dot_op_a_i[31:16]};"
+          },
+          {
+            "line": 288,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_short_op_b[0] = (is_clpx_i & clpx_img_i) ? {",
+            "mutated": "assign dot_short_op_b[0] = (is_clpx_i | clpx_img_i) ? {"
+          },
+          {
+            "line": 289,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:16]",
+            "mutated": "dot_signed_i[0] | dot_op_b_i[31], dot_op_b_i[31:16]"
+          },
+          {
+            "line": 289,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:16]",
+            "mutated": "dot_signed_i[1] & dot_op_b_i[31], dot_op_b_i[31:16]"
+          },
+          {
+            "line": 289,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:16]",
+            "mutated": "dot_signed_i[0] & dot_op_b_i[32], dot_op_b_i[31:16]"
+          },
+          {
+            "line": 291,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:0]",
+            "mutated": "dot_signed_i[0] | dot_op_b_i[15], dot_op_b_i[15:0]"
+          },
+          {
+            "line": 291,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:0]",
+            "mutated": "dot_signed_i[1] & dot_op_b_i[15], dot_op_b_i[15:0]"
+          },
+          {
+            "line": 291,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:0]",
+            "mutated": "dot_signed_i[0] & dot_op_b_i[16], dot_op_b_i[15:0]"
+          },
+          {
+            "line": 293,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_short_op_b[1] = (is_clpx_i & clpx_img_i) ? {",
+            "mutated": "assign dot_short_op_b[1] = (is_clpx_i | clpx_img_i) ? {"
+          },
+          {
+            "line": 293,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_b[1] = (is_clpx_i & clpx_img_i) ? {",
+            "mutated": "assign dot_short_op_b[2] = (is_clpx_i & clpx_img_i) ? {"
+          },
+          {
+            "line": 294,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:0]",
+            "mutated": "dot_signed_i[0] | dot_op_b_i[15], dot_op_b_i[15:0]"
+          },
+          {
+            "line": 294,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:0]",
+            "mutated": "dot_signed_i[1] & dot_op_b_i[15], dot_op_b_i[15:0]"
+          },
+          {
+            "line": 294,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:0]",
+            "mutated": "dot_signed_i[0] & dot_op_b_i[16], dot_op_b_i[15:0]"
+          },
+          {
+            "line": 296,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:16]",
+            "mutated": "dot_signed_i[0] | dot_op_b_i[31], dot_op_b_i[31:16]"
+          },
+          {
+            "line": 296,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:16]",
+            "mutated": "dot_signed_i[1] & dot_op_b_i[31], dot_op_b_i[31:16]"
+          },
+          {
+            "line": 296,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:16]",
+            "mutated": "dot_signed_i[0] & dot_op_b_i[32], dot_op_b_i[31:16]"
+          },
+          {
+            "line": 299,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_mul[0] = $signed(dot_short_op_a[0]) * $signed(dot_short_op_b[0]);",
+            "mutated": "assign dot_short_mul[1] = $signed(dot_short_op_a[0]) * $signed(dot_short_op_b[0]);"
+          },
+          {
+            "line": 299,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_mul[0] = $signed(dot_short_op_a[0]) * $signed(dot_short_op_b[0]);",
+            "mutated": "assign dot_short_mul[0] = $signed(dot_short_op_a[1]) * $signed(dot_short_op_b[0]);"
+          },
+          {
+            "line": 299,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_mul[0] = $signed(dot_short_op_a[0]) * $signed(dot_short_op_b[0]);",
+            "mutated": "assign dot_short_mul[0] = $signed(dot_short_op_a[0]) * $signed(dot_short_op_b[1]);"
+          },
+          {
+            "line": 300,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_mul[1] = $signed(dot_short_op_a_1_neg) * $signed(dot_short_op_b[1]);",
+            "mutated": "assign dot_short_mul[2] = $signed(dot_short_op_a_1_neg) * $signed(dot_short_op_b[1]);"
+          },
+          {
+            "line": 300,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_mul[1] = $signed(dot_short_op_a_1_neg) * $signed(dot_short_op_b[1]);",
+            "mutated": "assign dot_short_mul[1] = $signed(dot_short_op_a_1_neg) * $signed(dot_short_op_b[2]);"
+          },
+          {
+            "line": 302,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_b_ext = $signed(dot_short_op_b[1]);",
+            "mutated": "assign dot_short_op_b_ext = $signed(dot_short_op_b[2]);"
+          },
+          {
+            "line": 303,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign accumulator = is_clpx_i ? dot_short_op_b_ext & {32{~clpx_img_i}} : $signed(dot_op_c_i);",
+            "mutated": "assign accumulator = is_clpx_i ? dot_short_op_b_ext | {32{~clpx_img_i}} : $signed(dot_op_c_i);"
+          },
+          {
+            "line": 303,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "assign accumulator = is_clpx_i ? dot_short_op_b_ext & {32{~clpx_img_i}} : $signed(dot_op_c_i);",
+            "mutated": "assign accumulator = is_clpx_i ? dot_short_op_b_ext & {32{clpx_img_i}} : $signed(dot_op_c_i);"
+          },
+          {
+            "line": 306,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_short_mul[0][31:0]",
+            "mutated": "dot_short_mul[1][31:0]"
+          },
+          {
+            "line": 307,
+            "operator": "ADD_TO_SUB",
+            "original": ") + $signed(",
+            "mutated": ") - $signed("
+          },
+          {
+            "line": 308,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_short_mul[1][31:0]",
+            "mutated": "dot_short_mul[2][31:0]"
+          },
+          {
+            "line": 309,
+            "operator": "ADD_TO_SUB",
+            "original": ") + $signed(",
+            "mutated": ") - $signed("
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 14,
+          "selected": 12,
+          "redundancy_percent": 14.28571428571429,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/14 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_01",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($past(mulh_CS) == IDLE_MULT && $past(enable_i) && $past(operator_i) != MUL_H && mulh_CS == STEP0));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!($past(mulh_CS) == IDLE_MULT && $past(enable_i) && $past(operator_i) != MUL_H && mulh_CS == STEP0));"
+        },
+        {
+          "property_id": "prop_17",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(mulh_CS == STEP0 && mulh_imm != 5'd16));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(mulh_CS == STEP0 && mulh_imm != 5'd16));"
+        },
+        {
+          "property_id": "prop_39",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(operator_i != MUL_IR && short_round != '0));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(operator_i != MUL_IR && short_round != '0));"
+        },
+        {
+          "property_id": "prop_40",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(short_subword[0] && short_op_a[15:0] != op_a_i[31:16]));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(short_subword[0] && short_op_a[15:0] != op_a_i[31:16]));"
+        },
+        {
+          "property_id": "prop_41",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(!short_subword[0] && short_op_a[15:0] != op_a_i[15:0]));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(!short_subword[0] && short_op_a[15:0] != op_a_i[15:0]));"
+        },
+        {
+          "property_id": "prop_42",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(short_subword[1] && short_op_b[15:0] != op_b_i[31:16]));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(short_subword[1] && short_op_b[15:0] != op_b_i[31:16]));"
+        },
+        {
+          "property_id": "prop_45",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(!short_signed[0] && short_op_a[16]));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(!short_signed[0] && short_op_a[16]));"
+        },
+        {
+          "property_id": "prop_47",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(!short_signed[1] && short_op_b[16]));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(!short_signed[1] && short_op_b[16]));"
+        },
+        {
+          "property_id": "prop_64",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(int_is_msu && int_op_a_msu != (op_a_i ^ {32{1'b1}})));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(int_is_msu && int_op_a_msu != (op_a_i ^ {32{1'b1}})));"
+        },
+        {
+          "property_id": "prop_65",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(!int_is_msu && int_op_a_msu != op_a_i));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(!int_is_msu && int_op_a_msu != op_a_i));"
+        },
+        {
+          "property_id": "prop_84",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(operator_i == MUL_IR && short_round_tmp != (32'h00000001 << imm_i)));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(operator_i == MUL_IR && short_round_tmp != (32'h00000001 << imm_i)));"
+        },
+        {
+          "property_id": "prop_86",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(mulh_CS == IDLE_MULT && mulh_imm != 5'd0));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(mulh_CS == IDLE_MULT && mulh_imm != 5'd0));"
+        },
+        {
+          "property_id": "prop_88",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(operator_i == MUL_MSU32 && int_result != ($signed(op_c_i) + $signed(int_op_b_msu) + $signed(int_op_a_msu) * $signed(op_b_i))));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(operator_i == MUL_MSU32 && int_result != ($signed(op_c_i) + $signed(int_op_b_msu) + $signed(int_op_a_msu) * $signed(op_b_i))));"
+        },
+        {
+          "property_id": "prop_89",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(dot_short_op_a_1_neg != (dot_short_op_a[1] ^ {17{(is_clpx_i & ~clpx_img_i)}})));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(dot_short_op_a_1_neg != (dot_short_op_a[1] ^ {17{(is_clpx_i & ~clpx_img_i)}})));"
+        }
+      ],
+      "wall_seconds": 821.3571834564209,
+      "suite_size": 14,
+      "suite_distinct": 14
+    },
+    {
+      "seed": 1,
+      "converged": false,
+      "stop_reason": "iteration budget (4) exhausted",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 23,
+          "admitted": 5,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 18,
+          "suite_size": 5,
+          "active": 17,
+          "killed": 2,
+          "kill_rate": 11.76470588235294,
+          "newly_killed": [
+            "m031_EQ_TO_NEQ_L145_0",
+            "m032_AND_TO_OR_L145_0"
+          ],
+          "seconds": 44.65692138671875
+        },
+        {
+          "index": 1,
+          "proposed": 18,
+          "admitted": 2,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 16,
+          "suite_size": 2,
+          "active": 17,
+          "killed": 3,
+          "kill_rate": 17.647058823529413,
+          "newly_killed": [
+            "m044_DROP_BITWISE_NOT_L206_0"
+          ],
+          "seconds": 11.658135175704956
+        },
+        {
+          "index": 2,
+          "proposed": 19,
+          "admitted": 2,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 3,
+          "rejected_unsound": 16,
+          "suite_size": 2,
+          "active": 17,
+          "killed": 3,
+          "kill_rate": 17.647058823529413,
+          "newly_killed": [],
+          "seconds": 10.625326156616211
+        },
+        {
+          "index": 3,
+          "proposed": 20,
+          "admitted": 4,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 2,
+          "rejected_unsound": 16,
+          "suite_size": 4,
+          "active": 17,
+          "killed": 6,
+          "kill_rate": 35.294117647058826,
+          "newly_killed": [
+            "m017_ADD_TO_SUB_L111_0",
+            "m018_ADD_TO_SUB_L111_1",
+            "m049_ADD_TO_SUB_L226_0"
+          ],
+          "seconds": 13.416074275970459
+        }
+      ],
+      "initial_kill_rate": 11.76470588235294,
+      "final_kill_rate": 35.294117647058826,
+      "loop_seconds": 107.90169048309326,
+      "independent_verification": {
+        "properties_checked": 4,
+        "properties_sound": 4,
+        "soundness": [
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($past(mulh_CS) == IDLE_MULT && $past(enable_i) && $past(operator_i) != MUL_H && mulh_CS == STEP0));"
+          },
+          {
+            "property_id": "prop_33",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($past(mulh_save) && $past(mulh_clearcarry) && mulh_carry_q != 1'b0));"
+          },
+          {
+            "property_id": "prop_66",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($signed(short_mac) != ($signed(short_op_c) + $signed(short_mul) + $signed(short_round))));"
+          },
+          {
+            "property_id": "prop_70",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($signed(int_result) != ($signed(op_c_i) + $signed(int_op_b_msu) + $signed(int_op_a_msu) * $signed(op_b_i))));"
+          }
+        ],
+        "kill_rate_percent": 35.294117647058826,
+        "kill_rate": "35.3% (6/17)",
+        "generated": 159,
+        "stillborn": 7,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 17,
+        "killed": 6,
+        "survivors": [
+          {
+            "line": 98,
+            "operator": "SHL_TO_SHR",
+            "original": "assign short_round_tmp = (32'h00000001) << imm_i;",
+            "mutated": "assign short_round_tmp = (32'h00000001) >> imm_i;"
+          },
+          {
+            "line": 98,
+            "operator": "HEX_CONST_BUMP",
+            "original": "assign short_round_tmp = (32'h00000001) << imm_i;",
+            "mutated": "assign short_round_tmp = (32'h2) << imm_i;"
+          },
+          {
+            "line": 99,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign short_round = (operator_i == MUL_IR) ? {1'b0, short_round_tmp[31:1]} : '0;",
+            "mutated": "assign short_round = (operator_i != MUL_IR) ? {1'b0, short_round_tmp[31:1]} : '0;"
+          },
+          {
+            "line": 102,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_op_a[15:0] = short_subword[0] ? op_a_i[31:16] : op_a_i[15:0];",
+            "mutated": "assign short_op_a[15:0] = short_subword[1] ? op_a_i[31:16] : op_a_i[15:0];"
+          },
+          {
+            "line": 103,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_op_b[15:0] = short_subword[1] ? op_b_i[31:16] : op_b_i[15:0];",
+            "mutated": "assign short_op_b[15:0] = short_subword[2] ? op_b_i[31:16] : op_b_i[15:0];"
+          },
+          {
+            "line": 105,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign short_op_a[16] = short_signed[0] & short_op_a[15];",
+            "mutated": "assign short_op_a[16] = short_signed[0] | short_op_a[15];"
+          },
+          {
+            "line": 106,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign short_op_b[16] = short_signed[1] & short_op_b[15];",
+            "mutated": "assign short_op_b[16] = short_signed[1] | short_op_b[15];"
+          },
+          {
+            "line": 130,
+            "operator": "DEC_CONST_BUMP",
+            "original": "mulh_imm         = 5'd0;",
+            "mutated": "mulh_imm         = 5'd1;"
+          },
+          {
+            "line": 153,
+            "operator": "DEC_CONST_BUMP",
+            "original": "mulh_imm      = 5'd16;",
+            "mutated": "mulh_imm      = 5'd17;"
+          },
+          {
+            "line": 221,
+            "operator": "BITWISE_XOR_TO_AND",
+            "original": "assign int_op_a_msu = op_a_i ^ {32{int_is_msu}};",
+            "mutated": "assign int_op_a_msu = op_a_i & {32{int_is_msu}};"
+          },
+          {
+            "line": 286,
+            "operator": "BITWISE_XOR_TO_AND",
+            "original": "assign dot_short_op_a_1_neg = dot_short_op_a[1] ^ {17{(is_clpx_i & ~clpx_img_i)}}; //negates whether clpx_img_i is 0 or 1, only REAL PART needs to be negated",
+            "mutated": "assign dot_short_op_a_1_neg = dot_short_op_a[1] & {17{(is_clpx_i & ~clpx_img_i)}}; //negates whether clpx_img_i is 0 or 1, only REAL PART needs to be negated"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 4,
+          "selected": 4,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/4 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 4,
+        "properties_sound": 4,
+        "soundness": [
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($past(mulh_CS) == IDLE_MULT && $past(enable_i) && $past(operator_i) != MUL_H && mulh_CS == STEP0));"
+          },
+          {
+            "property_id": "prop_33",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($past(mulh_save) && $past(mulh_clearcarry) && mulh_carry_q != 1'b0));"
+          },
+          {
+            "property_id": "prop_66",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($signed(short_mac) != ($signed(short_op_c) + $signed(short_mul) + $signed(short_round))));"
+          },
+          {
+            "property_id": "prop_70",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($signed(int_result) != ($signed(op_c_i) + $signed(int_op_b_msu) + $signed(int_op_a_msu) * $signed(op_b_i))));"
+          }
+        ],
+        "kill_rate_percent": 7.936507936507936,
+        "kill_rate": "7.9% (10/126)",
+        "generated": 159,
+        "stillborn": 33,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 126,
+        "killed": 10,
+        "survivors": [
+          {
+            "line": 98,
+            "operator": "SHL_TO_SHR",
+            "original": "assign short_round_tmp = (32'h00000001) << imm_i;",
+            "mutated": "assign short_round_tmp = (32'h00000001) >> imm_i;"
+          },
+          {
+            "line": 98,
+            "operator": "HEX_CONST_BUMP",
+            "original": "assign short_round_tmp = (32'h00000001) << imm_i;",
+            "mutated": "assign short_round_tmp = (32'h2) << imm_i;"
+          },
+          {
+            "line": 99,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign short_round = (operator_i == MUL_IR) ? {1'b0, short_round_tmp[31:1]} : '0;",
+            "mutated": "assign short_round = (operator_i != MUL_IR) ? {1'b0, short_round_tmp[31:1]} : '0;"
+          },
+          {
+            "line": 102,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_op_a[15:0] = short_subword[0] ? op_a_i[31:16] : op_a_i[15:0];",
+            "mutated": "assign short_op_a[15:0] = short_subword[1] ? op_a_i[31:16] : op_a_i[15:0];"
+          },
+          {
+            "line": 103,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_op_b[15:0] = short_subword[1] ? op_b_i[31:16] : op_b_i[15:0];",
+            "mutated": "assign short_op_b[15:0] = short_subword[2] ? op_b_i[31:16] : op_b_i[15:0];"
+          },
+          {
+            "line": 105,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign short_op_a[16] = short_signed[0] & short_op_a[15];",
+            "mutated": "assign short_op_a[16] = short_signed[0] | short_op_a[15];"
+          },
+          {
+            "line": 105,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_op_a[16] = short_signed[0] & short_op_a[15];",
+            "mutated": "assign short_op_a[16] = short_signed[1] & short_op_a[15];"
+          },
+          {
+            "line": 106,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign short_op_b[16] = short_signed[1] & short_op_b[15];",
+            "mutated": "assign short_op_b[16] = short_signed[1] | short_op_b[15];"
+          },
+          {
+            "line": 106,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_op_b[16] = short_signed[1] & short_op_b[15];",
+            "mutated": "assign short_op_b[16] = short_signed[2] & short_op_b[15];"
+          },
+          {
+            "line": 115,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "{short_shift_arith & short_mac_msb1, short_shift_arith & short_mac_msb0, short_mac[31:0]}",
+            "mutated": "{short_shift_arith | short_mac_msb1, short_shift_arith & short_mac_msb0, short_mac[31:0]}"
+          },
+          {
+            "line": 115,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "{short_shift_arith & short_mac_msb1, short_shift_arith & short_mac_msb0, short_mac[31:0]}",
+            "mutated": "{short_shift_arith & short_mac_msb1, short_shift_arith | short_mac_msb0, short_mac[31:0]}"
+          },
+          {
+            "line": 122,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_shift_arith = mulh_active_o ? mulh_shift_arith : short_signed_i[0];",
+            "mutated": "assign short_shift_arith = mulh_active_o ? mulh_shift_arith : short_signed_i[1];"
+          },
+          {
+            "line": 124,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_mac_msb1 = mulh_active_o ? short_mac[33] : short_mac[31];",
+            "mutated": "assign short_mac_msb1 = mulh_active_o ? short_mac[34] : short_mac[31];"
+          },
+          {
+            "line": 124,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_mac_msb1 = mulh_active_o ? short_mac[33] : short_mac[31];",
+            "mutated": "assign short_mac_msb1 = mulh_active_o ? short_mac[33] : short_mac[32];"
+          },
+          {
+            "line": 125,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_mac_msb0 = mulh_active_o ? short_mac[32] : short_mac[31];",
+            "mutated": "assign short_mac_msb0 = mulh_active_o ? short_mac[33] : short_mac[31];"
+          },
+          {
+            "line": 125,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign short_mac_msb0 = mulh_active_o ? short_mac[32] : short_mac[31];",
+            "mutated": "assign short_mac_msb0 = mulh_active_o ? short_mac[32] : short_mac[32];"
+          },
+          {
+            "line": 130,
+            "operator": "DEC_CONST_BUMP",
+            "original": "mulh_imm         = 5'd0;",
+            "mutated": "mulh_imm         = 5'd1;"
+          },
+          {
+            "line": 153,
+            "operator": "DEC_CONST_BUMP",
+            "original": "mulh_imm      = 5'd16;",
+            "mutated": "mulh_imm      = 5'd17;"
+          },
+          {
+            "line": 164,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "mulh_signed      = {short_signed_i[1], 1'b0};",
+            "mutated": "mulh_signed      = {short_signed_i[2], 1'b0};"
+          },
+          {
+            "line": 178,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "mulh_signed      = {1'b0, short_signed_i[0]};",
+            "mutated": "mulh_signed      = {1'b0, short_signed_i[1]};"
+          },
+          {
+            "line": 180,
+            "operator": "DEC_CONST_BUMP",
+            "original": "mulh_imm         = 5'd16;",
+            "mutated": "mulh_imm         = 5'd17;"
+          },
+          {
+            "line": 206,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "if (mulh_save) mulh_carry_q <= ~mulh_clearcarry & short_mac[32];",
+            "mutated": "if (mulh_save) mulh_carry_q <= ~mulh_clearcarry & short_mac[33];"
+          },
+          {
+            "line": 219,
+            "operator": "EQ_TO_NEQ",
+            "original": "assign int_is_msu = (operator_i == MUL_MSU32);",
+            "mutated": "assign int_is_msu = (operator_i != MUL_MSU32);"
+          },
+          {
+            "line": 221,
+            "operator": "BITWISE_XOR_TO_AND",
+            "original": "assign int_op_a_msu = op_a_i ^ {32{int_is_msu}};",
+            "mutated": "assign int_op_a_msu = op_a_i & {32{int_is_msu}};"
+          },
+          {
+            "line": 222,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign int_op_b_msu = op_b_i & {32{int_is_msu}};",
+            "mutated": "assign int_op_b_msu = op_b_i | {32{int_is_msu}};"
+          },
+          {
+            "line": 256,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_a[0] = {dot_signed_i[1] & dot_op_a_i[7], dot_op_a_i[7:0]};",
+            "mutated": "assign dot_char_op_a[0] = {dot_signed_i[1] | dot_op_a_i[7], dot_op_a_i[7:0]};"
+          },
+          {
+            "line": 256,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[0] = {dot_signed_i[1] & dot_op_a_i[7], dot_op_a_i[7:0]};",
+            "mutated": "assign dot_char_op_a[1] = {dot_signed_i[1] & dot_op_a_i[7], dot_op_a_i[7:0]};"
+          },
+          {
+            "line": 256,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[0] = {dot_signed_i[1] & dot_op_a_i[7], dot_op_a_i[7:0]};",
+            "mutated": "assign dot_char_op_a[0] = {dot_signed_i[2] & dot_op_a_i[7], dot_op_a_i[7:0]};"
+          },
+          {
+            "line": 256,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[0] = {dot_signed_i[1] & dot_op_a_i[7], dot_op_a_i[7:0]};",
+            "mutated": "assign dot_char_op_a[0] = {dot_signed_i[1] & dot_op_a_i[8], dot_op_a_i[7:0]};"
+          },
+          {
+            "line": 257,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_a[1] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:8]};",
+            "mutated": "assign dot_char_op_a[1] = {dot_signed_i[1] | dot_op_a_i[15], dot_op_a_i[15:8]};"
+          },
+          {
+            "line": 257,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[1] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:8]};",
+            "mutated": "assign dot_char_op_a[2] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:8]};"
+          },
+          {
+            "line": 257,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[1] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:8]};",
+            "mutated": "assign dot_char_op_a[1] = {dot_signed_i[2] & dot_op_a_i[15], dot_op_a_i[15:8]};"
+          },
+          {
+            "line": 257,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[1] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:8]};",
+            "mutated": "assign dot_char_op_a[1] = {dot_signed_i[1] & dot_op_a_i[16], dot_op_a_i[15:8]};"
+          },
+          {
+            "line": 258,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_a[2] = {dot_signed_i[1] & dot_op_a_i[23], dot_op_a_i[23:16]};",
+            "mutated": "assign dot_char_op_a[2] = {dot_signed_i[1] | dot_op_a_i[23], dot_op_a_i[23:16]};"
+          },
+          {
+            "line": 258,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[2] = {dot_signed_i[1] & dot_op_a_i[23], dot_op_a_i[23:16]};",
+            "mutated": "assign dot_char_op_a[3] = {dot_signed_i[1] & dot_op_a_i[23], dot_op_a_i[23:16]};"
+          },
+          {
+            "line": 258,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[2] = {dot_signed_i[1] & dot_op_a_i[23], dot_op_a_i[23:16]};",
+            "mutated": "assign dot_char_op_a[2] = {dot_signed_i[2] & dot_op_a_i[23], dot_op_a_i[23:16]};"
+          },
+          {
+            "line": 258,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[2] = {dot_signed_i[1] & dot_op_a_i[23], dot_op_a_i[23:16]};",
+            "mutated": "assign dot_char_op_a[2] = {dot_signed_i[1] & dot_op_a_i[24], dot_op_a_i[23:16]};"
+          },
+          {
+            "line": 259,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_a[3] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:24]};",
+            "mutated": "assign dot_char_op_a[3] = {dot_signed_i[1] | dot_op_a_i[31], dot_op_a_i[31:24]};"
+          },
+          {
+            "line": 259,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[3] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:24]};",
+            "mutated": "assign dot_char_op_a[4] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:24]};"
+          },
+          {
+            "line": 259,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[3] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:24]};",
+            "mutated": "assign dot_char_op_a[3] = {dot_signed_i[2] & dot_op_a_i[31], dot_op_a_i[31:24]};"
+          },
+          {
+            "line": 259,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_a[3] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:24]};",
+            "mutated": "assign dot_char_op_a[3] = {dot_signed_i[1] & dot_op_a_i[32], dot_op_a_i[31:24]};"
+          },
+          {
+            "line": 261,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_b[0] = {dot_signed_i[0] & dot_op_b_i[7], dot_op_b_i[7:0]};",
+            "mutated": "assign dot_char_op_b[0] = {dot_signed_i[0] | dot_op_b_i[7], dot_op_b_i[7:0]};"
+          },
+          {
+            "line": 261,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[0] = {dot_signed_i[0] & dot_op_b_i[7], dot_op_b_i[7:0]};",
+            "mutated": "assign dot_char_op_b[1] = {dot_signed_i[0] & dot_op_b_i[7], dot_op_b_i[7:0]};"
+          },
+          {
+            "line": 261,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[0] = {dot_signed_i[0] & dot_op_b_i[7], dot_op_b_i[7:0]};",
+            "mutated": "assign dot_char_op_b[0] = {dot_signed_i[1] & dot_op_b_i[7], dot_op_b_i[7:0]};"
+          },
+          {
+            "line": 261,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[0] = {dot_signed_i[0] & dot_op_b_i[7], dot_op_b_i[7:0]};",
+            "mutated": "assign dot_char_op_b[0] = {dot_signed_i[0] & dot_op_b_i[8], dot_op_b_i[7:0]};"
+          },
+          {
+            "line": 262,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_b[1] = {dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:8]};",
+            "mutated": "assign dot_char_op_b[1] = {dot_signed_i[0] | dot_op_b_i[15], dot_op_b_i[15:8]};"
+          },
+          {
+            "line": 262,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[1] = {dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:8]};",
+            "mutated": "assign dot_char_op_b[2] = {dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:8]};"
+          },
+          {
+            "line": 262,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[1] = {dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:8]};",
+            "mutated": "assign dot_char_op_b[1] = {dot_signed_i[1] & dot_op_b_i[15], dot_op_b_i[15:8]};"
+          },
+          {
+            "line": 262,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[1] = {dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:8]};",
+            "mutated": "assign dot_char_op_b[1] = {dot_signed_i[0] & dot_op_b_i[16], dot_op_b_i[15:8]};"
+          },
+          {
+            "line": 263,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_b[2] = {dot_signed_i[0] & dot_op_b_i[23], dot_op_b_i[23:16]};",
+            "mutated": "assign dot_char_op_b[2] = {dot_signed_i[0] | dot_op_b_i[23], dot_op_b_i[23:16]};"
+          },
+          {
+            "line": 263,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[2] = {dot_signed_i[0] & dot_op_b_i[23], dot_op_b_i[23:16]};",
+            "mutated": "assign dot_char_op_b[3] = {dot_signed_i[0] & dot_op_b_i[23], dot_op_b_i[23:16]};"
+          },
+          {
+            "line": 263,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[2] = {dot_signed_i[0] & dot_op_b_i[23], dot_op_b_i[23:16]};",
+            "mutated": "assign dot_char_op_b[2] = {dot_signed_i[1] & dot_op_b_i[23], dot_op_b_i[23:16]};"
+          },
+          {
+            "line": 263,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[2] = {dot_signed_i[0] & dot_op_b_i[23], dot_op_b_i[23:16]};",
+            "mutated": "assign dot_char_op_b[2] = {dot_signed_i[0] & dot_op_b_i[24], dot_op_b_i[23:16]};"
+          },
+          {
+            "line": 264,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_char_op_b[3] = {dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:24]};",
+            "mutated": "assign dot_char_op_b[3] = {dot_signed_i[0] | dot_op_b_i[31], dot_op_b_i[31:24]};"
+          },
+          {
+            "line": 264,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[3] = {dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:24]};",
+            "mutated": "assign dot_char_op_b[4] = {dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:24]};"
+          },
+          {
+            "line": 264,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[3] = {dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:24]};",
+            "mutated": "assign dot_char_op_b[3] = {dot_signed_i[1] & dot_op_b_i[31], dot_op_b_i[31:24]};"
+          },
+          {
+            "line": 264,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_op_b[3] = {dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:24]};",
+            "mutated": "assign dot_char_op_b[3] = {dot_signed_i[0] & dot_op_b_i[32], dot_op_b_i[31:24]};"
+          },
+          {
+            "line": 266,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[0] = $signed(dot_char_op_a[0]) * $signed(dot_char_op_b[0]);",
+            "mutated": "assign dot_char_mul[1] = $signed(dot_char_op_a[0]) * $signed(dot_char_op_b[0]);"
+          },
+          {
+            "line": 266,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[0] = $signed(dot_char_op_a[0]) * $signed(dot_char_op_b[0]);",
+            "mutated": "assign dot_char_mul[0] = $signed(dot_char_op_a[1]) * $signed(dot_char_op_b[0]);"
+          },
+          {
+            "line": 266,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[0] = $signed(dot_char_op_a[0]) * $signed(dot_char_op_b[0]);",
+            "mutated": "assign dot_char_mul[0] = $signed(dot_char_op_a[0]) * $signed(dot_char_op_b[1]);"
+          },
+          {
+            "line": 267,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[1] = $signed(dot_char_op_a[1]) * $signed(dot_char_op_b[1]);",
+            "mutated": "assign dot_char_mul[2] = $signed(dot_char_op_a[1]) * $signed(dot_char_op_b[1]);"
+          },
+          {
+            "line": 267,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[1] = $signed(dot_char_op_a[1]) * $signed(dot_char_op_b[1]);",
+            "mutated": "assign dot_char_mul[1] = $signed(dot_char_op_a[2]) * $signed(dot_char_op_b[1]);"
+          },
+          {
+            "line": 267,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[1] = $signed(dot_char_op_a[1]) * $signed(dot_char_op_b[1]);",
+            "mutated": "assign dot_char_mul[1] = $signed(dot_char_op_a[1]) * $signed(dot_char_op_b[2]);"
+          },
+          {
+            "line": 268,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[2] = $signed(dot_char_op_a[2]) * $signed(dot_char_op_b[2]);",
+            "mutated": "assign dot_char_mul[3] = $signed(dot_char_op_a[2]) * $signed(dot_char_op_b[2]);"
+          },
+          {
+            "line": 268,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[2] = $signed(dot_char_op_a[2]) * $signed(dot_char_op_b[2]);",
+            "mutated": "assign dot_char_mul[2] = $signed(dot_char_op_a[3]) * $signed(dot_char_op_b[2]);"
+          },
+          {
+            "line": 268,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[2] = $signed(dot_char_op_a[2]) * $signed(dot_char_op_b[2]);",
+            "mutated": "assign dot_char_mul[2] = $signed(dot_char_op_a[2]) * $signed(dot_char_op_b[3]);"
+          },
+          {
+            "line": 269,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[3] = $signed(dot_char_op_a[3]) * $signed(dot_char_op_b[3]);",
+            "mutated": "assign dot_char_mul[4] = $signed(dot_char_op_a[3]) * $signed(dot_char_op_b[3]);"
+          },
+          {
+            "line": 269,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[3] = $signed(dot_char_op_a[3]) * $signed(dot_char_op_b[3]);",
+            "mutated": "assign dot_char_mul[3] = $signed(dot_char_op_a[4]) * $signed(dot_char_op_b[3]);"
+          },
+          {
+            "line": 269,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_char_mul[3] = $signed(dot_char_op_a[3]) * $signed(dot_char_op_b[3]);",
+            "mutated": "assign dot_char_mul[3] = $signed(dot_char_op_a[3]) * $signed(dot_char_op_b[4]);"
+          },
+          {
+            "line": 272,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_char_mul[0]",
+            "mutated": "dot_char_mul[1]"
+          },
+          {
+            "line": 273,
+            "operator": "ADD_TO_SUB",
+            "original": ") + $signed(",
+            "mutated": ") - $signed("
+          },
+          {
+            "line": 274,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_char_mul[1]",
+            "mutated": "dot_char_mul[2]"
+          },
+          {
+            "line": 275,
+            "operator": "ADD_TO_SUB",
+            "original": ") + $signed(",
+            "mutated": ") - $signed("
+          },
+          {
+            "line": 276,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_char_mul[2]",
+            "mutated": "dot_char_mul[3]"
+          },
+          {
+            "line": 277,
+            "operator": "ADD_TO_SUB",
+            "original": ") + $signed(",
+            "mutated": ") - $signed("
+          },
+          {
+            "line": 278,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_char_mul[3]",
+            "mutated": "dot_char_mul[4]"
+          },
+          {
+            "line": 279,
+            "operator": "ADD_TO_SUB",
+            "original": ") + $signed(",
+            "mutated": ") - $signed("
+          },
+          {
+            "line": 284,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_short_op_a[0] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:0]};",
+            "mutated": "assign dot_short_op_a[0] = {dot_signed_i[1] | dot_op_a_i[15], dot_op_a_i[15:0]};"
+          },
+          {
+            "line": 284,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_a[0] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:0]};",
+            "mutated": "assign dot_short_op_a[1] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:0]};"
+          },
+          {
+            "line": 284,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_a[0] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:0]};",
+            "mutated": "assign dot_short_op_a[0] = {dot_signed_i[2] & dot_op_a_i[15], dot_op_a_i[15:0]};"
+          },
+          {
+            "line": 284,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_a[0] = {dot_signed_i[1] & dot_op_a_i[15], dot_op_a_i[15:0]};",
+            "mutated": "assign dot_short_op_a[0] = {dot_signed_i[1] & dot_op_a_i[16], dot_op_a_i[15:0]};"
+          },
+          {
+            "line": 285,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_short_op_a[1] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:16]};",
+            "mutated": "assign dot_short_op_a[1] = {dot_signed_i[1] | dot_op_a_i[31], dot_op_a_i[31:16]};"
+          },
+          {
+            "line": 285,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_a[1] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:16]};",
+            "mutated": "assign dot_short_op_a[2] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:16]};"
+          },
+          {
+            "line": 285,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_a[1] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:16]};",
+            "mutated": "assign dot_short_op_a[1] = {dot_signed_i[2] & dot_op_a_i[31], dot_op_a_i[31:16]};"
+          },
+          {
+            "line": 285,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_a[1] = {dot_signed_i[1] & dot_op_a_i[31], dot_op_a_i[31:16]};",
+            "mutated": "assign dot_short_op_a[1] = {dot_signed_i[1] & dot_op_a_i[32], dot_op_a_i[31:16]};"
+          },
+          {
+            "line": 286,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_short_op_a_1_neg = dot_short_op_a[1] ^ {17{(is_clpx_i & ~clpx_img_i)}}; //negates whether clpx_img_i is 0 or 1, only REAL PART needs to be negated",
+            "mutated": "assign dot_short_op_a_1_neg = dot_short_op_a[1] ^ {17{(is_clpx_i | ~clpx_img_i)}}; //negates whether clpx_img_i is 0 or 1, only REAL PART needs to be negated"
+          },
+          {
+            "line": 286,
+            "operator": "BITWISE_XOR_TO_AND",
+            "original": "assign dot_short_op_a_1_neg = dot_short_op_a[1] ^ {17{(is_clpx_i & ~clpx_img_i)}}; //negates whether clpx_img_i is 0 or 1, only REAL PART needs to be negated",
+            "mutated": "assign dot_short_op_a_1_neg = dot_short_op_a[1] & {17{(is_clpx_i & ~clpx_img_i)}}; //negates whether clpx_img_i is 0 or 1, only REAL PART needs to be negated"
+          },
+          {
+            "line": 286,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_a_1_neg = dot_short_op_a[1] ^ {17{(is_clpx_i & ~clpx_img_i)}}; //negates whether clpx_img_i is 0 or 1, only REAL PART needs to be negated",
+            "mutated": "assign dot_short_op_a_1_neg = dot_short_op_a[2] ^ {17{(is_clpx_i & ~clpx_img_i)}}; //negates whether clpx_img_i is 0 or 1, only REAL PART needs to be negated"
+          },
+          {
+            "line": 286,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "assign dot_short_op_a_1_neg = dot_short_op_a[1] ^ {17{(is_clpx_i & ~clpx_img_i)}}; //negates whether clpx_img_i is 0 or 1, only REAL PART needs to be negated",
+            "mutated": "assign dot_short_op_a_1_neg = dot_short_op_a[1] ^ {17{(is_clpx_i & clpx_img_i)}}; //negates whether clpx_img_i is 0 or 1, only REAL PART needs to be negated"
+          },
+          {
+            "line": 288,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_short_op_b[0] = (is_clpx_i & clpx_img_i) ? {",
+            "mutated": "assign dot_short_op_b[0] = (is_clpx_i | clpx_img_i) ? {"
+          },
+          {
+            "line": 289,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:16]",
+            "mutated": "dot_signed_i[0] | dot_op_b_i[31], dot_op_b_i[31:16]"
+          },
+          {
+            "line": 289,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:16]",
+            "mutated": "dot_signed_i[1] & dot_op_b_i[31], dot_op_b_i[31:16]"
+          },
+          {
+            "line": 289,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:16]",
+            "mutated": "dot_signed_i[0] & dot_op_b_i[32], dot_op_b_i[31:16]"
+          },
+          {
+            "line": 291,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:0]",
+            "mutated": "dot_signed_i[0] | dot_op_b_i[15], dot_op_b_i[15:0]"
+          },
+          {
+            "line": 291,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:0]",
+            "mutated": "dot_signed_i[1] & dot_op_b_i[15], dot_op_b_i[15:0]"
+          },
+          {
+            "line": 291,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:0]",
+            "mutated": "dot_signed_i[0] & dot_op_b_i[16], dot_op_b_i[15:0]"
+          },
+          {
+            "line": 293,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign dot_short_op_b[1] = (is_clpx_i & clpx_img_i) ? {",
+            "mutated": "assign dot_short_op_b[1] = (is_clpx_i | clpx_img_i) ? {"
+          },
+          {
+            "line": 293,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_b[1] = (is_clpx_i & clpx_img_i) ? {",
+            "mutated": "assign dot_short_op_b[2] = (is_clpx_i & clpx_img_i) ? {"
+          },
+          {
+            "line": 294,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:0]",
+            "mutated": "dot_signed_i[0] | dot_op_b_i[15], dot_op_b_i[15:0]"
+          },
+          {
+            "line": 294,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:0]",
+            "mutated": "dot_signed_i[1] & dot_op_b_i[15], dot_op_b_i[15:0]"
+          },
+          {
+            "line": 294,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[15], dot_op_b_i[15:0]",
+            "mutated": "dot_signed_i[0] & dot_op_b_i[16], dot_op_b_i[15:0]"
+          },
+          {
+            "line": 296,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:16]",
+            "mutated": "dot_signed_i[0] | dot_op_b_i[31], dot_op_b_i[31:16]"
+          },
+          {
+            "line": 296,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:16]",
+            "mutated": "dot_signed_i[1] & dot_op_b_i[31], dot_op_b_i[31:16]"
+          },
+          {
+            "line": 296,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_signed_i[0] & dot_op_b_i[31], dot_op_b_i[31:16]",
+            "mutated": "dot_signed_i[0] & dot_op_b_i[32], dot_op_b_i[31:16]"
+          },
+          {
+            "line": 299,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_mul[0] = $signed(dot_short_op_a[0]) * $signed(dot_short_op_b[0]);",
+            "mutated": "assign dot_short_mul[1] = $signed(dot_short_op_a[0]) * $signed(dot_short_op_b[0]);"
+          },
+          {
+            "line": 299,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_mul[0] = $signed(dot_short_op_a[0]) * $signed(dot_short_op_b[0]);",
+            "mutated": "assign dot_short_mul[0] = $signed(dot_short_op_a[1]) * $signed(dot_short_op_b[0]);"
+          },
+          {
+            "line": 299,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_mul[0] = $signed(dot_short_op_a[0]) * $signed(dot_short_op_b[0]);",
+            "mutated": "assign dot_short_mul[0] = $signed(dot_short_op_a[0]) * $signed(dot_short_op_b[1]);"
+          },
+          {
+            "line": 300,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_mul[1] = $signed(dot_short_op_a_1_neg) * $signed(dot_short_op_b[1]);",
+            "mutated": "assign dot_short_mul[2] = $signed(dot_short_op_a_1_neg) * $signed(dot_short_op_b[1]);"
+          },
+          {
+            "line": 300,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_mul[1] = $signed(dot_short_op_a_1_neg) * $signed(dot_short_op_b[1]);",
+            "mutated": "assign dot_short_mul[1] = $signed(dot_short_op_a_1_neg) * $signed(dot_short_op_b[2]);"
+          },
+          {
+            "line": 302,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "assign dot_short_op_b_ext = $signed(dot_short_op_b[1]);",
+            "mutated": "assign dot_short_op_b_ext = $signed(dot_short_op_b[2]);"
+          },
+          {
+            "line": 303,
+            "operator": "BITWISE_AND_TO_OR",
+            "original": "assign accumulator = is_clpx_i ? dot_short_op_b_ext & {32{~clpx_img_i}} : $signed(dot_op_c_i);",
+            "mutated": "assign accumulator = is_clpx_i ? dot_short_op_b_ext | {32{~clpx_img_i}} : $signed(dot_op_c_i);"
+          },
+          {
+            "line": 303,
+            "operator": "DROP_BITWISE_NOT",
+            "original": "assign accumulator = is_clpx_i ? dot_short_op_b_ext & {32{~clpx_img_i}} : $signed(dot_op_c_i);",
+            "mutated": "assign accumulator = is_clpx_i ? dot_short_op_b_ext & {32{clpx_img_i}} : $signed(dot_op_c_i);"
+          },
+          {
+            "line": 306,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_short_mul[0][31:0]",
+            "mutated": "dot_short_mul[1][31:0]"
+          },
+          {
+            "line": 307,
+            "operator": "ADD_TO_SUB",
+            "original": ") + $signed(",
+            "mutated": ") - $signed("
+          },
+          {
+            "line": 308,
+            "operator": "BIT_INDEX_BUMP",
+            "original": "dot_short_mul[1][31:0]",
+            "mutated": "dot_short_mul[2][31:0]"
+          },
+          {
+            "line": 309,
+            "operator": "ADD_TO_SUB",
+            "original": ") + $signed(",
+            "mutated": ") - $signed("
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 4,
+          "selected": 4,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/4 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_01",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($past(mulh_CS) == IDLE_MULT && $past(enable_i) && $past(operator_i) != MUL_H && mulh_CS == STEP0));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!($past(mulh_CS) == IDLE_MULT && $past(enable_i) && $past(operator_i) != MUL_H && mulh_CS == STEP0));"
+        },
+        {
+          "property_id": "prop_33",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($past(mulh_save) && $past(mulh_clearcarry) && mulh_carry_q != 1'b0));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!($past(mulh_save) && $past(mulh_clearcarry) && mulh_carry_q != 1'b0));"
+        },
+        {
+          "property_id": "prop_66",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($signed(short_mac) != ($signed(short_op_c) + $signed(short_mul) + $signed(short_round))));",
+          "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($signed(short_mac) != ($signed(short_op_c) + $signed(short_mul) + $signed(short_round))));"
+        },
+        {
+          "property_id": "prop_70",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($signed(int_result) != ($signed(op_c_i) + $signed(int_op_b_msu) + $signed(int_op_a_msu) * $signed(op_b_i))));",
+          "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!($signed(int_result) != ($signed(op_c_i) + $signed(int_op_b_msu) + $signed(int_op_a_msu) * $signed(op_b_i))));"
+        }
+      ],
+      "wall_seconds": 459.06557869911194,
+      "suite_size": 4,
+      "suite_distinct": 4
+    }
+  ]
+}

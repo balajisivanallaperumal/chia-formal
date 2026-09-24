@@ -1,0 +1,150 @@
+[
+  {
+    "module": "ibex_register_file_ff",
+    "admissible": true,
+    "inventory": {
+      "total": 6,
+      "gradeable": 6,
+      "x_checks": 0,
+      "plain": 1,
+      "implications": 5
+    },
+    "mutants_sampled": 24,
+    "active": 24,
+    "human_killed": 0,
+    "human_kill_rate": 0.0,
+    "loop_killed": 0,
+    "loop_kill_rate": 0.0,
+    "loop_properties": 9,
+    "both": 0,
+    "human_only": [],
+    "loop_only": [],
+    "neither": 24,
+    "seconds": 96.23964881896973
+  },
+  {
+    "module": "ibex_register_file_fpga",
+    "admissible": true,
+    "inventory": {
+      "total": 4,
+      "gradeable": 4,
+      "x_checks": 0,
+      "plain": 1,
+      "implications": 3
+    },
+    "mutants_sampled": 24,
+    "active": 24,
+    "human_killed": 0,
+    "human_kill_rate": 0.0,
+    "loop_killed": 1,
+    "loop_kill_rate": 4.166666666666666,
+    "loop_properties": 1,
+    "both": 0,
+    "human_only": [],
+    "loop_only": [
+      "m053_BITWISE_XOR_TO_AND_L197_0"
+    ],
+    "neither": 23,
+    "seconds": 138.72780585289001
+  },
+  {
+    "module": "ibex_fetch_fifo",
+    "admissible": true,
+    "inventory": {
+      "total": 2,
+      "gradeable": 2,
+      "x_checks": 0,
+      "plain": 2,
+      "implications": 0
+    },
+    "mutants_sampled": 24,
+    "active": 20,
+    "human_killed": 1,
+    "human_kill_rate": 5.0,
+    "loop_killed": 0,
+    "loop_kill_rate": 0.0,
+    "loop_properties": 0,
+    "both": 0,
+    "human_only": [
+      "m084_EQ_TO_NEQ_L223_0"
+    ],
+    "loop_only": [],
+    "neither": 19,
+    "seconds": 36.401569843292236
+  },
+  {
+    "module": "ibex_decoder",
+    "admissible": true,
+    "inventory": {
+      "total": 1,
+      "gradeable": 1,
+      "x_checks": 0,
+      "plain": 0,
+      "implications": 1
+    },
+    "mutants_sampled": 24,
+    "active": 24,
+    "human_killed": 0,
+    "human_kill_rate": 0.0,
+    "loop_killed": 14,
+    "loop_kill_rate": 58.333333333333336,
+    "loop_properties": 12,
+    "both": 0,
+    "human_only": [],
+    "loop_only": [
+      "m000_EQ_TO_NEQ_L124_0",
+      "m001_BIT_INDEX_BUMP_L161_0",
+      "m002_BIT_INDEX_BUMP_L162_0",
+      "m013_HEX_CONST_BUMP_L202_0",
+      "m014_BITWISE_AND_TO_OR_L203_0",
+      "m016_EQ_TO_NEQ_L212_0",
+      "m020_BITWISE_OR_TO_AND_L231_0",
+      "m021_OR_TO_AND_L237_0",
+      "m023_AND_TO_OR_L238_0",
+      "m025_AND_TO_OR_L239_0",
+      "m044_BITWISE_AND_TO_OR_L314_0",
+      "m045_DROP_BITWISE_NOT_L315_0",
+      "m129_HEX_CONST_BUMP_L734_0",
+      "m299_BITWISE_OR_TO_AND_L1451_0"
+    ],
+    "neither": 10,
+    "seconds": 1105.6341989040375
+  },
+  {
+    "module": "ibex_branch_predict",
+    "admissible": true,
+    "inventory": {
+      "total": 1,
+      "gradeable": 1,
+      "x_checks": 0,
+      "plain": 1,
+      "implications": 0
+    },
+    "mutants_sampled": 24,
+    "active": 24,
+    "human_killed": 8,
+    "human_kill_rate": 33.33333333333333,
+    "loop_killed": 21,
+    "loop_kill_rate": 87.5,
+    "loop_properties": 14,
+    "both": 8,
+    "human_only": [],
+    "loop_only": [
+      "m001_BIT_INDEX_BUMP_L58_0",
+      "m003_BIT_INDEX_BUMP_L59_0",
+      "m004_BIT_INDEX_BUMP_L59_1",
+      "m006_BIT_INDEX_BUMP_L62_0",
+      "m022_BITWISE_OR_TO_AND_L75_0",
+      "m027_BITWISE_OR_TO_AND_L76_0",
+      "m028_BITWISE_AND_TO_OR_L94_0",
+      "m029_BITWISE_AND_TO_OR_L94_1",
+      "m030_BITWISE_OR_TO_AND_L94_0",
+      "m033_BITWISE_AND_TO_OR_L97_0",
+      "m034_BITWISE_OR_TO_AND_L97_0",
+      "m035_BITWISE_OR_TO_AND_L97_1",
+      "m036_ADD_TO_SUB_L99_0"
+    ],
+    "neither": 3,
+    "seconds": 1836.1733820438385
+  }
+]

@@ -1,0 +1,7 @@
+benchmarks/
+*.pdf
+*.log
+*.aux
+*.vcd
+out*/
+__pycache__/

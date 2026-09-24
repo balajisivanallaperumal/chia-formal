@@ -1,0 +1,72 @@
+{
+  "module": "DivSqrtRecFM_small_e11_s53",
+  "source": "examples/formal_verification/soc_cores/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.RocketConfig/gen-collateral/DivSqrtRecFM_small_e11_s53.sv",
+  "clk": "clock",
+  "rst": "reset",
+  "depth": 1,
+  "seeds": [
+    {
+      "seed": 0,
+      "converged_in_loop": false,
+      "properties": 2,
+      "properties_distinct": 2,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "active": 0,
+        "killed": 0
+      },
+      "full_bank": {
+        "generated": 0,
+        "stillborn": 0,
+        "equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "minimal_basis": 2,
+        "redundancy_percent": 0.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": null
+    },
+    {
+      "seed": 1,
+      "converged_in_loop": false,
+      "properties": 2,
+      "properties_distinct": 2,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "active": 0,
+        "killed": 0
+      },
+      "full_bank": {
+        "generated": 0,
+        "stillborn": 0,
+        "equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "minimal_basis": 2,
+        "redundancy_percent": 0.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": null
+    }
+  ],
+  "full_bank_min": null,
+  "full_bank_mean": null,
+  "full_bank_max": null
+}

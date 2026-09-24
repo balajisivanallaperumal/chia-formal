@@ -1,0 +1,479 @@
+{
+  "module": "cv32e40p_ff_one",
+  "source": "examples/formal_verification/soc_cores/cv32e40p/rtl/cv32e40p_ff_one.sv",
+  "bmc_depth": 1,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 2,
+  "kill_rate_min": 100.0,
+  "kill_rate_max": 100.0,
+  "kill_rate_mean": 100.0,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": true,
+      "stop_reason": "every active mutant is killed",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 16,
+          "admitted": 5,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 11,
+          "suite_size": 5,
+          "active": 10,
+          "killed": 6,
+          "kill_rate": 60.0,
+          "newly_killed": [
+            "m008_LT_TO_LE_L61_0",
+            "m012_ADD_TO_SUB_L63_0",
+            "m034_EQ_TO_NEQ_L69_0",
+            "m059_BIT_INDEX_BUMP_L96_0",
+            "m060_BIT_INDEX_BUMP_L97_0",
+            "m061_DROP_BITWISE_NOT_L97_0"
+          ],
+          "seconds": 11.705577850341797
+        },
+        {
+          "index": 1,
+          "proposed": 7,
+          "admitted": 9,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 0,
+          "suite_size": 9,
+          "active": 10,
+          "killed": 10,
+          "kill_rate": 100.0,
+          "newly_killed": [
+            "m011_BITWISE_OR_TO_AND_L63_0",
+            "m021_EQ_TO_NEQ_L64_0",
+            "m039_BITWISE_OR_TO_AND_L73_0",
+            "m043_EQ_TO_NEQ_L74_0"
+          ],
+          "seconds": 12.910603284835815
+        }
+      ],
+      "initial_kill_rate": 60.0,
+      "final_kill_rate": 100.0,
+      "loop_seconds": 34.97113299369812,
+      "independent_verification": {
+        "properties_checked": 8,
+        "properties_sound": 8,
+        "soundness": [
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == (~sel_nodes[0]));"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(first_one_o == index_nodes[0]);"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == 1'b1 || in_i[first_one_o] == 1'b1);"
+          },
+          {
+            "property_id": "prop_18",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == 1'b1 || (first_one_o == 0 || in_i[first_one_o - 1] == 1'b0));"
+          },
+          {
+            "property_id": "prop_19",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == 1'b0 || in_i == '0);"
+          },
+          {
+            "property_id": "prop_20",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == 1'b1 || (|in_i));"
+          },
+          {
+            "property_id": "prop_21",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == 1'b1 || (first_one_o == 0 || (first_one_o > 0 && in_i[first_one_o - 1] == 1'b0)));"
+          },
+          {
+            "property_id": "prop_22",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == 1'b1 || (first_one_o == 0 || (first_one_o > 0 && in_i[first_one_o - 1] == 1'b0 && in_i[first_one_o] == 1'b1)));"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (10/10)",
+        "generated": 62,
+        "stillborn": 6,
+        "equivalent": 8,
+        "killed_equivalent": 0,
+        "active": 10,
+        "killed": 10,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 8,
+          "selected": 2,
+          "redundancy_percent": 75.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 8,
+        "properties_sound": 8,
+        "soundness": [
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == (~sel_nodes[0]));"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(first_one_o == index_nodes[0]);"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == 1'b1 || in_i[first_one_o] == 1'b1);"
+          },
+          {
+            "property_id": "prop_18",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == 1'b1 || (first_one_o == 0 || in_i[first_one_o - 1] == 1'b0));"
+          },
+          {
+            "property_id": "prop_19",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == 1'b0 || in_i == '0);"
+          },
+          {
+            "property_id": "prop_20",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == 1'b1 || (|in_i));"
+          },
+          {
+            "property_id": "prop_21",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == 1'b1 || (first_one_o == 0 || (first_one_o > 0 && in_i[first_one_o - 1] == 1'b0)));"
+          },
+          {
+            "property_id": "prop_22",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == 1'b1 || (first_one_o == 0 || (first_one_o > 0 && in_i[first_one_o - 1] == 1'b0 && in_i[first_one_o] == 1'b1)));"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (25/25)",
+        "generated": 62,
+        "stillborn": 15,
+        "equivalent": 22,
+        "killed_equivalent": 0,
+        "active": 25,
+        "killed": 25,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 8,
+          "selected": 2,
+          "redundancy_percent": 75.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_02",
+          "assertion": "always @(*) assert(no_ones_o == (~sel_nodes[0]));",
+          "code": "always @(*) assert(no_ones_o == (~sel_nodes[0]));"
+        },
+        {
+          "property_id": "prop_03",
+          "assertion": "always @(*) assert(first_one_o == index_nodes[0]);",
+          "code": "always @(*) assert(first_one_o == index_nodes[0]);"
+        },
+        {
+          "property_id": "prop_17",
+          "assertion": "always @(*) assert(no_ones_o == 1'b1 || in_i[first_one_o] == 1'b1);",
+          "code": "always @(*) assert(no_ones_o == 1'b1 || in_i[first_one_o] == 1'b1);"
+        },
+        {
+          "property_id": "prop_18",
+          "assertion": "always @(*) assert(no_ones_o == 1'b1 || (first_one_o == 0 || in_i[first_one_o - 1] == 1'b0));",
+          "code": "always @(*) assert(no_ones_o == 1'b1 || (first_one_o == 0 || in_i[first_one_o - 1] == 1'b0));"
+        },
+        {
+          "property_id": "prop_19",
+          "assertion": "always @(*) assert(no_ones_o == 1'b0 || in_i == '0);",
+          "code": "always @(*) assert(no_ones_o == 1'b0 || in_i == '0);"
+        },
+        {
+          "property_id": "prop_20",
+          "assertion": "always @(*) assert(no_ones_o == 1'b1 || (|in_i));",
+          "code": "always @(*) assert(no_ones_o == 1'b1 || (|in_i));"
+        },
+        {
+          "property_id": "prop_21",
+          "assertion": "always @(*) assert(no_ones_o == 1'b1 || (first_one_o == 0 || (first_one_o > 0 && in_i[first_one_o - 1] == 1'b0)));",
+          "code": "always @(*) assert(no_ones_o == 1'b1 || (first_one_o == 0 || (first_one_o > 0 && in_i[first_one_o - 1] == 1'b0)));"
+        },
+        {
+          "property_id": "prop_22",
+          "assertion": "always @(*) assert(no_ones_o == 1'b1 || (first_one_o == 0 || (first_one_o > 0 && in_i[first_one_o - 1] == 1'b0 && in_i[first_one_o] == 1'b1)));",
+          "code": "always @(*) assert(no_ones_o == 1'b1 || (first_one_o == 0 || (first_one_o > 0 && in_i[first_one_o - 1] == 1'b0 && in_i[first_one_o] == 1'b1)));"
+        }
+      ],
+      "wall_seconds": 77.85658502578735,
+      "suite_size": 8,
+      "suite_distinct": 8
+    },
+    {
+      "seed": 1,
+      "converged": true,
+      "stop_reason": "every active mutant is killed",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 9,
+          "admitted": 9,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 0,
+          "suite_size": 9,
+          "active": 10,
+          "killed": 10,
+          "kill_rate": 100.0,
+          "newly_killed": [
+            "m008_LT_TO_LE_L61_0",
+            "m011_BITWISE_OR_TO_AND_L63_0",
+            "m012_ADD_TO_SUB_L63_0",
+            "m021_EQ_TO_NEQ_L64_0",
+            "m034_EQ_TO_NEQ_L69_0",
+            "m039_BITWISE_OR_TO_AND_L73_0",
+            "m043_EQ_TO_NEQ_L74_0",
+            "m059_BIT_INDEX_BUMP_L96_0",
+            "m060_BIT_INDEX_BUMP_L97_0",
+            "m061_DROP_BITWISE_NOT_L97_0"
+          ],
+          "seconds": 14.533940315246582
+        }
+      ],
+      "initial_kill_rate": 100.0,
+      "final_kill_rate": 100.0,
+      "loop_seconds": 17.775012254714966,
+      "independent_verification": {
+        "properties_checked": 5,
+        "properties_sound": 5,
+        "soundness": [
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == (~sel_nodes[0]));"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(first_one_o == index_nodes[0]);"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == (in_i == '0));"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o || (in_i[first_one_o] == 1'b1));"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o || (first_one_o == 0 || in_i[first_one_o - 1] == 1'b0));"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (10/10)",
+        "generated": 62,
+        "stillborn": 6,
+        "equivalent": 8,
+        "killed_equivalent": 0,
+        "active": 10,
+        "killed": 10,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 5,
+          "selected": 2,
+          "redundancy_percent": 60.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 5,
+        "properties_sound": 5,
+        "soundness": [
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == (~sel_nodes[0]));"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(first_one_o == index_nodes[0]);"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o == (in_i == '0));"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o || (in_i[first_one_o] == 1'b1));"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert(no_ones_o || (first_one_o == 0 || in_i[first_one_o - 1] == 1'b0));"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (25/25)",
+        "generated": 62,
+        "stillborn": 15,
+        "equivalent": 22,
+        "killed_equivalent": 0,
+        "active": 25,
+        "killed": 25,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 5,
+          "selected": 2,
+          "redundancy_percent": 60.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_02",
+          "assertion": "always @(*) assert(no_ones_o == (~sel_nodes[0]));",
+          "code": "always @(*) assert(no_ones_o == (~sel_nodes[0]));"
+        },
+        {
+          "property_id": "prop_03",
+          "assertion": "always @(*) assert(first_one_o == index_nodes[0]);",
+          "code": "always @(*) assert(first_one_o == index_nodes[0]);"
+        },
+        {
+          "property_id": "prop_05",
+          "assertion": "always @(*) assert(no_ones_o == (in_i == '0));",
+          "code": "always @(*) assert(no_ones_o == (in_i == '0));"
+        },
+        {
+          "property_id": "prop_06",
+          "assertion": "always @(*) assert(no_ones_o || (in_i[first_one_o] == 1'b1));",
+          "code": "always @(*) assert(no_ones_o || (in_i[first_one_o] == 1'b1));"
+        },
+        {
+          "property_id": "prop_07",
+          "assertion": "always @(*) assert(no_ones_o || (first_one_o == 0 || in_i[first_one_o - 1] == 1'b0));",
+          "code": "always @(*) assert(no_ones_o || (first_one_o == 0 || in_i[first_one_o - 1] == 1'b0));"
+        }
+      ],
+      "wall_seconds": 49.50024771690369,
+      "suite_size": 5,
+      "suite_distinct": 5
+    }
+  ]
+}

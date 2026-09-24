@@ -1,0 +1,11 @@
+{
+  "module": "MulAddRecFNPipe_l2_e11_s53",
+  "source": "examples/formal_verification/soc_cores/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.RocketConfig/gen-collateral/MulAddRecFNPipe_l2_e11_s53.sv",
+  "clk": "clock",
+  "rst": "reset",
+  "depth": 12,
+  "seeds": [],
+  "full_bank_min": null,
+  "full_bank_mean": null,
+  "full_bank_max": null
+}

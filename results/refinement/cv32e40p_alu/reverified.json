@@ -1,0 +1,42 @@
+{
+  "module": "cv32e40p_alu",
+  "source": "examples/formal_verification/soc_cores/cv32e40p/rtl/cv32e40p_alu.sv",
+  "clk": "clk",
+  "rst": "rst_n",
+  "depth": 1,
+  "seeds": [
+    {
+      "seed": 0,
+      "converged_in_loop": false,
+      "properties": 13,
+      "properties_distinct": 13,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 80.95238095238095,
+        "kill_rate": "81.0% (17/21)",
+        "active": 21,
+        "killed": 17
+      },
+      "full_bank": {
+        "generated": 395,
+        "stillborn": 30,
+        "equivalent": 0,
+        "active": 365,
+        "killed": 40,
+        "kill_rate_percent": 10.95890410958904,
+        "kill_rate": "11.0% (40/365)",
+        "minimal_basis": 12,
+        "redundancy_percent": 7.692307692307687
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": 70.0
+    }
+  ],
+  "full_bank_min": 10.95890410958904,
+  "full_bank_mean": 10.95890410958904,
+  "full_bank_max": 10.95890410958904
+}

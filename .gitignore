@@ -1,0 +1,94 @@
+__pycache__/
+*.pyc
+.venv/
+.vscode/
+.metals/
+.scala-build/
+*.egg-info/
+build/
+dist/
+tmp/
+outputs/
+.git/
+**/.git/
+**/.git/**
+**/docs/
+**/tutorials/
+
+# Secrets
+*.apikey
+*.pem
+.env
+*key.json
+*-key.json
+.env.local
+tools/
+*.tgz
+benchmarks/
+**/benchmarks/
+**/benchmarks/**
+examples/formal_verification/soc_cores/
+**/verif/
+**/verif/**
+**/tutorials/**
+**/docs/**
+**/corev_apu/
+**/corev_apu/**
+
+chia/esp/test/cluster/esp_site_env.sh
+chia/esp/test/cluster/.esp_rendered.yaml
+chia/esp/test/cluster/esp_fpga_tunnel.sh
+
+# Claude Code
+.claude/
+
+# planning artifacts
+.planning/
+
+# PDFs / docs not part of source
+*.pdf
+# ...but spec PDFs must ship in the job working-dir so the LLM can Read them
+!vext/specs/**/*.pdf
+
+# Source overlays (large, user-specific chipyard modifications)
+chipyard-tma/
+
+# Compiled binaries and dumps
+test/simulator-*
+*.dump
+
+# Sphinx build output
+docs/_build/
+
+# OS
+.DS_Store
+
+# User-specific outputs and scratch
+*-log
+out/
+out_*/
+*.log
+mkRegRenamingTable.v
+
+# ---------------------------------------------------------------------------
+# Superseded and invalid artefacts -- present on disk, deliberately not shipped
+# ---------------------------------------------------------------------------
+# These reports were produced before 2026-09-21, when the harness emitted every
+# assertion inside `ifdef FORMAL without ever defining FORMAL. The preprocessor
+# stripped the properties, so each "PASS (Formally Proven)" is a proof about an
+# empty property set. Their kill-rate, vacuity and pruning figures were also
+# constants in the generator rather than measurements. They must be regenerated,
+# not cited.
+COMPREHENSIVE_SILICON_BENCHMARK_REPORT.md
+UNIVERSAL_SILICON_FORMAL_VERIFICATION_REPORT.md
+COMPOSITION_ABLATION_COMMERCIAL_REPORT.md
+GRAND_BUG_HUNT_CAMPAIGN_REPORT.md
+PICORV32_FORMAL_SWEEP_REPORT.md
+
+# Absolute-path symlink to a local oss-cad-suite install; meaningless elsewhere.
+/tools
+
+# LaTeX build intermediates
+*.aux
+
+# New runs go to outputs/ (ignored above); the paper's results live in results/.

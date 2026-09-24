@@ -1,0 +1,42 @@
+{
+  "module": "DecodeUnit",
+  "source": "examples/formal_verification/soc_cores/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.LargeBoomV3Config/gen-collateral/DecodeUnit.sv",
+  "clk": "none",
+  "rst": "none",
+  "depth": 1,
+  "seeds": [
+    {
+      "seed": 0,
+      "converged_in_loop": false,
+      "properties": 1,
+      "properties_distinct": 1,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 4.3478260869565215,
+        "kill_rate": "4.3% (1/23)",
+        "active": 23,
+        "killed": 1
+      },
+      "full_bank": {
+        "generated": 2485,
+        "stillborn": 0,
+        "equivalent": 33,
+        "active": 2452,
+        "killed": 8,
+        "kill_rate_percent": 0.3262642740619902,
+        "kill_rate": "0.3% (8/2452)",
+        "minimal_basis": 1,
+        "redundancy_percent": 0.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": 4.0
+    }
+  ],
+  "full_bank_min": 0.3262642740619902,
+  "full_bank_mean": 0.3262642740619902,
+  "full_bank_max": 0.3262642740619902
+}

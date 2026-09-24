@@ -1,0 +1,21 @@
+{
+  "module": "fuse_mem",
+  "reference": "hackatdac21@fix_cwe_1240:piton/design/chip/tile/ariane/src/fuse_mem/fuse_mem.sv",
+  "suspect": "hackatdac21@main:piton/design/chip/tile/ariane/src/fuse_mem/fuse_mem.sv",
+  "clk": "clk_i",
+  "rst": "none",
+  "bmc_depth": 10,
+  "hardening": {
+    "kill_rate_percent": 45.0,
+    "properties": 8,
+    "converged": false,
+    "stop_reason": "iteration budget (4) exhausted"
+  },
+  "properties_in_suite": 8,
+  "properties_applied": 8,
+  "not_applicable": [],
+  "clean": 8,
+  "inconclusive": [],
+  "findings": [],
+  "wall_seconds": 217.6260905265808
+}

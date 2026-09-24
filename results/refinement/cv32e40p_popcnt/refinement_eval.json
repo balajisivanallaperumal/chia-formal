@@ -1,0 +1,656 @@
+{
+  "module": "cv32e40p_popcnt",
+  "source": "examples/formal_verification/soc_cores/cv32e40p/rtl/cv32e40p_popcnt.sv",
+  "bmc_depth": 1,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 2,
+  "kill_rate_min": 100.0,
+  "kill_rate_max": 100.0,
+  "kill_rate_mean": 100.0,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": true,
+      "stop_reason": "every active mutant is killed",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 17,
+          "admitted": 13,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 4,
+          "suite_size": 13,
+          "active": 11,
+          "killed": 11,
+          "kill_rate": 100.0,
+          "newly_killed": [
+            "m001_ADD_TO_SUB_L38_0",
+            "m002_ADD_TO_SUB_L38_1",
+            "m004_ADD_TO_SUB_L44_0",
+            "m005_ADD_TO_SUB_L44_1",
+            "m007_ADD_TO_SUB_L50_0",
+            "m008_ADD_TO_SUB_L50_1",
+            "m010_ADD_TO_SUB_L56_0",
+            "m011_ADD_TO_SUB_L56_1",
+            "m012_ADD_TO_SUB_L60_0",
+            "m013_BIT_INDEX_BUMP_L60_0",
+            "m014_BIT_INDEX_BUMP_L60_1"
+          ],
+          "seconds": 23.61171817779541
+        }
+      ],
+      "initial_kill_rate": 100.0,
+      "final_kill_rate": 100.0,
+      "loop_seconds": 28.477378129959106,
+      "independent_verification": {
+        "properties_checked": 12,
+        "properties_sound": 12,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (result_o == $countones(in_i));"
+          },
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (result_o <= 32);"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l1[0] == in_i[1] + in_i[0]);"
+          },
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l1[15] == in_i[31] + in_i[30]);"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l2[0] == cnt_l1[1] + cnt_l1[0]);"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l2[7] == cnt_l1[15] + cnt_l1[14]);"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l3[0] == cnt_l2[1] + cnt_l2[0]);"
+          },
+          {
+            "property_id": "prop_08",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l3[3] == cnt_l2[7] + cnt_l2[6]);"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l4[0] == cnt_l3[1] + cnt_l3[0]);"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l4[1] == cnt_l3[3] + cnt_l3[2]);"
+          },
+          {
+            "property_id": "prop_11",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (result_o == cnt_l4[0] + cnt_l4[1]);"
+          },
+          {
+            "property_id": "prop_12",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l1[0] == (in_i[0] ? 1 : 0) + (in_i[1] ? 1 : 0));"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (11/11)",
+        "generated": 15,
+        "stillborn": 0,
+        "equivalent": 4,
+        "killed_equivalent": 0,
+        "active": 11,
+        "killed": 11,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 12,
+          "selected": 1,
+          "redundancy_percent": 91.66666666666666,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 12,
+        "properties_sound": 12,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (result_o == $countones(in_i));"
+          },
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (result_o <= 32);"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l1[0] == in_i[1] + in_i[0]);"
+          },
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l1[15] == in_i[31] + in_i[30]);"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l2[0] == cnt_l1[1] + cnt_l1[0]);"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l2[7] == cnt_l1[15] + cnt_l1[14]);"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l3[0] == cnt_l2[1] + cnt_l2[0]);"
+          },
+          {
+            "property_id": "prop_08",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l3[3] == cnt_l2[7] + cnt_l2[6]);"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l4[0] == cnt_l3[1] + cnt_l3[0]);"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l4[1] == cnt_l3[3] + cnt_l3[2]);"
+          },
+          {
+            "property_id": "prop_11",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (result_o == cnt_l4[0] + cnt_l4[1]);"
+          },
+          {
+            "property_id": "prop_12",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l1[0] == (in_i[0] ? 1 : 0) + (in_i[1] ? 1 : 0));"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (11/11)",
+        "generated": 15,
+        "stillborn": 0,
+        "equivalent": 4,
+        "killed_equivalent": 0,
+        "active": 11,
+        "killed": 11,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 12,
+          "selected": 1,
+          "redundancy_percent": 91.66666666666666,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_00",
+          "assertion": "always @(*) assert (result_o == $countones(in_i));",
+          "code": "always @(*) assert (result_o == $countones(in_i));"
+        },
+        {
+          "property_id": "prop_02",
+          "assertion": "always @(*) assert (result_o <= 32);",
+          "code": "always @(*) assert (result_o <= 32);"
+        },
+        {
+          "property_id": "prop_03",
+          "assertion": "always @(*) assert (cnt_l1[0] == in_i[1] + in_i[0]);",
+          "code": "always @(*) assert (cnt_l1[0] == in_i[1] + in_i[0]);"
+        },
+        {
+          "property_id": "prop_04",
+          "assertion": "always @(*) assert (cnt_l1[15] == in_i[31] + in_i[30]);",
+          "code": "always @(*) assert (cnt_l1[15] == in_i[31] + in_i[30]);"
+        },
+        {
+          "property_id": "prop_05",
+          "assertion": "always @(*) assert (cnt_l2[0] == cnt_l1[1] + cnt_l1[0]);",
+          "code": "always @(*) assert (cnt_l2[0] == cnt_l1[1] + cnt_l1[0]);"
+        },
+        {
+          "property_id": "prop_06",
+          "assertion": "always @(*) assert (cnt_l2[7] == cnt_l1[15] + cnt_l1[14]);",
+          "code": "always @(*) assert (cnt_l2[7] == cnt_l1[15] + cnt_l1[14]);"
+        },
+        {
+          "property_id": "prop_07",
+          "assertion": "always @(*) assert (cnt_l3[0] == cnt_l2[1] + cnt_l2[0]);",
+          "code": "always @(*) assert (cnt_l3[0] == cnt_l2[1] + cnt_l2[0]);"
+        },
+        {
+          "property_id": "prop_08",
+          "assertion": "always @(*) assert (cnt_l3[3] == cnt_l2[7] + cnt_l2[6]);",
+          "code": "always @(*) assert (cnt_l3[3] == cnt_l2[7] + cnt_l2[6]);"
+        },
+        {
+          "property_id": "prop_09",
+          "assertion": "always @(*) assert (cnt_l4[0] == cnt_l3[1] + cnt_l3[0]);",
+          "code": "always @(*) assert (cnt_l4[0] == cnt_l3[1] + cnt_l3[0]);"
+        },
+        {
+          "property_id": "prop_10",
+          "assertion": "always @(*) assert (cnt_l4[1] == cnt_l3[3] + cnt_l3[2]);",
+          "code": "always @(*) assert (cnt_l4[1] == cnt_l3[3] + cnt_l3[2]);"
+        },
+        {
+          "property_id": "prop_11",
+          "assertion": "always @(*) assert (result_o == cnt_l4[0] + cnt_l4[1]);",
+          "code": "always @(*) assert (result_o == cnt_l4[0] + cnt_l4[1]);"
+        },
+        {
+          "property_id": "prop_12",
+          "assertion": "always @(*) assert (cnt_l1[0] == (in_i[0] ? 1 : 0) + (in_i[1] ? 1 : 0));",
+          "code": "always @(*) assert (cnt_l1[0] == (in_i[0] ? 1 : 0) + (in_i[1] ? 1 : 0));"
+        }
+      ],
+      "wall_seconds": 68.6690742969513,
+      "suite_size": 12,
+      "suite_distinct": 12
+    },
+    {
+      "seed": 1,
+      "converged": true,
+      "stop_reason": "every active mutant is killed",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 20,
+          "admitted": 12,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 8,
+          "suite_size": 12,
+          "active": 11,
+          "killed": 11,
+          "kill_rate": 100.0,
+          "newly_killed": [
+            "m001_ADD_TO_SUB_L38_0",
+            "m002_ADD_TO_SUB_L38_1",
+            "m004_ADD_TO_SUB_L44_0",
+            "m005_ADD_TO_SUB_L44_1",
+            "m007_ADD_TO_SUB_L50_0",
+            "m008_ADD_TO_SUB_L50_1",
+            "m010_ADD_TO_SUB_L56_0",
+            "m011_ADD_TO_SUB_L56_1",
+            "m012_ADD_TO_SUB_L60_0",
+            "m013_BIT_INDEX_BUMP_L60_0",
+            "m014_BIT_INDEX_BUMP_L60_1"
+          ],
+          "seconds": 17.14246416091919
+        }
+      ],
+      "initial_kill_rate": 100.0,
+      "final_kill_rate": 100.0,
+      "loop_seconds": 21.437310218811035,
+      "independent_verification": {
+        "properties_checked": 11,
+        "properties_sound": 11,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l1[0] == {1'b0, in_i[0]} + {1'b0, in_i[1]});"
+          },
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l1[15] == {1'b0, in_i[30]} + {1'b0, in_i[31]});"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l2[0] == {1'b0, cnt_l1[0]} + {1'b0, cnt_l1[1]});"
+          },
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l2[7] == {1'b0, cnt_l1[14]} + {1'b0, cnt_l1[15]});"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l3[0] == {1'b0, cnt_l2[0]} + {1'b0, cnt_l2[1]});"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l3[3] == {1'b0, cnt_l2[6]} + {1'b0, cnt_l2[7]});"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l4[0] == {1'b0, cnt_l3[0]} + {1'b0, cnt_l3[1]});"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l4[1] == {1'b0, cnt_l3[2]} + {1'b0, cnt_l3[3]});"
+          },
+          {
+            "property_id": "prop_12",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (result_o == {1'b0, cnt_l4[0]} + {1'b0, cnt_l4[1]});"
+          },
+          {
+            "property_id": "prop_13",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert ($countones(in_i) == result_o);"
+          },
+          {
+            "property_id": "prop_15",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (result_o <= 32);"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (11/11)",
+        "generated": 15,
+        "stillborn": 0,
+        "equivalent": 4,
+        "killed_equivalent": 0,
+        "active": 11,
+        "killed": 11,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 11,
+          "selected": 1,
+          "redundancy_percent": 90.9090909090909,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 11,
+        "properties_sound": 11,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l1[0] == {1'b0, in_i[0]} + {1'b0, in_i[1]});"
+          },
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l1[15] == {1'b0, in_i[30]} + {1'b0, in_i[31]});"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l2[0] == {1'b0, cnt_l1[0]} + {1'b0, cnt_l1[1]});"
+          },
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l2[7] == {1'b0, cnt_l1[14]} + {1'b0, cnt_l1[15]});"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l3[0] == {1'b0, cnt_l2[0]} + {1'b0, cnt_l2[1]});"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l3[3] == {1'b0, cnt_l2[6]} + {1'b0, cnt_l2[7]});"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l4[0] == {1'b0, cnt_l3[0]} + {1'b0, cnt_l3[1]});"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (cnt_l4[1] == {1'b0, cnt_l3[2]} + {1'b0, cnt_l3[3]});"
+          },
+          {
+            "property_id": "prop_12",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (result_o == {1'b0, cnt_l4[0]} + {1'b0, cnt_l4[1]});"
+          },
+          {
+            "property_id": "prop_13",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert ($countones(in_i) == result_o);"
+          },
+          {
+            "property_id": "prop_15",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(*) assert (result_o <= 32);"
+          }
+        ],
+        "kill_rate_percent": 100.0,
+        "kill_rate": "100.0% (11/11)",
+        "generated": 15,
+        "stillborn": 0,
+        "equivalent": 4,
+        "killed_equivalent": 0,
+        "active": 11,
+        "killed": 11,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 11,
+          "selected": 1,
+          "redundancy_percent": 90.9090909090909,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 0,
+          "reachable": 0,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "n/a (no guarded assertions to check)",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_00",
+          "assertion": "always @(*) assert (cnt_l1[0] == {1'b0, in_i[0]} + {1'b0, in_i[1]});",
+          "code": "always @(*) assert (cnt_l1[0] == {1'b0, in_i[0]} + {1'b0, in_i[1]});"
+        },
+        {
+          "property_id": "prop_01",
+          "assertion": "always @(*) assert (cnt_l1[15] == {1'b0, in_i[30]} + {1'b0, in_i[31]});",
+          "code": "always @(*) assert (cnt_l1[15] == {1'b0, in_i[30]} + {1'b0, in_i[31]});"
+        },
+        {
+          "property_id": "prop_03",
+          "assertion": "always @(*) assert (cnt_l2[0] == {1'b0, cnt_l1[0]} + {1'b0, cnt_l1[1]});",
+          "code": "always @(*) assert (cnt_l2[0] == {1'b0, cnt_l1[0]} + {1'b0, cnt_l1[1]});"
+        },
+        {
+          "property_id": "prop_04",
+          "assertion": "always @(*) assert (cnt_l2[7] == {1'b0, cnt_l1[14]} + {1'b0, cnt_l1[15]});",
+          "code": "always @(*) assert (cnt_l2[7] == {1'b0, cnt_l1[14]} + {1'b0, cnt_l1[15]});"
+        },
+        {
+          "property_id": "prop_06",
+          "assertion": "always @(*) assert (cnt_l3[0] == {1'b0, cnt_l2[0]} + {1'b0, cnt_l2[1]});",
+          "code": "always @(*) assert (cnt_l3[0] == {1'b0, cnt_l2[0]} + {1'b0, cnt_l2[1]});"
+        },
+        {
+          "property_id": "prop_07",
+          "assertion": "always @(*) assert (cnt_l3[3] == {1'b0, cnt_l2[6]} + {1'b0, cnt_l2[7]});",
+          "code": "always @(*) assert (cnt_l3[3] == {1'b0, cnt_l2[6]} + {1'b0, cnt_l2[7]});"
+        },
+        {
+          "property_id": "prop_09",
+          "assertion": "always @(*) assert (cnt_l4[0] == {1'b0, cnt_l3[0]} + {1'b0, cnt_l3[1]});",
+          "code": "always @(*) assert (cnt_l4[0] == {1'b0, cnt_l3[0]} + {1'b0, cnt_l3[1]});"
+        },
+        {
+          "property_id": "prop_10",
+          "assertion": "always @(*) assert (cnt_l4[1] == {1'b0, cnt_l3[2]} + {1'b0, cnt_l3[3]});",
+          "code": "always @(*) assert (cnt_l4[1] == {1'b0, cnt_l3[2]} + {1'b0, cnt_l3[3]});"
+        },
+        {
+          "property_id": "prop_12",
+          "assertion": "always @(*) assert (result_o == {1'b0, cnt_l4[0]} + {1'b0, cnt_l4[1]});",
+          "code": "always @(*) assert (result_o == {1'b0, cnt_l4[0]} + {1'b0, cnt_l4[1]});"
+        },
+        {
+          "property_id": "prop_13",
+          "assertion": "always @(*) assert ($countones(in_i) == result_o);",
+          "code": "always @(*) assert ($countones(in_i) == result_o);"
+        },
+        {
+          "property_id": "prop_15",
+          "assertion": "always @(*) assert (result_o <= 32);",
+          "code": "always @(*) assert (result_o <= 32);"
+        }
+      ],
+      "wall_seconds": 57.09127402305603,
+      "suite_size": 11,
+      "suite_distinct": 11
+    }
+  ]
+}

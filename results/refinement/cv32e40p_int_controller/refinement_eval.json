@@ -1,0 +1,423 @@
+{
+  "module": "cv32e40p_int_controller",
+  "source": "examples/formal_verification/soc_cores/cv32e40p/rtl/cv32e40p_int_controller.sv",
+  "bmc_depth": 12,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 0,
+  "kill_rate_min": null,
+  "kill_rate_max": null,
+  "kill_rate_mean": null,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": false,
+      "stop_reason": "no active mutants: all were stillborn or provably equivalent",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 9,
+          "admitted": 6,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 2,
+          "suite_size": 6,
+          "active": 0,
+          "killed": 0,
+          "kill_rate": null,
+          "newly_killed": [],
+          "seconds": 8.61042857170105
+        }
+      ],
+      "initial_kill_rate": null,
+      "final_kill_rate": null,
+      "loop_seconds": 17.80935049057007,
+      "independent_verification": {
+        "properties_checked": 6,
+        "properties_sound": 6,
+        "soundness": [
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (mip_o == irq_q);"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_local_qual == (irq_q & mie_bypass_i));"
+          },
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_wu_ctrl_o == (| (irq_i & mie_bypass_i)));"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_req_ctrl_o == ((|irq_local_qual) && global_irq_enable));"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_sec_ctrl_o == irq_sec_q);"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "end"
+          }
+        ],
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "generated": 75,
+        "stillborn": 24,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 6,
+          "selected": 6,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/6 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 6,
+        "properties_sound": 6,
+        "soundness": [
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (mip_o == irq_q);"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_local_qual == (irq_q & mie_bypass_i));"
+          },
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_wu_ctrl_o == (| (irq_i & mie_bypass_i)));"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_req_ctrl_o == ((|irq_local_qual) && global_irq_enable));"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_sec_ctrl_o == irq_sec_q);"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "end"
+          }
+        ],
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "generated": 75,
+        "stillborn": 75,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 6,
+          "selected": 6,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/6 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_02",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (mip_o == irq_q);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (mip_o == irq_q);"
+        },
+        {
+          "property_id": "prop_03",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_local_qual == (irq_q & mie_bypass_i));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (irq_local_qual == (irq_q & mie_bypass_i));"
+        },
+        {
+          "property_id": "prop_04",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_wu_ctrl_o == (| (irq_i & mie_bypass_i)));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (irq_wu_ctrl_o == (| (irq_i & mie_bypass_i)));"
+        },
+        {
+          "property_id": "prop_05",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_req_ctrl_o == ((|irq_local_qual) && global_irq_enable));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (irq_req_ctrl_o == ((|irq_local_qual) && global_irq_enable));"
+        },
+        {
+          "property_id": "prop_06",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_sec_ctrl_o == irq_sec_q);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (irq_sec_ctrl_o == irq_sec_q);"
+        },
+        {
+          "property_id": "prop_07",
+          "assertion": "end",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) begin\n    if (PULP_SECURE) begin\n        assert (global_irq_enable == (((u_ie_i || irq_sec_i) && current_priv_lvl_i == PRIV_LVL_U) || (m_ie_i && current_priv_lvl_i == PRIV_LVL_M)));\n    end else begin\n        assert (global_irq_enable == m_ie_i);\n    end\nend"
+        }
+      ],
+      "wall_seconds": 34.858906507492065,
+      "suite_size": 6,
+      "suite_distinct": 6
+    },
+    {
+      "seed": 1,
+      "converged": false,
+      "stop_reason": "no active mutants: all were stillborn or provably equivalent",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 9,
+          "admitted": 6,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 2,
+          "suite_size": 6,
+          "active": 0,
+          "killed": 0,
+          "kill_rate": null,
+          "newly_killed": [],
+          "seconds": 4.537590980529785
+        }
+      ],
+      "initial_kill_rate": null,
+      "final_kill_rate": null,
+      "loop_seconds": 13.126488447189331,
+      "independent_verification": {
+        "properties_checked": 6,
+        "properties_sound": 6,
+        "soundness": [
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (mip_o == irq_q);"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_local_qual == (irq_q & mie_bypass_i));"
+          },
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_wu_ctrl_o == (| (irq_i & mie_bypass_i)));"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_req_ctrl_o == ((|irq_local_qual) && global_irq_enable));"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_sec_ctrl_o == irq_sec_q);"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "end"
+          }
+        ],
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "generated": 75,
+        "stillborn": 24,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 6,
+          "selected": 6,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/6 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 6,
+        "properties_sound": 6,
+        "soundness": [
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (mip_o == irq_q);"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_local_qual == (irq_q & mie_bypass_i));"
+          },
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_wu_ctrl_o == (| (irq_i & mie_bypass_i)));"
+          },
+          {
+            "property_id": "prop_05",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_req_ctrl_o == ((|irq_local_qual) && global_irq_enable));"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_sec_ctrl_o == irq_sec_q);"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "end"
+          }
+        ],
+        "kill_rate_percent": null,
+        "kill_rate": "n/a (no active mutants)",
+        "generated": 75,
+        "stillborn": 75,
+        "equivalent": 0,
+        "killed_equivalent": 0,
+        "active": 0,
+        "killed": 0,
+        "survivors": [],
+        "minimal_basis": {
+          "candidates": 6,
+          "selected": 6,
+          "redundancy_percent": 0.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/6 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_02",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (mip_o == irq_q);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (mip_o == irq_q);"
+        },
+        {
+          "property_id": "prop_03",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_local_qual == (irq_q & mie_bypass_i));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (irq_local_qual == (irq_q & mie_bypass_i));"
+        },
+        {
+          "property_id": "prop_04",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_wu_ctrl_o == (| (irq_i & mie_bypass_i)));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (irq_wu_ctrl_o == (| (irq_i & mie_bypass_i)));"
+        },
+        {
+          "property_id": "prop_05",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_req_ctrl_o == ((|irq_local_qual) && global_irq_enable));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (irq_req_ctrl_o == ((|irq_local_qual) && global_irq_enable));"
+        },
+        {
+          "property_id": "prop_06",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (irq_sec_ctrl_o == irq_sec_q);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (irq_sec_ctrl_o == irq_sec_q);"
+        },
+        {
+          "property_id": "prop_07",
+          "assertion": "end",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) begin\n    if (PULP_SECURE) begin\n        assert (global_irq_enable == (((u_ie_i || irq_sec_i) && current_priv_lvl_i == PRIV_LVL_U) || (m_ie_i && current_priv_lvl_i == PRIV_LVL_M)));\n    end else begin\n        assert (global_irq_enable == m_ie_i);\n    end\nend"
+        }
+      ],
+      "wall_seconds": 30.01372528076172,
+      "suite_size": 6,
+      "suite_distinct": 6
+    }
+  ]
+}

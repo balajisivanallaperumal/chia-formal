@@ -1,0 +1,72 @@
+{
+  "module": "cv32e40p_compressed_decoder",
+  "source": "examples/formal_verification/soc_cores/cv32e40p/rtl/cv32e40p_compressed_decoder.sv",
+  "clk": "none",
+  "rst": "none",
+  "depth": 1,
+  "seeds": [
+    {
+      "seed": 0,
+      "converged_in_loop": false,
+      "properties": 8,
+      "properties_distinct": 8,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 52.63157894736842,
+        "kill_rate": "52.6% (10/19)",
+        "active": 19,
+        "killed": 10
+      },
+      "full_bank": {
+        "generated": 109,
+        "stillborn": 0,
+        "equivalent": 30,
+        "active": 79,
+        "killed": 14,
+        "kill_rate_percent": 17.72151898734177,
+        "kill_rate": "17.7% (14/79)",
+        "minimal_basis": 8,
+        "redundancy_percent": 0.0
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": 34.9
+    },
+    {
+      "seed": 1,
+      "converged_in_loop": false,
+      "properties": 11,
+      "properties_distinct": 11,
+      "sampled": {
+        "budget": 24,
+        "kill_rate_percent": 63.1578947368421,
+        "kill_rate": "63.2% (12/19)",
+        "active": 19,
+        "killed": 12
+      },
+      "full_bank": {
+        "generated": 109,
+        "stillborn": 0,
+        "equivalent": 30,
+        "active": 79,
+        "killed": 17,
+        "kill_rate_percent": 21.518987341772153,
+        "kill_rate": "21.5% (17/79)",
+        "minimal_basis": 10,
+        "redundancy_percent": 9.090909090909093
+      },
+      "vacuity": {
+        "percent": 0.0,
+        "status": "n/a (no guarded assertions to check)",
+        "unreachable": []
+      },
+      "overfit_gap_points": 41.6
+    }
+  ],
+  "full_bank_min": 17.72151898734177,
+  "full_bank_mean": 19.620253164556964,
+  "full_bank_max": 21.518987341772153
+}

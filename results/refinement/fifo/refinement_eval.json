@@ -1,0 +1,831 @@
+{
+  "module": "fifo",
+  "source": "examples/formal_verification/designs/fifo.v",
+  "bmc_depth": 12,
+  "seeds_requested": 2,
+  "seeds_completed": 2,
+  "seeds": 2,
+  "converged_seeds": 0,
+  "kill_rate_min": 84.61538461538461,
+  "kill_rate_max": 92.3076923076923,
+  "kill_rate_mean": 88.46153846153845,
+  "all_verifications_agree": true,
+  "runs": [
+    {
+      "seed": 0,
+      "converged": false,
+      "stop_reason": "iteration budget (4) exhausted",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 80,
+          "admitted": 13,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 53,
+          "rejected_unsound": 14,
+          "suite_size": 13,
+          "active": 13,
+          "killed": 10,
+          "kill_rate": 76.92307692307693,
+          "newly_killed": [
+            "m003_AND_TO_OR_L29_0",
+            "m004_DROP_NOT_L29_0",
+            "m005_DROP_GUARD_L29_0",
+            "m007_RESET_POLARITY_FLIP_L32_0",
+            "m015_ADD_TO_SUB_L36_0",
+            "m016_INC_OFF_BY_ONE_L36_0",
+            "m020_RESET_POLARITY_FLIP_L41_0",
+            "m026_INC_OFF_BY_ONE_L44_0",
+            "m031_EQ_TO_NEQ_L49_0",
+            "m035_NEQ_TO_EQ_L50_0"
+          ],
+          "seconds": 20.934694528579712
+        },
+        {
+          "index": 1,
+          "proposed": 3,
+          "admitted": 10,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 3,
+          "suite_size": 10,
+          "active": 13,
+          "killed": 10,
+          "kill_rate": 76.92307692307693,
+          "newly_killed": [],
+          "seconds": 8.322351217269897
+        },
+        {
+          "index": 2,
+          "proposed": 4,
+          "admitted": 11,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 2,
+          "suite_size": 11,
+          "active": 13,
+          "killed": 11,
+          "kill_rate": 84.61538461538461,
+          "newly_killed": [
+            "m000_AND_TO_OR_L28_0"
+          ],
+          "seconds": 9.61548924446106
+        },
+        {
+          "index": 3,
+          "proposed": 2,
+          "admitted": 12,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 1,
+          "suite_size": 12,
+          "active": 13,
+          "killed": 12,
+          "kill_rate": 92.3076923076923,
+          "newly_killed": [
+            "m001_DROP_NOT_L28_0"
+          ],
+          "seconds": 10.652480363845825
+        }
+      ],
+      "initial_kill_rate": 76.92307692307693,
+      "final_kill_rate": 92.3076923076923,
+      "loop_seconds": 78.00680828094482,
+      "independent_verification": {
+        "properties_checked": 12,
+        "properties_sound": 12,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (wptr <= DEPTH);"
+          },
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (rptr <= DEPTH);"
+          },
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (count <= DEPTH);"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (empty == (wptr == rptr));"
+          },
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (full == ((wptr[AW] != rptr[AW]) && (wptr[AW-1:0] == rptr[AW-1:0])));"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(empty && full));"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!do_rd || !empty);"
+          },
+          {
+            "property_id": "prop_16",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rst_n) && !rst_n || !full);"
+          },
+          {
+            "property_id": "prop_20",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (full == (count == DEPTH));"
+          },
+          {
+            "property_id": "prop_21",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (empty == (count == 0));"
+          },
+          {
+            "property_id": "prop_30",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!do_wr || wr_en);"
+          },
+          {
+            "property_id": "prop_33",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (do_wr == (wr_en && !full));"
+          }
+        ],
+        "kill_rate_percent": 92.3076923076923,
+        "kill_rate": "92.3% (12/13)",
+        "generated": 46,
+        "stillborn": 7,
+        "equivalent": 4,
+        "killed_equivalent": 0,
+        "active": 13,
+        "killed": 12,
+        "survivors": [
+          {
+            "line": 35,
+            "operator": "SWAP_wptr_rptr",
+            "original": "mem[wptr[AW-1:0]] <= wr_data;",
+            "mutated": "mem[rptr[AW-1:0]] <= wr_data;"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 12,
+          "selected": 3,
+          "redundancy_percent": 75.0,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/12 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 12,
+        "properties_sound": 12,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (wptr <= DEPTH);"
+          },
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (rptr <= DEPTH);"
+          },
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (count <= DEPTH);"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (empty == (wptr == rptr));"
+          },
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (full == ((wptr[AW] != rptr[AW]) && (wptr[AW-1:0] == rptr[AW-1:0])));"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(empty && full));"
+          },
+          {
+            "property_id": "prop_10",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!do_rd || !empty);"
+          },
+          {
+            "property_id": "prop_16",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rst_n) && !rst_n || !full);"
+          },
+          {
+            "property_id": "prop_20",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (full == (count == DEPTH));"
+          },
+          {
+            "property_id": "prop_21",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (empty == (count == 0));"
+          },
+          {
+            "property_id": "prop_30",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!do_wr || wr_en);"
+          },
+          {
+            "property_id": "prop_33",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (do_wr == (wr_en && !full));"
+          }
+        ],
+        "kill_rate_percent": 88.0,
+        "kill_rate": "88.0% (22/25)",
+        "generated": 46,
+        "stillborn": 13,
+        "equivalent": 8,
+        "killed_equivalent": 0,
+        "active": 25,
+        "killed": 22,
+        "survivors": [
+          {
+            "line": 35,
+            "operator": "SWAP_wptr_rptr",
+            "original": "mem[wptr[AW-1:0]] <= wr_data;",
+            "mutated": "mem[rptr[AW-1:0]] <= wr_data;"
+          },
+          {
+            "line": 36,
+            "operator": "SWAP_wptr_rptr",
+            "original": "wptr <= wptr + 1'b1;",
+            "mutated": "wptr <= rptr + 1'b1;"
+          },
+          {
+            "line": 48,
+            "operator": "SWAP_rptr_wptr",
+            "original": "assign rd_data = mem[rptr[AW-1:0]];",
+            "mutated": "assign rd_data = mem[wptr[AW-1:0]];"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 12,
+          "selected": 5,
+          "redundancy_percent": 58.33333333333333,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/12 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_00",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (wptr <= DEPTH);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (wptr <= DEPTH);"
+        },
+        {
+          "property_id": "prop_01",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (rptr <= DEPTH);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (rptr <= DEPTH);"
+        },
+        {
+          "property_id": "prop_02",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (count <= DEPTH);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (count <= DEPTH);"
+        },
+        {
+          "property_id": "prop_03",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (empty == (wptr == rptr));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (empty == (wptr == rptr));"
+        },
+        {
+          "property_id": "prop_04",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (full == ((wptr[AW] != rptr[AW]) && (wptr[AW-1:0] == rptr[AW-1:0])));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (full == ((wptr[AW] != rptr[AW]) && (wptr[AW-1:0] == rptr[AW-1:0])));"
+        },
+        {
+          "property_id": "prop_06",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!(empty && full));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!(empty && full));"
+        },
+        {
+          "property_id": "prop_10",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!do_rd || !empty);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!do_rd || !empty);"
+        },
+        {
+          "property_id": "prop_16",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert ($past(rst_n) && !rst_n || !full);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert ($past(rst_n) && !rst_n || !full);"
+        },
+        {
+          "property_id": "prop_20",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (full == (count == DEPTH));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (full == (count == DEPTH));"
+        },
+        {
+          "property_id": "prop_21",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (empty == (count == 0));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (empty == (count == 0));"
+        },
+        {
+          "property_id": "prop_30",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!do_wr || wr_en);",
+          "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!do_wr || wr_en);"
+        },
+        {
+          "property_id": "prop_33",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (do_wr == (wr_en && !full));",
+          "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (do_wr == (wr_en && !full));"
+        }
+      ],
+      "wall_seconds": 129.15563821792603,
+      "suite_size": 12,
+      "suite_distinct": 12
+    },
+    {
+      "seed": 1,
+      "converged": false,
+      "stop_reason": "no new kills in 2 consecutive rounds",
+      "iterations": [
+        {
+          "index": 0,
+          "proposed": 38,
+          "admitted": 15,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 1,
+          "rejected_unsound": 22,
+          "suite_size": 15,
+          "active": 13,
+          "killed": 11,
+          "kill_rate": 84.61538461538461,
+          "newly_killed": [
+            "m000_AND_TO_OR_L28_0",
+            "m001_DROP_NOT_L28_0",
+            "m003_AND_TO_OR_L29_0",
+            "m004_DROP_NOT_L29_0",
+            "m005_DROP_GUARD_L29_0",
+            "m007_RESET_POLARITY_FLIP_L32_0",
+            "m015_ADD_TO_SUB_L36_0",
+            "m020_RESET_POLARITY_FLIP_L41_0",
+            "m026_INC_OFF_BY_ONE_L44_0",
+            "m031_EQ_TO_NEQ_L49_0",
+            "m035_NEQ_TO_EQ_L50_0"
+          ],
+          "seconds": 22.310466766357422
+        },
+        {
+          "index": 1,
+          "proposed": 2,
+          "admitted": 13,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 0,
+          "rejected_unsound": 2,
+          "suite_size": 13,
+          "active": 13,
+          "killed": 11,
+          "kill_rate": 84.61538461538461,
+          "newly_killed": [],
+          "seconds": 10.88548469543457
+        },
+        {
+          "index": 2,
+          "proposed": 2,
+          "admitted": 13,
+          "rejected_syntax": 0,
+          "rejected_duplicate": 2,
+          "rejected_unsound": 0,
+          "suite_size": 13,
+          "active": 13,
+          "killed": 11,
+          "kill_rate": 84.61538461538461,
+          "newly_killed": [],
+          "seconds": 11.223402738571167
+        }
+      ],
+      "initial_kill_rate": 84.61538461538461,
+      "final_kill_rate": 84.61538461538461,
+      "loop_seconds": 59.683743476867676,
+      "independent_verification": {
+        "properties_checked": 13,
+        "properties_sound": 13,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (wptr <= DEPTH);"
+          },
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (rptr <= DEPTH);"
+          },
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (count <= DEPTH);"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (empty == (wptr == rptr));"
+          },
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (full == ((wptr[AW] != rptr[AW]) && (wptr[AW-1:0] == rptr[AW-1:0])));"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!empty || (count == 0));"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!full || (count == DEPTH));"
+          },
+          {
+            "property_id": "prop_08",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (do_wr == (wr_en && !full));"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (do_rd == (rd_en && !empty));"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!empty || !full);"
+          },
+          {
+            "property_id": "prop_18",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (empty == (count == 0));"
+          },
+          {
+            "property_id": "prop_19",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (full == (count == DEPTH));"
+          },
+          {
+            "property_id": "prop_21",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!do_rd || $past(empty) || $past(count) > 0);"
+          }
+        ],
+        "kill_rate_percent": 84.61538461538461,
+        "kill_rate": "84.6% (11/13)",
+        "generated": 46,
+        "stillborn": 7,
+        "equivalent": 4,
+        "killed_equivalent": 0,
+        "active": 13,
+        "killed": 11,
+        "survivors": [
+          {
+            "line": 35,
+            "operator": "SWAP_wptr_rptr",
+            "original": "mem[wptr[AW-1:0]] <= wr_data;",
+            "mutated": "mem[rptr[AW-1:0]] <= wr_data;"
+          },
+          {
+            "line": 36,
+            "operator": "INC_OFF_BY_ONE",
+            "original": "wptr <= wptr + 1'b1;",
+            "mutated": "wptr <= wptr + 2'd2;"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 13,
+          "selected": 3,
+          "redundancy_percent": 76.92307692307692,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/13 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "full_bank_evaluation": {
+        "properties_checked": 13,
+        "properties_sound": 13,
+        "soundness": [
+          {
+            "property_id": "prop_00",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (wptr <= DEPTH);"
+          },
+          {
+            "property_id": "prop_01",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (rptr <= DEPTH);"
+          },
+          {
+            "property_id": "prop_02",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (count <= DEPTH);"
+          },
+          {
+            "property_id": "prop_03",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (empty == (wptr == rptr));"
+          },
+          {
+            "property_id": "prop_04",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (full == ((wptr[AW] != rptr[AW]) && (wptr[AW-1:0] == rptr[AW-1:0])));"
+          },
+          {
+            "property_id": "prop_06",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!empty || (count == 0));"
+          },
+          {
+            "property_id": "prop_07",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!full || (count == DEPTH));"
+          },
+          {
+            "property_id": "prop_08",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (do_wr == (wr_en && !full));"
+          },
+          {
+            "property_id": "prop_09",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (do_rd == (rd_en && !empty));"
+          },
+          {
+            "property_id": "prop_17",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!empty || !full);"
+          },
+          {
+            "property_id": "prop_18",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (empty == (count == 0));"
+          },
+          {
+            "property_id": "prop_19",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (full == (count == DEPTH));"
+          },
+          {
+            "property_id": "prop_21",
+            "verdict": "PASS",
+            "sound": true,
+            "detail": "No counterexample within the bound (BMC)",
+            "code": "always @(posedge clk) if (f_past_valid && rst_n) assert (!do_rd || $past(empty) || $past(count) > 0);"
+          }
+        ],
+        "kill_rate_percent": 84.0,
+        "kill_rate": "84.0% (21/25)",
+        "generated": 46,
+        "stillborn": 13,
+        "equivalent": 8,
+        "killed_equivalent": 0,
+        "active": 25,
+        "killed": 21,
+        "survivors": [
+          {
+            "line": 35,
+            "operator": "SWAP_wptr_rptr",
+            "original": "mem[wptr[AW-1:0]] <= wr_data;",
+            "mutated": "mem[rptr[AW-1:0]] <= wr_data;"
+          },
+          {
+            "line": 36,
+            "operator": "INC_OFF_BY_ONE",
+            "original": "wptr <= wptr + 1'b1;",
+            "mutated": "wptr <= wptr + 2'd2;"
+          },
+          {
+            "line": 36,
+            "operator": "SWAP_wptr_rptr",
+            "original": "wptr <= wptr + 1'b1;",
+            "mutated": "wptr <= rptr + 1'b1;"
+          },
+          {
+            "line": 48,
+            "operator": "SWAP_rptr_wptr",
+            "original": "assign rd_data = mem[rptr[AW-1:0]];",
+            "mutated": "assign rd_data = mem[wptr[AW-1:0]];"
+          }
+        ],
+        "minimal_basis": {
+          "candidates": 13,
+          "selected": 5,
+          "redundancy_percent": 61.53846153846154,
+          "coverage_preserved": true
+        },
+        "vacuity": {
+          "antecedents": 1,
+          "reachable": 1,
+          "vacuous": 0,
+          "percent": 0.0,
+          "status": "0.0% vacuous (1/1 antecedents reachable, cover depth 12); 0/13 properties inert",
+          "unreachable_antecedents": [],
+          "error": null
+        }
+      },
+      "verification_agrees": true,
+      "final_properties": [
+        {
+          "property_id": "prop_00",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (wptr <= DEPTH);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (wptr <= DEPTH);"
+        },
+        {
+          "property_id": "prop_01",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (rptr <= DEPTH);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (rptr <= DEPTH);"
+        },
+        {
+          "property_id": "prop_02",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (count <= DEPTH);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (count <= DEPTH);"
+        },
+        {
+          "property_id": "prop_03",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (empty == (wptr == rptr));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (empty == (wptr == rptr));"
+        },
+        {
+          "property_id": "prop_04",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (full == ((wptr[AW] != rptr[AW]) && (wptr[AW-1:0] == rptr[AW-1:0])));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (full == ((wptr[AW] != rptr[AW]) && (wptr[AW-1:0] == rptr[AW-1:0])));"
+        },
+        {
+          "property_id": "prop_06",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!empty || (count == 0));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!empty || (count == 0));"
+        },
+        {
+          "property_id": "prop_07",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!full || (count == DEPTH));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!full || (count == DEPTH));"
+        },
+        {
+          "property_id": "prop_08",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (do_wr == (wr_en && !full));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (do_wr == (wr_en && !full));"
+        },
+        {
+          "property_id": "prop_09",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (do_rd == (rd_en && !empty));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (do_rd == (rd_en && !empty));"
+        },
+        {
+          "property_id": "prop_17",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!empty || !full);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!empty || !full);"
+        },
+        {
+          "property_id": "prop_18",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (empty == (count == 0));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (empty == (count == 0));"
+        },
+        {
+          "property_id": "prop_19",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (full == (count == DEPTH));",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (full == (count == DEPTH));"
+        },
+        {
+          "property_id": "prop_21",
+          "assertion": "always @(posedge clk) if (f_past_valid && rst_n) assert (!do_rd || $past(empty) || $past(count) > 0);",
+          "code": "reg [7:0] f_cycles = 8'd0;\nalways @(posedge clk) if (f_cycles != 8'hff) f_cycles <= f_cycles + 8'd1;\nalways @(posedge clk) if (f_past_valid && rst_n) assert (!do_rd || $past(empty) || $past(count) > 0);"
+        }
+      ],
+      "wall_seconds": 114.74838256835938,
+      "suite_size": 13,
+      "suite_distinct": 13
+    }
+  ]
+}
