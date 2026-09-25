@@ -1,6 +1,6 @@
 # Paper claims → sources
 
-Every number in `CHIA_MICRO_2026_PAPER.tex`, and where it comes from.
+Every number in the paper, and where it comes from.
 `T` = output of `python scripts/make_paper_tables.py --out results/refinement`.
 
 ## Loop results (`results/refinement/*/reverified.json`, `refinement_eval.json`)
@@ -8,14 +8,14 @@ Every number in `CHIA_MICRO_2026_PAPER.tex`, and where it comes from.
 | Claim | Value | Source |
 |---|---|---|
 | Modules evaluated | 22 | `T`: `\nmodules` |
-| Runs (seeds) | 41; 1–2 per module | `T`: `\nruns`; `len(runs)` per module |
+| Runs (seeds) | 41; 1–2 per module; 3 of 44 requested did not complete | `T`: `\nruns`; `seeds_requested` vs `len(runs)` (DecodeUnit, cv32e40p_alu, cv32e40p_alu_div) |
 | Properties proposed | 1849 | `T`: `\nproposed` |
 | Refuted by the correct design | 673 (36%) | `T`: disposition table, `\punsound` |
 | Duplicates | 416 (22%) | `T`: disposition table |
 | Admitted | 760 (41%) | `T`: disposition table |
 | Syntax rejections | 0 | `T`: disposition table |
 | Per-module min/mean/max, Act. column (Table II) | — | `T`: per-module rows (`full_bank.active`, `full_bank_min/mean/max`) |
-| Overall full-bank mean / range | 54.5%, 0.3–100% | `T`: prose figures |
+| Overall full-bank mean / range | 54.5%, 0.3–100% (over 32 seeds of the 18 scored modules) | `T`: prose figures |
 | Runs with no scoreable suite | 9 / 41 | `T`: "seeds yielding no scoreable suite" |
 | Combinational (depth-1) modules | 9 (8 scoreable) | `T`: `\ncomb`; `depth == 1` in reverified.json |
 | Sampled bank size | 24 | `sampled.budget` in every seed |
@@ -47,9 +47,9 @@ Every number in `CHIA_MICRO_2026_PAPER.tex`, and where it comes from.
 | Gradeable assertions | 14 over 5 modules (sum of `inventory.gradeable`) |
 | Active mutants | 116 (24+24+20+24+24) |
 | Human kill rate | 9/116 = 7.8% |
-| Loop kill rate | 36/116 = 31.0% |
+| Loop kill rate | 36/116 = 31.0%, on the same 24-mutant sample the loop was tuned on (a tuning-sample score) |
 | branch_predict: loop ⊇ human | `human_only == []`, `both == 8` |
-| fetch_fifo: human-only kill | `human_only == ["m084_EQ_TO_NEQ_L223_0"]` |
+| fetch_fifo: loop has no property; human kills one | `loop_properties == 0`, `human_only == ["m084_EQ_TO_NEQ_L223_0"]` |
 | ibex inventory: 185 total, 72 X-checks (39%), 52 `\|->` (28%), 61 plain (33%) | whole-tree inventory from `examples/formal_verification/human_vs_loop.py`; **not archived as JSON** — re-run to regenerate |
 
 ## Mode B (`results/bug_hunt/cwe_1240/fuse_mem/bug_hunt.json`)
@@ -61,8 +61,7 @@ Every number in `CHIA_MICRO_2026_PAPER.tex`, and where it comes from.
 
 ## Qualitative or development-run claims (no archived record)
 
-These come from development runs and have no committed JSON behind them. The
-paper states them without specific figures.
+These come from development runs and have no committed JSON behind them.
 
 - An unsound liveness property lifts an arbiter suite to 100%. This follows by
   construction: a property that is false on the golden design is refuted by
